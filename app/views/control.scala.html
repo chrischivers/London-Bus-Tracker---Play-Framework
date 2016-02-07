@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <script src="assets/js/jquery-2.1.4.min.js"></script>
+        <script>
+        var streamProcessingRefreshInterval = 2000;
+        var systemStatsRefreshInterval = 5000;
+        var streamRefreshSetInterval;
+        var systemStatsRefreshSetInterval;
+        var streamProcessingStarted = false;
+
+        function startStopStreamButtonClick() {
+            if (streamProcessingStarted == false) {
+                startStreamProcessing();
+                document.getElementById("startStopButton").innerHTML = "Stop Stream Processing"
+            } else {
+                 stopStreamProcessing();
+                document.getElementById("startStopButton").innerHTML = "Start Stream Processing"
+            }
+        }
+            function startStreamProcessing() {
+                 $.get("/start-stream");
+                 streamProcessingStarted = true;
+                streamRefreshSetInterval = setInterval(updateStreamProcessingValues, streamProcessingRefreshInterval);
+                systemStatsRefreshSetInterval = setInterval(updateSystemStats, systemStatsRefreshInterval);
+            }
+
+             function stopStreamProcessing() {
+                 $.get("/stop-stream");
+                  streamProcessingStarted = false;
+                clearInterval(streamRefreshSetInterval);
+                clearInterval(systemStatsRefreshSetInterval);
+            }
+
+
+            function updateStreamProcessingValues() {
+                $.get("/lines-read", function( data ) {
+                    document.getElementById("numberLinesRead").innerHTML = data
+                });
+                 $.get("/lines-read-since-restart", function( data ) {
+                    document.getElementById("numberLinesReadSinceRestart").innerHTML = data
+                });
+                 $.get("/current-rainfall", function( data ) {
+                    document.getElementById("currentRainfall").innerHTML = data
+                });
+            }
+
+           function updateSystemStats() {
+                $.get("/memory-state", function( data ) {
+                alert(data);
+                var splitArray = data.split(",");
+                    document.getElementById("usedMemory").innerHTML = splitArray[0];
+                    document.getElementById("freeMemory").innerHTML = splitArray[1];
+                    document.getElementById("totalMemory").innerHTML = splitArray[2];
+                    document.getElementById("maxMemory").innerHTML = splitArray[3];
+                });
+            }
+
+        </script>
+        <title>London Bus Tracker - Control Panel</title>
+    </head>
+    <body>
+        <h2>
+            Data Source Reading
+        </h2>
+        <table frame="box">
+            <tr>
+                <td>
+                    <button id="startStopButton" onclick="startStopStreamButtonClick()">Start Stream Processing</button>
+                </td>
+            </tr>
+            <tr>
+                <td>Number Lines Read:</td>
+                <td id="numberLinesRead">0</td>
+            </tr>
+            <tr>
+                <td>Number Lines Read (since restart):</td>
+                <td id="numberLinesReadSinceRestart">0</td>
+            </tr>
+            <tr>
+                <td>Current Rainfall (mm):</td>
+                <td id="currentRainfall">0</td>
+            </tr>
+        </table>
+        <table frame="box">
+            <h2>
+                System Stats
+            </h2>
+            <tr>
+                <td>Used Memory:</td>
+                <td id="usedMemory">0</td>
+            </tr>
+            <tr>
+                <td>Free Memory:</td>
+                <td id="freeMemory">0</td>
+            </tr>
+            <tr>
+                <td>Total Memory:</td>
+                <td id="totalMemory">0</td>
+            </tr>
+            <tr>
+                <td>Max Memory:</td>
+                <td id="maxMemory">0</td>
+            </tr>
+        </table>
+    </body>
+</html>

@@ -1,0 +1,19 @@
+# Routes
+# This file defines all application routes (Higher priority routes first)
+# ~~~~
+
+# Home page
+GET     /admin                           controllers.StreamProcessorController.admin
+
+# Stream processor Control
+GET     /start-stream                    controllers.StreamProcessorController.startStreamProcessor
+GET     /stop-stream                     controllers.StreamProcessorController.stopStreamProcessor
+GET     /lines-read                      controllers.StreamProcessorController.getNumberLinesRead
+GET     /lines-read-since-restart        controllers.StreamProcessorController.getNumberLinesSinceRestart
+GET     /current-rainfall            controllers.StreamProcessorController.getCurrentRainFall
+GET     /memory-state            controllers.StreamProcessorController.getMemoryState
+
+
+
+# Map static resources from the /public folder to the /assets URL path
+GET     /assets/*file               controllers.Assets.versioned(path="/public", file)
