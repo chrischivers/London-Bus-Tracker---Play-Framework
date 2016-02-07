@@ -37,7 +37,7 @@ object TFLProcessSourceLines {
     if (validateLine(newLine)) {
       // Send to Live Streaming Coordinator if Enabled
       //TODO implement this
-     // if (liveStreamCollectionEnabled) LiveStreamingCoordinatorImpl.processSourceLine(newLine)
+     // if (liveStreamCollectionEnabled) LiveStreamingCoordinatorImpl.scala.processSourceLine(newLine)
 
       // Process for historical data if Enabled
       if (historicalDataStoringEnabled && !isPublicHoliday(newLine)) processLineForHistoricalData(newLine)

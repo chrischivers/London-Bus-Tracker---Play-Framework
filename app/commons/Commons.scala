@@ -1,8 +1,12 @@
 package commons
 
 import java.util.{Calendar, GregorianCalendar}
-
+import org.json4s.native.JsonMethods._
+import streaming.PackagedStreamObject
+import scala.collection.mutable.ListBuffer
 import scala.math.BigDecimal.RoundingMode
+import org.json4s.native.JsonMethods._
+import org.json4s.JsonDSL._
 
 
 object Commons {
@@ -169,6 +173,51 @@ object Commons {
 
     val brng = Math.atan2(y, x)
     (((brng * 180 / Math.PI) + 180) % 360).toInt
+  }
+
+  /**
+   * Encodes a package of live bus movements to JSON
+   * @param next The next object to be encoded
+   * @return A string in JSON format
+   */
+  def encodePackageObject(next: PackagedStreamObject): String =
+  {
+    val streamFields = Array("reg", "nextArr", "movementData", "routeID", "directionID", "towards", "nextStopID", "nextStopName")
+
+    val nextList = Map(
+      streamFields(0) -> next.reg,
+      streamFields(1) -> next.nextArrivalTime,
+      streamFields(2) -> compact(render(formatMarkerMovementData(next.markerMovementData))),
+      streamFields(3) -> next.route_ID,
+      streamFields(4) -> next.direction_ID.toString,
+      streamFields(5) -> next.towards,
+      streamFields(6) -> next.nextStopID,
+      streamFields(7) -> next.nextStopName)
+    //val json = compact(render(nextList))
+    compact(render(nextList))
+    // val nextChunk = MessageChunk("data: " + json + "\n\n")}
+
+  }
+  def formatMarkerMovementData(mda: Array[(String, String, String, String)]):ListBuffer[String] = {
+    var list:ListBuffer[String] = ListBuffer()
+    var lastLat:Double = 0.0
+    var lastLng: Double = 0.0
+    mda.foreach({case (lat, lng, rot, propDis) =>
+      if (lastLat == 0.0 && lastLng == 0.0) {
+        list += lat + "," + lng + "," + rot + "," + propDis
+        lastLat = lat.toDouble
+        lastLng = lng.toDouble
+      } else {
+        val latDouble = lat.toDouble
+        val lngDouble = lng.toDouble
+        val latDif:Int = ((lastLat - latDouble) * 100000).toInt
+        val lngDif:Int = ((lastLng - lngDouble) * 100000).toInt
+        list += latDif + "," + lngDif + "," + rot + "," + propDis
+        lastLat = latDouble
+        lastLng = lngDouble
+      }
+    })
+    list
   }
 
 }

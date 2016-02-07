@@ -1,0 +1,9 @@
+table {
+    border: 1px solid black;
+}
+
+td {
+    vertical-align: top;
+    padding: 5px;
+    text-align: left;
+}

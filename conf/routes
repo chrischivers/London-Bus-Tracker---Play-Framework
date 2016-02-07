@@ -5,6 +5,9 @@
 # Home page
 GET     /admin                           controllers.Admin.index
 
+# Websockets
+GET     /websocket                      controllers.LiveStreamingController.socket
+
 # Stream processor Control
 GET     /stream-started                     controllers.StreamProcessorController.isStarted
 GET     /start-stream                    controllers.StreamProcessorController.startStreamProcessor
@@ -14,11 +17,30 @@ GET     /lines-read-since-restart        controllers.StreamProcessorController.g
 GET     /current-rainfall            controllers.StreamProcessorController.getCurrentRainFall
 GET     /memory-state            controllers.StreamProcessorController.getMemoryState
 
-#Email alerting control
-GET     /start-email-alerting                    controllers.EmailAlertsController.startEmailAlerts
-GET     /stop-email-alerting                     controllers.EmailAlertsController.stopEmailAlerts
+# Email alerting control
 GET     /email-alerts-started                             controllers.EmailAlertsController.isStarted
+GET     /start-email-alerting                    controllers.EmailAlertsController.turnOnEmailAlerts
+GET     /stop-email-alerting                     controllers.EmailAlertsController.turnOffEmailAlerts
 
+# Historica Data Collection control
+GET     /historical-data-collection-started     controllers.HistoricalDataCollectionController.isStarted
+GET     /start-historical-data-collection       controllers.HistoricalDataCollectionController.turnOnHistoricalDataCollection
+GET     /stop-historical-data-collection        controllers.HistoricalDataCollectionController.turnOffHistoricalDataCollection
+GET     /size-holding-buffer                    controllers.HistoricalDataCollectionController.getSizeOfHoldingBuffer
+GET     /number-non-matches                     controllers.HistoricalDataCollectionController.getNumberNonMatches
+GET     /insert-transactions-requested          controllers.HistoricalDataCollectionController.getInsertTransactionsRequested
+GET     /insert-transactions-executed           controllers.HistoricalDataCollectionController.getInsertTransactionsExecuted
+GET     /insert-transactions-outstanding        controllers.HistoricalDataCollectionController.getInsertTransactionsOutstanding
+GET     /insert-transactions-dropped            controllers.HistoricalDataCollectionController.getInsertTransactionsDropped
+GET     /pulls-requested                        controllers.HistoricalDataCollectionController.getRecordPullsRequested
+GET     /pulls-executed                         controllers.HistoricalDataCollectionController.getRecordPullsExecuted
+
+# Live Streaming Control
+GET     /live-streaming-started                 controllers.LiveStreamingController.isStarted
+GET     /start-live-streaming                   controllers.LiveStreamingController.turnOnLiveStreaming
+GET     /stop-live-streaming                    controllers.LiveStreamingController.turnOffLiveStreaming
+GET     /number-live-actors                    controllers.LiveStreamingController.getNumberLiveActors
+GET     /number-live-children                  controllers.LiveStreamingController.getNumberLiveChildren
 
 # Map static resources from the /public folder to the /assets URL path
 GET     /assets/*file               controllers.Assets.versioned(path="/public", file)

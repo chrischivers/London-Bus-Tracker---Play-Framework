@@ -3,20 +3,37 @@
 <html>
     <head>
         <script src="assets/js/jquery-2.1.4.min.js"></script>
+        <link rel="stylesheet" type="text/css" href="../assets/stylesheets/control.css">
         <script>
         var streamProcessingRefreshInterval = 2000;
         var systemStatsRefreshInterval = 5000;
+        var historicalDataRefreshInterval = 2000;
+        var liveStreamingRefreshInterval = 2000;
+
         var streamRefreshSetInterval;
         var systemStatsRefreshSetInterval;
+        var historicalDataRefreshSetInterval;
+        var liveStreamingRefreshSetInterval;
+
         var streamProcessingStarted = false;
         var emailAlertsOn = false;
+        var historicalDataCollectionOn = false;
+        var liveStreamingOn = false;
 
         function startStopStreamButtonClick() {
             if (streamProcessingStarted == false) {
-                startStreamProcessing();
+                 $.get("/start-stream");
+                 streamProcessingStarted = true;
+                streamRefreshSetInterval = setInterval(updateStreamProcessingValues, streamProcessingRefreshInterval);
+                systemStatsRefreshSetInterval = setInterval(updateSystemStats, systemStatsRefreshInterval);
+                historicalDataRefreshSetInterval = setInterval(updateHistoricalDataCollectionValues, historicalDataRefreshInterval);
                 document.getElementById("startStopStreamButton").innerHTML = "Stop Stream Processing"
             } else {
-                 stopStreamProcessing();
+                  $.get("/stop-stream");
+                  streamProcessingStarted = false;
+                clearInterval(streamRefreshSetInterval);
+                clearInterval(systemStatsRefreshSetInterval);
+                clearInterval(historicalDataRefreshSetInterval);
                 document.getElementById("startStopStreamButton").innerHTML = "Start Stream Processing"
             }
         }
@@ -28,23 +45,35 @@
                     document.getElementById("startStopEmailAlertsButton").innerHTML = "Turn off email alerts"
                 } else {
                     $.get("/stop-email-alerting");
-                     emailAlertsOn = true;
+                     emailAlertsOn = false;
                     document.getElementById("startStopEmailAlertsButton").innerHTML = "Turn on email alerts"
                 }
-        }
-            function startStreamProcessing() {
-                 $.get("/start-stream");
-                 streamProcessingStarted = true;
-                streamRefreshSetInterval = setInterval(updateStreamProcessingValues, streamProcessingRefreshInterval);
-                systemStatsRefreshSetInterval = setInterval(updateSystemStats, systemStatsRefreshInterval);
             }
 
-             function stopStreamProcessing() {
-                 $.get("/stop-stream");
-                  streamProcessingStarted = false;
-                clearInterval(streamRefreshSetInterval);
-                clearInterval(systemStatsRefreshSetInterval);
+                function startStopHistoricalDataCollectionButtonClick() {
+                if (historicalDataCollectionOn == false) {
+                       $.get("/start-historical-data-collection");
+                     historicalDataCollectionOn = true;
+                    document.getElementById("startStopHistoricalDataCollectionsButton").innerHTML = "Turn off historical data collection"
+                } else {
+                    $.get("/stop-historical-data-collection");
+                     historicalDataCollectionOn = false;
+                    document.getElementById("startStopHistoricalDataCollectionsButton").innerHTML = "Turn on historical data collection"
+                }
             }
+
+               function startStopLiveStreamingButtonClick() {
+                if (liveStreamingOn == false) {
+                       $.get("/start-live-streaming");
+                     liveStreamingOn = true;
+                    document.getElementById("startStopLiveStreamingButton").innerHTML = "Turn off live streaming"
+                } else {
+                    $.get("/stop-live-streaming");
+                     liveStreamingOn = false;
+                    document.getElementById("startStopLiveStreamingButton").innerHTML = "Turn on live streaming"
+                }
+            }
+
 
 
             function updateStreamProcessingValues() {
@@ -69,6 +98,47 @@
                 });
             }
 
+               function updateHistoricalDataCollectionValues() {
+               if (historicalDataCollectionOn) {
+                    $.get("/size-holding-buffer", function( data ) {
+                        document.getElementById("sizeOfHoldingBuffer").innerHTML = data
+                    });
+                     $.get("/number-non-matches", function( data ) {
+                        document.getElementById("routeDefinitionNonMatches").innerHTML = data
+                    });
+                     $.get("/insert-transactions-requested", function( data ) {
+                        document.getElementById("insertTransactionsRequested").innerHTML = data
+                    });
+                        $.get("/insert-transactions-executed", function( data ) {
+                        document.getElementById("insertTransactionsExecuted").innerHTML = data
+                    });
+                        $.get("/insert-transactions-outstanding", function( data ) {
+                        document.getElementById("insertTransactionsOutstanding").innerHTML = data
+                    });
+                        $.get("/insert-transactions-dropped", function( data ) {
+                        document.getElementById("transactionsDropped").innerHTML = data
+                    });
+                       $.get("/pulls-requested", function( data ) {
+                        document.getElementById("pullsRequested").innerHTML = data
+                    });
+                      $.get("/pulls-executed", function( data ) {
+                        document.getElementById("pullsExecuted").innerHTML = data
+                    });
+                }
+            }
+
+            function updateLiveStreamingValues() {
+               if (liveStreamingOn) {
+                    $.get("/number-live-actors", function( data ) {
+                        document.getElementById("numberLiveActors").innerHTML = data
+                    });
+                     $.get("/number-live-children", function( data ) {
+                        document.getElementById("numberLiveChildren").innerHTML = data
+                    });
+                 }
+            }
+
+
             function init() {
                  $.get("/stream-started", function( data ) {
                     if(data == "true") {
@@ -88,6 +158,24 @@
                       document.getElementById("startStopEmailAlertsButton").innerHTML = "Turn on email alerts"
                     }
                 });
+                $.get("/historical-data-collection-started", function( data ) {
+                    if(data == "true") {
+                        historicalDataCollectionOn  = true;
+                         document.getElementById("startStopHistoricalDataCollectionsButton").innerHTML = "Turn off historical data collection"
+                    } else {
+                    historicalDataCollectionOn = false;
+                      document.getElementById("startStopHistoricalDataCollectionsButton").innerHTML = "Turn on historical data collection"
+                    }
+                });
+                  $.get("/live-streaming-started", function( data ) {
+                    if(data == "true") {
+                        liveStreamingOn  = true;
+                          document.getElementById("startStopLiveStreamingButton").innerHTML = "Turn off live streaming"
+                    } else {
+                    liveStreamingOn = false;
+                       document.getElementById("startStopLiveStreamingButton").innerHTML = "Turn on live streaming"
+                    }
+                });
             }
 
             init();
@@ -96,56 +184,126 @@
         <title>London Bus Tracker - Control Panel</title>
     </head>
     <body>
-        <h2>
+        <table frame="box">
+            <tr>
+                <td>
+                    <h2>
             Data Source Reading
-        </h2>
-        <table frame="box">
-            <tr>
-                <td>
-                    <button id="startStopStreamButton" onclick="startStopStreamButtonClick()"></button>
-                </td>
-            </tr>
-            <tr>
-                <td>Number Lines Read:</td>
-                <td id="numberLinesRead">0</td>
-            </tr>
-            <tr>
-                <td>Number Lines Read (since restart):</td>
-                <td id="numberLinesReadSinceRestart">0</td>
-            </tr>
-            <tr>
-                <td>Current Rainfall (mm):</td>
-                <td id="currentRainfall">0</td>
-            </tr>
-        </table>
-        <h2>
+                    </h2>
+                    <table frame="box">
+                        <tr>
+                            <td>
+                                <button id="startStopStreamButton" onclick="startStopStreamButtonClick()"></button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Number Lines Read:</td>
+                            <td id="numberLinesRead">0</td>
+                        </tr>
+                        <tr>
+                            <td>Number Lines Read (since restart):</td>
+                            <td id="numberLinesReadSinceRestart">0</td>
+                        </tr>
+                        <tr>
+                            <td>Current Rainfall (mm):</td>
+                            <td id="currentRainfall">0</td>
+                        </tr>
+                    </table>
+                    <h2>
                 System Stats
-        </h2>
-        <table frame="box">
-                     <tr>
-                <td>Used Memory:</td>
-                <td id="usedMemory">0</td>
-            </tr>
-            <tr>
-                <td>Free Memory:</td>
-                <td id="freeMemory">0</td>
-            </tr>
-            <tr>
-                <td>Total Memory:</td>
-                <td id="totalMemory">0</td>
-            </tr>
-            <tr>
-                <td>Max Memory:</td>
-                <td id="maxMemory">0</td>
-            </tr>
-        </table>
-        <h2>
-            Email Alerts
-        </h2>
-        <table frame="box">
-            <tr>
+                    </h2>
+                    <table frame="box">
+                        <tr>
+                            <td>Used Memory:</td>
+                            <td id="usedMemory">0</td>
+                        </tr>
+                        <tr>
+                            <td>Free Memory:</td>
+                            <td id="freeMemory">0</td>
+                        </tr>
+                        <tr>
+                            <td>Total Memory:</td>
+                            <td id="totalMemory">0</td>
+                        </tr>
+                        <tr>
+                            <td>Max Memory:</td>
+                            <td id="maxMemory">0</td>
+                        </tr>
+                    </table>
+                    <h2>
+                    Email Alerts
+                    </h2>
+                    <table frame="box">
+                        <tr>
+                            <td>
+                                <button id="startStopEmailAlertsButton" onclick="startStopEmailAlertsButtonClick()"></button>
+                            </td>
+                        </tr>
+                    </table>
+                </td>
                 <td>
-                    <button id="startStopEmailAlertsButton" onclick="startStopEmailAlertsButtonClick()"></button>
+                    <h2>
+                    Historical Data Collection
+                    </h2>
+                    <table frame="box">
+                        <tr>
+                            <td>
+                                <button id="startStopHistoricalDataCollectionsButton" onclick="startStopHistoricalDataCollectionButtonClick()"></button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Size Of Holding Buffer:</td>
+                            <td id="sizeOfHoldingBuffer">0</td>
+                        </tr>
+                        <tr>
+                            <td>Number of route definition non matches:</td>
+                            <td id="routeDefinitionNonMatches">0</td>
+                        </tr>
+                        <tr>
+                            <td>Database Insert Transactions Requested:</td>
+                            <td id="insertTransactionsRequested">0</td>
+                        </tr>
+                        <tr>
+                            <td>Database Insert Transactions Executed:</td>
+                            <td id="insertTransactionsExecuted">0</td>
+                        </tr>
+                        <tr>
+                            <td>Database Insert Transactions Outstanding:</td>
+                            <td id="insertTransactionsOutstanding">0</td>
+                        </tr>
+                        <tr>
+                            <td>Database Transactions Dropped Due to Overflow:</td>
+                            <td id="transactionsDropped">0</td>
+                        </tr>
+                        <tr>
+                            <td>Database Record Pulls Requested:</td>
+                            <td id="pullsRequested">0</td>
+                        </tr>
+                        <tr>
+                            <td>Database Record Pulls Executed:</td>
+                            <td id="pullsExecuted">0</td>
+                        </tr>
+                    </table>
+                </td>
+                <td>
+                    <h2>
+                    Live Streaming
+                    </h2>
+                    <table frame="box">
+                        <tr>
+                            <td>
+                                <button id="startStopLiveStreamingButton" onclick="startStopLiveStreamingButtonClick()"></button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Number of live actors:</td>
+                            <td id="numberLiveActors">0</td>
+                        </tr>
+                        <tr>
+                            <td>Number of live children:</td>
+                            <td id="numberLiveChildren">0</td>
+                        </tr>
+                    </table>
                 </td>
             </tr>
         </table>

@@ -10,12 +10,12 @@ object EmailAlertsController extends Controller {
     Ok(EmailAlertInterface.started.toString)
   }
 
-  def startEmailAlerts = Action {
+  def turnOnEmailAlerts = Action {
     EmailAlertInterface.start()
     Ok("started")
   }
 
-  def stopEmailAlerts = Action {
+  def turnOffEmailAlerts = Action {
     EmailAlertInterface.stop()
     Ok("stopped")
   }
