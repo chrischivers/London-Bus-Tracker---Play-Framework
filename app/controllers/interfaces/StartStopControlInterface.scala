@@ -1,11 +1,12 @@
-package controllers.admin
+package controllers.interfaces
 
 /**
  * Interface for User Interfaces that use a Start/Stop Button
  */
 trait StartStopControlInterface  {
 
- // def checkAndSendForEmailAlerting(variableArray: Array[String])
+  var started = false
+  
   def start()
   def stop()
 

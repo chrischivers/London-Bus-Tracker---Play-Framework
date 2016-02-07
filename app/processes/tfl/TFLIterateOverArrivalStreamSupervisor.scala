@@ -17,13 +17,18 @@ final case class Next()
 class TFLIterateOverArrivalStreamSupervisor extends Actor {
 
   val iteratingActor = context.actorOf(Props[IteratingActor])
+  val monitoringActor = context.actorOf(Props[MonitoringActor])
 
   def receive = {
     case  Start=>
       Logger.info("Supervisor starting the iterating actor")
       iteratingActor ! Start
       iteratingActor ! Next
-    case Stop => iteratingActor ! Stop
+      monitoringActor ! Start
+      monitoringActor ! Next
+    case Stop =>
+      iteratingActor ! Stop
+      monitoringActor ! Stop
   }
 
   /**

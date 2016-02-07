@@ -1,21 +1,43 @@
-package controllers.admin.emailer
+package controllers.interfaces
 
-import javax.mail.internet.InternetAddress
-
-
-import com.typesafe.plugin.MailerPlugin
-import commons.ReadProperties
 import com.typesafe.plugin._
+import commons.ReadProperties
+import play.api.Logger
 import play.api.Play.current
 
-object Emailer  {
 
+object EmailAlertInterface extends StartStopControlInterface{
+
+  var alertsEnabled = false
+  var numberEmailsSent = 0
+  val emailerFromAddress = ReadProperties.getProperty("emailerfromaddress")
   val emailerToAddress = ReadProperties.getProperty("emailertoaddress")
 
-  /*def sendMesage(emailText:String) = {
+  override def start(): Unit = {
+    println ("Email Alerts On")
+    started = true
+    alertsEnabled = true
+  }
+
+  override def stop(): Unit = {
+    println ("Email Alerts Off")
+    started = false
+    alertsEnabled = false
+  }
+
+  def sendAlert(alertText:String) = {
+    if (alertsEnabled) {
+      println("Email alert being sent")
+      sendMesage(alertText)
+      numberEmailsSent += 1
+    }
+  }
+
+  def sendMesage(emailText:String) = {
     val mail = use[MailerPlugin].email
     mail.setSubject("BBKProject - Server Alert")
     mail.setRecipient(emailerToAddress)
+    mail.setFrom(emailerFromAddress)
     //or use a list
     //mail.setBcc(List("Dummy <example@example.org>", "Dummy2 <example@example.org>"):_*)
     //mail.setFrom("Miles Davenport <miles.davenport@anotheremail.com>")
@@ -30,10 +52,6 @@ object Emailer  {
     mail.send(emailText)
     //sends both text and html
     //mail.send( "text", "<html>html</html>")
-    logger.info("Server Email sent :" + emailText)
-  }*/
-
-
+    Logger.info("Server Email sent :" + emailText)
+  }
 }
-
-

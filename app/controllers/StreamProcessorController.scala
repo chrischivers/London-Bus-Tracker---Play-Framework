@@ -1,24 +1,24 @@
 package controllers
 
-import controllers.admin.StreamProcessingControlInterface
+import controllers.interfaces.StreamProcessingControlInterface
 import play.api.mvc._
 
 object StreamProcessorController extends Controller {
 
-  def admin = Action {
-    Ok(views.html.control())
+  def isStarted = Action {
+    Ok(StreamProcessingControlInterface.started.toString)
   }
 
   def getNumberLinesRead = Action {
-    Ok(StreamProcessingControlInterface.getNumberLinesRead)
+    Ok(StreamProcessingControlInterface.getNumberLinesRead.toString)
   }
 
   def getNumberLinesSinceRestart = Action {
-    Ok(StreamProcessingControlInterface.getNumberReadSinceRestart)
+    Ok(StreamProcessingControlInterface.getNumberReadSinceRestart.toString)
   }
 
   def getCurrentRainFall = Action {
-    Ok(StreamProcessingControlInterface.getCurrentRainfall)
+    Ok(StreamProcessingControlInterface.getCurrentRainfall.toString)
   }
 
   def getMemoryState = Action {

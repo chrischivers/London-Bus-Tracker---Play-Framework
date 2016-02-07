@@ -3,9 +3,10 @@
 # ~~~~
 
 # Home page
-GET     /admin                           controllers.StreamProcessorController.admin
+GET     /admin                           controllers.Admin.index
 
 # Stream processor Control
+GET     /stream-started                     controllers.StreamProcessorController.isStarted
 GET     /start-stream                    controllers.StreamProcessorController.startStreamProcessor
 GET     /stop-stream                     controllers.StreamProcessorController.stopStreamProcessor
 GET     /lines-read                      controllers.StreamProcessorController.getNumberLinesRead
@@ -13,6 +14,10 @@ GET     /lines-read-since-restart        controllers.StreamProcessorController.g
 GET     /current-rainfall            controllers.StreamProcessorController.getCurrentRainFall
 GET     /memory-state            controllers.StreamProcessorController.getMemoryState
 
+#Email alerting control
+GET     /start-email-alerting                    controllers.EmailAlertsController.startEmailAlerts
+GET     /stop-email-alerting                     controllers.EmailAlertsController.stopEmailAlerts
+GET     /email-alerts-started                             controllers.EmailAlertsController.isStarted
 
 
 # Map static resources from the /public folder to the /assets URL path

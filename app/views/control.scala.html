@@ -9,15 +9,28 @@
         var streamRefreshSetInterval;
         var systemStatsRefreshSetInterval;
         var streamProcessingStarted = false;
+        var emailAlertsOn = false;
 
         function startStopStreamButtonClick() {
             if (streamProcessingStarted == false) {
                 startStreamProcessing();
-                document.getElementById("startStopButton").innerHTML = "Stop Stream Processing"
+                document.getElementById("startStopStreamButton").innerHTML = "Stop Stream Processing"
             } else {
                  stopStreamProcessing();
-                document.getElementById("startStopButton").innerHTML = "Start Stream Processing"
+                document.getElementById("startStopStreamButton").innerHTML = "Start Stream Processing"
             }
+        }
+
+             function startStopEmailAlertsButtonClick() {
+                if (emailAlertsOn == false) {
+                       $.get("/start-email-alerting");
+                     emailAlertsOn = true;
+                    document.getElementById("startStopEmailAlertsButton").innerHTML = "Turn off email alerts"
+                } else {
+                    $.get("/stop-email-alerting");
+                     emailAlertsOn = true;
+                    document.getElementById("startStopEmailAlertsButton").innerHTML = "Turn on email alerts"
+                }
         }
             function startStreamProcessing() {
                  $.get("/start-stream");
@@ -48,7 +61,6 @@
 
            function updateSystemStats() {
                 $.get("/memory-state", function( data ) {
-                alert(data);
                 var splitArray = data.split(",");
                     document.getElementById("usedMemory").innerHTML = splitArray[0];
                     document.getElementById("freeMemory").innerHTML = splitArray[1];
@@ -56,6 +68,29 @@
                     document.getElementById("maxMemory").innerHTML = splitArray[3];
                 });
             }
+
+            function init() {
+                 $.get("/stream-started", function( data ) {
+                    if(data == "true") {
+                        streamProcessingStarted = true;
+                        document.getElementById("startStopStreamButton").innerHTML = "Stop Stream Processing"
+                    } else {
+                    streamProcessingStarted = false;
+                    document.getElementById("startStopStreamButton").innerHTML = "Start Stream Processing"
+                    }
+                });
+                   $.get("/email-alerts-started", function( data ) {
+                    if(data == "true") {
+                        emailAlertsOn  = true;
+                         document.getElementById("startStopEmailAlertsButton").innerHTML = "Turn off email alerts"
+                    } else {
+                    emailAlertsOn  = false;
+                      document.getElementById("startStopEmailAlertsButton").innerHTML = "Turn on email alerts"
+                    }
+                });
+            }
+
+            init();
 
         </script>
         <title>London Bus Tracker - Control Panel</title>
@@ -67,7 +102,7 @@
         <table frame="box">
             <tr>
                 <td>
-                    <button id="startStopButton" onclick="startStopStreamButtonClick()">Start Stream Processing</button>
+                    <button id="startStopStreamButton" onclick="startStopStreamButtonClick()"></button>
                 </td>
             </tr>
             <tr>
@@ -83,11 +118,11 @@
                 <td id="currentRainfall">0</td>
             </tr>
         </table>
-        <table frame="box">
-            <h2>
+        <h2>
                 System Stats
-            </h2>
-            <tr>
+        </h2>
+        <table frame="box">
+                     <tr>
                 <td>Used Memory:</td>
                 <td id="usedMemory">0</td>
             </tr>
@@ -102,6 +137,16 @@
             <tr>
                 <td>Max Memory:</td>
                 <td id="maxMemory">0</td>
+            </tr>
+        </table>
+        <h2>
+            Email Alerts
+        </h2>
+        <table frame="box">
+            <tr>
+                <td>
+                    <button id="startStopEmailAlertsButton" onclick="startStopEmailAlertsButtonClick()"></button>
+                </td>
             </tr>
         </table>
     </body>
