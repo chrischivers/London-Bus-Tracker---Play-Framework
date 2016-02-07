@@ -1,13 +1,7 @@
-New log file opened at Sun Feb 07 19:46:04 GMT 2016 by 13257@chrischivers-W65-67SR
-Taking next connection to: 36540
-New client attempting to connect on port: 45026-36540
-  Address = /127.0.1.1:36540
-This client on port 45026 has uuid c0ed2b1e-da7e-4b4c-9bf3-e296417eec04 configName play-fork-run humanReadableName Play Fork Run protocolVersion 1 featureTags Vector()
-Connected Clients: play-fork-run-c0ed2b1e-da7e-4b4c-9bf3-e296417eec04
-Taking next connection to: 36540
-Checking to see if clients are empty...
-No non-daemon clients connected after 3 min. Shutting down.
-Server socket thread exiting.
-0 clients open, will close them...
-All client sockets have been closed.
-Closing the 13257@chrischivers-W65-67SR logs at Sun Feb 07 19:49:06 GMT 2016, goodbye.
+New log file opened at Sun Feb 07 20:44:34 GMT 2016 by 16351@chrischivers-W65-67SR
+Taking next connection to: 34714
+New client attempting to connect on port: 44554-34714
+  Address = /127.0.1.1:34714
+This client on port 44554 has uuid afcfcb17-7f52-4256-b30f-123c086e847d configName play-fork-run humanReadableName Play Fork Run protocolVersion 1 featureTags Vector()
+Connected Clients: play-fork-run-afcfcb17-7f52-4256-b30f-123c086e847d
+Taking next connection to: 34714

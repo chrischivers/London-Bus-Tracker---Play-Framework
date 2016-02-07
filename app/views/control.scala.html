@@ -9,6 +9,7 @@
         var systemStatsRefreshInterval = 5000;
         var historicalDataRefreshInterval = 2000;
         var liveStreamingRefreshInterval = 2000;
+        var routeStopPolyUpdateRefreshInterval = 5000;
 
         var streamRefreshSetInterval;
         var systemStatsRefreshSetInterval;
@@ -27,6 +28,7 @@
                 streamRefreshSetInterval = setInterval(updateStreamProcessingValues, streamProcessingRefreshInterval);
                 systemStatsRefreshSetInterval = setInterval(updateSystemStats, systemStatsRefreshInterval);
                 historicalDataRefreshSetInterval = setInterval(updateHistoricalDataCollectionValues, historicalDataRefreshInterval);
+                liveStreamingRefreshSetInterval = setInterval(updateLiveStreamingValues, liveStreamingRefreshInterval);
                 document.getElementById("startStopStreamButton").innerHTML = "Stop Stream Processing"
             } else {
                   $.get("/stop-stream");
@@ -34,6 +36,7 @@
                 clearInterval(streamRefreshSetInterval);
                 clearInterval(systemStatsRefreshSetInterval);
                 clearInterval(historicalDataRefreshSetInterval);
+                clearInterval(liveStreamingRefreshSetInterval);
                 document.getElementById("startStopStreamButton").innerHTML = "Start Stream Processing"
             }
         }
@@ -73,6 +76,24 @@
                     document.getElementById("startStopLiveStreamingButton").innerHTML = "Turn on live streaming"
                 }
             }
+
+              function updateRouteDefinitionsButtonClick() {
+                   $.get("/update-route-definitions");
+                    document.getElementById("updateRouteDefinitionsButton").disabled = true;
+                    setInterval(updateRouteDefinitionsValues, routeStopPolyUpdateRefreshInterval);
+            }
+              function updateStopDefinitionsButtonClick() {
+                   $.get("/update-stop-definitions");
+                    document.getElementById("updateStopDefinitionsButton").disabled = true;
+                    setInterval(updateStopDefinitionsValues, routeStopPolyUpdateRefreshInterval);
+            }
+
+             function addPolyLinesButtonClick() {
+                   $.get("/add-polylines");
+                    document.getElementById("addPolyLinesButton").disabled = true;
+                    setInterval(updatePolyLinesValues, routeStopPolyUpdateRefreshInterval);
+            }
+
 
 
 
@@ -136,6 +157,42 @@
                         document.getElementById("numberLiveChildren").innerHTML = data
                     });
                  }
+            }
+
+            function updateRouteDefinitionsValues() {
+                $.get("/update-routes-percentage-complete", function( data ) {
+                    document.getElementById("routeUpdatePercentageComplete").innerHTML = data
+                });
+                 $.get("/update-routes-number-inserted", function( data ) {
+                    document.getElementById("numberRoutesInserted").innerHTML = data
+                });
+                  $.get("/update-routes-number-updated", function( data ) {
+                    document.getElementById("numberRoutesUpdated").innerHTML = data
+                });
+            }
+
+            function updateStopDefinitionsValues() {
+                $.get("/update-stops-percentage-complete", function( data ) {
+                    document.getElementById("stopUpdatePercentageComplete").innerHTML = data
+                });
+                 $.get("/update-stops-number-inserted", function( data ) {
+                    document.getElementById("numberStopsInserted").innerHTML = data
+                });
+                  $.get("/update-stops-number-updated", function( data ) {
+                    document.getElementById("numberStopsUpdated").innerHTML = data
+                });
+            }
+
+            function updatePolyLinesValues() {
+                $.get("/add-polylines-number-read", function( data ) {
+                    document.getElementById("addPolylinesNumberRead").innerHTML = data
+                });
+                 $.get("/add-polylines-number-from-web", function( data ) {
+                    document.getElementById("addPolylinesNumberFromWeb").innerHTML = data
+                });
+                  $.get("/add-polylines-number-from-cache", function( data ) {
+                    document.getElementById("addPolylinesNumbergFromCache").innerHTML = data
+                });
             }
 
 
@@ -302,6 +359,74 @@
                         <tr>
                             <td>Number of live children:</td>
                             <td id="numberLiveChildren">0</td>
+                        </tr>
+                    </table>
+                </td>
+                <td>
+                    <h2>
+                    Update Route Definitions
+                    </h2>
+                    <table frame="box">
+                        <tr>
+                            <td>
+                                <button id="updateRouteDefinitionsButton" onclick="updateRouteDefinitionsButtonClick()">Update Route Definitions</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>% complete:</td>
+                            <td id="routeUpdatePercentageComplete">0</td>
+                        </tr>
+                        <tr>
+                            <td>Number inserted into DB:</td>
+                            <td id="numberRoutesInserted">0</td>
+                        </tr>
+                        <tr>
+                            <td>Number updated in DB:</td>
+                            <td id="numberRoutesUpdated">0</td>
+                        </tr>
+                    </table>
+                    <h2>
+                    Update Stop Definitions
+                    </h2>
+                    <table frame="box">
+                        <tr>
+                            <td>
+                                <button id="updateStopDefinitionsButton" onclick="updateStopDefinitionsButtonClick()">Update Stop Definitions</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>% complete:</td>
+                            <td id="stopUpdatePercentageComplete">0</td>
+                        </tr>
+                        <tr>
+                            <td>Number inserted into DB:</td>
+                            <td id="numberStopsInserted">0</td>
+                        </tr>
+                        <tr>
+                            <td>Number updated in DB:</td>
+                            <td id="numberStopsUpdated">0</td>
+                        </tr>
+                    </table>
+                    <h2>
+                    Add polylines
+                    </h2>
+                    <table frame="box">
+                        <tr>
+                            <td>
+                                <button id="addPolyLinesButton" onclick="addPolyLinesButtonClick()">Add Polylines</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Number lines read</td>
+                            <td id="addPolylinesNumberRead">0</td>
+                        </tr>
+                        <tr>
+                            <td>Number added from web:</td>
+                            <td id="addPolyLinesNumberFromWeb">0</td>
+                        </tr>
+                        <tr>
+                            <td>Number added from cache:</td>
+                            <td id="addPolyLinesNumberFromCache">0</td>
                         </tr>
                     </table>
                 </td>

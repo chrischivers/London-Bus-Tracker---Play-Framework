@@ -1,5 +1,5 @@
-New log file opened at Sun Feb 07 19:46:04 GMT 2016 by 13257@chrischivers-W65-67SR
-jvm 13257@chrischivers-W65-67SR
+New log file opened at Sun Feb 07 20:44:34 GMT 2016 by 16351@chrischivers-W65-67SR
+jvm 16351@chrischivers-W65-67SR
 jvm vmName=Java HotSpot(TM) 64-Bit Server VM vmVendor=Oracle Corporation vmVersion=25.72-b15
 jvm specName=Java Virtual Machine Specification specVendor=Oracle Corporation specVersion=1.8
 jvm arguments: [-Xms256m, -Xmx1024m, -XX:MetaspaceSize=64m, -XX:MaxMetaspaceSize=256m]
@@ -27,7 +27,7 @@ sorting: ns: List(sbt.plugins.CorePlugin, sbt.plugins.IvyPlugin, sbt.plugins.Jvm
   :: sorted deduced result: List(sbt.plugins.CorePlugin, sbt.plugins.IvyPlugin, sbt.plugins.JvmPlugin, sbt.plugins.JUnitXmlReportPlugin)
 [Loading] Done in /home/chrischivers/Code/Play/LondonBusTrackerPlay/project, returning: (londonbustrackerplay-build)
 Loading project definition from /home/chrischivers/Code/Play/LondonBusTrackerPlay/project
-Running task... Cancel: sbt.TaskCancellationStrategy$Null$@5fd10037, check cycles: false
+Running task... Cancel: sbt.TaskCancellationStrategy$Null$@4feab58f, check cycles: false
 [info] Updating {file:/home/chrischivers/Code/Play/LondonBusTrackerPlay/project/}londonbustrackerplay-build...
 Updating {file:/home/chrischivers/Code/Play/LondonBusTrackerPlay/project/}londonbustrackerplay-build...
 Other repositories:
@@ -15774,7 +15774,7 @@ sbt-chain: module revision found in cache: org.fusesource.jansi#jansi;1.4
 	[NOT REQUIRED] org.scala-sbt#apply-macro;0.13.8-M3!apply-macro.jar
 	[NOT REQUIRED] org.scala-lang#jline;2.10.4!jline.jar
 	[NOT REQUIRED] org.fusesource.jansi#jansi;1.4!jansi.jar
-:: resolution report :: resolve 6159ms :: artifacts dl 72ms
+:: resolution report :: resolve 4753ms :: artifacts dl 56ms
 	report for default#londonbustrackerplay-build;0.1-SNAPSHOT compile produced in /home/chrischivers/Code/Play/LondonBusTrackerPlay/project/target/resolution-cache/reports/default-londonbustrackerplay-build-compile.xml
 	report for default#londonbustrackerplay-build;0.1-SNAPSHOT runtime produced in /home/chrischivers/Code/Play/LondonBusTrackerPlay/project/target/resolution-cache/reports/default-londonbustrackerplay-build-runtime.xml
 	report for default#londonbustrackerplay-build;0.1-SNAPSHOT test produced in /home/chrischivers/Code/Play/LondonBusTrackerPlay/project/target/resolution-cache/reports/default-londonbustrackerplay-build-test.xml
@@ -15788,7 +15788,7 @@ sbt-chain: module revision found in cache: org.fusesource.jansi#jansi;1.4
 	report for default#londonbustrackerplay-build;0.1-SNAPSHOT docs produced in /home/chrischivers/Code/Play/LondonBusTrackerPlay/project/target/resolution-cache/reports/default-londonbustrackerplay-build-docs.xml
 	report for default#londonbustrackerplay-build;0.1-SNAPSHOT pom produced in /home/chrischivers/Code/Play/LondonBusTrackerPlay/project/target/resolution-cache/reports/default-londonbustrackerplay-build-pom.xml
 	report for default#londonbustrackerplay-build;0.1-SNAPSHOT scala-tool produced in /home/chrischivers/Code/Play/LondonBusTrackerPlay/project/target/resolution-cache/reports/default-londonbustrackerplay-build-scala-tool.xml
-	resolve done (6159ms resolve - 72ms download)
+	resolve done (4753ms resolve - 56ms download)
 [info] Done updating.
 Done updating.
 
@@ -15830,7 +15830,7 @@ Set current project to london-bus-tracker-play (in build file:/home/chrischivers
 > server-handle-next-server-request
 > {file:/home/chrischivers/Code/Play/LondonBusTrackerPlay/}root/*:playForkConfig
 Evaluating tasks: *:playForkConfig
-Running task... Cancel: sbt.server.ServerTaskCancellation@f13b229, check cycles: false
+Running task... Cancel: sbt.server.ServerTaskCancellation@1531d08a, check cycles: false
 Read from stdout: Updating {file:/home/chrischivers/Code/Play/LondonBusTrackerPlay/}root...
 Updating {file:/home/chrischivers/Code/Play/LondonBusTrackerPlay/}root...
 Other repositories:
@@ -15845,7 +15845,7 @@ resolving dependencies for configuration 'compile'
 == resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.0-SNAPSHOT->org.scala-lang#scala-library;2.11.7 [compile->default(compile)]
 Read from stdout: Resolving org.scala-lang#scala-library;2.11.7 ...
 Resolving org.scala-lang#scala-library;2.11.7 ...
-sbt-chain: Checking cache for: sbt.ivyint.MergedDescriptors@3cfdeabc
+sbt-chain: Checking cache for: sbt.ivyint.MergedDescriptors@2e6ea282
 sbt-chain: module revision found in cache: org.scala-lang#scala-library;2.11.7
 	found org.scala-lang#scala-library;2.11.7 in sbt-chain
 	[2.11.7] org.scala-lang#scala-library;2.11.7
@@ -23093,7 +23093,7 @@ circular dependency found: org.scala-lang.modules#scala-xml_2.11;1.0.1->org.scal
 	[NOT REQUIRED] org.scalacheck#scalacheck_2.11;1.11.5!scalacheck_2.11.jar
 	[NOT REQUIRED] com.typesafe.akka#akka-actor_2.11;2.3.8!akka-actor_2.11.jar
 	[NOT REQUIRED] com.typesafe.akka#akka-testkit_2.11;2.3.8!akka-testkit_2.11.jar
-:: resolution report :: resolve 2440ms :: artifacts dl 55ms
+:: resolution report :: resolve 2020ms :: artifacts dl 64ms
 	report for london-bus-tracker-play#london-bus-tracker-play_2.11;1.0-SNAPSHOT compile produced in /home/chrischivers/Code/Play/LondonBusTrackerPlay/target/resolution-cache/reports/london-bus-tracker-play-london-bus-tracker-play_2.11-compile.xml
 	report for london-bus-tracker-play#london-bus-tracker-play_2.11;1.0-SNAPSHOT runtime produced in /home/chrischivers/Code/Play/LondonBusTrackerPlay/target/resolution-cache/reports/london-bus-tracker-play-london-bus-tracker-play_2.11-runtime.xml
 	report for london-bus-tracker-play#london-bus-tracker-play_2.11;1.0-SNAPSHOT test produced in /home/chrischivers/Code/Play/LondonBusTrackerPlay/target/resolution-cache/reports/london-bus-tracker-play-london-bus-tracker-play_2.11-test.xml
@@ -23108,207 +23108,15 @@ circular dependency found: org.scala-lang.modules#scala-xml_2.11;1.0.1->org.scal
 	report for london-bus-tracker-play#london-bus-tracker-play_2.11;1.0-SNAPSHOT pom produced in /home/chrischivers/Code/Play/LondonBusTrackerPlay/target/resolution-cache/reports/london-bus-tracker-play-london-bus-tracker-play_2.11-pom.xml
 	report for london-bus-tracker-play#london-bus-tracker-play_2.11;1.0-SNAPSHOT scala-tool produced in /home/chrischivers/Code/Play/LondonBusTrackerPlay/target/resolution-cache/reports/london-bus-tracker-play-london-bus-tracker-play_2.11-scala-tool.xml
 	report for london-bus-tracker-play#london-bus-tracker-play_2.11;1.0-SNAPSHOT fork-run produced in /home/chrischivers/Code/Play/LondonBusTrackerPlay/target/resolution-cache/reports/london-bus-tracker-play-london-bus-tracker-play_2.11-fork-run.xml
-	resolve done (2440ms resolve - 55ms download)
+	resolve done (2020ms resolve - 64ms download)
 Read from stdout: Done updating.
 Done updating.
-Total time: 3 s, completed 07-Feb-2016 19:46:19
+Total time: 2 s, completed 07-Feb-2016 20:44:47
 > server-post-command-cleanup
 > server-handle-next-server-request
 > root/playForkNotifyStart http://localhost:9000
 Evaluating tasks: *:playForkNotifyStart
-Running task... Cancel: sbt.server.ServerTaskCancellation@7e3af40a, check cycles: false
-Total time: 0 s, completed 07-Feb-2016 19:46:20
+Running task... Cancel: sbt.server.ServerTaskCancellation@60aa678d, check cycles: false
+Total time: 0 s, completed 07-Feb-2016 20:44:47
 > server-post-command-cleanup
 > server-handle-next-server-request
-> {file:/home/chrischivers/Code/Play/LondonBusTrackerPlay/}root/*:playForkReload
-Evaluating tasks: *:playForkReload
-Running task... Cancel: sbt.server.ServerTaskCancellation@2ed6372f, check cycles: false
-
-Initial source changes: 
-	removed:Set()
-	added: Set(/home/chrischivers/Code/Play/LondonBusTrackerPlay/app/streaming/VehicleActor.scala, /home/chrischivers/Code/Play/LondonBusTrackerPlay/app/streaming/MyWebSocketActor.scala, /home/chrischivers/Code/Play/LondonBusTrackerPlay/app/streaming/LiveStreamingCoordinator.scala, /home/chrischivers/Code/Play/LondonBusTrackerPlay/app/prediction/PredictionInterface.scala, /home/chrischivers/Code/Play/LondonBusTrackerPlay/app/prediction/PredictionRequest.scala, /home/chrischivers/Code/Play/LondonBusTrackerPlay/app/controllers/LiveStreamingController.scala, /home/chrischivers/Code/Play/LondonBusTrackerPlay/app/streaming/LiveStreamingCoordinatorImpl.scala, /home/chrischivers/Code/Play/LondonBusTrackerPlay/app/prediction/KNNPredictionImpl.scala, /home/chrischivers/Code/Play/LondonBusTrackerPlay/app/controllers/interfaces/LiveStreamingControlInterface.scala)
-	modified: Set(/home/chrischivers/Code/Play/LondonBusTrackerPlay/app/controllers/Admin.scala, /home/chrischivers/Code/Play/LondonBusTrackerPlay/target/scala-2.11/src_managed/main/routes_routing.scala, /home/chrischivers/Code/Play/LondonBusTrackerPlay/app/processes/tfl/TFLProcessSourceLines.scala, /home/chrischivers/Code/Play/LondonBusTrackerPlay/app/commons/Commons.scala, /home/chrischivers/Code/Play/LondonBusTrackerPlay/target/scala-2.11/twirl/main/views/html/control.template.scala, /home/chrischivers/Code/Play/LondonBusTrackerPlay/target/scala-2.11/src_managed/main/controllers/routes.java, /home/chrischivers/Code/Play/LondonBusTrackerPlay/target/scala-2.11/src_managed/main/routes_reverseRouting.scala)
-Removed products: Set()
-External API changes: API Changes: Set()
-Modified binary dependencies: Set()
-Initial directly invalidated sources: Set(/home/chrischivers/Code/Play/LondonBusTrackerPlay/app/streaming/VehicleActor.scala, /home/chrischivers/Code/Play/LondonBusTrackerPlay/app/streaming/MyWebSocketActor.scala, /home/chrischivers/Code/Play/LondonBusTrackerPlay/app/streaming/LiveStreamingCoordinator.scala, /home/chrischivers/Code/Play/LondonBusTrackerPlay/app/controllers/Admin.scala, /home/chrischivers/Code/Play/LondonBusTrackerPlay/target/scala-2.11/src_managed/main/routes_routing.scala, /home/chrischivers/Code/Play/LondonBusTrackerPlay/app/prediction/PredictionInterface.scala, /home/chrischivers/Code/Play/LondonBusTrackerPlay/app/processes/tfl/TFLProcessSourceLines.scala, /home/chrischivers/Code/Play/LondonBusTrackerPlay/app/prediction/PredictionRequest.scala, /home/chrischivers/Code/Play/LondonBusTrackerPlay/app/commons/Commons.scala, /home/chrischivers/Code/Play/LondonBusTrackerPlay/app/controllers/LiveStreamingController.scala, /home/chrischivers/Code/Play/LondonBusTrackerPlay/app/streaming/LiveStreamingCoordinatorImpl.scala, /home/chrischivers/Code/Play/LondonBusTrackerPlay/target/scala-2.11/twirl/main/views/html/control.template.scala, /home/chrischivers/Code/Play/LondonBusTrackerPlay/target/scala-2.11/src_managed/main/controllers/routes.java, /home/chrischivers/Code/Play/LondonBusTrackerPlay/app/prediction/KNNPredictionImpl.scala, /home/chrischivers/Code/Play/LondonBusTrackerPlay/target/scala-2.11/src_managed/main/routes_reverseRouting.scala, /home/chrischivers/Code/Play/LondonBusTrackerPlay/app/controllers/interfaces/LiveStreamingControlInterface.scala)
-
-Sources indirectly invalidated by:
-	product: Set()
-	binary dep: Set()
-	external source: Set()
-All initially invalidated sources: Set(/home/chrischivers/Code/Play/LondonBusTrackerPlay/app/streaming/VehicleActor.scala, /home/chrischivers/Code/Play/LondonBusTrackerPlay/app/streaming/MyWebSocketActor.scala, /home/chrischivers/Code/Play/LondonBusTrackerPlay/app/streaming/LiveStreamingCoordinator.scala, /home/chrischivers/Code/Play/LondonBusTrackerPlay/app/controllers/Admin.scala, /home/chrischivers/Code/Play/LondonBusTrackerPlay/target/scala-2.11/src_managed/main/routes_routing.scala, /home/chrischivers/Code/Play/LondonBusTrackerPlay/app/prediction/PredictionInterface.scala, /home/chrischivers/Code/Play/LondonBusTrackerPlay/app/processes/tfl/TFLProcessSourceLines.scala, /home/chrischivers/Code/Play/LondonBusTrackerPlay/app/prediction/PredictionRequest.scala, /home/chrischivers/Code/Play/LondonBusTrackerPlay/app/commons/Commons.scala, /home/chrischivers/Code/Play/LondonBusTrackerPlay/app/controllers/LiveStreamingController.scala, /home/chrischivers/Code/Play/LondonBusTrackerPlay/app/streaming/LiveStreamingCoordinatorImpl.scala, /home/chrischivers/Code/Play/LondonBusTrackerPlay/target/scala-2.11/twirl/main/views/html/control.template.scala, /home/chrischivers/Code/Play/LondonBusTrackerPlay/target/scala-2.11/src_managed/main/controllers/routes.java, /home/chrischivers/Code/Play/LondonBusTrackerPlay/app/prediction/KNNPredictionImpl.scala, /home/chrischivers/Code/Play/LondonBusTrackerPlay/target/scala-2.11/src_managed/main/routes_reverseRouting.scala, /home/chrischivers/Code/Play/LondonBusTrackerPlay/app/controllers/interfaces/LiveStreamingControlInterface.scala)
-
-Read from stdout: Compiling 15 Scala sources and 1 Java source to /home/chrischivers/Code/Play/LondonBusTrackerPlay/target/scala-2.11/classes...
-Compiling 15 Scala sources and 1 Java source to /home/chrischivers/Code/Play/LondonBusTrackerPlay/target/scala-2.11/classes...
-Getting compiler-interface from component compiler for Scala 2.11.7
-Other repositories:
-Default repositories:
-Getting compiler-interface from component compiler for Scala 2.11.7
-Other repositories:
-Default repositories:
-Running cached compiler 1da70b3f, interfacing (CompilerInterface) with Scala compiler version 2.11.7
-Calling Scala compiler with arguments  (CompilerInterface):
-	-deprecation
-	-unchecked
-	-encoding
-	utf8
-	-bootclasspath
-	/usr/lib/jvm/java-8-oracle/jre/lib/resources.jar:/usr/lib/jvm/java-8-oracle/jre/lib/rt.jar:/usr/lib/jvm/java-8-oracle/jre/lib/sunrsasign.jar:/usr/lib/jvm/java-8-oracle/jre/lib/jsse.jar:/usr/lib/jvm/java-8-oracle/jre/lib/jce.jar:/usr/lib/jvm/java-8-oracle/jre/lib/charsets.jar:/usr/lib/jvm/java-8-oracle/jre/lib/jfr.jar:/usr/lib/jvm/java-8-oracle/jre/classes:/home/chrischivers/.ivy2/cache/org.scala-lang/scala-library/jars/scala-library-2.11.7.jar
-	-classpath
-	/home/chrischivers/Code/Play/LondonBusTrackerPlay/target/scala-2.11/classes:/home/chrischivers/.ivy2/cache/com.typesafe.play/twirl-api_2.11/jars/twirl-api_2.11-1.0.2.jar:/home/chrischivers/.ivy2/cache/org.apache.commons/commons-lang3/jars/commons-lang3-3.4.jar:/home/chrischivers/.ivy2/cache/org.scala-lang.modules/scala-xml_2.11/bundles/scala-xml_2.11-1.0.1.jar:/home/chrischivers/.ivy2/cache/com.typesafe.play/play_2.11/jars/play_2.11-2.3.10.jar:/home/chrischivers/.ivy2/cache/com.typesafe.play/build-link/jars/build-link-2.3.10.jar:/home/chrischivers/.ivy2/cache/com.typesafe.play/play-exceptions/jars/play-exceptions-2.3.10.jar:/home/chrischivers/.ivy2/cache/org.javassist/javassist/bundles/javassist-3.18.2-GA.jar:/home/chrischivers/.ivy2/cache/com.typesafe.play/play-iteratees_2.11/jars/play-iteratees_2.11-2.3.10.jar:/home/chrischivers/.ivy2/cache/org.scala-stm/scala-stm_2.11/jars/scala-stm_2.11-0.7.jar:/home/chrischivers/.ivy2/cache/com.typesafe/config/bundles/config-1.2.1.jar:/home/chrischivers/.ivy2/cache/com.typesafe.play/play-json_2.11/jars/play-json_2.11-2.3.10.jar:/home/chrischivers/.ivy2/cache/com.typesafe.play/play-functional_2.11/jars/play-functional_2.11-2.3.10.jar:/home/chrischivers/.ivy2/cache/com.typesafe.play/play-datacommons_2.11/jars/play-datacommons_2.11-2.3.10.jar:/home/chrischivers/.ivy2/cache/joda-time/joda-time/jars/joda-time-2.3.jar:/home/chrischivers/.ivy2/cache/org.joda/joda-convert/jars/joda-convert-1.6.jar:/home/chrischivers/.ivy2/cache/com.fasterxml.jackson.core/jackson-annotations/bundles/jackson-annotations-2.3.2.jar:/home/chrischivers/.ivy2/cache/com.fasterxml.jackson.core/jackson-core/bundles/jackson-core-2.3.2.jar:/home/chrischivers/.ivy2/cache/com.fasterxml.jackson.core/jackson-databind/bundles/jackson-databind-2.3.2.jar:/home/chrischivers/.ivy2/cache/org.scala-lang/scala-reflect/jars/scala-reflect-2.11.1.jar:/home/chrischivers/.ivy2/cache/org.scala-lang.modules/scala-parser-combinators_2.11/bundles/scala-parser-combinators_2.11-1.0.1.jar:/home/chrischivers/.ivy2/cache/io.netty/netty/bundles/netty-3.9.9.Final.jar:/home/chrischivers/.ivy2/cache/com.typesafe.netty/netty-http-pipelining/jars/netty-http-pipelining-1.1.2.jar:/home/chrischivers/.ivy2/cache/org.slf4j/slf4j-api/jars/slf4j-api-1.7.6.jar:/home/chrischivers/.ivy2/cache/org.slf4j/jul-to-slf4j/jars/jul-to-slf4j-1.7.6.jar:/home/chrischivers/.ivy2/cache/org.slf4j/jcl-over-slf4j/jars/jcl-over-slf4j-1.7.6.jar:/home/chrischivers/.ivy2/cache/ch.qos.logback/logback-core/jars/logback-core-1.1.1.jar:/home/chrischivers/.ivy2/cache/ch.qos.logback/logback-classic/jars/logback-classic-1.1.1.jar:/home/chrischivers/.ivy2/cache/com.typesafe.akka/akka-actor_2.11/jars/akka-actor_2.11-2.3.4.jar:/home/chrischivers/.ivy2/cache/com.typesafe.akka/akka-slf4j_2.11/jars/akka-slf4j_2.11-2.3.4.jar:/home/chrischivers/.ivy2/cache/commons-codec/commons-codec/jars/commons-codec-1.9.jar:/home/chrischivers/.ivy2/cache/xerces/xercesImpl/jars/xercesImpl-2.11.0.jar:/home/chrischivers/.ivy2/cache/xml-apis/xml-apis/jars/xml-apis-1.4.01.jar:/home/chrischivers/.ivy2/cache/javax.transaction/jta/jars/jta-1.1.jar:/home/chrischivers/.ivy2/cache/com.typesafe.play.plugins/play-plugins-mailer_2.11/jars/play-plugins-mailer_2.11-2.3.1.jar:/home/chrischivers/.ivy2/cache/org.apache.commons/commons-email/jars/commons-email-1.3.3.jar:/home/chrischivers/.ivy2/cache/javax.mail/mail/jars/mail-1.4.5.jar:/home/chrischivers/.ivy2/cache/javax.activation/activation/jars/activation-1.1.1.jar:/home/chrischivers/.ivy2/cache/com.typesafe.play.plugins/play-plugins-util_2.11/jars/play-plugins-util_2.11-2.3.0.jar:/home/chrischivers/.ivy2/cache/org.apache.httpcomponents/httpclient/jars/httpclient-4.5.jar:/home/chrischivers/.ivy2/cache/org.apache.httpcomponents/httpcore/jars/httpcore-4.4.1.jar:/home/chrischivers/.ivy2/cache/commons-logging/commons-logging/jars/commons-logging-1.2.jar:/home/chrischivers/.ivy2/cache/org.apache.commons/commons-math3/jars/commons-math3-3.5.jar:/home/chrischivers/.ivy2/cache/org.mongodb/casbah-commons_2.11/jars/casbah-commons_2.11-2.8.2.jar:/home/chrischivers/.ivy2/cache/com.github.nscala-time/nscala-time_2.11/jars/nscala-time_2.11-1.0.0.jar:/home/chrischivers/.ivy2/cache/org.mongodb/mongo-java-driver/jars/mongo-java-driver-2.13.2.jar:/home/chrischivers/.ivy2/cache/org.mongodb/casbah-core_2.11/jars/casbah-core_2.11-2.8.2.jar:/home/chrischivers/.ivy2/cache/org.mongodb/casbah-query_2.11/jars/casbah-query_2.11-2.8.2.jar:/home/chrischivers/.ivy2/cache/org.mongodb/casbah-gridfs_2.11/jars/casbah-gridfs_2.11-2.8.2.jar:/home/chrischivers/.ivy2/cache/org.json4s/json4s-native_2.11/jars/json4s-native_2.11-3.2.10.jar:/home/chrischivers/.ivy2/cache/org.json4s/json4s-core_2.11/jars/json4s-core_2.11-3.2.10.jar:/home/chrischivers/.ivy2/cache/org.json4s/json4s-ast_2.11/jars/json4s-ast_2.11-3.2.10.jar:/home/chrischivers/.ivy2/cache/com.thoughtworks.paranamer/paranamer/jars/paranamer-2.6.jar:/home/chrischivers/.ivy2/cache/org.scala-lang/scalap/jars/scalap-2.11.0.jar:/home/chrischivers/.ivy2/cache/org.scala-lang/scala-compiler/jars/scala-compiler-2.11.0.jar
-Read from stdout: there was one feature warning; re-run with -feature for details
-there was one feature warning; re-run with -feature for details
-Read from stdout: one warning found
-one warning found
-Scala compilation took 10.451797621 s
-Attempting to call com.sun.tools.javac.api.JavacTool@5bfa9d9f directly...
-Java compilation took 0.63873423 s
-Java analysis took 0.055722008 s
-Java compile + analysis took 0.702806034 s
-Invalidating /home/chrischivers/Code/Play/LondonBusTrackerPlay/target/scala-2.11/src_managed/main/controllers/routes.java...
-Invalidating (transitively) by inheritance from /home/chrischivers/Code/Play/LondonBusTrackerPlay/target/scala-2.11/src_managed/main/controllers/routes.java...
-Initial set of included nodes: Set(/home/chrischivers/Code/Play/LondonBusTrackerPlay/target/scala-2.11/src_managed/main/controllers/routes.java)
-Invalidated by transitive inheritance dependency: Set(/home/chrischivers/Code/Play/LondonBusTrackerPlay/target/scala-2.11/src_managed/main/controllers/routes.java)
-The /home/chrischivers/Code/Play/LondonBusTrackerPlay/target/scala-2.11/src_managed/main/controllers/routes.java source file has the following regular definitions changed:
-	LiveStreamingController.
-All member reference dependencies will be considered within this context.
-Name hashing optimization doesn't apply to non-Scala dependency: /home/chrischivers/Code/Play/LondonBusTrackerPlay/target/scala-2.11/src_managed/main/controllers/routes.java
-Invalidating /home/chrischivers/Code/Play/LondonBusTrackerPlay/app/streaming/VehicleActor.scala...
-Invalidating (transitively) by inheritance from /home/chrischivers/Code/Play/LondonBusTrackerPlay/app/streaming/VehicleActor.scala...
-Initial set of included nodes: Set(/home/chrischivers/Code/Play/LondonBusTrackerPlay/app/streaming/VehicleActor.scala)
-Invalidated by transitive inheritance dependency: Set(/home/chrischivers/Code/Play/LondonBusTrackerPlay/app/streaming/VehicleActor.scala)
-The /home/chrischivers/Code/Play/LondonBusTrackerPlay/app/streaming/VehicleActor.scala source file has the following implicit definitions changed:
-	self, context.
-All member reference dependencies will be considered within this context.
-The following member ref dependencies of /home/chrischivers/Code/Play/LondonBusTrackerPlay/app/streaming/VehicleActor.scala are invalidated:
-	/home/chrischivers/Code/Play/LondonBusTrackerPlay/app/streaming/LiveStreamingCoordinatorImpl.scala
-Invalidating /home/chrischivers/Code/Play/LondonBusTrackerPlay/app/commons/Commons.scala...
-Invalidating (transitively) by inheritance from /home/chrischivers/Code/Play/LondonBusTrackerPlay/app/commons/Commons.scala...
-Initial set of included nodes: Set(/home/chrischivers/Code/Play/LondonBusTrackerPlay/app/commons/Commons.scala)
-Invalidated by transitive inheritance dependency: Set(/home/chrischivers/Code/Play/LondonBusTrackerPlay/app/commons/Commons.scala)
-The /home/chrischivers/Code/Play/LondonBusTrackerPlay/app/commons/Commons.scala source file has the following regular definitions changed:
-	formatMarkerMovementData, encodePackageObject.
-All member reference dependencies will be considered within this context.
-None of the modified names appears in /home/chrischivers/Code/Play/LondonBusTrackerPlay/app/prediction/KNNPredictionImpl.scala. This dependency is not being considered for invalidation.
-None of the modified names appears in /home/chrischivers/Code/Play/LondonBusTrackerPlay/app/processes/tfl/TFLProcessSourceLines.scala. This dependency is not being considered for invalidation.
-The following modified names cause invalidation of /home/chrischivers/Code/Play/LondonBusTrackerPlay/app/streaming/MyWebSocketActor.scala: Set(encodePackageObject)
-None of the modified names appears in /home/chrischivers/Code/Play/LondonBusTrackerPlay/app/streaming/VehicleActor.scala. This dependency is not being considered for invalidation.
-Invalidating /home/chrischivers/Code/Play/LondonBusTrackerPlay/app/prediction/PredictionInterface.scala...
-Invalidating (transitively) by inheritance from /home/chrischivers/Code/Play/LondonBusTrackerPlay/app/prediction/PredictionInterface.scala...
-Initial set of included nodes: Set(/home/chrischivers/Code/Play/LondonBusTrackerPlay/app/prediction/PredictionInterface.scala)
-Including /home/chrischivers/Code/Play/LondonBusTrackerPlay/app/prediction/KNNPredictionImpl.scala by /home/chrischivers/Code/Play/LondonBusTrackerPlay/app/prediction/PredictionInterface.scala
-Invalidated by transitive inheritance dependency: Set(/home/chrischivers/Code/Play/LondonBusTrackerPlay/app/prediction/KNNPredictionImpl.scala, /home/chrischivers/Code/Play/LondonBusTrackerPlay/app/prediction/PredictionInterface.scala)
-The /home/chrischivers/Code/Play/LondonBusTrackerPlay/app/prediction/PredictionInterface.scala source file has the following regular definitions changed:
-	notify, wait, $asInstanceOf, equals, coll, asInstanceOf, synchronized, $isInstanceOf, notifyAll, isInstanceOf, PredictionInterface, ==, clone, makePrediction, toString, !=, getClass, ne, eq, ##, finalize, hashCode.
-All member reference dependencies will be considered within this context.
-The following modified names cause invalidation of /home/chrischivers/Code/Play/LondonBusTrackerPlay/app/streaming/VehicleActor.scala: Set(asInstanceOf, isInstanceOf, ==, makePrediction, toString, !=, ne)
-The following modified names cause invalidation of /home/chrischivers/Code/Play/LondonBusTrackerPlay/app/prediction/KNNPredictionImpl.scala: Set(coll, asInstanceOf, PredictionInterface, ==, makePrediction, ne)
-Invalidating /home/chrischivers/Code/Play/LondonBusTrackerPlay/app/streaming/LiveStreamingCoordinatorImpl.scala...
-Invalidating (transitively) by inheritance from /home/chrischivers/Code/Play/LondonBusTrackerPlay/app/streaming/LiveStreamingCoordinatorImpl.scala...
-Initial set of included nodes: Set(/home/chrischivers/Code/Play/LondonBusTrackerPlay/app/streaming/LiveStreamingCoordinatorImpl.scala)
-Invalidated by transitive inheritance dependency: Set(/home/chrischivers/Code/Play/LondonBusTrackerPlay/app/streaming/LiveStreamingCoordinatorImpl.scala)
-The /home/chrischivers/Code/Play/LondonBusTrackerPlay/app/streaming/LiveStreamingCoordinatorImpl.scala source file has the following implicit definitions changed:
-	actorServerSystem, self, context.
-All member reference dependencies will be considered within this context.
-The following member ref dependencies of /home/chrischivers/Code/Play/LondonBusTrackerPlay/app/streaming/LiveStreamingCoordinatorImpl.scala are invalidated:
-	/home/chrischivers/Code/Play/LondonBusTrackerPlay/app/commons/Commons.scala
-	/home/chrischivers/Code/Play/LondonBusTrackerPlay/app/controllers/interfaces/LiveStreamingControlInterface.scala
-	/home/chrischivers/Code/Play/LondonBusTrackerPlay/app/streaming/LiveStreamingCoordinator.scala
-	/home/chrischivers/Code/Play/LondonBusTrackerPlay/app/streaming/MyWebSocketActor.scala
-	/home/chrischivers/Code/Play/LondonBusTrackerPlay/app/streaming/VehicleActor.scala
-Invalidating /home/chrischivers/Code/Play/LondonBusTrackerPlay/app/controllers/LiveStreamingController.scala...
-Invalidating (transitively) by inheritance from /home/chrischivers/Code/Play/LondonBusTrackerPlay/app/controllers/LiveStreamingController.scala...
-Initial set of included nodes: Set(/home/chrischivers/Code/Play/LondonBusTrackerPlay/app/controllers/LiveStreamingController.scala)
-Invalidated by transitive inheritance dependency: Set(/home/chrischivers/Code/Play/LondonBusTrackerPlay/app/controllers/LiveStreamingController.scala)
-The /home/chrischivers/Code/Play/LondonBusTrackerPlay/app/controllers/LiveStreamingController.scala source file has the following implicit definitions changed:
-	request2session, request2flash, request2lang.
-All member reference dependencies will be considered within this context.
-The following member ref dependencies of /home/chrischivers/Code/Play/LondonBusTrackerPlay/app/controllers/LiveStreamingController.scala are invalidated:
-	/home/chrischivers/Code/Play/LondonBusTrackerPlay/app/streaming/LiveStreamingCoordinator.scala
-	/home/chrischivers/Code/Play/LondonBusTrackerPlay/target/scala-2.11/src_managed/main/routes_reverseRouting.scala
-	/home/chrischivers/Code/Play/LondonBusTrackerPlay/target/scala-2.11/src_managed/main/routes_routing.scala
-Invalidating /home/chrischivers/Code/Play/LondonBusTrackerPlay/app/streaming/MyWebSocketActor.scala...
-Invalidating (transitively) by inheritance from /home/chrischivers/Code/Play/LondonBusTrackerPlay/app/streaming/MyWebSocketActor.scala...
-Initial set of included nodes: Set(/home/chrischivers/Code/Play/LondonBusTrackerPlay/app/streaming/MyWebSocketActor.scala)
-Invalidated by transitive inheritance dependency: Set(/home/chrischivers/Code/Play/LondonBusTrackerPlay/app/streaming/MyWebSocketActor.scala)
-The /home/chrischivers/Code/Play/LondonBusTrackerPlay/app/streaming/MyWebSocketActor.scala source file has the following implicit definitions changed:
-	self, context.
-All member reference dependencies will be considered within this context.
-The following member ref dependencies of /home/chrischivers/Code/Play/LondonBusTrackerPlay/app/streaming/MyWebSocketActor.scala are invalidated:
-	/home/chrischivers/Code/Play/LondonBusTrackerPlay/app/controllers/LiveStreamingController.scala
-	/home/chrischivers/Code/Play/LondonBusTrackerPlay/app/streaming/LiveStreamingCoordinator.scala
-Invalidating /home/chrischivers/Code/Play/LondonBusTrackerPlay/app/prediction/PredictionRequest.scala...
-Invalidating (transitively) by inheritance from /home/chrischivers/Code/Play/LondonBusTrackerPlay/app/prediction/PredictionRequest.scala...
-Initial set of included nodes: Set(/home/chrischivers/Code/Play/LondonBusTrackerPlay/app/prediction/PredictionRequest.scala)
-Invalidated by transitive inheritance dependency: Set(/home/chrischivers/Code/Play/LondonBusTrackerPlay/app/prediction/PredictionRequest.scala)
-The /home/chrischivers/Code/Play/LondonBusTrackerPlay/app/prediction/PredictionRequest.scala source file has the following regular definitions changed:
-	direction_ID, notify, route_ID, wait, copy$default$2, $asInstanceOf, copy$default$5, PredictionRequest, productArity, equals, asInstanceOf, to_Point_ID, synchronized, $isInstanceOf, canEqual, copy$default$4, productPrefix, from_Point_ID, notifyAll, isInstanceOf, <init>, ==, clone, copy$default$3, copy, toString, !=, getClass, copy$default$1, timeOffset, copy$default$6, ne, eq, productIterator, ##, finalize, productElement, hashCode, day_Of_Week.
-All member reference dependencies will be considered within this context.
-The following modified names cause invalidation of /home/chrischivers/Code/Play/LondonBusTrackerPlay/app/prediction/KNNPredictionImpl.scala: Set(direction_ID, route_ID, PredictionRequest, asInstanceOf, to_Point_ID, from_Point_ID, <init>, ==, timeOffset, ne, day_Of_Week)
-The following modified names cause invalidation of /home/chrischivers/Code/Play/LondonBusTrackerPlay/app/streaming/VehicleActor.scala: Set(direction_ID, route_ID, PredictionRequest, asInstanceOf, isInstanceOf, <init>, ==, toString, !=, ne)
-The following modified names cause invalidation of /home/chrischivers/Code/Play/LondonBusTrackerPlay/app/prediction/PredictionInterface.scala: Set(PredictionRequest)
-Invalidating /home/chrischivers/Code/Play/LondonBusTrackerPlay/app/streaming/LiveStreamingCoordinator.scala...
-Invalidating (transitively) by inheritance from /home/chrischivers/Code/Play/LondonBusTrackerPlay/app/streaming/LiveStreamingCoordinator.scala...
-Initial set of included nodes: Set(/home/chrischivers/Code/Play/LondonBusTrackerPlay/app/streaming/LiveStreamingCoordinator.scala)
-Including /home/chrischivers/Code/Play/LondonBusTrackerPlay/app/streaming/LiveStreamingCoordinatorImpl.scala by /home/chrischivers/Code/Play/LondonBusTrackerPlay/app/streaming/LiveStreamingCoordinator.scala
-Invalidated by transitive inheritance dependency: Set(/home/chrischivers/Code/Play/LondonBusTrackerPlay/app/streaming/LiveStreamingCoordinatorImpl.scala, /home/chrischivers/Code/Play/LondonBusTrackerPlay/app/streaming/LiveStreamingCoordinator.scala)
-The /home/chrischivers/Code/Play/LondonBusTrackerPlay/app/streaming/LiveStreamingCoordinator.scala source file has the following implicit definitions changed:
-	actorServerSystem.
-All member reference dependencies will be considered within this context.
-The following member ref dependencies of /home/chrischivers/Code/Play/LondonBusTrackerPlay/app/streaming/LiveStreamingCoordinatorImpl.scala are invalidated:
-	/home/chrischivers/Code/Play/LondonBusTrackerPlay/app/commons/Commons.scala
-	/home/chrischivers/Code/Play/LondonBusTrackerPlay/app/controllers/interfaces/LiveStreamingControlInterface.scala
-	/home/chrischivers/Code/Play/LondonBusTrackerPlay/app/streaming/LiveStreamingCoordinator.scala
-	/home/chrischivers/Code/Play/LondonBusTrackerPlay/app/streaming/MyWebSocketActor.scala
-	/home/chrischivers/Code/Play/LondonBusTrackerPlay/app/streaming/VehicleActor.scala
-The following member ref dependencies of /home/chrischivers/Code/Play/LondonBusTrackerPlay/app/streaming/LiveStreamingCoordinator.scala are invalidated:
-	/home/chrischivers/Code/Play/LondonBusTrackerPlay/app/controllers/interfaces/LiveStreamingControlInterface.scala
-	/home/chrischivers/Code/Play/LondonBusTrackerPlay/app/streaming/LiveStreamingCoordinatorImpl.scala
-	/home/chrischivers/Code/Play/LondonBusTrackerPlay/app/streaming/VehicleActor.scala
-Invalidating /home/chrischivers/Code/Play/LondonBusTrackerPlay/target/scala-2.11/src_managed/main/routes_reverseRouting.scala...
-Invalidating (transitively) by inheritance from /home/chrischivers/Code/Play/LondonBusTrackerPlay/target/scala-2.11/src_managed/main/routes_reverseRouting.scala...
-Initial set of included nodes: Set(/home/chrischivers/Code/Play/LondonBusTrackerPlay/target/scala-2.11/src_managed/main/routes_reverseRouting.scala)
-Invalidated by transitive inheritance dependency: Set(/home/chrischivers/Code/Play/LondonBusTrackerPlay/target/scala-2.11/src_managed/main/routes_reverseRouting.scala)
-The /home/chrischivers/Code/Play/LondonBusTrackerPlay/target/scala-2.11/src_managed/main/routes_reverseRouting.scala source file has the following regular definitions changed:
-	notify, getNumberLiveActors, wait, $asInstanceOf, equals, asInstanceOf, synchronized, $isInstanceOf, ReverseLiveStreamingController, isStarted, notifyAll, isInstanceOf, <init>, ==, clone, toString, turnOffLiveStreaming, !=, getClass, ne, eq, ##, finalize, hashCode, getNumberLiveChildren, turnOnLiveStreaming.
-All member reference dependencies will be considered within this context.
-Name hashing optimization doesn't apply to non-Scala dependency: /home/chrischivers/Code/Play/LondonBusTrackerPlay/target/scala-2.11/src_managed/main/controllers/routes.java
-Invalidating /home/chrischivers/Code/Play/LondonBusTrackerPlay/app/prediction/KNNPredictionImpl.scala...
-Invalidating (transitively) by inheritance from /home/chrischivers/Code/Play/LondonBusTrackerPlay/app/prediction/KNNPredictionImpl.scala...
-Initial set of included nodes: Set(/home/chrischivers/Code/Play/LondonBusTrackerPlay/app/prediction/KNNPredictionImpl.scala)
-Invalidated by transitive inheritance dependency: Set(/home/chrischivers/Code/Play/LondonBusTrackerPlay/app/prediction/KNNPredictionImpl.scala)
-The /home/chrischivers/Code/Play/LondonBusTrackerPlay/app/prediction/KNNPredictionImpl.scala source file has the following regular definitions changed:
-	getSortedKNNDistances, notify, WEIGHTING_DAY_OF_WEEK, wait, $asInstanceOf, WEIGHTING_TIME_OFFSET, equals, coll, removeOutliers, asInstanceOf, normaliseLong, synchronized, WEIGHTING_RECENT, $isInstanceOf, WEIGHTING_RAINFALL, normaliseDouble, makePredictionBetweenConsecutivePoints, notifyAll, isInstanceOf, ==, clone, SECONDS_THRESHOLD_TO_REPORT, getAverageAndVariance, makePrediction, toString, round, KNNPredictionImpl, normaliseInt, !=, getClass, K, ne, eq, getDayOfWeekValue, ##, STANDARD_DEVIATION_MULTIPLIER_TO_EXCLUDE, finalize, hashCode.
-All member reference dependencies will be considered within this context.
-The following modified names cause invalidation of /home/chrischivers/Code/Play/LondonBusTrackerPlay/app/streaming/VehicleActor.scala: Set(asInstanceOf, isInstanceOf, ==, makePrediction, toString, KNNPredictionImpl, !=, ne)
-Invalidating /home/chrischivers/Code/Play/LondonBusTrackerPlay/app/controllers/interfaces/LiveStreamingControlInterface.scala...
-Invalidating (transitively) by inheritance from /home/chrischivers/Code/Play/LondonBusTrackerPlay/app/controllers/interfaces/LiveStreamingControlInterface.scala...
-Initial set of included nodes: Set(/home/chrischivers/Code/Play/LondonBusTrackerPlay/app/controllers/interfaces/LiveStreamingControlInterface.scala)
-Invalidated by transitive inheritance dependency: Set(/home/chrischivers/Code/Play/LondonBusTrackerPlay/app/controllers/interfaces/LiveStreamingControlInterface.scala)
-The /home/chrischivers/Code/Play/LondonBusTrackerPlay/app/controllers/interfaces/LiveStreamingControlInterface.scala source file has the following regular definitions changed:
-	notify, getNumberLiveActors, wait, $asInstanceOf, equals, asInstanceOf, synchronized, $isInstanceOf, stop, notifyAll, isInstanceOf, ==, clone, LiveStreamingControlInterface, toString, !=, getClass, start, started, ne, eq, ##, finalize, hashCode, getNumberLiveChildren.
-All member reference dependencies will be considered within this context.
-The following modified names cause invalidation of /home/chrischivers/Code/Play/LondonBusTrackerPlay/app/controllers/LiveStreamingController.scala: Set(getNumberLiveActors, stop, LiveStreamingControlInterface, toString, start, started, getNumberLiveChildren)
-New invalidations:
-	Set(/home/chrischivers/Code/Play/LondonBusTrackerPlay/target/scala-2.11/src_managed/main/routes_routing.scala)
-Initial set of included nodes: Set(/home/chrischivers/Code/Play/LondonBusTrackerPlay/target/scala-2.11/src_managed/main/routes_routing.scala)
-Including /home/chrischivers/Code/Play/LondonBusTrackerPlay/target/scala-2.11/src_managed/main/routes_reverseRouting.scala by /home/chrischivers/Code/Play/LondonBusTrackerPlay/target/scala-2.11/src_managed/main/routes_routing.scala
-Including /home/chrischivers/Code/Play/LondonBusTrackerPlay/target/scala-2.11/src_managed/main/controllers/routes.java by /home/chrischivers/Code/Play/LondonBusTrackerPlay/target/scala-2.11/src_managed/main/routes_reverseRouting.scala
-Previously invalidated, but (transitively) depend on new invalidations:
-	Set(/home/chrischivers/Code/Play/LondonBusTrackerPlay/target/scala-2.11/src_managed/main/controllers/routes.java, /home/chrischivers/Code/Play/LondonBusTrackerPlay/target/scala-2.11/src_managed/main/routes_reverseRouting.scala)
-All newly invalidated sources after taking into account (previously) recompiled sources:Set()
-Copy resource mappings: 
-	(/home/chrischivers/Code/Play/LondonBusTrackerPlay/conf/application.conf,/home/chrischivers/Code/Play/LondonBusTrackerPlay/target/scala-2.11/classes/application.conf)
-	(/home/chrischivers/Code/Play/LondonBusTrackerPlay/conf/routes,/home/chrischivers/Code/Play/LondonBusTrackerPlay/target/scala-2.11/classes/routes)
-	(/home/chrischivers/Code/Play/LondonBusTrackerPlay/conf/play.plugins,/home/chrischivers/Code/Play/LondonBusTrackerPlay/target/scala-2.11/classes/play.plugins)
-Total time: 13 s, completed 07-Feb-2016 19:48:08
-> server-post-command-cleanup
-> server-handle-next-server-request
-Done executing sbt server engine, result Right(Exit(0))
-Closing listening server socket
-Waiting for socket thread
-Waiting for request processor thread
-Waiting for command engine result
-Returning control to sbt launcher with result Exit(0)
-Closing the 13257@chrischivers-W65-67SR logs at Sun Feb 07 19:49:06 GMT 2016, goodbye.
