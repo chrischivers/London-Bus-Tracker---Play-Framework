@@ -2,6 +2,7 @@ package commons
 
 import java.util.{Calendar, GregorianCalendar}
 import org.json4s.native.JsonMethods._
+import prediction.{KNNPredictionImpl, PredictionRequest}
 import streaming.PackagedStreamObject
 import scala.collection.mutable.ListBuffer
 import scala.math.BigDecimal.RoundingMode
@@ -219,5 +220,6 @@ object Commons {
     })
     list
   }
+
 
 }

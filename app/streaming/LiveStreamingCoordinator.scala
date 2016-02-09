@@ -34,7 +34,7 @@ trait LiveStreamingCoordinator {
    * @param pso The packaged stream objects
    */
   def pushToClients(pso: PackagedStreamObject) =  {
-    MyWebSocketActor.PushToChildren(pso)
+    WebSocketSupervisor.PushToChildren(pso)
   }
 
   def stop(): Unit = {

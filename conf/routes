@@ -3,7 +3,9 @@
 # ~~~~
 
 # Home page
-GET     /admin                           controllers.Admin.index
+GET     /admin                           controllers.Application.admin
+GET     /map                             controllers.Application.map
+GET     /prediction                     controllers.Application.prediction
 
 # Websockets
 GET     /websocket                      controllers.LiveStreamingController.socket
@@ -60,6 +62,13 @@ GET     /add-polylines                      controllers.AddPolyLinesController.a
 GET     /add-polylines-number-read          controllers.AddPolyLinesController.getLinesRead
 GET     /add-polylines-number-from-web      controllers.AddPolyLinesController.getNumberUpdatedFromWeb
 GET     /add-polylines-number-from-cache    controllers.AddPolyLinesController.getNumberUpdatedFromCache
+
+#Common Functions
+GET     /route_list_request.asp                         controllers.CommonFunctions.getRouteList
+GET     /route_list_with_first_last_stops_request.asp   controllers.CommonFunctions.getRouteListWithFirstLastStops
+GET     /direction_list_request.asp                     controllers.CommonFunctions.getDirectionList(route:String)
+GET     /stop_list_request.asp                          controllers.CommonFunctions.getStopList(route:String, direction:Int)
+GET     /prediction_request.asp                         controllers.CommonFunctions.makePrediction(route:String, direction:Int, fromStop:String, toStop:String)
 
 # Map static resources from the /public folder to the /assets URL path
 GET     /assets/*file               controllers.Assets.versioned(path="/public", file)

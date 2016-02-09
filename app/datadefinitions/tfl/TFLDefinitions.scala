@@ -39,7 +39,7 @@ object TFLDefinitions extends DataDefinitions{
    */
   private def getRouteList:List[String] = {
     val list = TFLDefinitions.RouteDefinitionMap.map(x => x._1._1).toSet.toList
-    val partitionedList = list.partition(x => !x.charAt(0).isLetter)
+    val partitionedList = list.partition(x => x.forall(_.isDigit))
     val sortedIntList = partitionedList._1.map(_.toInt).sorted
     val sortedStringList = partitionedList._2.sorted
     sortedIntList.map(_.toString) ++ sortedStringList
@@ -47,7 +47,7 @@ object TFLDefinitions extends DataDefinitions{
 
   private def getRouteListWithFirstLastStops:List[(String, String, String)] = {
     val list = TFLDefinitions.RouteDefinitionMap.map(x => x._1._1).toSet.toList
-    val partitionedList = list.partition(x => !x.charAt(0).isLetter)
+    val partitionedList = list.partition(x => x.forall(_.isDigit))
     val sortedIntList = partitionedList._1.map(_.toInt).sorted
     val sortedStringList = partitionedList._2.sorted
     val fullSortedList = sortedIntList.map(_.toString) ++ sortedStringList

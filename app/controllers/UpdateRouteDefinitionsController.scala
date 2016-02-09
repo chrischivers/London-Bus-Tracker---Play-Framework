@@ -3,7 +3,7 @@ package controllers
 import controllers.interfaces.{UpdateRouteDefinitionsControlInterface, LiveStreamingControlInterface}
 import play.api.Play.current
 import play.api.mvc._
-import streaming.MyWebSocketActor
+import streaming.WebSocketActor
 
 
 object UpdateRouteDefinitionsController extends Controller {

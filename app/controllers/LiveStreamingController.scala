@@ -4,13 +4,13 @@ package controllers
 import controllers.interfaces.LiveStreamingControlInterface
 import play.api.mvc._
 import play.api.Play.current
-import streaming.MyWebSocketActor
+import streaming.{WebSocketSupervisor, WebSocketActor}
 
 
 object LiveStreamingController extends Controller {
 
   def socket = WebSocket.acceptWithActor[String, String] { request => out =>
-  MyWebSocketActor.props(out)
+  WebSocketSupervisor.props(out)
 }
 
   def isStarted = Action {
