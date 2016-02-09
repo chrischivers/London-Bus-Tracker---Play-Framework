@@ -86,7 +86,7 @@ object LoadStopDefinitions extends ResourceOperations{
         }
         )
       } catch {
-        case ioe:IOException => Logger.debug("No stop information for stop " + x + ". Moving on...")//Skip and move on
+        case ioe:IOException => Logger.info("No stop information for stop " + x + ". Moving on...")//Skip and move on
       }
     }
     percentageComplete = 100

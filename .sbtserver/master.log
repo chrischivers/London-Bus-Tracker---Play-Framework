@@ -1,5 +1,5 @@
-New log file opened at Sun Feb 07 20:44:34 GMT 2016 by 16351@chrischivers-W65-67SR
-jvm 16351@chrischivers-W65-67SR
+New log file opened at Tue Feb 09 18:54:36 GMT 2016 by 8500@chrischivers-W65-67SR
+jvm 8500@chrischivers-W65-67SR
 jvm vmName=Java HotSpot(TM) 64-Bit Server VM vmVendor=Oracle Corporation vmVersion=25.72-b15
 jvm specName=Java Virtual Machine Specification specVendor=Oracle Corporation specVersion=1.8
 jvm arguments: [-Xms256m, -Xmx1024m, -XX:MetaspaceSize=64m, -XX:MaxMetaspaceSize=256m]
@@ -27,7 +27,7 @@ sorting: ns: List(sbt.plugins.CorePlugin, sbt.plugins.IvyPlugin, sbt.plugins.Jvm
   :: sorted deduced result: List(sbt.plugins.CorePlugin, sbt.plugins.IvyPlugin, sbt.plugins.JvmPlugin, sbt.plugins.JUnitXmlReportPlugin)
 [Loading] Done in /home/chrischivers/Code/Play/LondonBusTrackerPlay/project, returning: (londonbustrackerplay-build)
 Loading project definition from /home/chrischivers/Code/Play/LondonBusTrackerPlay/project
-Running task... Cancel: sbt.TaskCancellationStrategy$Null$@4feab58f, check cycles: false
+Running task... Cancel: sbt.TaskCancellationStrategy$Null$@6c41561, check cycles: false
 [info] Updating {file:/home/chrischivers/Code/Play/LondonBusTrackerPlay/project/}londonbustrackerplay-build...
 Updating {file:/home/chrischivers/Code/Play/LondonBusTrackerPlay/project/}londonbustrackerplay-build...
 Other repositories:
@@ -15774,7 +15774,7 @@ sbt-chain: module revision found in cache: org.fusesource.jansi#jansi;1.4
 	[NOT REQUIRED] org.scala-sbt#apply-macro;0.13.8-M3!apply-macro.jar
 	[NOT REQUIRED] org.scala-lang#jline;2.10.4!jline.jar
 	[NOT REQUIRED] org.fusesource.jansi#jansi;1.4!jansi.jar
-:: resolution report :: resolve 4753ms :: artifacts dl 56ms
+:: resolution report :: resolve 6138ms :: artifacts dl 89ms
 	report for default#londonbustrackerplay-build;0.1-SNAPSHOT compile produced in /home/chrischivers/Code/Play/LondonBusTrackerPlay/project/target/resolution-cache/reports/default-londonbustrackerplay-build-compile.xml
 	report for default#londonbustrackerplay-build;0.1-SNAPSHOT runtime produced in /home/chrischivers/Code/Play/LondonBusTrackerPlay/project/target/resolution-cache/reports/default-londonbustrackerplay-build-runtime.xml
 	report for default#londonbustrackerplay-build;0.1-SNAPSHOT test produced in /home/chrischivers/Code/Play/LondonBusTrackerPlay/project/target/resolution-cache/reports/default-londonbustrackerplay-build-test.xml
@@ -15788,7 +15788,7 @@ sbt-chain: module revision found in cache: org.fusesource.jansi#jansi;1.4
 	report for default#londonbustrackerplay-build;0.1-SNAPSHOT docs produced in /home/chrischivers/Code/Play/LondonBusTrackerPlay/project/target/resolution-cache/reports/default-londonbustrackerplay-build-docs.xml
 	report for default#londonbustrackerplay-build;0.1-SNAPSHOT pom produced in /home/chrischivers/Code/Play/LondonBusTrackerPlay/project/target/resolution-cache/reports/default-londonbustrackerplay-build-pom.xml
 	report for default#londonbustrackerplay-build;0.1-SNAPSHOT scala-tool produced in /home/chrischivers/Code/Play/LondonBusTrackerPlay/project/target/resolution-cache/reports/default-londonbustrackerplay-build-scala-tool.xml
-	resolve done (4753ms resolve - 56ms download)
+	resolve done (6138ms resolve - 89ms download)
 [info] Done updating.
 Done updating.
 
@@ -15830,7 +15830,7 @@ Set current project to london-bus-tracker-play (in build file:/home/chrischivers
 > server-handle-next-server-request
 > {file:/home/chrischivers/Code/Play/LondonBusTrackerPlay/}root/*:playForkConfig
 Evaluating tasks: *:playForkConfig
-Running task... Cancel: sbt.server.ServerTaskCancellation@1531d08a, check cycles: false
+Running task... Cancel: sbt.server.ServerTaskCancellation@2ebee43e, check cycles: false
 Read from stdout: Updating {file:/home/chrischivers/Code/Play/LondonBusTrackerPlay/}root...
 Updating {file:/home/chrischivers/Code/Play/LondonBusTrackerPlay/}root...
 Other repositories:
@@ -15845,7 +15845,7 @@ resolving dependencies for configuration 'compile'
 == resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.0-SNAPSHOT->org.scala-lang#scala-library;2.11.7 [compile->default(compile)]
 Read from stdout: Resolving org.scala-lang#scala-library;2.11.7 ...
 Resolving org.scala-lang#scala-library;2.11.7 ...
-sbt-chain: Checking cache for: sbt.ivyint.MergedDescriptors@2e6ea282
+sbt-chain: Checking cache for: sbt.ivyint.MergedDescriptors@58b0b78b
 sbt-chain: module revision found in cache: org.scala-lang#scala-library;2.11.7
 	found org.scala-lang#scala-library;2.11.7 in sbt-chain
 	[2.11.7] org.scala-lang#scala-library;2.11.7
@@ -23093,7 +23093,7 @@ circular dependency found: org.scala-lang.modules#scala-xml_2.11;1.0.1->org.scal
 	[NOT REQUIRED] org.scalacheck#scalacheck_2.11;1.11.5!scalacheck_2.11.jar
 	[NOT REQUIRED] com.typesafe.akka#akka-actor_2.11;2.3.8!akka-actor_2.11.jar
 	[NOT REQUIRED] com.typesafe.akka#akka-testkit_2.11;2.3.8!akka-testkit_2.11.jar
-:: resolution report :: resolve 2020ms :: artifacts dl 64ms
+:: resolution report :: resolve 2684ms :: artifacts dl 141ms
 	report for london-bus-tracker-play#london-bus-tracker-play_2.11;1.0-SNAPSHOT compile produced in /home/chrischivers/Code/Play/LondonBusTrackerPlay/target/resolution-cache/reports/london-bus-tracker-play-london-bus-tracker-play_2.11-compile.xml
 	report for london-bus-tracker-play#london-bus-tracker-play_2.11;1.0-SNAPSHOT runtime produced in /home/chrischivers/Code/Play/LondonBusTrackerPlay/target/resolution-cache/reports/london-bus-tracker-play-london-bus-tracker-play_2.11-runtime.xml
 	report for london-bus-tracker-play#london-bus-tracker-play_2.11;1.0-SNAPSHOT test produced in /home/chrischivers/Code/Play/LondonBusTrackerPlay/target/resolution-cache/reports/london-bus-tracker-play-london-bus-tracker-play_2.11-test.xml
@@ -23108,15 +23108,48 @@ circular dependency found: org.scala-lang.modules#scala-xml_2.11;1.0.1->org.scal
 	report for london-bus-tracker-play#london-bus-tracker-play_2.11;1.0-SNAPSHOT pom produced in /home/chrischivers/Code/Play/LondonBusTrackerPlay/target/resolution-cache/reports/london-bus-tracker-play-london-bus-tracker-play_2.11-pom.xml
 	report for london-bus-tracker-play#london-bus-tracker-play_2.11;1.0-SNAPSHOT scala-tool produced in /home/chrischivers/Code/Play/LondonBusTrackerPlay/target/resolution-cache/reports/london-bus-tracker-play-london-bus-tracker-play_2.11-scala-tool.xml
 	report for london-bus-tracker-play#london-bus-tracker-play_2.11;1.0-SNAPSHOT fork-run produced in /home/chrischivers/Code/Play/LondonBusTrackerPlay/target/resolution-cache/reports/london-bus-tracker-play-london-bus-tracker-play_2.11-fork-run.xml
-	resolve done (2020ms resolve - 64ms download)
+	resolve done (2684ms resolve - 141ms download)
 Read from stdout: Done updating.
 Done updating.
-Total time: 2 s, completed 07-Feb-2016 20:44:47
+Total time: 3 s, completed 09-Feb-2016 18:54:53
 > server-post-command-cleanup
 > server-handle-next-server-request
 > root/playForkNotifyStart http://localhost:9000
 Evaluating tasks: *:playForkNotifyStart
-Running task... Cancel: sbt.server.ServerTaskCancellation@60aa678d, check cycles: false
-Total time: 0 s, completed 07-Feb-2016 20:44:47
+Running task... Cancel: sbt.server.ServerTaskCancellation@c7256b8, check cycles: false
+Total time: 0 s, completed 09-Feb-2016 18:54:54
 > server-post-command-cleanup
 > server-handle-next-server-request
+> {file:/home/chrischivers/Code/Play/LondonBusTrackerPlay/}root/*:playForkReload
+Evaluating tasks: *:playForkReload
+Running task... Cancel: sbt.server.ServerTaskCancellation@2add5dbf, check cycles: false
+
+Initial source changes: 
+	removed:Set()
+	added: Set()
+	modified: Set()
+Removed products: Set()
+External API changes: API Changes: Set()
+Modified binary dependencies: Set()
+Initial directly invalidated sources: Set()
+
+Sources indirectly invalidated by:
+	product: Set()
+	binary dep: Set()
+	external source: Set()
+All initially invalidated sources: Set()
+
+Copy resource mappings: 
+	(/home/chrischivers/Code/Play/LondonBusTrackerPlay/conf/application.conf,/home/chrischivers/Code/Play/LondonBusTrackerPlay/target/scala-2.11/classes/application.conf)
+	(/home/chrischivers/Code/Play/LondonBusTrackerPlay/conf/routes,/home/chrischivers/Code/Play/LondonBusTrackerPlay/target/scala-2.11/classes/routes)
+	(/home/chrischivers/Code/Play/LondonBusTrackerPlay/conf/play.plugins,/home/chrischivers/Code/Play/LondonBusTrackerPlay/target/scala-2.11/classes/play.plugins)
+Total time: 1 s, completed 09-Feb-2016 18:56:17
+> server-post-command-cleanup
+> server-handle-next-server-request
+Done executing sbt server engine, result Right(Exit(0))
+Closing listening server socket
+Waiting for socket thread
+Waiting for request processor thread
+Waiting for command engine result
+Returning control to sbt launcher with result Exit(0)
+Closing the 8500@chrischivers-W65-67SR logs at Tue Feb 09 18:57:40 GMT 2016, goodbye.

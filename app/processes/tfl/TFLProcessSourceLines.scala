@@ -9,6 +9,7 @@ import datasource.tfl.TFLSourceLineImpl
 import org.apache.commons.lang3.time.DateUtils
 import commons.Commons._
 import processes.weather.Weather
+import streaming.LiveStreamingCoordinatorImpl
 
 
 object TFLProcessSourceLines {
@@ -37,7 +38,7 @@ object TFLProcessSourceLines {
     if (validateLine(newLine)) {
       // Send to Live Streaming Coordinator if Enabled
       //TODO implement this
-     // if (liveStreamCollectionEnabled) LiveStreamingCoordinatorImpl.scala.processSourceLine(newLine)
+      if (liveStreamCollectionEnabled) LiveStreamingCoordinatorImpl.processSourceLine(newLine)
 
       // Process for historical data if Enabled
       if (historicalDataStoringEnabled && !isPublicHoliday(newLine)) processLineForHistoricalData(newLine)

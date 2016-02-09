@@ -17,6 +17,7 @@
         var liveStreamingRefreshSetInterval;
 
         var streamProcessingStarted = false;
+        var systemStatsOn = false;
         var emailAlertsOn = false;
         var historicalDataCollectionOn = false;
         var liveStreamingOn = false;
@@ -50,6 +51,16 @@
                     $.get("/stop-email-alerting");
                      emailAlertsOn = false;
                     document.getElementById("startStopEmailAlertsButton").innerHTML = "Turn on email alerts"
+                }
+            }
+
+               function startStopSystemStatsButtonClick() {
+                if (systemStatsOn == false) {
+                     systemStatsOn = true;
+                    document.getElementById("startStopSystemStatsButton").innerHTML = "Turn off system stats monitoring"
+                } else {
+                     systemStatsOn = false;
+                    document.getElementById("startStopSystemStatsButton").innerHTML = "Turn on system stats monitoring"
                 }
             }
 
@@ -110,13 +121,15 @@
             }
 
            function updateSystemStats() {
+           if (systemStatsOn) {
                 $.get("/memory-state", function( data ) {
-                var splitArray = data.split(",");
-                    document.getElementById("usedMemory").innerHTML = splitArray[0];
-                    document.getElementById("freeMemory").innerHTML = splitArray[1];
-                    document.getElementById("totalMemory").innerHTML = splitArray[2];
-                    document.getElementById("maxMemory").innerHTML = splitArray[3];
-                });
+                    var splitArray = data.split(",");
+                        document.getElementById("usedMemory").innerHTML = splitArray[0];
+                        document.getElementById("freeMemory").innerHTML = splitArray[1];
+                        document.getElementById("totalMemory").innerHTML = splitArray[2];
+                        document.getElementById("maxMemory").innerHTML = splitArray[3];
+                    });
+                }
             }
 
                function updateHistoricalDataCollectionValues() {
@@ -188,10 +201,10 @@
                     document.getElementById("addPolylinesNumberRead").innerHTML = data
                 });
                  $.get("/add-polylines-number-from-web", function( data ) {
-                    document.getElementById("addPolylinesNumberFromWeb").innerHTML = data
+                    document.getElementById("addPolyLinesNumberFromWeb").innerHTML = data
                 });
                   $.get("/add-polylines-number-from-cache", function( data ) {
-                    document.getElementById("addPolylinesNumbergFromCache").innerHTML = data
+                    document.getElementById("addPolyLinesNumberFromCache").innerHTML = data
                 });
             }
 
@@ -241,6 +254,7 @@
         <title>London Bus Tracker - Control Panel</title>
     </head>
     <body>
+        <h1>London Bus Tracker - Control Panel</h1>
         <table frame="box">
             <tr>
                 <td>
@@ -270,6 +284,11 @@
                 System Stats
                     </h2>
                     <table frame="box">
+                        <tr>
+                            <td>
+                                <button id="startStopSystemStatsButton" onclick="startStopSystemStatsButtonClick()">Turn on system stats monitoring</button>
+                            </td>
+                        </tr>
                         <tr>
                             <td>Used Memory:</td>
                             <td id="usedMemory">0</td>

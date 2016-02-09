@@ -1,5 +1,7 @@
 package datadefinitions.tools
 
+import java.util.NoSuchElementException
+
 import akka.actor.{ActorSystem, Actor, Props}
 import com.mongodb.casbah.Imports
 import database.{ROUTE_DEFINITION_DOCUMENT, POLYLINE_INDEX_DOCUMENT, ROUTE_DEFINITIONS_COLLECTION, POLYLINE_INDEX_COLLECTION}
@@ -121,9 +123,13 @@ object FetchPolyLines extends ResourceOperations  {
 
                 val thisStopCode = doc.get(collection.POINT_ID).asInstanceOf[String]
                 val lastStopCode = docLastRead.get.get(collection.POINT_ID).asInstanceOf[String]
-                val polyLine = getPolyLineForTwoPoints(lastStopCode,thisStopCode)
+              try {
+                val polyLine = getPolyLineForTwoPoints(lastStopCode, thisStopCode)
                 addPolyLinetoIndexDBIfRequired(lastStopCode, thisStopCode, polyLine) //Updates previous with polyline route to next
                 addPolyLineToRouteDefDB(docLastRead.get, polyLine)
+              } catch {
+                case e:NoSuchElementException => println("No stop found for: " + lastStopCode + " or " + thisStopCode)
+              }
               }
               if (doc.get(collection.FIRST_LAST).asInstanceOf[String] != "LAST") {
                 docLastRead = Some(doc)
