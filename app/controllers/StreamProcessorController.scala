@@ -1,44 +1,55 @@
 package controllers
 
-import controllers.interfaces.StreamProcessingControlInterface
 import play.api.mvc._
+import processes.tfl.TFLIterateOverArrivalStreamSupervisor
+import processes.weather.Weather
 
 object StreamProcessorController extends Controller {
 
+  val mb = 1024*1024
+  val runtime = Runtime.getRuntime
+  var started = false
+
+
   def isStarted = Action {
-    Ok(StreamProcessingControlInterface.started.toString)
+    Ok(started.toString)
   }
 
   def getNumberLinesRead = Action {
-    Ok(StreamProcessingControlInterface.getNumberLinesRead.toString)
+    Ok(TFLIterateOverArrivalStreamSupervisor.numberProcessed.toString)
   }
 
   def getNumberLinesSinceRestart = Action {
-    Ok(StreamProcessingControlInterface.getNumberReadSinceRestart.toString)
+    Ok(TFLIterateOverArrivalStreamSupervisor.numberProcessedSinceRestart.toString)
   }
 
   def getCurrentRainFall = Action {
-    Ok(StreamProcessingControlInterface.getCurrentRainfall.toString)
+    Ok(Weather.getCurrentRainfall.toString)
   }
 
   def getMemoryState = Action {
-    Ok(StreamProcessingControlInterface.getUsedMemory + "," +
-      StreamProcessingControlInterface.getFreeMemory + "," +
-      StreamProcessingControlInterface.getTotalMemory + "," +
-      StreamProcessingControlInterface.getMaxMemory)
+    Ok(((runtime.totalMemory - runtime.freeMemory) / mb) + "," +
+      (runtime.freeMemory / mb) + "," +
+      (runtime.totalMemory / mb) + "," +
+      (runtime.maxMemory / mb))
   }
 
 
   def startStreamProcessor = Action {
-    StreamProcessingControlInterface.start()
+    if (!started) {
+      started = true
+      println("Starting Stream Processor")
+      TFLIterateOverArrivalStreamSupervisor.start()
+    }
     Ok("started")
   }
 
   def stopStreamProcessor = Action {
-    StreamProcessingControlInterface.stop()
+    if (started) {
+      started = false
+      println("Stopping Stream Processor")
+      TFLIterateOverArrivalStreamSupervisor.stop()
+    }
     Ok("stopped")
   }
-
-
-
 }

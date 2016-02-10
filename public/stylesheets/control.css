@@ -1,3 +1,11 @@
+table.controlbox {
+    background-color: black;
+}
+
+table.controlpanel {
+    background-color: white;
+}
+
 h1 {
     font-family: Arial, Helvetica, sans-serif;
     font-size: 30px;
@@ -7,7 +15,7 @@ h1 {
 }
 h2 {
     font-family: Arial, Helvetica, sans-serif;
-    color: darkblue;
+    color: lightpink;
     font-size: 22px;
     font-style: normal;
     font-variant: normal;

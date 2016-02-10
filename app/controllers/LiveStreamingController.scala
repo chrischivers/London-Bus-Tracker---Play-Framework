@@ -1,39 +1,47 @@
 package controllers
 
-
-import controllers.interfaces.LiveStreamingControlInterface
 import play.api.mvc._
 import play.api.Play.current
-import streaming.{WebSocketSupervisor, WebSocketActor}
+import streaming.{LiveStreamingCoordinatorImpl, WebSocketSupervisor, WebSocketActor}
 
 
 object LiveStreamingController extends Controller {
+
+  var started = false
 
   def socket = WebSocket.acceptWithActor[String, String] { request => out =>
   WebSocketSupervisor.props(out)
 }
 
   def isStarted = Action {
-    Ok(LiveStreamingControlInterface.started.toString)
+    Ok(started.toString)
   }
 
 
   def turnOnLiveStreaming = Action {
-    LiveStreamingControlInterface.start()
+    if (!started) {
+      started = true
+      println("Live Streaming turned on")
+      LiveStreamingCoordinatorImpl.start()
+    }
     Ok("started")
   }
 
   def turnOffLiveStreaming = Action {
-    LiveStreamingControlInterface.stop()
+    if (started) {
+      started = false
+      println("Live Streaming turned off")
+      LiveStreamingCoordinatorImpl.stop()
+    }
     Ok("stopped")
   }
 
   def getNumberLiveActors = Action {
-    Ok(LiveStreamingControlInterface.getNumberLiveActors.toString)
+    Ok(LiveStreamingCoordinatorImpl.getNumberLiveActors.toString)
   }
 
   def getNumberLiveChildren = Action {
-    Ok(LiveStreamingControlInterface.getNumberLiveChildren.toString)
+    Ok(LiveStreamingCoordinatorImpl.getNumberLiveChildren.toString)
   }
 
 

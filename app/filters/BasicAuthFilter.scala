@@ -12,7 +12,16 @@ object BasicAuthFilter extends Filter {
   private lazy val passwordRequired = true
   private lazy val username = "chrischivers"
   private lazy val password = "Audacity2005"
-  private lazy val protectedList = Seq("control.html","control","admin")
+  private lazy val protectedList = Seq("control.html","control","admin",
+    "stream-started","start-stream","stop-stream","lines-read","lines-read-since-restart","current-rainfall",
+    "memory-state","email-alerts-started","start-email-alerting","stop-email-alerting","historical-data-collection-started",
+    "start-historical-data-collection","stop-historical-data-collection","size-holding-buffer","number-non-matches",
+    "insert-transactions-requested", "insert-transactions-executed","insert-transactions-outstanding","insert-transactions-dropped",
+    "pulls-requested","pulls-executed","live-streaming-started","start-live-streaming","stop-live-streaming","number-live-actors",
+    "number-live-children","update-route-definitions","update-routes-percentage-complete","update-routes-number-inserted",
+    "update-routes-number-updated","update-stop-definitions","update-stops-percentage-complete","update-stops-number-inserted",
+    "update-stops-number-updated","add-polylines","add-polylines-number-read","add-polylines-number-from-web","add-polylines-number-from-cache," +
+      "clean-up-point-to-point", "point-to-point-clean-checked", "point-to-point-clean-deleted")
   //need the space at the end
   private lazy val basicSt = "basic "
 

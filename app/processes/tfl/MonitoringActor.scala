@@ -1,8 +1,7 @@
 package processes.tfl
 
 import akka.actor.Actor
-import controllers.interfaces.{StreamProcessingControlInterface, EmailAlertInterface}
-import datasource.tfl.TFLSourceLineFormatterImpl
+import controllers.{StreamProcessorController, EmailAlertsController}
 import play.api.Logger
 
 import scala.concurrent.ExecutionContext.Implicits.global
@@ -24,6 +23,9 @@ class MonitoringActor extends Actor {
 
   val TIME_TO_WAIT_BETWEEN_CHECKS = 10000
 
+  val mb = 1024*1024
+  val runtime = Runtime.getRuntime
+
   // Iterating pattern for this actor based on code snippet posted on StackOverflow
   //http://stackoverflow.com/questions/5626285/pattern-for-interruptible-loops-using-actors
   override def receive: Receive = inactive // Start out as inactive
@@ -41,17 +43,17 @@ class MonitoringActor extends Actor {
       context.become(inactive)
     case Next =>
 
-      val linesRead = StreamProcessingControlInterface.getNumberLinesRead.toLong
+      val linesRead = TFLIterateOverArrivalStreamSupervisor.numberProcessed
       if (System.currentTimeMillis() - periodToCheck > timeStampLastChecked) {
         if (linesRead - linesReadOnLastCheck < MIN_LINES_TO_READ_IN_PERIOD && linesRead != 0) {
           Logger.error("No lines being read")
-          EmailAlertInterface.sendAlert(linesNotBeingReadAlertText)
+          EmailAlertsController.sendAlert(linesNotBeingReadAlertText)
         }
         timeStampLastChecked = System.currentTimeMillis()
         linesReadOnLastCheck = linesRead
       }
-      if (StreamProcessingControlInterface.getUsedMemory - StreamProcessingControlInterface.getMaxMemory < MEMORY_REMAINING_TO_ALERT) {
-        EmailAlertInterface.sendAlert(freeMemoryLowAlertText)
+      if (((runtime.totalMemory - runtime.freeMemory) / mb)  - (runtime.maxMemory / mb) < MEMORY_REMAINING_TO_ALERT) {
+        EmailAlertsController.sendAlert(freeMemoryLowAlertText)
       }
       Thread.sleep(TIME_TO_WAIT_BETWEEN_CHECKS)
       self ! Next

@@ -1,27 +1,29 @@
 package controllers
 
-import controllers.interfaces.{UpdateRouteDefinitionsControlInterface, LiveStreamingControlInterface}
+import database.tfl.TFLInsertUpdateRouteDefinition
+import datadefinitions.tfl.TFLDefinitions
+import datadefinitions.tfl.loadresources.LoadRouteDefinitions
 import play.api.Play.current
 import play.api.mvc._
-import streaming.WebSocketActor
 
 
 object UpdateRouteDefinitionsController extends Controller {
 
   def updateRouteDefinitions = Action {
-    UpdateRouteDefinitionsControlInterface.start()
+    TFLDefinitions.updateRouteDefinitionsFromWeb()
     Ok("started")
   }
 
   def getPercentageComplete = Action {
-    Ok(UpdateRouteDefinitionsControlInterface.getPercentageComplete.toString)
+    Ok(LoadRouteDefinitions.percentageComplete.toString)
   }
 
   def getNumberInserted = Action {
-    Ok(UpdateRouteDefinitionsControlInterface.getNumberInserted.toString)
+    Ok(TFLInsertUpdateRouteDefinition.numberDBInsertsRequested.toString)
   }
   def getNumberUpdated = Action {
-    Ok(UpdateRouteDefinitionsControlInterface.getNumberUpdated.toString)
+    Ok(TFLInsertUpdateRouteDefinition.numberDBUpdatesRequested.toString)
   }
 
 }
+

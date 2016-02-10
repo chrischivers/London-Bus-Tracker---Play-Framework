@@ -27,9 +27,6 @@
                  $.get("/start-stream");
                  streamProcessingStarted = true;
                 streamRefreshSetInterval = setInterval(updateStreamProcessingValues, streamProcessingRefreshInterval);
-                systemStatsRefreshSetInterval = setInterval(updateSystemStats, systemStatsRefreshInterval);
-                historicalDataRefreshSetInterval = setInterval(updateHistoricalDataCollectionValues, historicalDataRefreshInterval);
-                liveStreamingRefreshSetInterval = setInterval(updateLiveStreamingValues, liveStreamingRefreshInterval);
                 document.getElementById("startStopStreamButton").innerHTML = "Stop Stream Processing"
             } else {
                   $.get("/stop-stream");
@@ -57,9 +54,11 @@
                function startStopSystemStatsButtonClick() {
                 if (systemStatsOn == false) {
                      systemStatsOn = true;
+                     systemStatsRefreshSetInterval = setInterval(updateSystemStats, systemStatsRefreshInterval);
                     document.getElementById("startStopSystemStatsButton").innerHTML = "Turn off system stats monitoring"
                 } else {
                      systemStatsOn = false;
+                      clearInterval(systemStatsRefreshSetInterval);
                     document.getElementById("startStopSystemStatsButton").innerHTML = "Turn on system stats monitoring"
                 }
             }
@@ -68,10 +67,12 @@
                 if (historicalDataCollectionOn == false) {
                        $.get("/start-historical-data-collection");
                      historicalDataCollectionOn = true;
+                      historicalDataRefreshSetInterval = setInterval(updateHistoricalDataCollectionValues, historicalDataRefreshInterval);
                     document.getElementById("startStopHistoricalDataCollectionsButton").innerHTML = "Turn off historical data collection"
                 } else {
                     $.get("/stop-historical-data-collection");
                      historicalDataCollectionOn = false;
+                     clearInterval(historicalDataRefreshSetInterval);
                     document.getElementById("startStopHistoricalDataCollectionsButton").innerHTML = "Turn on historical data collection"
                 }
             }
@@ -80,10 +81,12 @@
                 if (liveStreamingOn == false) {
                        $.get("/start-live-streaming");
                      liveStreamingOn = true;
+                     liveStreamingRefreshSetInterval = setInterval(updateLiveStreamingValues, liveStreamingRefreshInterval);
                     document.getElementById("startStopLiveStreamingButton").innerHTML = "Turn off live streaming"
                 } else {
                     $.get("/stop-live-streaming");
                      liveStreamingOn = false;
+                     clearInterval(liveStreamingRefreshSetInterval);
                     document.getElementById("startStopLiveStreamingButton").innerHTML = "Turn on live streaming"
                 }
             }
@@ -103,6 +106,12 @@
                    $.get("/add-polylines");
                     document.getElementById("addPolyLinesButton").disabled = true;
                     setInterval(updatePolyLinesValues, routeStopPolyUpdateRefreshInterval);
+            }
+
+              function cleanUpPointToPointButtonClick() {
+                   $.get("/clean-up-point-to-point");
+                    document.getElementById("cleanUpPointToPointButton").disabled = true;
+                    setInterval(updateCleanUpPointToPointValues, routeStopPolyUpdateRefreshInterval);
             }
 
 
@@ -208,11 +217,21 @@
                 });
             }
 
+            function updateCleanUpPointToPointValues() {
+                $.get("/point-to-point-clean-checked", function( data ) {
+                    document.getElementById("pointToPointCleanChecked").innerHTML = data
+                });
+                 $.get("/point-to-point-clean-deleted", function( data ) {
+                    document.getElementById("pointToPointCleanDeleted").innerHTML = data
+                });
+            }
+
 
             function init() {
                  $.get("/stream-started", function( data ) {
                     if(data == "true") {
                         streamProcessingStarted = true;
+                          streamRefreshSetInterval = setInterval(updateStreamProcessingValues, streamProcessingRefreshInterval);
                         document.getElementById("startStopStreamButton").innerHTML = "Stop Stream Processing"
                     } else {
                     streamProcessingStarted = false;
@@ -231,6 +250,7 @@
                 $.get("/historical-data-collection-started", function( data ) {
                     if(data == "true") {
                         historicalDataCollectionOn  = true;
+                         historicalDataRefreshSetInterval = setInterval(updateHistoricalDataCollectionValues, historicalDataRefreshInterval);
                          document.getElementById("startStopHistoricalDataCollectionsButton").innerHTML = "Turn off historical data collection"
                     } else {
                     historicalDataCollectionOn = false;
@@ -240,6 +260,7 @@
                   $.get("/live-streaming-started", function( data ) {
                     if(data == "true") {
                         liveStreamingOn  = true;
+                        liveStreamingRefreshSetInterval = setInterval(updateLiveStreamingValues, liveStreamingRefreshInterval);
                           document.getElementById("startStopLiveStreamingButton").innerHTML = "Turn off live streaming"
                     } else {
                     liveStreamingOn = false;
@@ -255,13 +276,13 @@
     </head>
     <body>
         <h1>London Bus Tracker - Control Panel</h1>
-        <table frame="box">
+        <table class="controlbox" frame="box">
             <tr>
                 <td>
                     <h2>
             Data Source Reading
                     </h2>
-                    <table frame="box">
+                    <table class="controlpanel">
                         <tr>
                             <td>
                                 <button id="startStopStreamButton" onclick="startStopStreamButtonClick()"></button>
@@ -283,7 +304,7 @@
                     <h2>
                 System Stats
                     </h2>
-                    <table frame="box">
+                    <table class="controlpanel">
                         <tr>
                             <td>
                                 <button id="startStopSystemStatsButton" onclick="startStopSystemStatsButtonClick()">Turn on system stats monitoring</button>
@@ -309,7 +330,7 @@
                     <h2>
                     Email Alerts
                     </h2>
-                    <table frame="box">
+                    <table class="controlpanel" >
                         <tr>
                             <td>
                                 <button id="startStopEmailAlertsButton" onclick="startStopEmailAlertsButtonClick()"></button>
@@ -321,7 +342,7 @@
                     <h2>
                     Historical Data Collection
                     </h2>
-                    <table frame="box">
+                    <table class="controlpanel" >
                         <tr>
                             <td>
                                 <button id="startStopHistoricalDataCollectionsButton" onclick="startStopHistoricalDataCollectionButtonClick()"></button>
@@ -360,12 +381,30 @@
                             <td id="pullsExecuted">0</td>
                         </tr>
                     </table>
+                    <h2>
+                    Point-To-Point Clean Up
+                    </h2>
+                    <table class="controlpanel" >
+                        <tr>
+                            <td>
+                                <button id="cleanUpPointToPointButton" onclick="cleanUpPointToPointButtonClick()">Clean Up Point To Point Data</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Number Point To Point records checked:</td>
+                            <td id="pointToPointCleanChecked">0</td>
+                        </tr>
+                        <tr>
+                            <td>Number Point To Point records deleted:</td>
+                            <td id="pointToPointCleanDeleted">0</td>
+                        </tr>
+                    </table>
                 </td>
                 <td>
                     <h2>
                     Live Streaming
                     </h2>
-                    <table frame="box">
+                    <table class="controlpanel">
                         <tr>
                             <td>
                                 <button id="startStopLiveStreamingButton" onclick="startStopLiveStreamingButtonClick()"></button>
@@ -385,7 +424,7 @@
                     <h2>
                     Update Route Definitions
                     </h2>
-                    <table frame="box">
+                    <table class="controlpanel">
                         <tr>
                             <td>
                                 <button id="updateRouteDefinitionsButton" onclick="updateRouteDefinitionsButtonClick()">Update Route Definitions</button>
@@ -407,7 +446,7 @@
                     <h2>
                     Update Stop Definitions
                     </h2>
-                    <table frame="box">
+                    <table class="controlpanel">
                         <tr>
                             <td>
                                 <button id="updateStopDefinitionsButton" onclick="updateStopDefinitionsButtonClick()">Update Stop Definitions</button>
@@ -429,7 +468,7 @@
                     <h2>
                     Add polylines
                     </h2>
-                    <table frame="box">
+                    <table class="controlpanel">
                         <tr>
                             <td>
                                 <button id="addPolyLinesButton" onclick="addPolyLinesButtonClick()">Add Polylines</button>

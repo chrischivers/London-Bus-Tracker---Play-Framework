@@ -3,6 +3,7 @@
 # ~~~~
 
 # Home page
+GET     /                               controllers.Application.map
 GET     /admin                           controllers.Application.admin
 GET     /map                             controllers.Application.map
 GET     /prediction                     controllers.Application.prediction
@@ -62,6 +63,11 @@ GET     /add-polylines                      controllers.AddPolyLinesController.a
 GET     /add-polylines-number-read          controllers.AddPolyLinesController.getLinesRead
 GET     /add-polylines-number-from-web      controllers.AddPolyLinesController.getNumberUpdatedFromWeb
 GET     /add-polylines-number-from-cache    controllers.AddPolyLinesController.getNumberUpdatedFromCache
+
+#Clean Up PointToPoint
+GET     /clean-up-point-to-point            controllers.CleanUpPointToPointController.cleanUpPointToPoint
+GET     /point-to-point-clean-checked       controllers.CleanUpPointToPointController.getNumberDocumentsRead
+GET     /point-to-point-clean-deleted       controllers.CleanUpPointToPointController.getNumberDocumentsDeleted
 
 #Common Functions
 GET     /route_list_request.asp                         controllers.CommonFunctions.getRouteList

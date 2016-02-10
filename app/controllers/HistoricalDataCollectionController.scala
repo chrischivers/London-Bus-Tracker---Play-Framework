@@ -1,54 +1,67 @@
 package controllers
 
-import controllers.interfaces.{HistoricalDataCollectionControlInterface, StreamProcessingControlInterface}
+import database.tfl.TFLInsertPointToPointDurationSupervisor
 import play.api.mvc._
+import processes.tfl.TFLProcessSourceLines
 
 object HistoricalDataCollectionController extends Controller {
 
+  var started = false
+
   def isStarted = Action {
-    Ok(HistoricalDataCollectionControlInterface.started.toString)
+    Ok(started.toString)
   }
   
 
   def turnOnHistoricalDataCollection = Action {
-    HistoricalDataCollectionControlInterface.start()
+    if (!started) {
+      started = true
+      println("Historical Data Collection turned on")
+      TFLProcessSourceLines.setHistoricalDataStoring(true)
+    }
     Ok("started")
   }
 
   def turnOffHistoricalDataCollection = Action {
-    HistoricalDataCollectionControlInterface.stop()
+    if (started) {
+      started = false
+      println("Historical Data Collection turned off")
+      TFLProcessSourceLines.setHistoricalDataStoring(false)
+    }
     Ok("stopped")
   }
 
   def getSizeOfHoldingBuffer = Action {
-    Ok(HistoricalDataCollectionControlInterface.getNumberInHoldingBuffer.toString)
+    Ok(TFLProcessSourceLines.getBufferSize.toString)
   }
 
   def getNumberNonMatches = Action {
-    Ok(HistoricalDataCollectionControlInterface.getNumberNonMatches.toString)
+    Ok(TFLProcessSourceLines.numberNonMatches.toString)
   }
 
   def getInsertTransactionsRequested = Action {
-    Ok(HistoricalDataCollectionControlInterface.getNumberDBTransactionsRequested.toString)
+    Ok(TFLInsertPointToPointDurationSupervisor.numberDBTransactionsRequested.toString)
   }
 
   def getInsertTransactionsExecuted = Action {
-    Ok(HistoricalDataCollectionControlInterface.getNumberDBTransactionsExecuted.toString)
+    Ok(TFLInsertPointToPointDurationSupervisor.numberDBTransactionsExecuted.toString)
   }
   def getInsertTransactionsOutstanding = Action {
-    Ok(HistoricalDataCollectionControlInterface.getNumberDBTransactionsOutstanding.toString)
+    Ok((TFLInsertPointToPointDurationSupervisor.numberDBTransactionsRequested - TFLInsertPointToPointDurationSupervisor.numberDBTransactionsExecuted).toString)
   }
 
   def getInsertTransactionsDropped = Action {
-    Ok(HistoricalDataCollectionControlInterface.getNumberDBTransactionsDroppedDueToOverflow.toString)
+    Ok(TFLInsertPointToPointDurationSupervisor.numberDBTransactionsDroppedDueToOverflow.toString)
   }
 
   def getRecordPullsRequested = Action {
-    Ok(HistoricalDataCollectionControlInterface.getNumberRecordsPulledFromDBRequested.toString)
+    Ok(TFLInsertPointToPointDurationSupervisor.numberRecordsPulledFromDbRequested.toString)
   }
 
   def getRecordPullsExecuted = Action {
-    Ok(HistoricalDataCollectionControlInterface.getNumberRecordsPulledFromDBExecuted.toString)
+    Ok(TFLInsertPointToPointDurationSupervisor.numberRecordsPulledFromDbExecuted.toString)
   }
 
 }
+
+
