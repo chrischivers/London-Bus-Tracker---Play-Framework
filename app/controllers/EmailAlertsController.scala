@@ -1,16 +1,17 @@
 package controllers
 
 import com.typesafe.plugin._
-import commons.ReadProperties
+import play.Play
 import play.api.Logger
 import play.api.mvc._
+import play.api.Play.current
 
 object EmailAlertsController extends Controller {
 
   var alertsEnabled = false
   var numberEmailsSent = 0
-  val emailerFromAddress = ReadProperties.getProperty("emailerfromaddress")
-  val emailerToAddress = ReadProperties.getProperty("emailertoaddress")
+  val emailerFromAddress = Play.application.configuration.getString("emailerfromaddress")
+  val emailerToAddress = Play.application.configuration.getString("emailertoaddress")
 
   def isStarted = Action {
     Ok(alertsEnabled.toString)

@@ -1,5 +1,5 @@
-New log file opened at Wed Feb 10 19:09:10 GMT 2016 by 9941@chrischivers-W65-67SR
-jvm 9941@chrischivers-W65-67SR
+New log file opened at Thu Feb 11 19:47:52 GMT 2016 by 6711@chrischivers-W65-67SR
+jvm 6711@chrischivers-W65-67SR
 jvm vmName=Java HotSpot(TM) 64-Bit Server VM vmVendor=Oracle Corporation vmVersion=25.72-b15
 jvm specName=Java Virtual Machine Specification specVendor=Oracle Corporation specVersion=1.8
 jvm arguments: [-Xms256m, -Xmx1024m, -XX:MetaspaceSize=64m, -XX:MaxMetaspaceSize=256m]
@@ -27,7 +27,7 @@ sorting: ns: List(sbt.plugins.CorePlugin, sbt.plugins.IvyPlugin, sbt.plugins.Jvm
   :: sorted deduced result: List(sbt.plugins.CorePlugin, sbt.plugins.IvyPlugin, sbt.plugins.JvmPlugin, sbt.plugins.JUnitXmlReportPlugin)
 [Loading] Done in /home/chrischivers/Code/Play/LondonBusTrackerPlay/project, returning: (londonbustrackerplay-build)
 Loading project definition from /home/chrischivers/Code/Play/LondonBusTrackerPlay/project
-Running task... Cancel: sbt.TaskCancellationStrategy$Null$@438a37d7, check cycles: false
+Running task... Cancel: sbt.TaskCancellationStrategy$Null$@1c186678, check cycles: false
 [info] Updating {file:/home/chrischivers/Code/Play/LondonBusTrackerPlay/project/}londonbustrackerplay-build...
 Updating {file:/home/chrischivers/Code/Play/LondonBusTrackerPlay/project/}londonbustrackerplay-build...
 Other repositories:
@@ -15774,7 +15774,7 @@ sbt-chain: module revision found in cache: org.fusesource.jansi#jansi;1.4
 	[NOT REQUIRED] org.scala-sbt#apply-macro;0.13.8-M3!apply-macro.jar
 	[NOT REQUIRED] org.scala-lang#jline;2.10.4!jline.jar
 	[NOT REQUIRED] org.fusesource.jansi#jansi;1.4!jansi.jar
-:: resolution report :: resolve 4632ms :: artifacts dl 73ms
+:: resolution report :: resolve 5881ms :: artifacts dl 66ms
 	report for default#londonbustrackerplay-build;0.1-SNAPSHOT compile produced in /home/chrischivers/Code/Play/LondonBusTrackerPlay/project/target/resolution-cache/reports/default-londonbustrackerplay-build-compile.xml
 	report for default#londonbustrackerplay-build;0.1-SNAPSHOT runtime produced in /home/chrischivers/Code/Play/LondonBusTrackerPlay/project/target/resolution-cache/reports/default-londonbustrackerplay-build-runtime.xml
 	report for default#londonbustrackerplay-build;0.1-SNAPSHOT test produced in /home/chrischivers/Code/Play/LondonBusTrackerPlay/project/target/resolution-cache/reports/default-londonbustrackerplay-build-test.xml
@@ -15788,7 +15788,7 @@ sbt-chain: module revision found in cache: org.fusesource.jansi#jansi;1.4
 	report for default#londonbustrackerplay-build;0.1-SNAPSHOT docs produced in /home/chrischivers/Code/Play/LondonBusTrackerPlay/project/target/resolution-cache/reports/default-londonbustrackerplay-build-docs.xml
 	report for default#londonbustrackerplay-build;0.1-SNAPSHOT pom produced in /home/chrischivers/Code/Play/LondonBusTrackerPlay/project/target/resolution-cache/reports/default-londonbustrackerplay-build-pom.xml
 	report for default#londonbustrackerplay-build;0.1-SNAPSHOT scala-tool produced in /home/chrischivers/Code/Play/LondonBusTrackerPlay/project/target/resolution-cache/reports/default-londonbustrackerplay-build-scala-tool.xml
-	resolve done (4632ms resolve - 73ms download)
+	resolve done (5881ms resolve - 66ms download)
 [info] Done updating.
 Done updating.
 

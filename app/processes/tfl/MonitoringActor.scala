@@ -52,9 +52,9 @@ class MonitoringActor extends Actor {
         timeStampLastChecked = System.currentTimeMillis()
         linesReadOnLastCheck = linesRead
       }
-      if (((runtime.totalMemory - runtime.freeMemory) / mb)  - (runtime.maxMemory / mb) < MEMORY_REMAINING_TO_ALERT) {
+      /*if (((runtime.totalMemory - runtime.freeMemory) / mb)  - (runtime.maxMemory / mb) < MEMORY_REMAINING_TO_ALERT) {
         EmailAlertsController.sendAlert(freeMemoryLowAlertText)
-      }
+      }*/
       Thread.sleep(TIME_TO_WAIT_BETWEEN_CHECKS)
       self ! Next
   }
@@ -65,6 +65,4 @@ class MonitoringActor extends Actor {
     self ! Start
     self ! Next
   }
-
-
 }

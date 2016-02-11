@@ -21,7 +21,7 @@ GET     /current-rainfall            controllers.StreamProcessorController.getCu
 GET     /memory-state            controllers.StreamProcessorController.getMemoryState
 
 # Email alerting control
-GET     /email-alerts-started                             controllers.EmailAlertsController.isStarted
+GET     /email-alerts-started                    controllers.EmailAlertsController.isStarted
 GET     /start-email-alerting                    controllers.EmailAlertsController.turnOnEmailAlerts
 GET     /stop-email-alerting                     controllers.EmailAlertsController.turnOffEmailAlerts
 

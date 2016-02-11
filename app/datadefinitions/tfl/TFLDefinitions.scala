@@ -51,6 +51,16 @@ object TFLDefinitions extends DataDefinitions{
     val sortedIntList = partitionedList._1.map(_.toInt).sorted
     val sortedStringList = partitionedList._2.sorted
     val fullSortedList = sortedIntList.map(_.toString) ++ sortedStringList
-    fullSortedList.map(x => (x, PointDefinitionsMap.get(RouteDefinitionMap.get(x,1).get.minBy(_._1)._2).get.stopPointName, PointDefinitionsMap.get(RouteDefinitionMap.get(x,1).get.maxBy(_._1)._2).get.stopPointName))
+
+    fullSortedList.map(x => {
+      try {
+        val routeDef = RouteDefinitionMap.get(x, 1)
+        val firstStopName = PointDefinitionsMap.get(routeDef.get.minBy(_._1)._2).get.stopPointName
+        val lastStopName = PointDefinitionsMap.get(routeDef.get.maxBy(_._1)._2).get.stopPointName
+        (x, firstStopName, lastStopName)
+      } catch {
+        case e:NoSuchElementException => (x, "N/A", "N/A")
+      }
+    })
   }
 }

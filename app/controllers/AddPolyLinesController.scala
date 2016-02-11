@@ -1,6 +1,5 @@
 package controllers
 
-import controllers.interfaces.AddPolyLinesControlInterface
 import datadefinitions.tfl.TFLDefinitions
 import datadefinitions.tools.FetchPolyLines
 import play.api.mvc._

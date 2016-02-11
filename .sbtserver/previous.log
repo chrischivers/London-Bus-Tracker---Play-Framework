@@ -1,5 +1,5 @@
-New log file opened at Wed Feb 10 19:04:40 GMT 2016 by 9364@chrischivers-W65-67SR
-jvm 9364@chrischivers-W65-67SR
+New log file opened at Thu Feb 11 19:36:36 GMT 2016 by 5313@chrischivers-W65-67SR
+jvm 5313@chrischivers-W65-67SR
 jvm vmName=Java HotSpot(TM) 64-Bit Server VM vmVendor=Oracle Corporation vmVersion=25.72-b15
 jvm specName=Java Virtual Machine Specification specVendor=Oracle Corporation specVersion=1.8
 jvm arguments: [-Xms256m, -Xmx1024m, -XX:MetaspaceSize=64m, -XX:MaxMetaspaceSize=256m]
@@ -27,7 +27,7 @@ sorting: ns: List(sbt.plugins.CorePlugin, sbt.plugins.IvyPlugin, sbt.plugins.Jvm
   :: sorted deduced result: List(sbt.plugins.CorePlugin, sbt.plugins.IvyPlugin, sbt.plugins.JvmPlugin, sbt.plugins.JUnitXmlReportPlugin)
 [Loading] Done in /home/chrischivers/Code/Play/LondonBusTrackerPlay/project, returning: (londonbustrackerplay-build)
 Loading project definition from /home/chrischivers/Code/Play/LondonBusTrackerPlay/project
-Running task... Cancel: sbt.TaskCancellationStrategy$Null$@d0b49b5, check cycles: false
+Running task... Cancel: sbt.TaskCancellationStrategy$Null$@640a138e, check cycles: false
 [info] Updating {file:/home/chrischivers/Code/Play/LondonBusTrackerPlay/project/}londonbustrackerplay-build...
 Updating {file:/home/chrischivers/Code/Play/LondonBusTrackerPlay/project/}londonbustrackerplay-build...
 Other repositories:
@@ -15774,7 +15774,7 @@ sbt-chain: module revision found in cache: org.fusesource.jansi#jansi;1.4
 	[NOT REQUIRED] org.scala-sbt#apply-macro;0.13.8-M3!apply-macro.jar
 	[NOT REQUIRED] org.scala-lang#jline;2.10.4!jline.jar
 	[NOT REQUIRED] org.fusesource.jansi#jansi;1.4!jansi.jar
-:: resolution report :: resolve 6828ms :: artifacts dl 89ms
+:: resolution report :: resolve 20238ms :: artifacts dl 100ms
 	report for default#londonbustrackerplay-build;0.1-SNAPSHOT compile produced in /home/chrischivers/Code/Play/LondonBusTrackerPlay/project/target/resolution-cache/reports/default-londonbustrackerplay-build-compile.xml
 	report for default#londonbustrackerplay-build;0.1-SNAPSHOT runtime produced in /home/chrischivers/Code/Play/LondonBusTrackerPlay/project/target/resolution-cache/reports/default-londonbustrackerplay-build-runtime.xml
 	report for default#londonbustrackerplay-build;0.1-SNAPSHOT test produced in /home/chrischivers/Code/Play/LondonBusTrackerPlay/project/target/resolution-cache/reports/default-londonbustrackerplay-build-test.xml
@@ -15788,7 +15788,7 @@ sbt-chain: module revision found in cache: org.fusesource.jansi#jansi;1.4
 	report for default#londonbustrackerplay-build;0.1-SNAPSHOT docs produced in /home/chrischivers/Code/Play/LondonBusTrackerPlay/project/target/resolution-cache/reports/default-londonbustrackerplay-build-docs.xml
 	report for default#londonbustrackerplay-build;0.1-SNAPSHOT pom produced in /home/chrischivers/Code/Play/LondonBusTrackerPlay/project/target/resolution-cache/reports/default-londonbustrackerplay-build-pom.xml
 	report for default#londonbustrackerplay-build;0.1-SNAPSHOT scala-tool produced in /home/chrischivers/Code/Play/LondonBusTrackerPlay/project/target/resolution-cache/reports/default-londonbustrackerplay-build-scala-tool.xml
-	resolve done (6828ms resolve - 89ms download)
+	resolve done (20238ms resolve - 100ms download)
 [info] Done updating.
 Done updating.
 
@@ -15830,36 +15830,36 @@ Set current project to london-bus-tracker-play (in build file:/home/chrischivers
 > server-handle-next-server-request
 > {file:/home/chrischivers/Code/Play/LondonBusTrackerPlay/}root/*:playForkConfig
 Evaluating tasks: *:playForkConfig
-Running task... Cancel: sbt.server.ServerTaskCancellation@21f2e6cd, check cycles: false
+Running task... Cancel: sbt.server.ServerTaskCancellation@313ef153, check cycles: false
 Read from stdout: Updating {file:/home/chrischivers/Code/Play/LondonBusTrackerPlay/}root...
 Updating {file:/home/chrischivers/Code/Play/LondonBusTrackerPlay/}root...
 Other repositories:
 Default repositories:
 Using inline dependencies specified in Scala.
-:: resolving dependencies :: london-bus-tracker-play#london-bus-tracker-play_2.11;1.0-SNAPSHOT
+:: resolving dependencies :: london-bus-tracker-play#london-bus-tracker-play_2.11;1.3
 	confs: [compile, runtime, test, provided, optional, compile-internal, runtime-internal, test-internal, plugin, sources, docs, pom, scala-tool, fork-run]
 	validate = true
 	refresh = false
 resolving dependencies for configuration 'compile'
-== resolving dependencies for london-bus-tracker-play#london-bus-tracker-play_2.11;1.0-SNAPSHOT [compile]
-== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.0-SNAPSHOT->org.scala-lang#scala-library;2.11.7 [compile->default(compile)]
+== resolving dependencies for london-bus-tracker-play#london-bus-tracker-play_2.11;1.3 [compile]
+== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.3->org.scala-lang#scala-library;2.11.7 [compile->default(compile)]
 Read from stdout: Resolving org.scala-lang#scala-library;2.11.7 ...
 Resolving org.scala-lang#scala-library;2.11.7 ...
-sbt-chain: Checking cache for: sbt.ivyint.MergedDescriptors@3a5379bf
+sbt-chain: Checking cache for: sbt.ivyint.MergedDescriptors@7387dbc2
 sbt-chain: module revision found in cache: org.scala-lang#scala-library;2.11.7
 	found org.scala-lang#scala-library;2.11.7 in sbt-chain
 	[2.11.7] org.scala-lang#scala-library;2.11.7
-== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.0-SNAPSHOT->org.scala-lang#scala-library;2.11.7 [compile->runtime]
-== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.0-SNAPSHOT->org.scala-lang#scala-library;2.11.7 [compile->compile]
-== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.0-SNAPSHOT->org.scala-lang#scala-library;2.11.7 [compile->master]
-== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.0-SNAPSHOT->com.typesafe.play#twirl-api_2.11;1.0.2 [compile->default(compile)]
+== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.3->org.scala-lang#scala-library;2.11.7 [compile->runtime]
+== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.3->org.scala-lang#scala-library;2.11.7 [compile->compile]
+== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.3->org.scala-lang#scala-library;2.11.7 [compile->master]
+== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.3->com.typesafe.play#twirl-api_2.11;1.0.2 [compile->default(compile)]
 Read from stdout: Resolving com.typesafe.play#twirl-api_2.11;1.0.2 ...
 Resolving com.typesafe.play#twirl-api_2.11;1.0.2 ...
 sbt-chain: Checking cache for: dependency: com.typesafe.play#twirl-api_2.11;1.0.2 {compile=[default(compile)]}
 sbt-chain: module revision found in cache: com.typesafe.play#twirl-api_2.11;1.0.2
 	found com.typesafe.play#twirl-api_2.11;1.0.2 in sbt-chain
-== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.0-SNAPSHOT->com.typesafe.play#twirl-api_2.11;1.0.2 [compile->runtime]
-== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.0-SNAPSHOT->com.typesafe.play#twirl-api_2.11;1.0.2 [compile->compile]
+== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.3->com.typesafe.play#twirl-api_2.11;1.0.2 [compile->runtime]
+== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.3->com.typesafe.play#twirl-api_2.11;1.0.2 [compile->compile]
 == resolving dependencies com.typesafe.play#twirl-api_2.11;1.0.2->org.scala-lang#scala-library;2.11.1 [compile->master(*)]
 == resolving dependencies com.typesafe.play#twirl-api_2.11;1.0.2->org.scala-lang#scala-library;2.11.7 [compile->master(*)]
 == resolving dependencies com.typesafe.play#twirl-api_2.11;1.0.2->org.scala-lang#scala-library;2.11.1 [compile->compile(*)]
@@ -15887,15 +15887,15 @@ sbt-chain: module revision found in cache: org.scala-lang.modules#scala-xml_2.11
 == resolving dependencies com.typesafe.play#twirl-api_2.11;1.0.2->org.apache.commons#commons-lang3;3.1 [runtime->runtime(*)]
 == resolving dependencies com.typesafe.play#twirl-api_2.11;1.0.2->org.scala-lang.modules#scala-xml_2.11;1.0.1 [runtime->runtime(*)]
 == resolving dependencies com.typesafe.play#twirl-api_2.11;1.0.2->org.scala-lang.modules#scala-xml_2.11;1.0.1 [runtime->compile]
-== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.0-SNAPSHOT->com.typesafe.play#twirl-api_2.11;1.0.2 [compile->master]
-== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.0-SNAPSHOT->com.typesafe.play#play_2.11;2.3.10 [compile->default(compile)]
+== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.3->com.typesafe.play#twirl-api_2.11;1.0.2 [compile->master]
+== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.3->com.typesafe.play#play_2.11;2.3.10 [compile->default(compile)]
 Read from stdout: Resolving com.typesafe.play#play_2.11;2.3.10 ...
 Resolving com.typesafe.play#play_2.11;2.3.10 ...
 sbt-chain: Checking cache for: dependency: com.typesafe.play#play_2.11;2.3.10 {compile=[default(compile)]}
 sbt-chain: module revision found in cache: com.typesafe.play#play_2.11;2.3.10
 	found com.typesafe.play#play_2.11;2.3.10 in sbt-chain
-== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.0-SNAPSHOT->com.typesafe.play#play_2.11;2.3.10 [compile->runtime]
-== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.0-SNAPSHOT->com.typesafe.play#play_2.11;2.3.10 [compile->compile]
+== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.3->com.typesafe.play#play_2.11;2.3.10 [compile->runtime]
+== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.3->com.typesafe.play#play_2.11;2.3.10 [compile->compile]
 == resolving dependencies com.typesafe.play#play_2.11;2.3.10->org.scala-lang#scala-library;2.11.1 [compile->master(*)]
 == resolving dependencies com.typesafe.play#play_2.11;2.3.10->org.scala-lang#scala-library;2.11.7 [compile->master(*)]
 == resolving dependencies com.typesafe.play#play_2.11;2.3.10->org.scala-lang#scala-library;2.11.1 [compile->compile(*)]
@@ -16362,15 +16362,15 @@ sbt-chain: module revision found in cache: javax.transaction#jta;1.1
 == resolving dependencies com.typesafe.play#play_2.11;2.3.10->javax.transaction#jta;1.1 [runtime->compile]
 == resolving dependencies com.typesafe.play#play_2.11;2.3.10->org.scala-lang#scala-reflect;2.11.1 [runtime->runtime(*)]
 == resolving dependencies com.typesafe.play#play_2.11;2.3.10->org.scala-lang#scala-reflect;2.11.1 [runtime->compile]
-== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.0-SNAPSHOT->com.typesafe.play#play_2.11;2.3.10 [compile->master]
-== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.0-SNAPSHOT->com.typesafe.play.plugins#play-plugins-mailer_2.11;2.3.1 [compile->default(compile)]
+== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.3->com.typesafe.play#play_2.11;2.3.10 [compile->master]
+== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.3->com.typesafe.play.plugins#play-plugins-mailer_2.11;2.3.1 [compile->default(compile)]
 Read from stdout: Resolving com.typesafe.play.plugins#play-plugins-mailer_2.11;2.3.1 ...
 Resolving com.typesafe.play.plugins#play-plugins-mailer_2.11;2.3.1 ...
 sbt-chain: Checking cache for: dependency: com.typesafe.play.plugins#play-plugins-mailer_2.11;2.3.1 {compile=[default(compile)]}
 sbt-chain: module revision found in cache: com.typesafe.play.plugins#play-plugins-mailer_2.11;2.3.1
 	found com.typesafe.play.plugins#play-plugins-mailer_2.11;2.3.1 in sbt-chain
-== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.0-SNAPSHOT->com.typesafe.play.plugins#play-plugins-mailer_2.11;2.3.1 [compile->runtime]
-== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.0-SNAPSHOT->com.typesafe.play.plugins#play-plugins-mailer_2.11;2.3.1 [compile->compile]
+== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.3->com.typesafe.play.plugins#play-plugins-mailer_2.11;2.3.1 [compile->runtime]
+== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.3->com.typesafe.play.plugins#play-plugins-mailer_2.11;2.3.1 [compile->compile]
 == resolving dependencies com.typesafe.play.plugins#play-plugins-mailer_2.11;2.3.1->org.scala-lang#scala-library;2.11.1 [compile->master(*)]
 == resolving dependencies com.typesafe.play.plugins#play-plugins-mailer_2.11;2.3.1->org.scala-lang#scala-library;2.11.7 [compile->master(*)]
 == resolving dependencies com.typesafe.play.plugins#play-plugins-mailer_2.11;2.3.1->org.scala-lang#scala-library;2.11.1 [compile->compile(*)]
@@ -16430,15 +16430,15 @@ sbt-chain: module revision found in cache: com.typesafe.play.plugins#play-plugin
 == resolving dependencies com.typesafe.play.plugins#play-plugins-mailer_2.11;2.3.1->org.apache.commons#commons-email;1.3.3 [runtime->compile]
 == resolving dependencies com.typesafe.play.plugins#play-plugins-mailer_2.11;2.3.1->com.typesafe.play.plugins#play-plugins-util_2.11;2.3.0 [runtime->runtime(*)]
 == resolving dependencies com.typesafe.play.plugins#play-plugins-mailer_2.11;2.3.1->com.typesafe.play.plugins#play-plugins-util_2.11;2.3.0 [runtime->compile]
-== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.0-SNAPSHOT->com.typesafe.play.plugins#play-plugins-mailer_2.11;2.3.1 [compile->master]
-== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.0-SNAPSHOT->org.apache.httpcomponents#httpclient;4.5 [compile->default(compile)]
+== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.3->com.typesafe.play.plugins#play-plugins-mailer_2.11;2.3.1 [compile->master]
+== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.3->org.apache.httpcomponents#httpclient;4.5 [compile->default(compile)]
 Read from stdout: Resolving org.apache.httpcomponents#httpclient;4.5 ...
 Resolving org.apache.httpcomponents#httpclient;4.5 ...
 sbt-chain: Checking cache for: dependency: org.apache.httpcomponents#httpclient;4.5 {compile=[default(compile)]}
 sbt-chain: module revision found in cache: org.apache.httpcomponents#httpclient;4.5
 	found org.apache.httpcomponents#httpclient;4.5 in sbt-chain
-== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.0-SNAPSHOT->org.apache.httpcomponents#httpclient;4.5 [compile->runtime]
-== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.0-SNAPSHOT->org.apache.httpcomponents#httpclient;4.5 [compile->compile]
+== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.3->org.apache.httpcomponents#httpclient;4.5 [compile->runtime]
+== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.3->org.apache.httpcomponents#httpclient;4.5 [compile->compile]
 == resolving dependencies org.apache.httpcomponents#httpclient;4.5->org.apache.httpcomponents#httpcore;4.4.1 [compile->master(compile)]
 Read from stdout: Resolving org.apache.httpcomponents#httpcore;4.4.1 ...
 Resolving org.apache.httpcomponents#httpcore;4.4.1 ...
@@ -16468,37 +16468,37 @@ dependency descriptor has been mediated: dependency: junit#junit;3.8.1 {test=[ru
 == resolving dependencies org.apache.httpcomponents#httpclient;4.5->commons-logging#commons-logging;1.2 [runtime->compile]
 == resolving dependencies org.apache.httpcomponents#httpclient;4.5->commons-codec#commons-codec;1.9 [runtime->runtime(*)]
 == resolving dependencies org.apache.httpcomponents#httpclient;4.5->commons-codec#commons-codec;1.9 [runtime->compile]
-== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.0-SNAPSHOT->org.apache.httpcomponents#httpclient;4.5 [compile->master]
-== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.0-SNAPSHOT->org.apache.commons#commons-math3;3.5 [compile->default(compile)]
+== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.3->org.apache.httpcomponents#httpclient;4.5 [compile->master]
+== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.3->org.apache.commons#commons-math3;3.5 [compile->default(compile)]
 Read from stdout: Resolving org.apache.commons#commons-math3;3.5 ...
 Resolving org.apache.commons#commons-math3;3.5 ...
 sbt-chain: Checking cache for: dependency: org.apache.commons#commons-math3;3.5 {compile=[default(compile)]}
 sbt-chain: module revision found in cache: org.apache.commons#commons-math3;3.5
 	found org.apache.commons#commons-math3;3.5 in sbt-chain
-== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.0-SNAPSHOT->org.apache.commons#commons-math3;3.5 [compile->runtime]
-== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.0-SNAPSHOT->org.apache.commons#commons-math3;3.5 [compile->compile]
-== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.0-SNAPSHOT->org.apache.commons#commons-math3;3.5 [compile->master]
-== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.0-SNAPSHOT->org.apache.commons#commons-lang3;3.4 [compile->default(compile)]
+== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.3->org.apache.commons#commons-math3;3.5 [compile->runtime]
+== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.3->org.apache.commons#commons-math3;3.5 [compile->compile]
+== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.3->org.apache.commons#commons-math3;3.5 [compile->master]
+== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.3->org.apache.commons#commons-lang3;3.4 [compile->default(compile)]
 Read from stdout: Resolving org.apache.commons#commons-lang3;3.4 ...
 Resolving org.apache.commons#commons-lang3;3.4 ...
 sbt-chain: Checking cache for: dependency: org.apache.commons#commons-lang3;3.4 {compile=[default(compile)]}
 sbt-chain: module revision found in cache: org.apache.commons#commons-lang3;3.4
 	found org.apache.commons#commons-lang3;3.4 in sbt-chain
-== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.0-SNAPSHOT->org.apache.commons#commons-lang3;3.4 [compile->runtime]
-== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.0-SNAPSHOT->org.apache.commons#commons-lang3;3.4 [compile->compile]
-== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.0-SNAPSHOT->org.apache.commons#commons-lang3;3.4 [compile->master]
-== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.0-SNAPSHOT->org.apache.commons#commons-lang3;3.4 [compile->master(*)]
-== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.0-SNAPSHOT->org.apache.commons#commons-lang3;3.4 [compile->runtime(*)]
-== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.0-SNAPSHOT->org.apache.commons#commons-lang3;3.4 [compile->compile]
-== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.0-SNAPSHOT->org.apache.commons#commons-lang3;3.4 [compile->compile(*)]
-== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.0-SNAPSHOT->org.mongodb#casbah_2.11;2.8.2 [compile->default(compile)]
+== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.3->org.apache.commons#commons-lang3;3.4 [compile->runtime]
+== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.3->org.apache.commons#commons-lang3;3.4 [compile->compile]
+== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.3->org.apache.commons#commons-lang3;3.4 [compile->master]
+== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.3->org.apache.commons#commons-lang3;3.4 [compile->master(*)]
+== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.3->org.apache.commons#commons-lang3;3.4 [compile->runtime(*)]
+== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.3->org.apache.commons#commons-lang3;3.4 [compile->compile]
+== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.3->org.apache.commons#commons-lang3;3.4 [compile->compile(*)]
+== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.3->org.mongodb#casbah_2.11;2.8.2 [compile->default(compile)]
 Read from stdout: Resolving org.mongodb#casbah_2.11;2.8.2 ...
 Resolving org.mongodb#casbah_2.11;2.8.2 ...
 sbt-chain: Checking cache for: dependency: org.mongodb#casbah_2.11;2.8.2 {compile=[default(compile)]}
 sbt-chain: module revision found in cache: org.mongodb#casbah_2.11;2.8.2
 	found org.mongodb#casbah_2.11;2.8.2 in sbt-chain
-== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.0-SNAPSHOT->org.mongodb#casbah_2.11;2.8.2 [compile->runtime]
-== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.0-SNAPSHOT->org.mongodb#casbah_2.11;2.8.2 [compile->compile]
+== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.3->org.mongodb#casbah_2.11;2.8.2 [compile->runtime]
+== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.3->org.mongodb#casbah_2.11;2.8.2 [compile->compile]
 == resolving dependencies org.mongodb#casbah_2.11;2.8.2->org.scala-lang#scala-library;2.11.7 [compile->master(compile)]
 == resolving dependencies org.mongodb#casbah_2.11;2.8.2->org.scala-lang#scala-library;2.11.7 [compile->compile(*)]
 == resolving dependencies org.mongodb#casbah_2.11;2.8.2->org.mongodb#casbah-commons_2.11;2.8.2 [compile->master(compile)]
@@ -16655,15 +16655,15 @@ sbt-chain: module revision found in cache: org.mongodb#casbah-gridfs_2.11;2.8.2
 == resolving dependencies org.mongodb#casbah_2.11;2.8.2->org.mongodb#casbah-query_2.11;2.8.2 [runtime->compile]
 == resolving dependencies org.mongodb#casbah_2.11;2.8.2->org.mongodb#casbah-gridfs_2.11;2.8.2 [runtime->runtime(*)]
 == resolving dependencies org.mongodb#casbah_2.11;2.8.2->org.mongodb#casbah-gridfs_2.11;2.8.2 [runtime->compile]
-== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.0-SNAPSHOT->org.mongodb#casbah_2.11;2.8.2 [compile->master]
-== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.0-SNAPSHOT->org.json4s#json4s-native_2.11;3.2.10 [compile->default(compile)]
+== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.3->org.mongodb#casbah_2.11;2.8.2 [compile->master]
+== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.3->org.json4s#json4s-native_2.11;3.2.10 [compile->default(compile)]
 Read from stdout: Resolving org.json4s#json4s-native_2.11;3.2.10 ...
 Resolving org.json4s#json4s-native_2.11;3.2.10 ...
 sbt-chain: Checking cache for: dependency: org.json4s#json4s-native_2.11;3.2.10 {compile=[default(compile)]}
 sbt-chain: module revision found in cache: org.json4s#json4s-native_2.11;3.2.10
 	found org.json4s#json4s-native_2.11;3.2.10 in sbt-chain
-== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.0-SNAPSHOT->org.json4s#json4s-native_2.11;3.2.10 [compile->runtime]
-== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.0-SNAPSHOT->org.json4s#json4s-native_2.11;3.2.10 [compile->compile]
+== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.3->org.json4s#json4s-native_2.11;3.2.10 [compile->runtime]
+== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.3->org.json4s#json4s-native_2.11;3.2.10 [compile->compile]
 == resolving dependencies org.json4s#json4s-native_2.11;3.2.10->org.scala-lang#scala-library;2.11.0 [compile->master(compile)]
 == resolving dependencies org.json4s#json4s-native_2.11;3.2.10->org.scala-lang#scala-library;2.11.7 [compile->master(compile)]
 == resolving dependencies org.json4s#json4s-native_2.11;3.2.10->org.scala-lang#scala-library;2.11.0 [compile->compile(*)]
@@ -16754,17 +16754,17 @@ sbt-chain: module revision found in cache: org.scala-lang#scala-compiler;2.11.0
 == resolving dependencies org.json4s#json4s-native_2.11;3.2.10->org.scala-lang#scala-library;2.11.7 [runtime->compile]
 == resolving dependencies org.json4s#json4s-native_2.11;3.2.10->org.json4s#json4s-core_2.11;3.2.10 [runtime->runtime(*)]
 == resolving dependencies org.json4s#json4s-native_2.11;3.2.10->org.json4s#json4s-core_2.11;3.2.10 [runtime->compile]
-== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.0-SNAPSHOT->org.json4s#json4s-native_2.11;3.2.10 [compile->master]
+== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.3->org.json4s#json4s-native_2.11;3.2.10 [compile->master]
 resolving dependencies for configuration 'runtime'
-== resolving dependencies for london-bus-tracker-play#london-bus-tracker-play_2.11;1.0-SNAPSHOT [runtime]
-== resolving dependencies for london-bus-tracker-play#london-bus-tracker-play_2.11;1.0-SNAPSHOT [compile]
-== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.0-SNAPSHOT->org.scala-lang#scala-library;2.11.7 [compile->default(compile)]
-== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.0-SNAPSHOT->org.scala-lang#scala-library;2.11.7 [compile->runtime]
-== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.0-SNAPSHOT->org.scala-lang#scala-library;2.11.7 [compile->compile]
-== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.0-SNAPSHOT->org.scala-lang#scala-library;2.11.7 [compile->master]
-== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.0-SNAPSHOT->com.typesafe.play#twirl-api_2.11;1.0.2 [compile->default(compile)]
-== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.0-SNAPSHOT->com.typesafe.play#twirl-api_2.11;1.0.2 [compile->runtime]
-== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.0-SNAPSHOT->com.typesafe.play#twirl-api_2.11;1.0.2 [compile->compile]
+== resolving dependencies for london-bus-tracker-play#london-bus-tracker-play_2.11;1.3 [runtime]
+== resolving dependencies for london-bus-tracker-play#london-bus-tracker-play_2.11;1.3 [compile]
+== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.3->org.scala-lang#scala-library;2.11.7 [compile->default(compile)]
+== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.3->org.scala-lang#scala-library;2.11.7 [compile->runtime]
+== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.3->org.scala-lang#scala-library;2.11.7 [compile->compile]
+== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.3->org.scala-lang#scala-library;2.11.7 [compile->master]
+== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.3->com.typesafe.play#twirl-api_2.11;1.0.2 [compile->default(compile)]
+== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.3->com.typesafe.play#twirl-api_2.11;1.0.2 [compile->runtime]
+== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.3->com.typesafe.play#twirl-api_2.11;1.0.2 [compile->compile]
 == resolving dependencies com.typesafe.play#twirl-api_2.11;1.0.2->org.scala-lang#scala-library;2.11.1 [compile->master(*)]
 == resolving dependencies com.typesafe.play#twirl-api_2.11;1.0.2->org.scala-lang#scala-library;2.11.7 [compile->master(*)]
 == resolving dependencies com.typesafe.play#twirl-api_2.11;1.0.2->org.scala-lang#scala-library;2.11.1 [compile->compile(*)]
@@ -16789,10 +16789,10 @@ resolving dependencies for configuration 'runtime'
 == resolving dependencies org.scala-lang.modules#scala-xml_2.11;1.0.1->org.scala-lang#scala-library;2.11.0 [runtime->runtime(*)]
 == resolving dependencies org.scala-lang.modules#scala-xml_2.11;1.0.1->org.scala-lang#scala-library;2.11.7 [runtime->runtime(*)]
 == resolving dependencies org.scala-lang.modules#scala-xml_2.11;1.0.1->org.scala-lang#scala-library;2.11.7 [runtime->compile]
-== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.0-SNAPSHOT->com.typesafe.play#twirl-api_2.11;1.0.2 [compile->master]
-== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.0-SNAPSHOT->com.typesafe.play#play_2.11;2.3.10 [compile->default(compile)]
-== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.0-SNAPSHOT->com.typesafe.play#play_2.11;2.3.10 [compile->runtime]
-== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.0-SNAPSHOT->com.typesafe.play#play_2.11;2.3.10 [compile->compile]
+== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.3->com.typesafe.play#twirl-api_2.11;1.0.2 [compile->master]
+== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.3->com.typesafe.play#play_2.11;2.3.10 [compile->default(compile)]
+== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.3->com.typesafe.play#play_2.11;2.3.10 [compile->runtime]
+== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.3->com.typesafe.play#play_2.11;2.3.10 [compile->compile]
 == resolving dependencies com.typesafe.play#play_2.11;2.3.10->org.scala-lang#scala-library;2.11.1 [compile->master(*)]
 == resolving dependencies com.typesafe.play#play_2.11;2.3.10->org.scala-lang#scala-library;2.11.7 [compile->master(*)]
 == resolving dependencies com.typesafe.play#play_2.11;2.3.10->org.scala-lang#scala-library;2.11.1 [compile->compile(*)]
@@ -17069,10 +17069,10 @@ resolving dependencies for configuration 'runtime'
 == resolving dependencies com.typesafe.play#play_2.11;2.3.10->javax.transaction#jta;1.1 [runtime->compile]
 == resolving dependencies com.typesafe.play#play_2.11;2.3.10->org.scala-lang#scala-reflect;2.11.1 [runtime->runtime(*)]
 == resolving dependencies com.typesafe.play#play_2.11;2.3.10->org.scala-lang#scala-reflect;2.11.1 [runtime->compile]
-== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.0-SNAPSHOT->com.typesafe.play#play_2.11;2.3.10 [compile->master]
-== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.0-SNAPSHOT->com.typesafe.play.plugins#play-plugins-mailer_2.11;2.3.1 [compile->default(compile)]
-== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.0-SNAPSHOT->com.typesafe.play.plugins#play-plugins-mailer_2.11;2.3.1 [compile->runtime]
-== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.0-SNAPSHOT->com.typesafe.play.plugins#play-plugins-mailer_2.11;2.3.1 [compile->compile]
+== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.3->com.typesafe.play#play_2.11;2.3.10 [compile->master]
+== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.3->com.typesafe.play.plugins#play-plugins-mailer_2.11;2.3.1 [compile->default(compile)]
+== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.3->com.typesafe.play.plugins#play-plugins-mailer_2.11;2.3.1 [compile->runtime]
+== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.3->com.typesafe.play.plugins#play-plugins-mailer_2.11;2.3.1 [compile->compile]
 == resolving dependencies com.typesafe.play.plugins#play-plugins-mailer_2.11;2.3.1->org.scala-lang#scala-library;2.11.1 [compile->master(*)]
 == resolving dependencies com.typesafe.play.plugins#play-plugins-mailer_2.11;2.3.1->org.scala-lang#scala-library;2.11.7 [compile->master(*)]
 == resolving dependencies com.typesafe.play.plugins#play-plugins-mailer_2.11;2.3.1->org.scala-lang#scala-library;2.11.1 [compile->compile(*)]
@@ -17110,10 +17110,10 @@ resolving dependencies for configuration 'runtime'
 == resolving dependencies com.typesafe.play.plugins#play-plugins-util_2.11;2.3.0->org.scala-lang#scala-library;2.11.1 [runtime->runtime(*)]
 == resolving dependencies com.typesafe.play.plugins#play-plugins-util_2.11;2.3.0->org.scala-lang#scala-library;2.11.7 [runtime->runtime(*)]
 == resolving dependencies com.typesafe.play.plugins#play-plugins-util_2.11;2.3.0->org.scala-lang#scala-library;2.11.7 [runtime->compile]
-== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.0-SNAPSHOT->com.typesafe.play.plugins#play-plugins-mailer_2.11;2.3.1 [compile->master]
-== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.0-SNAPSHOT->org.apache.httpcomponents#httpclient;4.5 [compile->default(compile)]
-== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.0-SNAPSHOT->org.apache.httpcomponents#httpclient;4.5 [compile->runtime]
-== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.0-SNAPSHOT->org.apache.httpcomponents#httpclient;4.5 [compile->compile]
+== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.3->com.typesafe.play.plugins#play-plugins-mailer_2.11;2.3.1 [compile->master]
+== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.3->org.apache.httpcomponents#httpclient;4.5 [compile->default(compile)]
+== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.3->org.apache.httpcomponents#httpclient;4.5 [compile->runtime]
+== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.3->org.apache.httpcomponents#httpclient;4.5 [compile->compile]
 == resolving dependencies org.apache.httpcomponents#httpclient;4.5->org.apache.httpcomponents#httpcore;4.4.1 [compile->master(compile)]
 == resolving dependencies org.apache.httpcomponents#httpclient;4.5->org.apache.httpcomponents#httpcore;4.4.1 [compile->compile(*)]
 == resolving dependencies org.apache.httpcomponents#httpclient;4.5->commons-logging#commons-logging;1.2 [compile->master(compile)]
@@ -17129,18 +17129,18 @@ dependency descriptor has been mediated: dependency: junit#junit;3.8.1 {test=[ru
 dependency descriptor has been mediated: dependency: junit#junit;3.8.1 {test=[runtime(*), master(compile)]} => dependency: junit#junit;4.11 {test=[runtime(*), master(compile)]}
 == resolving dependencies org.apache.httpcomponents#httpclient;4.5->commons-codec#commons-codec;1.9 [runtime->runtime(*)]
 == resolving dependencies org.apache.httpcomponents#httpclient;4.5->commons-codec#commons-codec;1.9 [runtime->compile]
-== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.0-SNAPSHOT->org.apache.httpcomponents#httpclient;4.5 [compile->master]
-== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.0-SNAPSHOT->org.apache.commons#commons-math3;3.5 [compile->default(compile)]
-== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.0-SNAPSHOT->org.apache.commons#commons-math3;3.5 [compile->runtime]
-== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.0-SNAPSHOT->org.apache.commons#commons-math3;3.5 [compile->compile]
-== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.0-SNAPSHOT->org.apache.commons#commons-math3;3.5 [compile->master]
-== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.0-SNAPSHOT->org.apache.commons#commons-lang3;3.4 [compile->default(compile)]
-== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.0-SNAPSHOT->org.apache.commons#commons-lang3;3.4 [compile->runtime]
-== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.0-SNAPSHOT->org.apache.commons#commons-lang3;3.4 [compile->compile]
-== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.0-SNAPSHOT->org.apache.commons#commons-lang3;3.4 [compile->master]
-== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.0-SNAPSHOT->org.mongodb#casbah_2.11;2.8.2 [compile->default(compile)]
-== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.0-SNAPSHOT->org.mongodb#casbah_2.11;2.8.2 [compile->runtime]
-== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.0-SNAPSHOT->org.mongodb#casbah_2.11;2.8.2 [compile->compile]
+== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.3->org.apache.httpcomponents#httpclient;4.5 [compile->master]
+== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.3->org.apache.commons#commons-math3;3.5 [compile->default(compile)]
+== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.3->org.apache.commons#commons-math3;3.5 [compile->runtime]
+== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.3->org.apache.commons#commons-math3;3.5 [compile->compile]
+== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.3->org.apache.commons#commons-math3;3.5 [compile->master]
+== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.3->org.apache.commons#commons-lang3;3.4 [compile->default(compile)]
+== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.3->org.apache.commons#commons-lang3;3.4 [compile->runtime]
+== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.3->org.apache.commons#commons-lang3;3.4 [compile->compile]
+== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.3->org.apache.commons#commons-lang3;3.4 [compile->master]
+== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.3->org.mongodb#casbah_2.11;2.8.2 [compile->default(compile)]
+== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.3->org.mongodb#casbah_2.11;2.8.2 [compile->runtime]
+== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.3->org.mongodb#casbah_2.11;2.8.2 [compile->compile]
 == resolving dependencies org.mongodb#casbah_2.11;2.8.2->org.scala-lang#scala-library;2.11.7 [compile->master(compile)]
 == resolving dependencies org.mongodb#casbah_2.11;2.8.2->org.scala-lang#scala-library;2.11.7 [compile->compile(*)]
 == resolving dependencies org.mongodb#casbah_2.11;2.8.2->org.mongodb#casbah-commons_2.11;2.8.2 [compile->master(compile)]
@@ -17259,10 +17259,10 @@ dependency descriptor has been mediated: dependency: junit#junit;3.8.1 {test=[ru
 == resolving dependencies org.mongodb#casbah-gridfs_2.11;2.8.2->org.slf4j#slf4j-api;1.6.0 [runtime->runtime(*)]
 == resolving dependencies org.mongodb#casbah-gridfs_2.11;2.8.2->org.slf4j#slf4j-api;1.7.6 [runtime->runtime(*)]
 == resolving dependencies org.mongodb#casbah-gridfs_2.11;2.8.2->org.slf4j#slf4j-api;1.7.6 [runtime->compile]
-== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.0-SNAPSHOT->org.mongodb#casbah_2.11;2.8.2 [compile->master]
-== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.0-SNAPSHOT->org.json4s#json4s-native_2.11;3.2.10 [compile->default(compile)]
-== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.0-SNAPSHOT->org.json4s#json4s-native_2.11;3.2.10 [compile->runtime]
-== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.0-SNAPSHOT->org.json4s#json4s-native_2.11;3.2.10 [compile->compile]
+== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.3->org.mongodb#casbah_2.11;2.8.2 [compile->master]
+== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.3->org.json4s#json4s-native_2.11;3.2.10 [compile->default(compile)]
+== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.3->org.json4s#json4s-native_2.11;3.2.10 [compile->runtime]
+== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.3->org.json4s#json4s-native_2.11;3.2.10 [compile->compile]
 == resolving dependencies org.json4s#json4s-native_2.11;3.2.10->org.scala-lang#scala-library;2.11.0 [compile->master(compile)]
 == resolving dependencies org.json4s#json4s-native_2.11;3.2.10->org.scala-lang#scala-library;2.11.7 [compile->master(compile)]
 == resolving dependencies org.json4s#json4s-native_2.11;3.2.10->org.scala-lang#scala-library;2.11.0 [compile->compile(*)]
@@ -17326,18 +17326,18 @@ dependency descriptor has been mediated: dependency: junit#junit;3.8.1 {test=[ru
 == resolving dependencies org.scala-lang#scala-compiler;2.11.0->org.scala-lang.modules#scala-xml_2.11;1.0.1 [runtime->compile]
 == resolving dependencies org.scala-lang#scala-compiler;2.11.0->org.scala-lang.modules#scala-parser-combinators_2.11;1.0.1 [runtime->runtime(*)]
 == resolving dependencies org.scala-lang#scala-compiler;2.11.0->org.scala-lang.modules#scala-parser-combinators_2.11;1.0.1 [runtime->compile]
-== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.0-SNAPSHOT->org.json4s#json4s-native_2.11;3.2.10 [compile->master]
+== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.3->org.json4s#json4s-native_2.11;3.2.10 [compile->master]
 resolving dependencies for configuration 'test'
-== resolving dependencies for london-bus-tracker-play#london-bus-tracker-play_2.11;1.0-SNAPSHOT [test]
-== resolving dependencies for london-bus-tracker-play#london-bus-tracker-play_2.11;1.0-SNAPSHOT [runtime]
-== resolving dependencies for london-bus-tracker-play#london-bus-tracker-play_2.11;1.0-SNAPSHOT [compile]
-== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.0-SNAPSHOT->org.scala-lang#scala-library;2.11.7 [compile->default(compile)]
-== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.0-SNAPSHOT->org.scala-lang#scala-library;2.11.7 [compile->runtime]
-== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.0-SNAPSHOT->org.scala-lang#scala-library;2.11.7 [compile->compile]
-== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.0-SNAPSHOT->org.scala-lang#scala-library;2.11.7 [compile->master]
-== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.0-SNAPSHOT->com.typesafe.play#twirl-api_2.11;1.0.2 [compile->default(compile)]
-== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.0-SNAPSHOT->com.typesafe.play#twirl-api_2.11;1.0.2 [compile->runtime]
-== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.0-SNAPSHOT->com.typesafe.play#twirl-api_2.11;1.0.2 [compile->compile]
+== resolving dependencies for london-bus-tracker-play#london-bus-tracker-play_2.11;1.3 [test]
+== resolving dependencies for london-bus-tracker-play#london-bus-tracker-play_2.11;1.3 [runtime]
+== resolving dependencies for london-bus-tracker-play#london-bus-tracker-play_2.11;1.3 [compile]
+== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.3->org.scala-lang#scala-library;2.11.7 [compile->default(compile)]
+== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.3->org.scala-lang#scala-library;2.11.7 [compile->runtime]
+== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.3->org.scala-lang#scala-library;2.11.7 [compile->compile]
+== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.3->org.scala-lang#scala-library;2.11.7 [compile->master]
+== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.3->com.typesafe.play#twirl-api_2.11;1.0.2 [compile->default(compile)]
+== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.3->com.typesafe.play#twirl-api_2.11;1.0.2 [compile->runtime]
+== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.3->com.typesafe.play#twirl-api_2.11;1.0.2 [compile->compile]
 == resolving dependencies com.typesafe.play#twirl-api_2.11;1.0.2->org.scala-lang#scala-library;2.11.1 [compile->master(*)]
 == resolving dependencies com.typesafe.play#twirl-api_2.11;1.0.2->org.scala-lang#scala-library;2.11.7 [compile->master(*)]
 == resolving dependencies com.typesafe.play#twirl-api_2.11;1.0.2->org.scala-lang#scala-library;2.11.1 [compile->compile(*)]
@@ -17362,10 +17362,10 @@ resolving dependencies for configuration 'test'
 == resolving dependencies org.scala-lang.modules#scala-xml_2.11;1.0.1->org.scala-lang#scala-library;2.11.0 [runtime->runtime(*)]
 == resolving dependencies org.scala-lang.modules#scala-xml_2.11;1.0.1->org.scala-lang#scala-library;2.11.7 [runtime->runtime(*)]
 == resolving dependencies org.scala-lang.modules#scala-xml_2.11;1.0.1->org.scala-lang#scala-library;2.11.7 [runtime->compile]
-== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.0-SNAPSHOT->com.typesafe.play#twirl-api_2.11;1.0.2 [compile->master]
-== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.0-SNAPSHOT->com.typesafe.play#play_2.11;2.3.10 [compile->default(compile)]
-== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.0-SNAPSHOT->com.typesafe.play#play_2.11;2.3.10 [compile->runtime]
-== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.0-SNAPSHOT->com.typesafe.play#play_2.11;2.3.10 [compile->compile]
+== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.3->com.typesafe.play#twirl-api_2.11;1.0.2 [compile->master]
+== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.3->com.typesafe.play#play_2.11;2.3.10 [compile->default(compile)]
+== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.3->com.typesafe.play#play_2.11;2.3.10 [compile->runtime]
+== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.3->com.typesafe.play#play_2.11;2.3.10 [compile->compile]
 == resolving dependencies com.typesafe.play#play_2.11;2.3.10->org.scala-lang#scala-library;2.11.1 [compile->master(*)]
 == resolving dependencies com.typesafe.play#play_2.11;2.3.10->org.scala-lang#scala-library;2.11.7 [compile->master(*)]
 == resolving dependencies com.typesafe.play#play_2.11;2.3.10->org.scala-lang#scala-library;2.11.1 [compile->compile(*)]
@@ -17642,10 +17642,10 @@ resolving dependencies for configuration 'test'
 == resolving dependencies com.typesafe.play#play_2.11;2.3.10->javax.transaction#jta;1.1 [runtime->compile]
 == resolving dependencies com.typesafe.play#play_2.11;2.3.10->org.scala-lang#scala-reflect;2.11.1 [runtime->runtime(*)]
 == resolving dependencies com.typesafe.play#play_2.11;2.3.10->org.scala-lang#scala-reflect;2.11.1 [runtime->compile]
-== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.0-SNAPSHOT->com.typesafe.play#play_2.11;2.3.10 [compile->master]
-== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.0-SNAPSHOT->com.typesafe.play.plugins#play-plugins-mailer_2.11;2.3.1 [compile->default(compile)]
-== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.0-SNAPSHOT->com.typesafe.play.plugins#play-plugins-mailer_2.11;2.3.1 [compile->runtime]
-== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.0-SNAPSHOT->com.typesafe.play.plugins#play-plugins-mailer_2.11;2.3.1 [compile->compile]
+== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.3->com.typesafe.play#play_2.11;2.3.10 [compile->master]
+== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.3->com.typesafe.play.plugins#play-plugins-mailer_2.11;2.3.1 [compile->default(compile)]
+== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.3->com.typesafe.play.plugins#play-plugins-mailer_2.11;2.3.1 [compile->runtime]
+== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.3->com.typesafe.play.plugins#play-plugins-mailer_2.11;2.3.1 [compile->compile]
 == resolving dependencies com.typesafe.play.plugins#play-plugins-mailer_2.11;2.3.1->org.scala-lang#scala-library;2.11.1 [compile->master(*)]
 == resolving dependencies com.typesafe.play.plugins#play-plugins-mailer_2.11;2.3.1->org.scala-lang#scala-library;2.11.7 [compile->master(*)]
 == resolving dependencies com.typesafe.play.plugins#play-plugins-mailer_2.11;2.3.1->org.scala-lang#scala-library;2.11.1 [compile->compile(*)]
@@ -17683,10 +17683,10 @@ resolving dependencies for configuration 'test'
 == resolving dependencies com.typesafe.play.plugins#play-plugins-util_2.11;2.3.0->org.scala-lang#scala-library;2.11.1 [runtime->runtime(*)]
 == resolving dependencies com.typesafe.play.plugins#play-plugins-util_2.11;2.3.0->org.scala-lang#scala-library;2.11.7 [runtime->runtime(*)]
 == resolving dependencies com.typesafe.play.plugins#play-plugins-util_2.11;2.3.0->org.scala-lang#scala-library;2.11.7 [runtime->compile]
-== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.0-SNAPSHOT->com.typesafe.play.plugins#play-plugins-mailer_2.11;2.3.1 [compile->master]
-== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.0-SNAPSHOT->org.apache.httpcomponents#httpclient;4.5 [compile->default(compile)]
-== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.0-SNAPSHOT->org.apache.httpcomponents#httpclient;4.5 [compile->runtime]
-== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.0-SNAPSHOT->org.apache.httpcomponents#httpclient;4.5 [compile->compile]
+== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.3->com.typesafe.play.plugins#play-plugins-mailer_2.11;2.3.1 [compile->master]
+== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.3->org.apache.httpcomponents#httpclient;4.5 [compile->default(compile)]
+== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.3->org.apache.httpcomponents#httpclient;4.5 [compile->runtime]
+== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.3->org.apache.httpcomponents#httpclient;4.5 [compile->compile]
 == resolving dependencies org.apache.httpcomponents#httpclient;4.5->org.apache.httpcomponents#httpcore;4.4.1 [compile->master(compile)]
 == resolving dependencies org.apache.httpcomponents#httpclient;4.5->org.apache.httpcomponents#httpcore;4.4.1 [compile->compile(*)]
 == resolving dependencies org.apache.httpcomponents#httpclient;4.5->commons-logging#commons-logging;1.2 [compile->master(compile)]
@@ -17702,18 +17702,18 @@ dependency descriptor has been mediated: dependency: junit#junit;3.8.1 {test=[ru
 dependency descriptor has been mediated: dependency: junit#junit;3.8.1 {test=[runtime(*), master(compile)]} => dependency: junit#junit;4.11 {test=[runtime(*), master(compile)]}
 == resolving dependencies org.apache.httpcomponents#httpclient;4.5->commons-codec#commons-codec;1.9 [runtime->runtime(*)]
 == resolving dependencies org.apache.httpcomponents#httpclient;4.5->commons-codec#commons-codec;1.9 [runtime->compile]
-== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.0-SNAPSHOT->org.apache.httpcomponents#httpclient;4.5 [compile->master]
-== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.0-SNAPSHOT->org.apache.commons#commons-math3;3.5 [compile->default(compile)]
-== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.0-SNAPSHOT->org.apache.commons#commons-math3;3.5 [compile->runtime]
-== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.0-SNAPSHOT->org.apache.commons#commons-math3;3.5 [compile->compile]
-== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.0-SNAPSHOT->org.apache.commons#commons-math3;3.5 [compile->master]
-== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.0-SNAPSHOT->org.apache.commons#commons-lang3;3.4 [compile->default(compile)]
-== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.0-SNAPSHOT->org.apache.commons#commons-lang3;3.4 [compile->runtime]
-== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.0-SNAPSHOT->org.apache.commons#commons-lang3;3.4 [compile->compile]
-== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.0-SNAPSHOT->org.apache.commons#commons-lang3;3.4 [compile->master]
-== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.0-SNAPSHOT->org.mongodb#casbah_2.11;2.8.2 [compile->default(compile)]
-== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.0-SNAPSHOT->org.mongodb#casbah_2.11;2.8.2 [compile->runtime]
-== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.0-SNAPSHOT->org.mongodb#casbah_2.11;2.8.2 [compile->compile]
+== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.3->org.apache.httpcomponents#httpclient;4.5 [compile->master]
+== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.3->org.apache.commons#commons-math3;3.5 [compile->default(compile)]
+== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.3->org.apache.commons#commons-math3;3.5 [compile->runtime]
+== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.3->org.apache.commons#commons-math3;3.5 [compile->compile]
+== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.3->org.apache.commons#commons-math3;3.5 [compile->master]
+== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.3->org.apache.commons#commons-lang3;3.4 [compile->default(compile)]
+== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.3->org.apache.commons#commons-lang3;3.4 [compile->runtime]
+== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.3->org.apache.commons#commons-lang3;3.4 [compile->compile]
+== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.3->org.apache.commons#commons-lang3;3.4 [compile->master]
+== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.3->org.mongodb#casbah_2.11;2.8.2 [compile->default(compile)]
+== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.3->org.mongodb#casbah_2.11;2.8.2 [compile->runtime]
+== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.3->org.mongodb#casbah_2.11;2.8.2 [compile->compile]
 == resolving dependencies org.mongodb#casbah_2.11;2.8.2->org.scala-lang#scala-library;2.11.7 [compile->master(compile)]
 == resolving dependencies org.mongodb#casbah_2.11;2.8.2->org.scala-lang#scala-library;2.11.7 [compile->compile(*)]
 == resolving dependencies org.mongodb#casbah_2.11;2.8.2->org.mongodb#casbah-commons_2.11;2.8.2 [compile->master(compile)]
@@ -17832,10 +17832,10 @@ dependency descriptor has been mediated: dependency: junit#junit;3.8.1 {test=[ru
 == resolving dependencies org.mongodb#casbah-gridfs_2.11;2.8.2->org.slf4j#slf4j-api;1.6.0 [runtime->runtime(*)]
 == resolving dependencies org.mongodb#casbah-gridfs_2.11;2.8.2->org.slf4j#slf4j-api;1.7.6 [runtime->runtime(*)]
 == resolving dependencies org.mongodb#casbah-gridfs_2.11;2.8.2->org.slf4j#slf4j-api;1.7.6 [runtime->compile]
-== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.0-SNAPSHOT->org.mongodb#casbah_2.11;2.8.2 [compile->master]
-== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.0-SNAPSHOT->org.json4s#json4s-native_2.11;3.2.10 [compile->default(compile)]
-== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.0-SNAPSHOT->org.json4s#json4s-native_2.11;3.2.10 [compile->runtime]
-== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.0-SNAPSHOT->org.json4s#json4s-native_2.11;3.2.10 [compile->compile]
+== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.3->org.mongodb#casbah_2.11;2.8.2 [compile->master]
+== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.3->org.json4s#json4s-native_2.11;3.2.10 [compile->default(compile)]
+== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.3->org.json4s#json4s-native_2.11;3.2.10 [compile->runtime]
+== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.3->org.json4s#json4s-native_2.11;3.2.10 [compile->compile]
 == resolving dependencies org.json4s#json4s-native_2.11;3.2.10->org.scala-lang#scala-library;2.11.0 [compile->master(compile)]
 == resolving dependencies org.json4s#json4s-native_2.11;3.2.10->org.scala-lang#scala-library;2.11.7 [compile->master(compile)]
 == resolving dependencies org.json4s#json4s-native_2.11;3.2.10->org.scala-lang#scala-library;2.11.0 [compile->compile(*)]
@@ -17899,15 +17899,15 @@ dependency descriptor has been mediated: dependency: junit#junit;3.8.1 {test=[ru
 == resolving dependencies org.scala-lang#scala-compiler;2.11.0->org.scala-lang.modules#scala-xml_2.11;1.0.1 [runtime->compile]
 == resolving dependencies org.scala-lang#scala-compiler;2.11.0->org.scala-lang.modules#scala-parser-combinators_2.11;1.0.1 [runtime->runtime(*)]
 == resolving dependencies org.scala-lang#scala-compiler;2.11.0->org.scala-lang.modules#scala-parser-combinators_2.11;1.0.1 [runtime->compile]
-== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.0-SNAPSHOT->org.json4s#json4s-native_2.11;3.2.10 [compile->master]
-== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.0-SNAPSHOT->com.typesafe.play#play-test_2.11;2.3.10 [test->default(compile)]
+== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.3->org.json4s#json4s-native_2.11;3.2.10 [compile->master]
+== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.3->com.typesafe.play#play-test_2.11;2.3.10 [test->default(compile)]
 Read from stdout: Resolving com.typesafe.play#play-test_2.11;2.3.10 ...
 Resolving com.typesafe.play#play-test_2.11;2.3.10 ...
 sbt-chain: Checking cache for: dependency: com.typesafe.play#play-test_2.11;2.3.10 {test=[default(compile)]}
 sbt-chain: module revision found in cache: com.typesafe.play#play-test_2.11;2.3.10
 	found com.typesafe.play#play-test_2.11;2.3.10 in sbt-chain
-== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.0-SNAPSHOT->com.typesafe.play#play-test_2.11;2.3.10 [test->runtime]
-== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.0-SNAPSHOT->com.typesafe.play#play-test_2.11;2.3.10 [test->compile]
+== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.3->com.typesafe.play#play-test_2.11;2.3.10 [test->runtime]
+== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.3->com.typesafe.play#play-test_2.11;2.3.10 [test->compile]
 == resolving dependencies com.typesafe.play#play-test_2.11;2.3.10->org.scala-lang#scala-library;2.11.1 [compile->master(*)]
 == resolving dependencies com.typesafe.play#play-test_2.11;2.3.10->org.scala-lang#scala-library;2.11.7 [compile->master(*)]
 == resolving dependencies com.typesafe.play#play-test_2.11;2.3.10->org.scala-lang#scala-library;2.11.1 [compile->compile(*)]
@@ -19193,21 +19193,21 @@ dependency descriptor has been mediated: dependency: junit#junit;4.8.2 {test=[ru
 == resolving dependencies com.typesafe.play#play-test_2.11;2.3.10->com.google.code.findbugs#jsr305;2.0.3 [runtime->compile]
 == resolving dependencies com.typesafe.play#play-test_2.11;2.3.10->org.fluentlenium#fluentlenium-festassert;0.9.2 [runtime->runtime(*)]
 == resolving dependencies com.typesafe.play#play-test_2.11;2.3.10->org.fluentlenium#fluentlenium-festassert;0.9.2 [runtime->compile]
-== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.0-SNAPSHOT->com.typesafe.play#play-test_2.11;2.3.10 [test->master]
+== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.3->com.typesafe.play#play-test_2.11;2.3.10 [test->master]
 resolving dependencies for configuration 'provided'
-== resolving dependencies for london-bus-tracker-play#london-bus-tracker-play_2.11;1.0-SNAPSHOT [provided]
+== resolving dependencies for london-bus-tracker-play#london-bus-tracker-play_2.11;1.3 [provided]
 resolving dependencies for configuration 'optional'
-== resolving dependencies for london-bus-tracker-play#london-bus-tracker-play_2.11;1.0-SNAPSHOT [optional]
+== resolving dependencies for london-bus-tracker-play#london-bus-tracker-play_2.11;1.3 [optional]
 resolving dependencies for configuration 'compile-internal'
-== resolving dependencies for london-bus-tracker-play#london-bus-tracker-play_2.11;1.0-SNAPSHOT [compile-internal]
-== resolving dependencies for london-bus-tracker-play#london-bus-tracker-play_2.11;1.0-SNAPSHOT [compile]
-== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.0-SNAPSHOT->org.scala-lang#scala-library;2.11.7 [compile->default(compile)]
-== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.0-SNAPSHOT->org.scala-lang#scala-library;2.11.7 [compile->runtime]
-== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.0-SNAPSHOT->org.scala-lang#scala-library;2.11.7 [compile->compile]
-== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.0-SNAPSHOT->org.scala-lang#scala-library;2.11.7 [compile->master]
-== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.0-SNAPSHOT->com.typesafe.play#twirl-api_2.11;1.0.2 [compile->default(compile)]
-== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.0-SNAPSHOT->com.typesafe.play#twirl-api_2.11;1.0.2 [compile->runtime]
-== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.0-SNAPSHOT->com.typesafe.play#twirl-api_2.11;1.0.2 [compile->compile]
+== resolving dependencies for london-bus-tracker-play#london-bus-tracker-play_2.11;1.3 [compile-internal]
+== resolving dependencies for london-bus-tracker-play#london-bus-tracker-play_2.11;1.3 [compile]
+== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.3->org.scala-lang#scala-library;2.11.7 [compile->default(compile)]
+== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.3->org.scala-lang#scala-library;2.11.7 [compile->runtime]
+== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.3->org.scala-lang#scala-library;2.11.7 [compile->compile]
+== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.3->org.scala-lang#scala-library;2.11.7 [compile->master]
+== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.3->com.typesafe.play#twirl-api_2.11;1.0.2 [compile->default(compile)]
+== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.3->com.typesafe.play#twirl-api_2.11;1.0.2 [compile->runtime]
+== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.3->com.typesafe.play#twirl-api_2.11;1.0.2 [compile->compile]
 == resolving dependencies com.typesafe.play#twirl-api_2.11;1.0.2->org.scala-lang#scala-library;2.11.1 [compile->master(*)]
 == resolving dependencies com.typesafe.play#twirl-api_2.11;1.0.2->org.scala-lang#scala-library;2.11.7 [compile->master(*)]
 == resolving dependencies com.typesafe.play#twirl-api_2.11;1.0.2->org.scala-lang#scala-library;2.11.1 [compile->compile(*)]
@@ -19232,10 +19232,10 @@ resolving dependencies for configuration 'compile-internal'
 == resolving dependencies org.scala-lang.modules#scala-xml_2.11;1.0.1->org.scala-lang#scala-library;2.11.0 [runtime->runtime(*)]
 == resolving dependencies org.scala-lang.modules#scala-xml_2.11;1.0.1->org.scala-lang#scala-library;2.11.7 [runtime->runtime(*)]
 == resolving dependencies org.scala-lang.modules#scala-xml_2.11;1.0.1->org.scala-lang#scala-library;2.11.7 [runtime->compile]
-== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.0-SNAPSHOT->com.typesafe.play#twirl-api_2.11;1.0.2 [compile->master]
-== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.0-SNAPSHOT->com.typesafe.play#play_2.11;2.3.10 [compile->default(compile)]
-== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.0-SNAPSHOT->com.typesafe.play#play_2.11;2.3.10 [compile->runtime]
-== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.0-SNAPSHOT->com.typesafe.play#play_2.11;2.3.10 [compile->compile]
+== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.3->com.typesafe.play#twirl-api_2.11;1.0.2 [compile->master]
+== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.3->com.typesafe.play#play_2.11;2.3.10 [compile->default(compile)]
+== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.3->com.typesafe.play#play_2.11;2.3.10 [compile->runtime]
+== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.3->com.typesafe.play#play_2.11;2.3.10 [compile->compile]
 == resolving dependencies com.typesafe.play#play_2.11;2.3.10->org.scala-lang#scala-library;2.11.1 [compile->master(*)]
 == resolving dependencies com.typesafe.play#play_2.11;2.3.10->org.scala-lang#scala-library;2.11.7 [compile->master(*)]
 == resolving dependencies com.typesafe.play#play_2.11;2.3.10->org.scala-lang#scala-library;2.11.1 [compile->compile(*)]
@@ -19512,10 +19512,10 @@ resolving dependencies for configuration 'compile-internal'
 == resolving dependencies com.typesafe.play#play_2.11;2.3.10->javax.transaction#jta;1.1 [runtime->compile]
 == resolving dependencies com.typesafe.play#play_2.11;2.3.10->org.scala-lang#scala-reflect;2.11.1 [runtime->runtime(*)]
 == resolving dependencies com.typesafe.play#play_2.11;2.3.10->org.scala-lang#scala-reflect;2.11.1 [runtime->compile]
-== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.0-SNAPSHOT->com.typesafe.play#play_2.11;2.3.10 [compile->master]
-== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.0-SNAPSHOT->com.typesafe.play.plugins#play-plugins-mailer_2.11;2.3.1 [compile->default(compile)]
-== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.0-SNAPSHOT->com.typesafe.play.plugins#play-plugins-mailer_2.11;2.3.1 [compile->runtime]
-== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.0-SNAPSHOT->com.typesafe.play.plugins#play-plugins-mailer_2.11;2.3.1 [compile->compile]
+== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.3->com.typesafe.play#play_2.11;2.3.10 [compile->master]
+== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.3->com.typesafe.play.plugins#play-plugins-mailer_2.11;2.3.1 [compile->default(compile)]
+== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.3->com.typesafe.play.plugins#play-plugins-mailer_2.11;2.3.1 [compile->runtime]
+== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.3->com.typesafe.play.plugins#play-plugins-mailer_2.11;2.3.1 [compile->compile]
 == resolving dependencies com.typesafe.play.plugins#play-plugins-mailer_2.11;2.3.1->org.scala-lang#scala-library;2.11.1 [compile->master(*)]
 == resolving dependencies com.typesafe.play.plugins#play-plugins-mailer_2.11;2.3.1->org.scala-lang#scala-library;2.11.7 [compile->master(*)]
 == resolving dependencies com.typesafe.play.plugins#play-plugins-mailer_2.11;2.3.1->org.scala-lang#scala-library;2.11.1 [compile->compile(*)]
@@ -19553,10 +19553,10 @@ resolving dependencies for configuration 'compile-internal'
 == resolving dependencies com.typesafe.play.plugins#play-plugins-util_2.11;2.3.0->org.scala-lang#scala-library;2.11.1 [runtime->runtime(*)]
 == resolving dependencies com.typesafe.play.plugins#play-plugins-util_2.11;2.3.0->org.scala-lang#scala-library;2.11.7 [runtime->runtime(*)]
 == resolving dependencies com.typesafe.play.plugins#play-plugins-util_2.11;2.3.0->org.scala-lang#scala-library;2.11.7 [runtime->compile]
-== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.0-SNAPSHOT->com.typesafe.play.plugins#play-plugins-mailer_2.11;2.3.1 [compile->master]
-== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.0-SNAPSHOT->org.apache.httpcomponents#httpclient;4.5 [compile->default(compile)]
-== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.0-SNAPSHOT->org.apache.httpcomponents#httpclient;4.5 [compile->runtime]
-== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.0-SNAPSHOT->org.apache.httpcomponents#httpclient;4.5 [compile->compile]
+== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.3->com.typesafe.play.plugins#play-plugins-mailer_2.11;2.3.1 [compile->master]
+== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.3->org.apache.httpcomponents#httpclient;4.5 [compile->default(compile)]
+== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.3->org.apache.httpcomponents#httpclient;4.5 [compile->runtime]
+== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.3->org.apache.httpcomponents#httpclient;4.5 [compile->compile]
 == resolving dependencies org.apache.httpcomponents#httpclient;4.5->org.apache.httpcomponents#httpcore;4.4.1 [compile->master(compile)]
 == resolving dependencies org.apache.httpcomponents#httpclient;4.5->org.apache.httpcomponents#httpcore;4.4.1 [compile->compile(*)]
 == resolving dependencies org.apache.httpcomponents#httpclient;4.5->commons-logging#commons-logging;1.2 [compile->master(compile)]
@@ -19572,18 +19572,18 @@ dependency descriptor has been mediated: dependency: junit#junit;3.8.1 {test=[ru
 dependency descriptor has been mediated: dependency: junit#junit;3.8.1 {test=[runtime(*), master(compile)]} => dependency: junit#junit;4.11 {test=[runtime(*), master(compile)]}
 == resolving dependencies org.apache.httpcomponents#httpclient;4.5->commons-codec#commons-codec;1.9 [runtime->runtime(*)]
 == resolving dependencies org.apache.httpcomponents#httpclient;4.5->commons-codec#commons-codec;1.9 [runtime->compile]
-== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.0-SNAPSHOT->org.apache.httpcomponents#httpclient;4.5 [compile->master]
-== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.0-SNAPSHOT->org.apache.commons#commons-math3;3.5 [compile->default(compile)]
-== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.0-SNAPSHOT->org.apache.commons#commons-math3;3.5 [compile->runtime]
-== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.0-SNAPSHOT->org.apache.commons#commons-math3;3.5 [compile->compile]
-== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.0-SNAPSHOT->org.apache.commons#commons-math3;3.5 [compile->master]
-== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.0-SNAPSHOT->org.apache.commons#commons-lang3;3.4 [compile->default(compile)]
-== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.0-SNAPSHOT->org.apache.commons#commons-lang3;3.4 [compile->runtime]
-== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.0-SNAPSHOT->org.apache.commons#commons-lang3;3.4 [compile->compile]
-== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.0-SNAPSHOT->org.apache.commons#commons-lang3;3.4 [compile->master]
-== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.0-SNAPSHOT->org.mongodb#casbah_2.11;2.8.2 [compile->default(compile)]
-== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.0-SNAPSHOT->org.mongodb#casbah_2.11;2.8.2 [compile->runtime]
-== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.0-SNAPSHOT->org.mongodb#casbah_2.11;2.8.2 [compile->compile]
+== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.3->org.apache.httpcomponents#httpclient;4.5 [compile->master]
+== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.3->org.apache.commons#commons-math3;3.5 [compile->default(compile)]
+== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.3->org.apache.commons#commons-math3;3.5 [compile->runtime]
+== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.3->org.apache.commons#commons-math3;3.5 [compile->compile]
+== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.3->org.apache.commons#commons-math3;3.5 [compile->master]
+== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.3->org.apache.commons#commons-lang3;3.4 [compile->default(compile)]
+== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.3->org.apache.commons#commons-lang3;3.4 [compile->runtime]
+== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.3->org.apache.commons#commons-lang3;3.4 [compile->compile]
+== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.3->org.apache.commons#commons-lang3;3.4 [compile->master]
+== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.3->org.mongodb#casbah_2.11;2.8.2 [compile->default(compile)]
+== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.3->org.mongodb#casbah_2.11;2.8.2 [compile->runtime]
+== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.3->org.mongodb#casbah_2.11;2.8.2 [compile->compile]
 == resolving dependencies org.mongodb#casbah_2.11;2.8.2->org.scala-lang#scala-library;2.11.7 [compile->master(compile)]
 == resolving dependencies org.mongodb#casbah_2.11;2.8.2->org.scala-lang#scala-library;2.11.7 [compile->compile(*)]
 == resolving dependencies org.mongodb#casbah_2.11;2.8.2->org.mongodb#casbah-commons_2.11;2.8.2 [compile->master(compile)]
@@ -19702,10 +19702,10 @@ dependency descriptor has been mediated: dependency: junit#junit;3.8.1 {test=[ru
 == resolving dependencies org.mongodb#casbah-gridfs_2.11;2.8.2->org.slf4j#slf4j-api;1.6.0 [runtime->runtime(*)]
 == resolving dependencies org.mongodb#casbah-gridfs_2.11;2.8.2->org.slf4j#slf4j-api;1.7.6 [runtime->runtime(*)]
 == resolving dependencies org.mongodb#casbah-gridfs_2.11;2.8.2->org.slf4j#slf4j-api;1.7.6 [runtime->compile]
-== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.0-SNAPSHOT->org.mongodb#casbah_2.11;2.8.2 [compile->master]
-== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.0-SNAPSHOT->org.json4s#json4s-native_2.11;3.2.10 [compile->default(compile)]
-== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.0-SNAPSHOT->org.json4s#json4s-native_2.11;3.2.10 [compile->runtime]
-== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.0-SNAPSHOT->org.json4s#json4s-native_2.11;3.2.10 [compile->compile]
+== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.3->org.mongodb#casbah_2.11;2.8.2 [compile->master]
+== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.3->org.json4s#json4s-native_2.11;3.2.10 [compile->default(compile)]
+== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.3->org.json4s#json4s-native_2.11;3.2.10 [compile->runtime]
+== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.3->org.json4s#json4s-native_2.11;3.2.10 [compile->compile]
 == resolving dependencies org.json4s#json4s-native_2.11;3.2.10->org.scala-lang#scala-library;2.11.0 [compile->master(compile)]
 == resolving dependencies org.json4s#json4s-native_2.11;3.2.10->org.scala-lang#scala-library;2.11.7 [compile->master(compile)]
 == resolving dependencies org.json4s#json4s-native_2.11;3.2.10->org.scala-lang#scala-library;2.11.0 [compile->compile(*)]
@@ -19769,20 +19769,20 @@ dependency descriptor has been mediated: dependency: junit#junit;3.8.1 {test=[ru
 == resolving dependencies org.scala-lang#scala-compiler;2.11.0->org.scala-lang.modules#scala-xml_2.11;1.0.1 [runtime->compile]
 == resolving dependencies org.scala-lang#scala-compiler;2.11.0->org.scala-lang.modules#scala-parser-combinators_2.11;1.0.1 [runtime->runtime(*)]
 == resolving dependencies org.scala-lang#scala-compiler;2.11.0->org.scala-lang.modules#scala-parser-combinators_2.11;1.0.1 [runtime->compile]
-== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.0-SNAPSHOT->org.json4s#json4s-native_2.11;3.2.10 [compile->master]
-== resolving dependencies for london-bus-tracker-play#london-bus-tracker-play_2.11;1.0-SNAPSHOT [optional]
-== resolving dependencies for london-bus-tracker-play#london-bus-tracker-play_2.11;1.0-SNAPSHOT [provided]
+== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.3->org.json4s#json4s-native_2.11;3.2.10 [compile->master]
+== resolving dependencies for london-bus-tracker-play#london-bus-tracker-play_2.11;1.3 [optional]
+== resolving dependencies for london-bus-tracker-play#london-bus-tracker-play_2.11;1.3 [provided]
 resolving dependencies for configuration 'runtime-internal'
-== resolving dependencies for london-bus-tracker-play#london-bus-tracker-play_2.11;1.0-SNAPSHOT [runtime-internal]
-== resolving dependencies for london-bus-tracker-play#london-bus-tracker-play_2.11;1.0-SNAPSHOT [runtime]
-== resolving dependencies for london-bus-tracker-play#london-bus-tracker-play_2.11;1.0-SNAPSHOT [compile]
-== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.0-SNAPSHOT->org.scala-lang#scala-library;2.11.7 [compile->default(compile)]
-== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.0-SNAPSHOT->org.scala-lang#scala-library;2.11.7 [compile->runtime]
-== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.0-SNAPSHOT->org.scala-lang#scala-library;2.11.7 [compile->compile]
-== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.0-SNAPSHOT->org.scala-lang#scala-library;2.11.7 [compile->master]
-== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.0-SNAPSHOT->com.typesafe.play#twirl-api_2.11;1.0.2 [compile->default(compile)]
-== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.0-SNAPSHOT->com.typesafe.play#twirl-api_2.11;1.0.2 [compile->runtime]
-== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.0-SNAPSHOT->com.typesafe.play#twirl-api_2.11;1.0.2 [compile->compile]
+== resolving dependencies for london-bus-tracker-play#london-bus-tracker-play_2.11;1.3 [runtime-internal]
+== resolving dependencies for london-bus-tracker-play#london-bus-tracker-play_2.11;1.3 [runtime]
+== resolving dependencies for london-bus-tracker-play#london-bus-tracker-play_2.11;1.3 [compile]
+== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.3->org.scala-lang#scala-library;2.11.7 [compile->default(compile)]
+== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.3->org.scala-lang#scala-library;2.11.7 [compile->runtime]
+== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.3->org.scala-lang#scala-library;2.11.7 [compile->compile]
+== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.3->org.scala-lang#scala-library;2.11.7 [compile->master]
+== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.3->com.typesafe.play#twirl-api_2.11;1.0.2 [compile->default(compile)]
+== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.3->com.typesafe.play#twirl-api_2.11;1.0.2 [compile->runtime]
+== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.3->com.typesafe.play#twirl-api_2.11;1.0.2 [compile->compile]
 == resolving dependencies com.typesafe.play#twirl-api_2.11;1.0.2->org.scala-lang#scala-library;2.11.1 [compile->master(*)]
 == resolving dependencies com.typesafe.play#twirl-api_2.11;1.0.2->org.scala-lang#scala-library;2.11.7 [compile->master(*)]
 == resolving dependencies com.typesafe.play#twirl-api_2.11;1.0.2->org.scala-lang#scala-library;2.11.1 [compile->compile(*)]
@@ -19807,10 +19807,10 @@ resolving dependencies for configuration 'runtime-internal'
 == resolving dependencies org.scala-lang.modules#scala-xml_2.11;1.0.1->org.scala-lang#scala-library;2.11.0 [runtime->runtime(*)]
 == resolving dependencies org.scala-lang.modules#scala-xml_2.11;1.0.1->org.scala-lang#scala-library;2.11.7 [runtime->runtime(*)]
 == resolving dependencies org.scala-lang.modules#scala-xml_2.11;1.0.1->org.scala-lang#scala-library;2.11.7 [runtime->compile]
-== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.0-SNAPSHOT->com.typesafe.play#twirl-api_2.11;1.0.2 [compile->master]
-== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.0-SNAPSHOT->com.typesafe.play#play_2.11;2.3.10 [compile->default(compile)]
-== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.0-SNAPSHOT->com.typesafe.play#play_2.11;2.3.10 [compile->runtime]
-== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.0-SNAPSHOT->com.typesafe.play#play_2.11;2.3.10 [compile->compile]
+== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.3->com.typesafe.play#twirl-api_2.11;1.0.2 [compile->master]
+== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.3->com.typesafe.play#play_2.11;2.3.10 [compile->default(compile)]
+== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.3->com.typesafe.play#play_2.11;2.3.10 [compile->runtime]
+== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.3->com.typesafe.play#play_2.11;2.3.10 [compile->compile]
 == resolving dependencies com.typesafe.play#play_2.11;2.3.10->org.scala-lang#scala-library;2.11.1 [compile->master(*)]
 == resolving dependencies com.typesafe.play#play_2.11;2.3.10->org.scala-lang#scala-library;2.11.7 [compile->master(*)]
 == resolving dependencies com.typesafe.play#play_2.11;2.3.10->org.scala-lang#scala-library;2.11.1 [compile->compile(*)]
@@ -20087,10 +20087,10 @@ resolving dependencies for configuration 'runtime-internal'
 == resolving dependencies com.typesafe.play#play_2.11;2.3.10->javax.transaction#jta;1.1 [runtime->compile]
 == resolving dependencies com.typesafe.play#play_2.11;2.3.10->org.scala-lang#scala-reflect;2.11.1 [runtime->runtime(*)]
 == resolving dependencies com.typesafe.play#play_2.11;2.3.10->org.scala-lang#scala-reflect;2.11.1 [runtime->compile]
-== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.0-SNAPSHOT->com.typesafe.play#play_2.11;2.3.10 [compile->master]
-== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.0-SNAPSHOT->com.typesafe.play.plugins#play-plugins-mailer_2.11;2.3.1 [compile->default(compile)]
-== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.0-SNAPSHOT->com.typesafe.play.plugins#play-plugins-mailer_2.11;2.3.1 [compile->runtime]
-== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.0-SNAPSHOT->com.typesafe.play.plugins#play-plugins-mailer_2.11;2.3.1 [compile->compile]
+== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.3->com.typesafe.play#play_2.11;2.3.10 [compile->master]
+== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.3->com.typesafe.play.plugins#play-plugins-mailer_2.11;2.3.1 [compile->default(compile)]
+== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.3->com.typesafe.play.plugins#play-plugins-mailer_2.11;2.3.1 [compile->runtime]
+== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.3->com.typesafe.play.plugins#play-plugins-mailer_2.11;2.3.1 [compile->compile]
 == resolving dependencies com.typesafe.play.plugins#play-plugins-mailer_2.11;2.3.1->org.scala-lang#scala-library;2.11.1 [compile->master(*)]
 == resolving dependencies com.typesafe.play.plugins#play-plugins-mailer_2.11;2.3.1->org.scala-lang#scala-library;2.11.7 [compile->master(*)]
 == resolving dependencies com.typesafe.play.plugins#play-plugins-mailer_2.11;2.3.1->org.scala-lang#scala-library;2.11.1 [compile->compile(*)]
@@ -20128,10 +20128,10 @@ resolving dependencies for configuration 'runtime-internal'
 == resolving dependencies com.typesafe.play.plugins#play-plugins-util_2.11;2.3.0->org.scala-lang#scala-library;2.11.1 [runtime->runtime(*)]
 == resolving dependencies com.typesafe.play.plugins#play-plugins-util_2.11;2.3.0->org.scala-lang#scala-library;2.11.7 [runtime->runtime(*)]
 == resolving dependencies com.typesafe.play.plugins#play-plugins-util_2.11;2.3.0->org.scala-lang#scala-library;2.11.7 [runtime->compile]
-== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.0-SNAPSHOT->com.typesafe.play.plugins#play-plugins-mailer_2.11;2.3.1 [compile->master]
-== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.0-SNAPSHOT->org.apache.httpcomponents#httpclient;4.5 [compile->default(compile)]
-== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.0-SNAPSHOT->org.apache.httpcomponents#httpclient;4.5 [compile->runtime]
-== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.0-SNAPSHOT->org.apache.httpcomponents#httpclient;4.5 [compile->compile]
+== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.3->com.typesafe.play.plugins#play-plugins-mailer_2.11;2.3.1 [compile->master]
+== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.3->org.apache.httpcomponents#httpclient;4.5 [compile->default(compile)]
+== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.3->org.apache.httpcomponents#httpclient;4.5 [compile->runtime]
+== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.3->org.apache.httpcomponents#httpclient;4.5 [compile->compile]
 == resolving dependencies org.apache.httpcomponents#httpclient;4.5->org.apache.httpcomponents#httpcore;4.4.1 [compile->master(compile)]
 == resolving dependencies org.apache.httpcomponents#httpclient;4.5->org.apache.httpcomponents#httpcore;4.4.1 [compile->compile(*)]
 == resolving dependencies org.apache.httpcomponents#httpclient;4.5->commons-logging#commons-logging;1.2 [compile->master(compile)]
@@ -20147,18 +20147,18 @@ dependency descriptor has been mediated: dependency: junit#junit;3.8.1 {test=[ru
 dependency descriptor has been mediated: dependency: junit#junit;3.8.1 {test=[runtime(*), master(compile)]} => dependency: junit#junit;4.11 {test=[runtime(*), master(compile)]}
 == resolving dependencies org.apache.httpcomponents#httpclient;4.5->commons-codec#commons-codec;1.9 [runtime->runtime(*)]
 == resolving dependencies org.apache.httpcomponents#httpclient;4.5->commons-codec#commons-codec;1.9 [runtime->compile]
-== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.0-SNAPSHOT->org.apache.httpcomponents#httpclient;4.5 [compile->master]
-== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.0-SNAPSHOT->org.apache.commons#commons-math3;3.5 [compile->default(compile)]
-== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.0-SNAPSHOT->org.apache.commons#commons-math3;3.5 [compile->runtime]
-== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.0-SNAPSHOT->org.apache.commons#commons-math3;3.5 [compile->compile]
-== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.0-SNAPSHOT->org.apache.commons#commons-math3;3.5 [compile->master]
-== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.0-SNAPSHOT->org.apache.commons#commons-lang3;3.4 [compile->default(compile)]
-== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.0-SNAPSHOT->org.apache.commons#commons-lang3;3.4 [compile->runtime]
-== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.0-SNAPSHOT->org.apache.commons#commons-lang3;3.4 [compile->compile]
-== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.0-SNAPSHOT->org.apache.commons#commons-lang3;3.4 [compile->master]
-== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.0-SNAPSHOT->org.mongodb#casbah_2.11;2.8.2 [compile->default(compile)]
-== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.0-SNAPSHOT->org.mongodb#casbah_2.11;2.8.2 [compile->runtime]
-== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.0-SNAPSHOT->org.mongodb#casbah_2.11;2.8.2 [compile->compile]
+== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.3->org.apache.httpcomponents#httpclient;4.5 [compile->master]
+== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.3->org.apache.commons#commons-math3;3.5 [compile->default(compile)]
+== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.3->org.apache.commons#commons-math3;3.5 [compile->runtime]
+== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.3->org.apache.commons#commons-math3;3.5 [compile->compile]
+== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.3->org.apache.commons#commons-math3;3.5 [compile->master]
+== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.3->org.apache.commons#commons-lang3;3.4 [compile->default(compile)]
+== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.3->org.apache.commons#commons-lang3;3.4 [compile->runtime]
+== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.3->org.apache.commons#commons-lang3;3.4 [compile->compile]
+== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.3->org.apache.commons#commons-lang3;3.4 [compile->master]
+== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.3->org.mongodb#casbah_2.11;2.8.2 [compile->default(compile)]
+== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.3->org.mongodb#casbah_2.11;2.8.2 [compile->runtime]
+== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.3->org.mongodb#casbah_2.11;2.8.2 [compile->compile]
 == resolving dependencies org.mongodb#casbah_2.11;2.8.2->org.scala-lang#scala-library;2.11.7 [compile->master(compile)]
 == resolving dependencies org.mongodb#casbah_2.11;2.8.2->org.scala-lang#scala-library;2.11.7 [compile->compile(*)]
 == resolving dependencies org.mongodb#casbah_2.11;2.8.2->org.mongodb#casbah-commons_2.11;2.8.2 [compile->master(compile)]
@@ -20277,10 +20277,10 @@ dependency descriptor has been mediated: dependency: junit#junit;3.8.1 {test=[ru
 == resolving dependencies org.mongodb#casbah-gridfs_2.11;2.8.2->org.slf4j#slf4j-api;1.6.0 [runtime->runtime(*)]
 == resolving dependencies org.mongodb#casbah-gridfs_2.11;2.8.2->org.slf4j#slf4j-api;1.7.6 [runtime->runtime(*)]
 == resolving dependencies org.mongodb#casbah-gridfs_2.11;2.8.2->org.slf4j#slf4j-api;1.7.6 [runtime->compile]
-== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.0-SNAPSHOT->org.mongodb#casbah_2.11;2.8.2 [compile->master]
-== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.0-SNAPSHOT->org.json4s#json4s-native_2.11;3.2.10 [compile->default(compile)]
-== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.0-SNAPSHOT->org.json4s#json4s-native_2.11;3.2.10 [compile->runtime]
-== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.0-SNAPSHOT->org.json4s#json4s-native_2.11;3.2.10 [compile->compile]
+== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.3->org.mongodb#casbah_2.11;2.8.2 [compile->master]
+== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.3->org.json4s#json4s-native_2.11;3.2.10 [compile->default(compile)]
+== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.3->org.json4s#json4s-native_2.11;3.2.10 [compile->runtime]
+== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.3->org.json4s#json4s-native_2.11;3.2.10 [compile->compile]
 == resolving dependencies org.json4s#json4s-native_2.11;3.2.10->org.scala-lang#scala-library;2.11.0 [compile->master(compile)]
 == resolving dependencies org.json4s#json4s-native_2.11;3.2.10->org.scala-lang#scala-library;2.11.7 [compile->master(compile)]
 == resolving dependencies org.json4s#json4s-native_2.11;3.2.10->org.scala-lang#scala-library;2.11.0 [compile->compile(*)]
@@ -20344,20 +20344,20 @@ dependency descriptor has been mediated: dependency: junit#junit;3.8.1 {test=[ru
 == resolving dependencies org.scala-lang#scala-compiler;2.11.0->org.scala-lang.modules#scala-xml_2.11;1.0.1 [runtime->compile]
 == resolving dependencies org.scala-lang#scala-compiler;2.11.0->org.scala-lang.modules#scala-parser-combinators_2.11;1.0.1 [runtime->runtime(*)]
 == resolving dependencies org.scala-lang#scala-compiler;2.11.0->org.scala-lang.modules#scala-parser-combinators_2.11;1.0.1 [runtime->compile]
-== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.0-SNAPSHOT->org.json4s#json4s-native_2.11;3.2.10 [compile->master]
-== resolving dependencies for london-bus-tracker-play#london-bus-tracker-play_2.11;1.0-SNAPSHOT [optional]
+== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.3->org.json4s#json4s-native_2.11;3.2.10 [compile->master]
+== resolving dependencies for london-bus-tracker-play#london-bus-tracker-play_2.11;1.3 [optional]
 resolving dependencies for configuration 'test-internal'
-== resolving dependencies for london-bus-tracker-play#london-bus-tracker-play_2.11;1.0-SNAPSHOT [test-internal]
-== resolving dependencies for london-bus-tracker-play#london-bus-tracker-play_2.11;1.0-SNAPSHOT [test]
-== resolving dependencies for london-bus-tracker-play#london-bus-tracker-play_2.11;1.0-SNAPSHOT [runtime]
-== resolving dependencies for london-bus-tracker-play#london-bus-tracker-play_2.11;1.0-SNAPSHOT [compile]
-== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.0-SNAPSHOT->org.scala-lang#scala-library;2.11.7 [compile->default(compile)]
-== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.0-SNAPSHOT->org.scala-lang#scala-library;2.11.7 [compile->runtime]
-== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.0-SNAPSHOT->org.scala-lang#scala-library;2.11.7 [compile->compile]
-== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.0-SNAPSHOT->org.scala-lang#scala-library;2.11.7 [compile->master]
-== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.0-SNAPSHOT->com.typesafe.play#twirl-api_2.11;1.0.2 [compile->default(compile)]
-== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.0-SNAPSHOT->com.typesafe.play#twirl-api_2.11;1.0.2 [compile->runtime]
-== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.0-SNAPSHOT->com.typesafe.play#twirl-api_2.11;1.0.2 [compile->compile]
+== resolving dependencies for london-bus-tracker-play#london-bus-tracker-play_2.11;1.3 [test-internal]
+== resolving dependencies for london-bus-tracker-play#london-bus-tracker-play_2.11;1.3 [test]
+== resolving dependencies for london-bus-tracker-play#london-bus-tracker-play_2.11;1.3 [runtime]
+== resolving dependencies for london-bus-tracker-play#london-bus-tracker-play_2.11;1.3 [compile]
+== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.3->org.scala-lang#scala-library;2.11.7 [compile->default(compile)]
+== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.3->org.scala-lang#scala-library;2.11.7 [compile->runtime]
+== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.3->org.scala-lang#scala-library;2.11.7 [compile->compile]
+== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.3->org.scala-lang#scala-library;2.11.7 [compile->master]
+== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.3->com.typesafe.play#twirl-api_2.11;1.0.2 [compile->default(compile)]
+== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.3->com.typesafe.play#twirl-api_2.11;1.0.2 [compile->runtime]
+== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.3->com.typesafe.play#twirl-api_2.11;1.0.2 [compile->compile]
 == resolving dependencies com.typesafe.play#twirl-api_2.11;1.0.2->org.scala-lang#scala-library;2.11.1 [compile->master(*)]
 == resolving dependencies com.typesafe.play#twirl-api_2.11;1.0.2->org.scala-lang#scala-library;2.11.7 [compile->master(*)]
 == resolving dependencies com.typesafe.play#twirl-api_2.11;1.0.2->org.scala-lang#scala-library;2.11.1 [compile->compile(*)]
@@ -20382,10 +20382,10 @@ resolving dependencies for configuration 'test-internal'
 == resolving dependencies org.scala-lang.modules#scala-xml_2.11;1.0.1->org.scala-lang#scala-library;2.11.0 [runtime->runtime(*)]
 == resolving dependencies org.scala-lang.modules#scala-xml_2.11;1.0.1->org.scala-lang#scala-library;2.11.7 [runtime->runtime(*)]
 == resolving dependencies org.scala-lang.modules#scala-xml_2.11;1.0.1->org.scala-lang#scala-library;2.11.7 [runtime->compile]
-== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.0-SNAPSHOT->com.typesafe.play#twirl-api_2.11;1.0.2 [compile->master]
-== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.0-SNAPSHOT->com.typesafe.play#play_2.11;2.3.10 [compile->default(compile)]
-== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.0-SNAPSHOT->com.typesafe.play#play_2.11;2.3.10 [compile->runtime]
-== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.0-SNAPSHOT->com.typesafe.play#play_2.11;2.3.10 [compile->compile]
+== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.3->com.typesafe.play#twirl-api_2.11;1.0.2 [compile->master]
+== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.3->com.typesafe.play#play_2.11;2.3.10 [compile->default(compile)]
+== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.3->com.typesafe.play#play_2.11;2.3.10 [compile->runtime]
+== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.3->com.typesafe.play#play_2.11;2.3.10 [compile->compile]
 == resolving dependencies com.typesafe.play#play_2.11;2.3.10->org.scala-lang#scala-library;2.11.1 [compile->master(*)]
 == resolving dependencies com.typesafe.play#play_2.11;2.3.10->org.scala-lang#scala-library;2.11.7 [compile->master(*)]
 == resolving dependencies com.typesafe.play#play_2.11;2.3.10->org.scala-lang#scala-library;2.11.1 [compile->compile(*)]
@@ -20662,10 +20662,10 @@ resolving dependencies for configuration 'test-internal'
 == resolving dependencies com.typesafe.play#play_2.11;2.3.10->javax.transaction#jta;1.1 [runtime->compile]
 == resolving dependencies com.typesafe.play#play_2.11;2.3.10->org.scala-lang#scala-reflect;2.11.1 [runtime->runtime(*)]
 == resolving dependencies com.typesafe.play#play_2.11;2.3.10->org.scala-lang#scala-reflect;2.11.1 [runtime->compile]
-== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.0-SNAPSHOT->com.typesafe.play#play_2.11;2.3.10 [compile->master]
-== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.0-SNAPSHOT->com.typesafe.play.plugins#play-plugins-mailer_2.11;2.3.1 [compile->default(compile)]
-== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.0-SNAPSHOT->com.typesafe.play.plugins#play-plugins-mailer_2.11;2.3.1 [compile->runtime]
-== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.0-SNAPSHOT->com.typesafe.play.plugins#play-plugins-mailer_2.11;2.3.1 [compile->compile]
+== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.3->com.typesafe.play#play_2.11;2.3.10 [compile->master]
+== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.3->com.typesafe.play.plugins#play-plugins-mailer_2.11;2.3.1 [compile->default(compile)]
+== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.3->com.typesafe.play.plugins#play-plugins-mailer_2.11;2.3.1 [compile->runtime]
+== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.3->com.typesafe.play.plugins#play-plugins-mailer_2.11;2.3.1 [compile->compile]
 == resolving dependencies com.typesafe.play.plugins#play-plugins-mailer_2.11;2.3.1->org.scala-lang#scala-library;2.11.1 [compile->master(*)]
 == resolving dependencies com.typesafe.play.plugins#play-plugins-mailer_2.11;2.3.1->org.scala-lang#scala-library;2.11.7 [compile->master(*)]
 == resolving dependencies com.typesafe.play.plugins#play-plugins-mailer_2.11;2.3.1->org.scala-lang#scala-library;2.11.1 [compile->compile(*)]
@@ -20703,10 +20703,10 @@ resolving dependencies for configuration 'test-internal'
 == resolving dependencies com.typesafe.play.plugins#play-plugins-util_2.11;2.3.0->org.scala-lang#scala-library;2.11.1 [runtime->runtime(*)]
 == resolving dependencies com.typesafe.play.plugins#play-plugins-util_2.11;2.3.0->org.scala-lang#scala-library;2.11.7 [runtime->runtime(*)]
 == resolving dependencies com.typesafe.play.plugins#play-plugins-util_2.11;2.3.0->org.scala-lang#scala-library;2.11.7 [runtime->compile]
-== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.0-SNAPSHOT->com.typesafe.play.plugins#play-plugins-mailer_2.11;2.3.1 [compile->master]
-== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.0-SNAPSHOT->org.apache.httpcomponents#httpclient;4.5 [compile->default(compile)]
-== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.0-SNAPSHOT->org.apache.httpcomponents#httpclient;4.5 [compile->runtime]
-== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.0-SNAPSHOT->org.apache.httpcomponents#httpclient;4.5 [compile->compile]
+== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.3->com.typesafe.play.plugins#play-plugins-mailer_2.11;2.3.1 [compile->master]
+== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.3->org.apache.httpcomponents#httpclient;4.5 [compile->default(compile)]
+== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.3->org.apache.httpcomponents#httpclient;4.5 [compile->runtime]
+== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.3->org.apache.httpcomponents#httpclient;4.5 [compile->compile]
 == resolving dependencies org.apache.httpcomponents#httpclient;4.5->org.apache.httpcomponents#httpcore;4.4.1 [compile->master(compile)]
 == resolving dependencies org.apache.httpcomponents#httpclient;4.5->org.apache.httpcomponents#httpcore;4.4.1 [compile->compile(*)]
 == resolving dependencies org.apache.httpcomponents#httpclient;4.5->commons-logging#commons-logging;1.2 [compile->master(compile)]
@@ -20722,18 +20722,18 @@ dependency descriptor has been mediated: dependency: junit#junit;3.8.1 {test=[ru
 dependency descriptor has been mediated: dependency: junit#junit;3.8.1 {test=[runtime(*), master(compile)]} => dependency: junit#junit;4.11 {test=[runtime(*), master(compile)]}
 == resolving dependencies org.apache.httpcomponents#httpclient;4.5->commons-codec#commons-codec;1.9 [runtime->runtime(*)]
 == resolving dependencies org.apache.httpcomponents#httpclient;4.5->commons-codec#commons-codec;1.9 [runtime->compile]
-== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.0-SNAPSHOT->org.apache.httpcomponents#httpclient;4.5 [compile->master]
-== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.0-SNAPSHOT->org.apache.commons#commons-math3;3.5 [compile->default(compile)]
-== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.0-SNAPSHOT->org.apache.commons#commons-math3;3.5 [compile->runtime]
-== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.0-SNAPSHOT->org.apache.commons#commons-math3;3.5 [compile->compile]
-== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.0-SNAPSHOT->org.apache.commons#commons-math3;3.5 [compile->master]
-== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.0-SNAPSHOT->org.apache.commons#commons-lang3;3.4 [compile->default(compile)]
-== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.0-SNAPSHOT->org.apache.commons#commons-lang3;3.4 [compile->runtime]
-== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.0-SNAPSHOT->org.apache.commons#commons-lang3;3.4 [compile->compile]
-== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.0-SNAPSHOT->org.apache.commons#commons-lang3;3.4 [compile->master]
-== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.0-SNAPSHOT->org.mongodb#casbah_2.11;2.8.2 [compile->default(compile)]
-== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.0-SNAPSHOT->org.mongodb#casbah_2.11;2.8.2 [compile->runtime]
-== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.0-SNAPSHOT->org.mongodb#casbah_2.11;2.8.2 [compile->compile]
+== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.3->org.apache.httpcomponents#httpclient;4.5 [compile->master]
+== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.3->org.apache.commons#commons-math3;3.5 [compile->default(compile)]
+== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.3->org.apache.commons#commons-math3;3.5 [compile->runtime]
+== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.3->org.apache.commons#commons-math3;3.5 [compile->compile]
+== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.3->org.apache.commons#commons-math3;3.5 [compile->master]
+== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.3->org.apache.commons#commons-lang3;3.4 [compile->default(compile)]
+== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.3->org.apache.commons#commons-lang3;3.4 [compile->runtime]
+== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.3->org.apache.commons#commons-lang3;3.4 [compile->compile]
+== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.3->org.apache.commons#commons-lang3;3.4 [compile->master]
+== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.3->org.mongodb#casbah_2.11;2.8.2 [compile->default(compile)]
+== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.3->org.mongodb#casbah_2.11;2.8.2 [compile->runtime]
+== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.3->org.mongodb#casbah_2.11;2.8.2 [compile->compile]
 == resolving dependencies org.mongodb#casbah_2.11;2.8.2->org.scala-lang#scala-library;2.11.7 [compile->master(compile)]
 == resolving dependencies org.mongodb#casbah_2.11;2.8.2->org.scala-lang#scala-library;2.11.7 [compile->compile(*)]
 == resolving dependencies org.mongodb#casbah_2.11;2.8.2->org.mongodb#casbah-commons_2.11;2.8.2 [compile->master(compile)]
@@ -20852,10 +20852,10 @@ dependency descriptor has been mediated: dependency: junit#junit;3.8.1 {test=[ru
 == resolving dependencies org.mongodb#casbah-gridfs_2.11;2.8.2->org.slf4j#slf4j-api;1.6.0 [runtime->runtime(*)]
 == resolving dependencies org.mongodb#casbah-gridfs_2.11;2.8.2->org.slf4j#slf4j-api;1.7.6 [runtime->runtime(*)]
 == resolving dependencies org.mongodb#casbah-gridfs_2.11;2.8.2->org.slf4j#slf4j-api;1.7.6 [runtime->compile]
-== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.0-SNAPSHOT->org.mongodb#casbah_2.11;2.8.2 [compile->master]
-== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.0-SNAPSHOT->org.json4s#json4s-native_2.11;3.2.10 [compile->default(compile)]
-== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.0-SNAPSHOT->org.json4s#json4s-native_2.11;3.2.10 [compile->runtime]
-== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.0-SNAPSHOT->org.json4s#json4s-native_2.11;3.2.10 [compile->compile]
+== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.3->org.mongodb#casbah_2.11;2.8.2 [compile->master]
+== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.3->org.json4s#json4s-native_2.11;3.2.10 [compile->default(compile)]
+== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.3->org.json4s#json4s-native_2.11;3.2.10 [compile->runtime]
+== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.3->org.json4s#json4s-native_2.11;3.2.10 [compile->compile]
 == resolving dependencies org.json4s#json4s-native_2.11;3.2.10->org.scala-lang#scala-library;2.11.0 [compile->master(compile)]
 == resolving dependencies org.json4s#json4s-native_2.11;3.2.10->org.scala-lang#scala-library;2.11.7 [compile->master(compile)]
 == resolving dependencies org.json4s#json4s-native_2.11;3.2.10->org.scala-lang#scala-library;2.11.0 [compile->compile(*)]
@@ -20919,10 +20919,10 @@ dependency descriptor has been mediated: dependency: junit#junit;3.8.1 {test=[ru
 == resolving dependencies org.scala-lang#scala-compiler;2.11.0->org.scala-lang.modules#scala-xml_2.11;1.0.1 [runtime->compile]
 == resolving dependencies org.scala-lang#scala-compiler;2.11.0->org.scala-lang.modules#scala-parser-combinators_2.11;1.0.1 [runtime->runtime(*)]
 == resolving dependencies org.scala-lang#scala-compiler;2.11.0->org.scala-lang.modules#scala-parser-combinators_2.11;1.0.1 [runtime->compile]
-== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.0-SNAPSHOT->org.json4s#json4s-native_2.11;3.2.10 [compile->master]
-== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.0-SNAPSHOT->com.typesafe.play#play-test_2.11;2.3.10 [test->default(compile)]
-== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.0-SNAPSHOT->com.typesafe.play#play-test_2.11;2.3.10 [test->runtime]
-== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.0-SNAPSHOT->com.typesafe.play#play-test_2.11;2.3.10 [test->compile]
+== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.3->org.json4s#json4s-native_2.11;3.2.10 [compile->master]
+== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.3->com.typesafe.play#play-test_2.11;2.3.10 [test->default(compile)]
+== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.3->com.typesafe.play#play-test_2.11;2.3.10 [test->runtime]
+== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.3->com.typesafe.play#play-test_2.11;2.3.10 [test->compile]
 == resolving dependencies com.typesafe.play#play-test_2.11;2.3.10->org.scala-lang#scala-library;2.11.1 [compile->master(*)]
 == resolving dependencies com.typesafe.play#play-test_2.11;2.3.10->org.scala-lang#scala-library;2.11.7 [compile->master(*)]
 == resolving dependencies com.typesafe.play#play-test_2.11;2.3.10->org.scala-lang#scala-library;2.11.1 [compile->compile(*)]
@@ -22004,23 +22004,23 @@ dependency descriptor has been mediated: dependency: junit#junit;4.8.2 {test=[ru
 == resolving dependencies org.easytesting#fest-assert;1.4->org.easytesting#fest-util;1.1.6 [runtime->runtime(*)]
 == resolving dependencies org.easytesting#fest-assert;1.4->org.easytesting#fest-util;1.1.6 [runtime->compile]
 dependency descriptor has been mediated: dependency: junit#junit;4.8.2 {test=[runtime(*), master(*)]} => dependency: junit#junit;4.11 {test=[runtime(*), master(*)]}
-== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.0-SNAPSHOT->com.typesafe.play#play-test_2.11;2.3.10 [test->master]
-== resolving dependencies for london-bus-tracker-play#london-bus-tracker-play_2.11;1.0-SNAPSHOT [optional]
-== resolving dependencies for london-bus-tracker-play#london-bus-tracker-play_2.11;1.0-SNAPSHOT [provided]
+== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.3->com.typesafe.play#play-test_2.11;2.3.10 [test->master]
+== resolving dependencies for london-bus-tracker-play#london-bus-tracker-play_2.11;1.3 [optional]
+== resolving dependencies for london-bus-tracker-play#london-bus-tracker-play_2.11;1.3 [provided]
 resolving dependencies for configuration 'plugin'
-== resolving dependencies for london-bus-tracker-play#london-bus-tracker-play_2.11;1.0-SNAPSHOT [plugin]
+== resolving dependencies for london-bus-tracker-play#london-bus-tracker-play_2.11;1.3 [plugin]
 resolving dependencies for configuration 'sources'
-== resolving dependencies for london-bus-tracker-play#london-bus-tracker-play_2.11;1.0-SNAPSHOT [sources]
+== resolving dependencies for london-bus-tracker-play#london-bus-tracker-play_2.11;1.3 [sources]
 resolving dependencies for configuration 'docs'
-== resolving dependencies for london-bus-tracker-play#london-bus-tracker-play_2.11;1.0-SNAPSHOT [docs]
-== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.0-SNAPSHOT->com.typesafe.play#play-docs_2.11;2.3.10 [docs->default(compile)]
+== resolving dependencies for london-bus-tracker-play#london-bus-tracker-play_2.11;1.3 [docs]
+== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.3->com.typesafe.play#play-docs_2.11;2.3.10 [docs->default(compile)]
 Read from stdout: Resolving com.typesafe.play#play-docs_2.11;2.3.10 ...
 Resolving com.typesafe.play#play-docs_2.11;2.3.10 ...
 sbt-chain: Checking cache for: dependency: com.typesafe.play#play-docs_2.11;2.3.10 {docs=[default(compile)]}
 sbt-chain: module revision found in cache: com.typesafe.play#play-docs_2.11;2.3.10
 	found com.typesafe.play#play-docs_2.11;2.3.10 in sbt-chain
-== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.0-SNAPSHOT->com.typesafe.play#play-docs_2.11;2.3.10 [docs->runtime]
-== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.0-SNAPSHOT->com.typesafe.play#play-docs_2.11;2.3.10 [docs->compile]
+== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.3->com.typesafe.play#play-docs_2.11;2.3.10 [docs->runtime]
+== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.3->com.typesafe.play#play-docs_2.11;2.3.10 [docs->compile]
 == resolving dependencies com.typesafe.play#play-docs_2.11;2.3.10->org.scala-lang#scala-library;2.11.1 [compile->master(*)]
 Read from stdout: Resolving org.scala-lang#scala-library;2.11.1 ...
 Resolving org.scala-lang#scala-library;2.11.1 ...
@@ -22414,19 +22414,19 @@ sbt-chain: module revision found in cache: commons-io#commons-io;2.4
 == resolving dependencies com.typesafe.play#play_2.11;2.3.10->org.scala-lang#scala-reflect;2.11.1 [runtime->compile]
 == resolving dependencies com.typesafe.play#play-docs_2.11;2.3.10->com.typesafe.play#play-doc_2.11;1.1.0 [runtime->runtime(*)]
 == resolving dependencies com.typesafe.play#play-docs_2.11;2.3.10->com.typesafe.play#play-doc_2.11;1.1.0 [runtime->compile]
-== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.0-SNAPSHOT->com.typesafe.play#play-docs_2.11;2.3.10 [docs->master]
+== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.3->com.typesafe.play#play-docs_2.11;2.3.10 [docs->master]
 resolving dependencies for configuration 'pom'
-== resolving dependencies for london-bus-tracker-play#london-bus-tracker-play_2.11;1.0-SNAPSHOT [pom]
+== resolving dependencies for london-bus-tracker-play#london-bus-tracker-play_2.11;1.3 [pom]
 resolving dependencies for configuration 'scala-tool'
-== resolving dependencies for london-bus-tracker-play#london-bus-tracker-play_2.11;1.0-SNAPSHOT [scala-tool]
-== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.0-SNAPSHOT->org.scala-lang#scala-compiler;2.11.7 [scala-tool->default]
+== resolving dependencies for london-bus-tracker-play#london-bus-tracker-play_2.11;1.3 [scala-tool]
+== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.3->org.scala-lang#scala-compiler;2.11.7 [scala-tool->default]
 Read from stdout: Resolving org.scala-lang#scala-compiler;2.11.7 ...
 Resolving org.scala-lang#scala-compiler;2.11.7 ...
 sbt-chain: Checking cache for: dependency: org.scala-lang#scala-compiler;2.11.7 {scala-tool=[default, optional(default)]}
 sbt-chain: module revision found in cache: org.scala-lang#scala-compiler;2.11.7
 	found org.scala-lang#scala-compiler;2.11.7 in sbt-chain
-== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.0-SNAPSHOT->org.scala-lang#scala-compiler;2.11.7 [scala-tool->runtime]
-== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.0-SNAPSHOT->org.scala-lang#scala-compiler;2.11.7 [scala-tool->compile]
+== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.3->org.scala-lang#scala-compiler;2.11.7 [scala-tool->runtime]
+== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.3->org.scala-lang#scala-compiler;2.11.7 [scala-tool->compile]
 == resolving dependencies org.scala-lang#scala-compiler;2.11.7->org.scala-lang#scala-library;2.11.7 [compile->master(compile)]
 == resolving dependencies org.scala-lang#scala-compiler;2.11.7->org.scala-lang#scala-library;2.11.7 [compile->compile(*)]
 == resolving dependencies org.scala-lang#scala-compiler;2.11.7->org.scala-lang#scala-library;2.11.7 [compile->default]
@@ -22488,8 +22488,8 @@ sbt-chain: module revision found in cache: org.scala-lang.modules#scala-parser-c
 == resolving dependencies org.scala-lang#scala-compiler;2.11.7->org.scala-lang.modules#scala-xml_2.11;1.0.4 [runtime->compile]
 == resolving dependencies org.scala-lang#scala-compiler;2.11.7->org.scala-lang.modules#scala-parser-combinators_2.11;1.0.4 [runtime->runtime(*)]
 == resolving dependencies org.scala-lang#scala-compiler;2.11.7->org.scala-lang.modules#scala-parser-combinators_2.11;1.0.4 [runtime->compile]
-== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.0-SNAPSHOT->org.scala-lang#scala-compiler;2.11.7 [scala-tool->master]
-== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.0-SNAPSHOT->org.scala-lang#scala-compiler;2.11.7 [scala-tool->optional(default)]
+== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.3->org.scala-lang#scala-compiler;2.11.7 [scala-tool->master]
+== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.3->org.scala-lang#scala-compiler;2.11.7 [scala-tool->optional(default)]
 == resolving dependencies org.scala-lang#scala-compiler;2.11.7->jline#jline;2.12.1 [optional->master(compile)]
 Read from stdout: Resolving jline#jline;2.12.1 ...
 Resolving jline#jline;2.12.1 ...
@@ -22497,21 +22497,21 @@ sbt-chain: Checking cache for: dependency: jline#jline;2.12.1 {optional=[compile
 sbt-chain: module revision found in cache: jline#jline;2.12.1
 	found jline#jline;2.12.1 in sbt-chain
 == resolving dependencies org.scala-lang#scala-compiler;2.11.7->jline#jline;2.12.1 [optional->compile(*)]
-== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.0-SNAPSHOT->org.scala-lang#scala-library;2.11.7 [scala-tool->default]
-== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.0-SNAPSHOT->org.scala-lang#scala-library;2.11.7 [scala-tool->runtime]
-== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.0-SNAPSHOT->org.scala-lang#scala-library;2.11.7 [scala-tool->compile]
-== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.0-SNAPSHOT->org.scala-lang#scala-library;2.11.7 [scala-tool->master]
-== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.0-SNAPSHOT->org.scala-lang#scala-library;2.11.7 [scala-tool->optional(default)]
+== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.3->org.scala-lang#scala-library;2.11.7 [scala-tool->default]
+== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.3->org.scala-lang#scala-library;2.11.7 [scala-tool->runtime]
+== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.3->org.scala-lang#scala-library;2.11.7 [scala-tool->compile]
+== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.3->org.scala-lang#scala-library;2.11.7 [scala-tool->master]
+== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.3->org.scala-lang#scala-library;2.11.7 [scala-tool->optional(default)]
 resolving dependencies for configuration 'fork-run'
-== resolving dependencies for london-bus-tracker-play#london-bus-tracker-play_2.11;1.0-SNAPSHOT [fork-run]
-== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.0-SNAPSHOT->com.typesafe.play#fork-run_2.11;2.3.10 [fork-run->default(compile)]
+== resolving dependencies for london-bus-tracker-play#london-bus-tracker-play_2.11;1.3 [fork-run]
+== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.3->com.typesafe.play#fork-run_2.11;2.3.10 [fork-run->default(compile)]
 Read from stdout: Resolving com.typesafe.play#fork-run_2.11;2.3.10 ...
 Resolving com.typesafe.play#fork-run_2.11;2.3.10 ...
 sbt-chain: Checking cache for: dependency: com.typesafe.play#fork-run_2.11;2.3.10 {fork-run=[default(compile)]}
 sbt-chain: module revision found in cache: com.typesafe.play#fork-run_2.11;2.3.10
 	found com.typesafe.play#fork-run_2.11;2.3.10 in sbt-chain
-== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.0-SNAPSHOT->com.typesafe.play#fork-run_2.11;2.3.10 [fork-run->runtime]
-== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.0-SNAPSHOT->com.typesafe.play#fork-run_2.11;2.3.10 [fork-run->compile]
+== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.3->com.typesafe.play#fork-run_2.11;2.3.10 [fork-run->runtime]
+== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.3->com.typesafe.play#fork-run_2.11;2.3.10 [fork-run->compile]
 == resolving dependencies com.typesafe.play#fork-run_2.11;2.3.10->org.scala-lang#scala-library;2.11.1 [compile->master(*)]
 == resolving dependencies com.typesafe.play#fork-run_2.11;2.3.10->org.scala-lang#scala-library;2.11.1 [compile->compile(*)]
 == resolving dependencies com.typesafe.play#fork-run_2.11;2.3.10->com.typesafe.play#fork-run-protocol_2.11;2.3.10 [compile->master(*)]
@@ -22935,7 +22935,7 @@ sbt-chain: module revision found in cache: net.contentobjects.jnotify#jnotify;0.
 == resolving dependencies com.typesafe.play#fork-run_2.11;2.3.10->com.typesafe.sbtrc#actor-client-2-11;0.3.1 [runtime->compile]
 == resolving dependencies com.typesafe.play#fork-run_2.11;2.3.10->net.contentobjects.jnotify#jnotify;0.94 [runtime->runtime(*)]
 == resolving dependencies com.typesafe.play#fork-run_2.11;2.3.10->net.contentobjects.jnotify#jnotify;0.94 [runtime->compile]
-== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.0-SNAPSHOT->com.typesafe.play#fork-run_2.11;2.3.10 [fork-run->master]
+== resolving dependencies london-bus-tracker-play#london-bus-tracker-play_2.11;1.3->com.typesafe.play#fork-run_2.11;2.3.10 [fork-run->master]
 circular dependency found: org.scala-lang.modules#scala-xml_2.11;1.0.1->org.scala-lang#scala-compiler;2.11.0->...
 	resolved ivy file produced in cache
 :: downloading artifacts ::
@@ -23093,87 +23093,36 @@ circular dependency found: org.scala-lang.modules#scala-xml_2.11;1.0.1->org.scal
 	[NOT REQUIRED] org.scalacheck#scalacheck_2.11;1.11.5!scalacheck_2.11.jar
 	[NOT REQUIRED] com.typesafe.akka#akka-actor_2.11;2.3.8!akka-actor_2.11.jar
 	[NOT REQUIRED] com.typesafe.akka#akka-testkit_2.11;2.3.8!akka-testkit_2.11.jar
-:: resolution report :: resolve 2437ms :: artifacts dl 46ms
-	report for london-bus-tracker-play#london-bus-tracker-play_2.11;1.0-SNAPSHOT compile produced in /home/chrischivers/Code/Play/LondonBusTrackerPlay/target/resolution-cache/reports/london-bus-tracker-play-london-bus-tracker-play_2.11-compile.xml
-	report for london-bus-tracker-play#london-bus-tracker-play_2.11;1.0-SNAPSHOT runtime produced in /home/chrischivers/Code/Play/LondonBusTrackerPlay/target/resolution-cache/reports/london-bus-tracker-play-london-bus-tracker-play_2.11-runtime.xml
-	report for london-bus-tracker-play#london-bus-tracker-play_2.11;1.0-SNAPSHOT test produced in /home/chrischivers/Code/Play/LondonBusTrackerPlay/target/resolution-cache/reports/london-bus-tracker-play-london-bus-tracker-play_2.11-test.xml
-	report for london-bus-tracker-play#london-bus-tracker-play_2.11;1.0-SNAPSHOT provided produced in /home/chrischivers/Code/Play/LondonBusTrackerPlay/target/resolution-cache/reports/london-bus-tracker-play-london-bus-tracker-play_2.11-provided.xml
-	report for london-bus-tracker-play#london-bus-tracker-play_2.11;1.0-SNAPSHOT optional produced in /home/chrischivers/Code/Play/LondonBusTrackerPlay/target/resolution-cache/reports/london-bus-tracker-play-london-bus-tracker-play_2.11-optional.xml
-	report for london-bus-tracker-play#london-bus-tracker-play_2.11;1.0-SNAPSHOT compile-internal produced in /home/chrischivers/Code/Play/LondonBusTrackerPlay/target/resolution-cache/reports/london-bus-tracker-play-london-bus-tracker-play_2.11-compile-internal.xml
-	report for london-bus-tracker-play#london-bus-tracker-play_2.11;1.0-SNAPSHOT runtime-internal produced in /home/chrischivers/Code/Play/LondonBusTrackerPlay/target/resolution-cache/reports/london-bus-tracker-play-london-bus-tracker-play_2.11-runtime-internal.xml
-	report for london-bus-tracker-play#london-bus-tracker-play_2.11;1.0-SNAPSHOT test-internal produced in /home/chrischivers/Code/Play/LondonBusTrackerPlay/target/resolution-cache/reports/london-bus-tracker-play-london-bus-tracker-play_2.11-test-internal.xml
-	report for london-bus-tracker-play#london-bus-tracker-play_2.11;1.0-SNAPSHOT plugin produced in /home/chrischivers/Code/Play/LondonBusTrackerPlay/target/resolution-cache/reports/london-bus-tracker-play-london-bus-tracker-play_2.11-plugin.xml
-	report for london-bus-tracker-play#london-bus-tracker-play_2.11;1.0-SNAPSHOT sources produced in /home/chrischivers/Code/Play/LondonBusTrackerPlay/target/resolution-cache/reports/london-bus-tracker-play-london-bus-tracker-play_2.11-sources.xml
-	report for london-bus-tracker-play#london-bus-tracker-play_2.11;1.0-SNAPSHOT docs produced in /home/chrischivers/Code/Play/LondonBusTrackerPlay/target/resolution-cache/reports/london-bus-tracker-play-london-bus-tracker-play_2.11-docs.xml
-	report for london-bus-tracker-play#london-bus-tracker-play_2.11;1.0-SNAPSHOT pom produced in /home/chrischivers/Code/Play/LondonBusTrackerPlay/target/resolution-cache/reports/london-bus-tracker-play-london-bus-tracker-play_2.11-pom.xml
-	report for london-bus-tracker-play#london-bus-tracker-play_2.11;1.0-SNAPSHOT scala-tool produced in /home/chrischivers/Code/Play/LondonBusTrackerPlay/target/resolution-cache/reports/london-bus-tracker-play-london-bus-tracker-play_2.11-scala-tool.xml
-	report for london-bus-tracker-play#london-bus-tracker-play_2.11;1.0-SNAPSHOT fork-run produced in /home/chrischivers/Code/Play/LondonBusTrackerPlay/target/resolution-cache/reports/london-bus-tracker-play-london-bus-tracker-play_2.11-fork-run.xml
-	resolve done (2437ms resolve - 46ms download)
+:: resolution report :: resolve 2798ms :: artifacts dl 48ms
+	report for london-bus-tracker-play#london-bus-tracker-play_2.11;1.3 compile produced in /home/chrischivers/Code/Play/LondonBusTrackerPlay/target/resolution-cache/reports/london-bus-tracker-play-london-bus-tracker-play_2.11-compile.xml
+	report for london-bus-tracker-play#london-bus-tracker-play_2.11;1.3 runtime produced in /home/chrischivers/Code/Play/LondonBusTrackerPlay/target/resolution-cache/reports/london-bus-tracker-play-london-bus-tracker-play_2.11-runtime.xml
+	report for london-bus-tracker-play#london-bus-tracker-play_2.11;1.3 test produced in /home/chrischivers/Code/Play/LondonBusTrackerPlay/target/resolution-cache/reports/london-bus-tracker-play-london-bus-tracker-play_2.11-test.xml
+	report for london-bus-tracker-play#london-bus-tracker-play_2.11;1.3 provided produced in /home/chrischivers/Code/Play/LondonBusTrackerPlay/target/resolution-cache/reports/london-bus-tracker-play-london-bus-tracker-play_2.11-provided.xml
+	report for london-bus-tracker-play#london-bus-tracker-play_2.11;1.3 optional produced in /home/chrischivers/Code/Play/LondonBusTrackerPlay/target/resolution-cache/reports/london-bus-tracker-play-london-bus-tracker-play_2.11-optional.xml
+	report for london-bus-tracker-play#london-bus-tracker-play_2.11;1.3 compile-internal produced in /home/chrischivers/Code/Play/LondonBusTrackerPlay/target/resolution-cache/reports/london-bus-tracker-play-london-bus-tracker-play_2.11-compile-internal.xml
+	report for london-bus-tracker-play#london-bus-tracker-play_2.11;1.3 runtime-internal produced in /home/chrischivers/Code/Play/LondonBusTrackerPlay/target/resolution-cache/reports/london-bus-tracker-play-london-bus-tracker-play_2.11-runtime-internal.xml
+	report for london-bus-tracker-play#london-bus-tracker-play_2.11;1.3 test-internal produced in /home/chrischivers/Code/Play/LondonBusTrackerPlay/target/resolution-cache/reports/london-bus-tracker-play-london-bus-tracker-play_2.11-test-internal.xml
+	report for london-bus-tracker-play#london-bus-tracker-play_2.11;1.3 plugin produced in /home/chrischivers/Code/Play/LondonBusTrackerPlay/target/resolution-cache/reports/london-bus-tracker-play-london-bus-tracker-play_2.11-plugin.xml
+	report for london-bus-tracker-play#london-bus-tracker-play_2.11;1.3 sources produced in /home/chrischivers/Code/Play/LondonBusTrackerPlay/target/resolution-cache/reports/london-bus-tracker-play-london-bus-tracker-play_2.11-sources.xml
+	report for london-bus-tracker-play#london-bus-tracker-play_2.11;1.3 docs produced in /home/chrischivers/Code/Play/LondonBusTrackerPlay/target/resolution-cache/reports/london-bus-tracker-play-london-bus-tracker-play_2.11-docs.xml
+	report for london-bus-tracker-play#london-bus-tracker-play_2.11;1.3 pom produced in /home/chrischivers/Code/Play/LondonBusTrackerPlay/target/resolution-cache/reports/london-bus-tracker-play-london-bus-tracker-play_2.11-pom.xml
+	report for london-bus-tracker-play#london-bus-tracker-play_2.11;1.3 scala-tool produced in /home/chrischivers/Code/Play/LondonBusTrackerPlay/target/resolution-cache/reports/london-bus-tracker-play-london-bus-tracker-play_2.11-scala-tool.xml
+	report for london-bus-tracker-play#london-bus-tracker-play_2.11;1.3 fork-run produced in /home/chrischivers/Code/Play/LondonBusTrackerPlay/target/resolution-cache/reports/london-bus-tracker-play-london-bus-tracker-play_2.11-fork-run.xml
+	resolve done (2798ms resolve - 48ms download)
 Read from stdout: Done updating.
 Done updating.
-Total time: 3 s, completed 10-Feb-2016 19:06:08
+Total time: 3 s, completed 11-Feb-2016 19:44:49
 > server-post-command-cleanup
 > server-handle-next-server-request
 > root/playForkNotifyStart http://localhost:9000
 Evaluating tasks: *:playForkNotifyStart
-Running task... Cancel: sbt.server.ServerTaskCancellation@1d510edf, check cycles: false
-Total time: 0 s, completed 10-Feb-2016 19:06:09
+Running task... Cancel: sbt.server.ServerTaskCancellation@1203188, check cycles: false
+Total time: 0 s, completed 11-Feb-2016 19:44:50
 > server-post-command-cleanup
 > server-handle-next-server-request
 > {file:/home/chrischivers/Code/Play/LondonBusTrackerPlay/}root/*:playForkReload
 Evaluating tasks: *:playForkReload
-Running task... Cancel: sbt.server.ServerTaskCancellation@59ff24a6, check cycles: false
-
-Initial source changes: 
-	removed:Set()
-	added: Set()
-	modified: Set(/home/chrischivers/Code/Play/LondonBusTrackerPlay/target/scala-2.11/twirl/main/views/html/control.template.scala)
-Removed products: Set()
-External API changes: API Changes: Set()
-Modified binary dependencies: Set()
-Initial directly invalidated sources: Set(/home/chrischivers/Code/Play/LondonBusTrackerPlay/target/scala-2.11/twirl/main/views/html/control.template.scala)
-
-Sources indirectly invalidated by:
-	product: Set()
-	binary dep: Set()
-	external source: Set()
-All initially invalidated sources: Set(/home/chrischivers/Code/Play/LondonBusTrackerPlay/target/scala-2.11/twirl/main/views/html/control.template.scala)
-
-Read from stdout: Compiling 1 Scala source to /home/chrischivers/Code/Play/LondonBusTrackerPlay/target/scala-2.11/classes...
-Compiling 1 Scala source to /home/chrischivers/Code/Play/LondonBusTrackerPlay/target/scala-2.11/classes...
-Getting compiler-interface from component compiler for Scala 2.11.7
-Other repositories:
-Default repositories:
-Getting compiler-interface from component compiler for Scala 2.11.7
-Other repositories:
-Default repositories:
-Running cached compiler 704b1bf9, interfacing (CompilerInterface) with Scala compiler version 2.11.7
-Calling Scala compiler with arguments  (CompilerInterface):
-	-deprecation
-	-unchecked
-	-encoding
-	utf8
-	-bootclasspath
-	/usr/lib/jvm/java-8-oracle/jre/lib/resources.jar:/usr/lib/jvm/java-8-oracle/jre/lib/rt.jar:/usr/lib/jvm/java-8-oracle/jre/lib/sunrsasign.jar:/usr/lib/jvm/java-8-oracle/jre/lib/jsse.jar:/usr/lib/jvm/java-8-oracle/jre/lib/jce.jar:/usr/lib/jvm/java-8-oracle/jre/lib/charsets.jar:/usr/lib/jvm/java-8-oracle/jre/lib/jfr.jar:/usr/lib/jvm/java-8-oracle/jre/classes:/home/chrischivers/.ivy2/cache/org.scala-lang/scala-library/jars/scala-library-2.11.7.jar
-	-classpath
-	/home/chrischivers/Code/Play/LondonBusTrackerPlay/target/scala-2.11/classes:/home/chrischivers/.ivy2/cache/com.typesafe.play/twirl-api_2.11/jars/twirl-api_2.11-1.0.2.jar:/home/chrischivers/.ivy2/cache/org.apache.commons/commons-lang3/jars/commons-lang3-3.4.jar:/home/chrischivers/.ivy2/cache/org.scala-lang.modules/scala-xml_2.11/bundles/scala-xml_2.11-1.0.1.jar:/home/chrischivers/.ivy2/cache/com.typesafe.play/play_2.11/jars/play_2.11-2.3.10.jar:/home/chrischivers/.ivy2/cache/com.typesafe.play/build-link/jars/build-link-2.3.10.jar:/home/chrischivers/.ivy2/cache/com.typesafe.play/play-exceptions/jars/play-exceptions-2.3.10.jar:/home/chrischivers/.ivy2/cache/org.javassist/javassist/bundles/javassist-3.18.2-GA.jar:/home/chrischivers/.ivy2/cache/com.typesafe.play/play-iteratees_2.11/jars/play-iteratees_2.11-2.3.10.jar:/home/chrischivers/.ivy2/cache/org.scala-stm/scala-stm_2.11/jars/scala-stm_2.11-0.7.jar:/home/chrischivers/.ivy2/cache/com.typesafe/config/bundles/config-1.2.1.jar:/home/chrischivers/.ivy2/cache/com.typesafe.play/play-json_2.11/jars/play-json_2.11-2.3.10.jar:/home/chrischivers/.ivy2/cache/com.typesafe.play/play-functional_2.11/jars/play-functional_2.11-2.3.10.jar:/home/chrischivers/.ivy2/cache/com.typesafe.play/play-datacommons_2.11/jars/play-datacommons_2.11-2.3.10.jar:/home/chrischivers/.ivy2/cache/joda-time/joda-time/jars/joda-time-2.3.jar:/home/chrischivers/.ivy2/cache/org.joda/joda-convert/jars/joda-convert-1.6.jar:/home/chrischivers/.ivy2/cache/com.fasterxml.jackson.core/jackson-annotations/bundles/jackson-annotations-2.3.2.jar:/home/chrischivers/.ivy2/cache/com.fasterxml.jackson.core/jackson-core/bundles/jackson-core-2.3.2.jar:/home/chrischivers/.ivy2/cache/com.fasterxml.jackson.core/jackson-databind/bundles/jackson-databind-2.3.2.jar:/home/chrischivers/.ivy2/cache/org.scala-lang/scala-reflect/jars/scala-reflect-2.11.1.jar:/home/chrischivers/.ivy2/cache/org.scala-lang.modules/scala-parser-combinators_2.11/bundles/scala-parser-combinators_2.11-1.0.1.jar:/home/chrischivers/.ivy2/cache/io.netty/netty/bundles/netty-3.9.9.Final.jar:/home/chrischivers/.ivy2/cache/com.typesafe.netty/netty-http-pipelining/jars/netty-http-pipelining-1.1.2.jar:/home/chrischivers/.ivy2/cache/org.slf4j/slf4j-api/jars/slf4j-api-1.7.6.jar:/home/chrischivers/.ivy2/cache/org.slf4j/jul-to-slf4j/jars/jul-to-slf4j-1.7.6.jar:/home/chrischivers/.ivy2/cache/org.slf4j/jcl-over-slf4j/jars/jcl-over-slf4j-1.7.6.jar:/home/chrischivers/.ivy2/cache/ch.qos.logback/logback-core/jars/logback-core-1.1.1.jar:/home/chrischivers/.ivy2/cache/ch.qos.logback/logback-classic/jars/logback-classic-1.1.1.jar:/home/chrischivers/.ivy2/cache/com.typesafe.akka/akka-actor_2.11/jars/akka-actor_2.11-2.3.4.jar:/home/chrischivers/.ivy2/cache/com.typesafe.akka/akka-slf4j_2.11/jars/akka-slf4j_2.11-2.3.4.jar:/home/chrischivers/.ivy2/cache/commons-codec/commons-codec/jars/commons-codec-1.9.jar:/home/chrischivers/.ivy2/cache/xerces/xercesImpl/jars/xercesImpl-2.11.0.jar:/home/chrischivers/.ivy2/cache/xml-apis/xml-apis/jars/xml-apis-1.4.01.jar:/home/chrischivers/.ivy2/cache/javax.transaction/jta/jars/jta-1.1.jar:/home/chrischivers/.ivy2/cache/com.typesafe.play.plugins/play-plugins-mailer_2.11/jars/play-plugins-mailer_2.11-2.3.1.jar:/home/chrischivers/.ivy2/cache/org.apache.commons/commons-email/jars/commons-email-1.3.3.jar:/home/chrischivers/.ivy2/cache/javax.mail/mail/jars/mail-1.4.5.jar:/home/chrischivers/.ivy2/cache/javax.activation/activation/jars/activation-1.1.1.jar:/home/chrischivers/.ivy2/cache/com.typesafe.play.plugins/play-plugins-util_2.11/jars/play-plugins-util_2.11-2.3.0.jar:/home/chrischivers/.ivy2/cache/org.apache.httpcomponents/httpclient/jars/httpclient-4.5.jar:/home/chrischivers/.ivy2/cache/org.apache.httpcomponents/httpcore/jars/httpcore-4.4.1.jar:/home/chrischivers/.ivy2/cache/commons-logging/commons-logging/jars/commons-logging-1.2.jar:/home/chrischivers/.ivy2/cache/org.apache.commons/commons-math3/jars/commons-math3-3.5.jar:/home/chrischivers/.ivy2/cache/org.mongodb/casbah-commons_2.11/jars/casbah-commons_2.11-2.8.2.jar:/home/chrischivers/.ivy2/cache/com.github.nscala-time/nscala-time_2.11/jars/nscala-time_2.11-1.0.0.jar:/home/chrischivers/.ivy2/cache/org.mongodb/mongo-java-driver/jars/mongo-java-driver-2.13.2.jar:/home/chrischivers/.ivy2/cache/org.mongodb/casbah-core_2.11/jars/casbah-core_2.11-2.8.2.jar:/home/chrischivers/.ivy2/cache/org.mongodb/casbah-query_2.11/jars/casbah-query_2.11-2.8.2.jar:/home/chrischivers/.ivy2/cache/org.mongodb/casbah-gridfs_2.11/jars/casbah-gridfs_2.11-2.8.2.jar:/home/chrischivers/.ivy2/cache/org.json4s/json4s-native_2.11/jars/json4s-native_2.11-3.2.10.jar:/home/chrischivers/.ivy2/cache/org.json4s/json4s-core_2.11/jars/json4s-core_2.11-3.2.10.jar:/home/chrischivers/.ivy2/cache/org.json4s/json4s-ast_2.11/jars/json4s-ast_2.11-3.2.10.jar:/home/chrischivers/.ivy2/cache/com.thoughtworks.paranamer/paranamer/jars/paranamer-2.6.jar:/home/chrischivers/.ivy2/cache/org.scala-lang/scalap/jars/scalap-2.11.0.jar:/home/chrischivers/.ivy2/cache/org.scala-lang/scala-compiler/jars/scala-compiler-2.11.0.jar
-Scala compilation took 3.645445146 s
-New invalidations:
-	Set()
-Initial set of included nodes: Set()
-Previously invalidated, but (transitively) depend on new invalidations:
-	Set()
-All newly invalidated sources after taking into account (previously) recompiled sources:Set()
-Copy resource mappings: 
-	(/home/chrischivers/Code/Play/LondonBusTrackerPlay/conf/application.conf,/home/chrischivers/Code/Play/LondonBusTrackerPlay/target/scala-2.11/classes/application.conf)
-	(/home/chrischivers/Code/Play/LondonBusTrackerPlay/conf/routes,/home/chrischivers/Code/Play/LondonBusTrackerPlay/target/scala-2.11/classes/routes)
-	(/home/chrischivers/Code/Play/LondonBusTrackerPlay/conf/play.plugins,/home/chrischivers/Code/Play/LondonBusTrackerPlay/target/scala-2.11/classes/play.plugins)
-Total time: 7 s, completed 10-Feb-2016 19:06:32
-> server-post-command-cleanup
-> server-handle-next-server-request
-> {file:/home/chrischivers/Code/Play/LondonBusTrackerPlay/}root/*:playForkReload
-Evaluating tasks: *:playForkReload
-Running task... Cancel: sbt.server.ServerTaskCancellation@714bed3d, check cycles: false
+Running task... Cancel: sbt.server.ServerTaskCancellation@68bb7f99, check cycles: false
 
 Initial source changes: 
 	removed:Set()
@@ -23194,59 +23143,8 @@ Copy resource mappings:
 	(/home/chrischivers/Code/Play/LondonBusTrackerPlay/conf/application.conf,/home/chrischivers/Code/Play/LondonBusTrackerPlay/target/scala-2.11/classes/application.conf)
 	(/home/chrischivers/Code/Play/LondonBusTrackerPlay/conf/routes,/home/chrischivers/Code/Play/LondonBusTrackerPlay/target/scala-2.11/classes/routes)
 	(/home/chrischivers/Code/Play/LondonBusTrackerPlay/conf/play.plugins,/home/chrischivers/Code/Play/LondonBusTrackerPlay/target/scala-2.11/classes/play.plugins)
-Total time: 0 s, completed 10-Feb-2016 19:06:58
-> server-post-command-cleanup
-> server-handle-next-server-request
-> {file:/home/chrischivers/Code/Play/LondonBusTrackerPlay/}root/*:playForkReload
-Evaluating tasks: *:playForkReload
-Running task... Cancel: sbt.server.ServerTaskCancellation@328d8ba7, check cycles: false
-
-Initial source changes: 
-	removed:Set()
-	added: Set()
-	modified: Set()
-Removed products: Set()
-External API changes: API Changes: Set()
-Modified binary dependencies: Set()
-Initial directly invalidated sources: Set()
-
-Sources indirectly invalidated by:
-	product: Set()
-	binary dep: Set()
-	external source: Set()
-All initially invalidated sources: Set()
-
-Copy resource mappings: 
-	(/home/chrischivers/Code/Play/LondonBusTrackerPlay/conf/application.conf,/home/chrischivers/Code/Play/LondonBusTrackerPlay/target/scala-2.11/classes/application.conf)
-	(/home/chrischivers/Code/Play/LondonBusTrackerPlay/conf/routes,/home/chrischivers/Code/Play/LondonBusTrackerPlay/target/scala-2.11/classes/routes)
-	(/home/chrischivers/Code/Play/LondonBusTrackerPlay/conf/play.plugins,/home/chrischivers/Code/Play/LondonBusTrackerPlay/target/scala-2.11/classes/play.plugins)
-Total time: 0 s, completed 10-Feb-2016 19:07:06
-> server-post-command-cleanup
-> server-handle-next-server-request
-> {file:/home/chrischivers/Code/Play/LondonBusTrackerPlay/}root/*:playForkReload
-Evaluating tasks: *:playForkReload
-Running task... Cancel: sbt.server.ServerTaskCancellation@4e764c80, check cycles: false
-
-Initial source changes: 
-	removed:Set()
-	added: Set()
-	modified: Set()
-Removed products: Set()
-External API changes: API Changes: Set()
-Modified binary dependencies: Set()
-Initial directly invalidated sources: Set()
-
-Sources indirectly invalidated by:
-	product: Set()
-	binary dep: Set()
-	external source: Set()
-All initially invalidated sources: Set()
-
-Copy resource mappings: 
-	(/home/chrischivers/Code/Play/LondonBusTrackerPlay/conf/application.conf,/home/chrischivers/Code/Play/LondonBusTrackerPlay/target/scala-2.11/classes/application.conf)
-	(/home/chrischivers/Code/Play/LondonBusTrackerPlay/conf/routes,/home/chrischivers/Code/Play/LondonBusTrackerPlay/target/scala-2.11/classes/routes)
-	(/home/chrischivers/Code/Play/LondonBusTrackerPlay/conf/play.plugins,/home/chrischivers/Code/Play/LondonBusTrackerPlay/target/scala-2.11/classes/play.plugins)
-Total time: 0 s, completed 10-Feb-2016 19:07:18
+	(/home/chrischivers/Code/Play/LondonBusTrackerPlay/conf/application-logger.xml,/home/chrischivers/Code/Play/LondonBusTrackerPlay/target/scala-2.11/classes/application-logger.xml)
+Total time: 2 s, completed 11-Feb-2016 19:44:54
 > server-post-command-cleanup
 > server-handle-next-server-request
 Done executing sbt server engine, result Right(Exit(0))
@@ -23255,4 +23153,4 @@ Waiting for socket thread
 Waiting for request processor thread
 Waiting for command engine result
 Returning control to sbt launcher with result Exit(0)
-Closing the 9364@chrischivers-W65-67SR logs at Wed Feb 10 19:09:05 GMT 2016, goodbye.
+Closing the 5313@chrischivers-W65-67SR logs at Thu Feb 11 19:47:45 GMT 2016, goodbye.

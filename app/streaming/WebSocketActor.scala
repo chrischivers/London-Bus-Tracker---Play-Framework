@@ -51,7 +51,7 @@ class WebSocketActor(out: ActorRef) extends Actor {
         //logger.info("1 connection made. Route List: " + routeList)
       } else if (msg.startsWith("RADIUS")) {
         mode = "RADIUS"
-        println("Received String: " + msg)
+       // println("Received String: " + msg)
         val temporaryStr = msg.replaceAll("\\)", "").replaceAll("\\(", "").split(",").drop(1).map(_.toDouble) //Take out brackets
         selectedRadius = temporaryStr.head //Sets the radius
         // logger.info("1 connection made. Radius " + selectedRadius)
