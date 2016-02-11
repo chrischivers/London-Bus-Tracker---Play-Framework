@@ -10,6 +10,7 @@
         var historicalDataRefreshInterval = 2000;
         var liveStreamingRefreshInterval = 2000;
         var routeStopPolyUpdateRefreshInterval = 5000;
+        var consoleRefreshInterval = 10000;
 
         var streamRefreshSetInterval;
         var systemStatsRefreshSetInterval;
@@ -226,8 +227,19 @@
                 });
             }
 
+             function updateConsole() {
+             $.get("/admin-log ", function( data ) {
+                    var consoleDiv = document.getElementById("console-log");
+                    consoleDiv.innerHTML = data;
+                    consoleDiv.scrollTop = consoleDiv.scrollHeight;
+                    });
+            }
+
 
             function init() {
+            updateConsole();
+            setInterval(updateConsole, consoleRefreshInterval);
+
                  $.get("/stream-started", function( data ) {
                     if(data == "true") {
                         streamProcessingStarted = true;
@@ -275,6 +287,7 @@
         <title>London Bus Tracker - Control Panel</title>
     </head>
     <body>
+        <div class="controlpanel">
         <h1>London Bus Tracker - Control Panel</h1>
         <table class="controlbox" frame="box">
             <tr>
@@ -490,5 +503,9 @@
                 </td>
             </tr>
         </table>
+        </div>
+        <br>
+        <div id="console-log" class="consolelog"></div>
+
     </body>
 </html>

@@ -1,6 +1,7 @@
 package controllers
 
 import database.tfl.TFLInsertPointToPointDurationSupervisor
+import play.api.Logger
 import play.api.mvc._
 import processes.tfl.TFLProcessSourceLines
 
@@ -16,7 +17,7 @@ object HistoricalDataCollectionController extends Controller {
   def turnOnHistoricalDataCollection = Action {
     if (!started) {
       started = true
-      println("Historical Data Collection turned on")
+      Logger.info("Historical Data Collection turned on")
       TFLProcessSourceLines.setHistoricalDataStoring(true)
     }
     Ok("started")
@@ -25,7 +26,7 @@ object HistoricalDataCollectionController extends Controller {
   def turnOffHistoricalDataCollection = Action {
     if (started) {
       started = false
-      println("Historical Data Collection turned off")
+      Logger.info("Historical Data Collection turned off")
       TFLProcessSourceLines.setHistoricalDataStoring(false)
     }
     Ok("stopped")

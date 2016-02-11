@@ -1,5 +1,6 @@
 package controllers
 
+import play.api.Logger
 import play.api.mvc._
 import play.api.Play.current
 import streaming.{LiveStreamingCoordinatorImpl, WebSocketSupervisor, WebSocketActor}
@@ -21,7 +22,7 @@ object LiveStreamingController extends Controller {
   def turnOnLiveStreaming = Action {
     if (!started) {
       started = true
-      println("Live Streaming turned on")
+      Logger.info("Live Streaming turned on")
       LiveStreamingCoordinatorImpl.start()
     }
     Ok("started")
@@ -30,7 +31,7 @@ object LiveStreamingController extends Controller {
   def turnOffLiveStreaming = Action {
     if (started) {
       started = false
-      println("Live Streaming turned off")
+      Logger.info("Live Streaming turned off")
       LiveStreamingCoordinatorImpl.stop()
     }
     Ok("stopped")

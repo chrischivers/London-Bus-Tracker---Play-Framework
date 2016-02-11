@@ -69,6 +69,9 @@ GET     /clean-up-point-to-point            controllers.CleanUpPointToPointContr
 GET     /point-to-point-clean-checked       controllers.CleanUpPointToPointController.getNumberDocumentsRead
 GET     /point-to-point-clean-deleted       controllers.CleanUpPointToPointController.getNumberDocumentsDeleted
 
+# Log
+GET     /admin-log                          controllers.Application.adminLog
+
 #Common Functions
 GET     /route_list_request.asp                         controllers.CommonFunctions.getRouteList
 GET     /route_list_with_first_last_stops_request.asp   controllers.CommonFunctions.getRouteListWithFirstLastStops

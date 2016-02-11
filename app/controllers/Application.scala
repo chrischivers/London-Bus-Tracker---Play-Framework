@@ -2,6 +2,7 @@ package controllers
 
 import play.api.mvc.{WithFilters, Action, Controller}
 
+import scala.io.Source
 
 
 object Application extends Controller  {
@@ -17,6 +18,11 @@ object Application extends Controller  {
 
   def prediction = Action {
     Ok(views.html.prediction())
+  }
+
+  def adminLog = Action {
+    val listOfLines = Source.fromFile("logs/main.log").getLines().toList
+    Ok(views.html.console(listOfLines))
   }
 
 }

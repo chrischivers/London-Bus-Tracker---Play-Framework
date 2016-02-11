@@ -128,7 +128,7 @@ object FetchPolyLines extends ResourceOperations  {
                 addPolyLinetoIndexDBIfRequired(lastStopCode, thisStopCode, polyLine) //Updates previous with polyline route to next
                 addPolyLineToRouteDefDB(docLastRead.get, polyLine)
               } catch {
-                case e:NoSuchElementException => println("No stop found for: " + lastStopCode + " or " + thisStopCode)
+                case e:NoSuchElementException => Logger.debug("No stop found for: " + lastStopCode + " or " + thisStopCode)
               }
               }
               if (doc.get(collection.FIRST_LAST).asInstanceOf[String] != "LAST") {

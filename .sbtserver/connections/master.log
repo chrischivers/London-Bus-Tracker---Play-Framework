@@ -1,13 +1,7 @@
-New log file opened at Thu Feb 11 19:47:52 GMT 2016 by 6711@chrischivers-W65-67SR
-Taking next connection to: 38162
-New client attempting to connect on port: 43792-38162
-  Address = /127.0.1.1:38162
-This client on port 43792 has uuid e965fae7-5c65-413a-9e74-3a80e2e84366 configName play-fork-run humanReadableName Play Fork Run protocolVersion 1 featureTags Vector()
-Connected Clients: play-fork-run-e965fae7-5c65-413a-9e74-3a80e2e84366
-Taking next connection to: 38162
-Checking to see if clients are empty...
-We have 1 non-daemon clients, continuing serving connections.
-Taking next connection to: 38162
-Checking to see if clients are empty...
-We have 1 non-daemon clients, continuing serving connections.
-Taking next connection to: 38162
+New log file opened at Thu Feb 11 21:01:49 GMT 2016 by 13360@chrischivers-W65-67SR
+Taking next connection to: 36329
+New client attempting to connect on port: 47808-36329
+  Address = /127.0.1.1:36329
+This client on port 47808 has uuid eb2b2d33-d5aa-4903-b4ac-4959de3b02c4 configName play-fork-run humanReadableName Play Fork Run protocolVersion 1 featureTags Vector()
+Connected Clients: play-fork-run-eb2b2d33-d5aa-4903-b4ac-4959de3b02c4
+Taking next connection to: 36329

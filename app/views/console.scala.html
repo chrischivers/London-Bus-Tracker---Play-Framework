@@ -1,0 +1,10 @@
+@(consoleLog:List[String])
+<!DOCTYPE html>
+
+<html>
+    <body>
+      @for(line <- consoleLog) {
+          @line<br/>
+      }
+    </body>
+</html>

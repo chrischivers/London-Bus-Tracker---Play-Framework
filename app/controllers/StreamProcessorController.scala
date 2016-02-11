@@ -1,5 +1,6 @@
 package controllers
 
+import play.api.Logger
 import play.api.mvc._
 import processes.tfl.TFLIterateOverArrivalStreamSupervisor
 import processes.weather.Weather
@@ -38,7 +39,7 @@ object StreamProcessorController extends Controller {
   def startStreamProcessor = Action {
     if (!started) {
       started = true
-      println("Starting Stream Processor")
+      Logger.info("Starting Stream Processor")
       TFLIterateOverArrivalStreamSupervisor.start()
     }
     Ok("started")
@@ -47,7 +48,7 @@ object StreamProcessorController extends Controller {
   def stopStreamProcessor = Action {
     if (started) {
       started = false
-      println("Stopping Stream Processor")
+      Logger.info("Stopping Stream Processor")
       TFLIterateOverArrivalStreamSupervisor.stop()
     }
     Ok("stopped")

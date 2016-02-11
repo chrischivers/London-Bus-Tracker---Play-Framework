@@ -18,20 +18,20 @@ object EmailAlertsController extends Controller {
   }
 
   def turnOnEmailAlerts = Action {
-    println ("Email Alerts On")
+    Logger.info("Email Alerts On")
     alertsEnabled = true
     Ok("started")
   }
 
   def turnOffEmailAlerts = Action {
-    println ("Email Alerts Off")
+    Logger.info("Email Alerts Off")
     alertsEnabled = false
     Ok("stopped")
   }
 
    def sendAlert(alertText:String) = {
     if (alertsEnabled) {
-      println("Email alert being sent")
+      Logger.info("Email alert being sent")
       sendMesage(alertText)
       numberEmailsSent += 1
     }
