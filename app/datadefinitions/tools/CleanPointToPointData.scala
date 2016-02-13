@@ -1,6 +1,7 @@
 package datadefinitions.tools
 
-import akka.actor.{ActorSystem, PoisonPill, Props, Actor}
+import akka.actor.{PoisonPill, Props, Actor}
+import play.api.Play.current
 import com.mongodb.casbah.Imports
 import database.POINT_TO_POINT_COLLECTION
 import database.tfl.{TFLDeletePointToPointDuration, TFLGetPointToPointDocument}
@@ -8,13 +9,14 @@ import datadefinitions.ResourceOperations
 import datadefinitions.tfl.TFLDefinitions
 import org.bson.types.ObjectId
 import play.api.Logger
+import play.api.libs.concurrent.Akka
 
 /**
  * Tool to look through PoinToPoint collection and remove any entries that no longer correspond to entries in the definition file
  */
 object CleanPointToPointData  extends ResourceOperations {
 
-  private val streamActor = actorResourcesSystem.actorOf(Props[CleanPointToPointData], name = "CleanPointToPointDataActor")
+  private val streamActor = Akka.system.actorOf(Props[CleanPointToPointData], name = "CleanPointToPointDataActor")
   @volatile var numberDocumentsRead = 0
   @volatile var numberDocumentsDeleted = 0
 

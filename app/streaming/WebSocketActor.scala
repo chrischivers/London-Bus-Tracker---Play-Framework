@@ -2,6 +2,8 @@ package streaming
 
 import akka.actor._
 import commons.Commons
+import play.api.libs.concurrent.Akka
+import play.api.Play.current
 
 
 final case class Push(routeID: String, latitude: Double, longitude: Double, msg: String)
@@ -10,9 +12,9 @@ final case class Subscribe(actor:ActorRef)
 final case class Unsubscribe(actor:ActorRef)
 
 object WebSocketSupervisor {
-  val system = ActorSystem("WebSocketSupervisor")
+
   @volatile var connectedActors:Set[ActorRef] = Set()
-  val supervisor = system.actorOf(Props[WebSocketSupervisor])
+  val supervisor = Akka.system.actorOf(Props[WebSocketSupervisor])
 
   def props(out: ActorRef) = Props(new WebSocketActor(out))
 

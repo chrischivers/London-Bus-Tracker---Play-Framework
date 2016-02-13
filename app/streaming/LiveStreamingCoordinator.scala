@@ -1,18 +1,16 @@
 package streaming
 
-import akka.actor.{ActorSystem, Props}
-import akka.io.IO
-import controllers.LiveStreamingController
+import akka.actor.Props
 import datasource.tfl.TFLSourceLineImpl
+import play.api.libs.concurrent.Akka
 import processes.tfl.TFLProcessSourceLines
+import play.api.Play.current
 
 
 trait LiveStreamingCoordinator {
 
-  val actorVehicleSystem = ActorSystem("VehicleSystem")
-  val vehicleSupervisor = actorVehicleSystem.actorOf(Props[LiveVehicleSupervisor], "VehicleSupervisor")
+  val vehicleSupervisor = Akka.system.actorOf(Props[LiveVehicleSupervisor], "VehicleSupervisor")
 
-  implicit val actorServerSystem =  ActorSystem("WebServeSystem")
   //val server = actorServerSystem.actorOf(WebSocketServer.props(), "websocket")
 
   @volatile var numberLiveActors = 0

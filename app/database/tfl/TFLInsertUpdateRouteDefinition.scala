@@ -5,6 +5,8 @@ import com.mongodb.casbah.commons.MongoDBObject
 import database._
 import com.mongodb.casbah.Imports._
 import play.api.Logger
+import play.api.libs.concurrent.Akka
+import play.api.Play.current
 
 
 object TFLInsertUpdateRouteDefinition extends DatabaseInsert{
@@ -13,7 +15,7 @@ object TFLInsertUpdateRouteDefinition extends DatabaseInsert{
   @volatile var numberDBInsertsRequested = 0
   @volatile var numberPolyLinesInserted = 0
 
-  override val supervisor: ActorRef = actorDatabaseSystem.actorOf(Props[TFLInsertUpdateRouteDefinitionSupervisor], name = "TFLInsertRouteDefinitionSupervisor")
+  override val supervisor: ActorRef = Akka.system.actorOf(Props[TFLInsertUpdateRouteDefinitionSupervisor], name = "TFLInsertRouteDefinitionSupervisor")
 
   override protected val collection: DatabaseCollections = ROUTE_DEFINITIONS_COLLECTION
 

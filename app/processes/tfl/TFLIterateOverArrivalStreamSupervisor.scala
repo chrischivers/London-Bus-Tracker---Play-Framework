@@ -7,7 +7,9 @@ import akka.actor.{ OneForOneStrategy, Props, Actor}
 import datasource.{SourceIterator, HttpDataStreamImpl}
 import datasource.tfl.TFLDataSourceImpl
 import play.api.Logger
+import play.api.libs.concurrent.Akka
 import processes.ProcessingInterface
+import play.api.Play.current
 
 
 final case class Start()
@@ -60,15 +62,17 @@ object TFLIterateOverArrivalStreamSupervisor extends ProcessingInterface {
   private val httpDataStream = new HttpDataStreamImpl(TFLDataSourceImpl)
   private val sourceIterator = new SourceIterator(httpDataStream)
 
-  val supervisor = actorProcessingSystem.actorOf(Props[TFLIterateOverArrivalStreamSupervisor], name = "TFLIterateOverArrivalStreamSupervisor")
+  val supervisor = Akka.system.actorOf(Props[TFLIterateOverArrivalStreamSupervisor], name = "TFLIterateOverArrivalStreamSupervisor")
 
 
   override def start(): Unit = {
+    Logger.info("Starting Interate Supervisor")
     supervisor ! Start
 
   }
 
   override def stop(): Unit = {
+    Logger.info("Stopping Interate Supervisor")
     supervisor ! Stop
   }
 

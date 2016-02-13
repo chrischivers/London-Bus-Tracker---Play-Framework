@@ -44,6 +44,7 @@ GET     /start-live-streaming                   controllers.LiveStreamingControl
 GET     /stop-live-streaming                    controllers.LiveStreamingController.turnOffLiveStreaming
 GET     /number-live-actors                    controllers.LiveStreamingController.getNumberLiveActors
 GET     /number-live-children                  controllers.LiveStreamingController.getNumberLiveChildren
+GET     /number-connections                     controllers.LiveStreamingController.getNumberConnections
 
 # Update Route Definitions
 GET     /update-route-definitions                 controllers.UpdateRouteDefinitionsController.updateRouteDefinitions

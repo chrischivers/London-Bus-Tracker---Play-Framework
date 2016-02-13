@@ -5,6 +5,8 @@ import database.{ROUTE_DEFINITION_DOCUMENT, ROUTE_DEFINITIONS_COLLECTION}
 import database.tfl.{TFLInsertUpdateRouteDefinition, TFLGetRouteDefinitionDocument}
 import datadefinitions.LoadResourceFromSource
 import play.api.Logger
+import play.api.libs.concurrent.Akka
+import play.api.Play.current
 
 import scala.io.{BufferedSource, Source}
 
@@ -53,7 +55,7 @@ object LoadRouteDefinitions extends LoadResourceFromSource {
   }
 
   def updateFromWeb() = {
-    val streamActor = actorResourcesSystem.actorOf(Props[UpdateRouteDefinitionsFromWeb], name = "UpdateRouteDefinitionsFromWeb")
+    val streamActor = Akka.system.actorOf(Props[UpdateRouteDefinitionsFromWeb], name = "UpdateRouteDefinitionsFromWeb")
     streamActor ! "start"
   }
 

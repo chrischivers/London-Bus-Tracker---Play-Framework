@@ -4,6 +4,8 @@ import akka.actor.{Actor, ActorRef, Props}
 import com.mongodb.casbah.commons.MongoDBObject
 import database.{STOP_DEFINITION_DOCUMENT, STOP_DEFINITIONS_COLLECTION, DatabaseCollections, DatabaseInsert}
 import play.api.Logger
+import play.api.libs.concurrent.Akka
+import play.api.Play.current
 
 
 object TFLInsertStopDefinition extends DatabaseInsert {
@@ -12,7 +14,7 @@ object TFLInsertStopDefinition extends DatabaseInsert {
   @volatile var numberDBInsertsRequested = 0
 
   override protected val collection: DatabaseCollections = STOP_DEFINITIONS_COLLECTION
-  override val supervisor: ActorRef = actorDatabaseSystem.actorOf(Props[TFLInsertStopDefinitionSupervisor], name = "TFLInsertStopDefinitionSupervisor")
+  override val supervisor: ActorRef = Akka.system.actorOf(Props[TFLInsertStopDefinitionSupervisor], name = "TFLInsertStopDefinitionSupervisor")
 }
 
 class TFLInsertStopDefinitionSupervisor extends Actor {

@@ -2,13 +2,15 @@ package datadefinitions.tools
 
 import java.util.NoSuchElementException
 
-import akka.actor.{ActorSystem, Actor, Props}
+import akka.actor.{Actor, Props}
 import com.mongodb.casbah.Imports
 import database.{ROUTE_DEFINITION_DOCUMENT, POLYLINE_INDEX_DOCUMENT, ROUTE_DEFINITIONS_COLLECTION, POLYLINE_INDEX_COLLECTION}
 import database.tfl.{TFLInsertUpdateRouteDefinition, TFLInsertPolyLineDefinition, TFLGetRouteDefinitionDocument, TFLGetPolyLineIndexDocument}
 import datadefinitions.ResourceOperations
 import datadefinitions.tfl.TFLDefinitions
 import play.api.Logger
+import play.api.libs.concurrent.Akka
+import play.api.Play.current
 
 import scala.io.{BufferedSource, Source}
 
@@ -33,7 +35,7 @@ object FetchPolyLines extends ResourceOperations  {
 
 
   def updateAll() = {
-    val streamActor = actorResourcesSystem.actorOf(Props[UpdateAllPolyLinesActor], name = "AddPolyLinesActor")
+    val streamActor = Akka.system.actorOf(Props[UpdateAllPolyLinesActor], name = "AddPolyLinesActor")
     streamActor ! "updateAll"
   }
 

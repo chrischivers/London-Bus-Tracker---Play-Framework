@@ -21,7 +21,7 @@ object BasicAuthFilter extends Filter {
     "number-live-children","update-route-definitions","update-routes-percentage-complete","update-routes-number-inserted",
     "update-routes-number-updated","update-stop-definitions","update-stops-percentage-complete","update-stops-number-inserted",
     "update-stops-number-updated","add-polylines","add-polylines-number-read","add-polylines-number-from-web","add-polylines-number-from-cache," +
-      "clean-up-point-to-point", "point-to-point-clean-checked", "point-to-point-clean-deleted")
+      "clean-up-point-to-point", "point-to-point-clean-checked", "point-to-point-clean-deleted","admin-log", "number-connections")
   //need the space at the end
   private lazy val basicSt = "basic "
 

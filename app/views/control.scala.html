@@ -179,6 +179,9 @@
                      $.get("/number-live-children", function( data ) {
                         document.getElementById("numberLiveChildren").innerHTML = data
                     });
+                      $.get("/number-connections", function( data ) {
+                        document.getElementById("numberConnections").innerHTML = data
+                    });
                  }
             }
 
@@ -430,6 +433,10 @@
                         <tr>
                             <td>Number of live children:</td>
                             <td id="numberLiveChildren">0</td>
+                        </tr>
+                        <tr>
+                            <td>Number of user connections:</td>
+                            <td id="numberConnections">0</td>
                         </tr>
                     </table>
                 </td>

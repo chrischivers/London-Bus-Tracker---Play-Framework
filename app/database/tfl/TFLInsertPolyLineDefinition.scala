@@ -5,12 +5,14 @@ import com.mongodb.casbah.commons.MongoDBObject
 import database.{POLYLINE_INDEX_DOCUMENT, POLYLINE_INDEX_COLLECTION, DatabaseCollections, DatabaseInsert}
 import com.mongodb.casbah.Imports._
 import play.api.Logger
+import play.api.libs.concurrent.Akka
+import play.api.Play.current
 
 
 object TFLInsertPolyLineDefinition extends DatabaseInsert{
 
   override protected val collection: DatabaseCollections = POLYLINE_INDEX_COLLECTION
-  override val supervisor: ActorRef = actorDatabaseSystem.actorOf(Props[TFLInsertPolyLineDefinitionSupervisor], "TFLUpdatePolyLineSupervisor")
+  override val supervisor: ActorRef = Akka.system.actorOf(Props[TFLInsertPolyLineDefinitionSupervisor], "TFLUpdatePolyLineSupervisor")
 }
 
 class TFLInsertPolyLineDefinitionSupervisor extends Actor {

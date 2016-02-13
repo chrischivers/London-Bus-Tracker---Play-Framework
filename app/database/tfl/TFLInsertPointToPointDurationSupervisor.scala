@@ -6,6 +6,8 @@ import com.mongodb.casbah.MongoCursor
 import com.mongodb.casbah.commons.{MongoDBObject, Imports}
 import database.{POINT_TO_POINT_DOCUMENT, DatabaseDocument, POINT_TO_POINT_COLLECTION, DatabaseInsert}
 import com.mongodb.casbah.Imports._
+import play.api.libs.concurrent.Akka
+import play.api.Play.current
 
 
 case class PruneRequest(mongoObj: Imports.DBObject, timeOffSet: Int, rainfall: Double)
@@ -15,7 +17,7 @@ case class PruneCompleted()
 
 object TFLInsertPointToPointDurationSupervisor extends DatabaseInsert {
   val collection = POINT_TO_POINT_COLLECTION
-  override val supervisor = actorDatabaseSystem.actorOf(Props[TFLInsertPointToPointDurationSupervisor], "InsertPointToPointSupervisor")
+  override val supervisor = Akka.system.actorOf(Props[TFLInsertPointToPointDurationSupervisor], "InsertPointToPointSupervisor")
 
   @volatile var numberRecordsPulledFromDbRequested: Long = 0
   @volatile var numberRecordsPulledFromDbExecuted: Long = 0

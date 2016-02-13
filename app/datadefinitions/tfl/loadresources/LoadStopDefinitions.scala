@@ -8,6 +8,8 @@ import database.tfl.{TFLInsertStopDefinition, TFLGetStopDefinitionDocument}
 import datadefinitions.ResourceOperations
 import datadefinitions.tfl.StopDefinitionFields
 import play.api.Logger
+import play.api.libs.concurrent.Akka
+import play.api.Play.current
 
 import scala.io.Source
 
@@ -52,7 +54,7 @@ object LoadStopDefinitions extends ResourceOperations{
   }
 
   def updateFromWeb() = {
-    val streamActor = actorResourcesSystem.actorOf(Props[UpdateStopDefinitionsFromWeb], name = "UpdateStopeDefinitionsFromWeb")
+    val streamActor = Akka.system.actorOf(Props[UpdateStopDefinitionsFromWeb], name = "UpdateStopeDefinitionsFromWeb")
     streamActor ! "start"
   }
 

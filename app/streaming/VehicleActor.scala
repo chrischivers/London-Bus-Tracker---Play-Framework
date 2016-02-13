@@ -4,8 +4,9 @@ import commons.Commons._
 import akka.actor.Actor
 import datadefinitions.tfl.TFLDefinitions
 import datasource.tfl.TFLSourceLineImpl
+import play.api.libs.concurrent.Akka
 import prediction.{KNNPredictionImpl, PredictionRequest}
-
+import play.api.Play.current
 import scala.concurrent.duration._
 
 /**
@@ -183,6 +184,6 @@ class VehicleActor extends Actor {
   }
 
   def in[U](duration: FiniteDuration)(body: => U): Unit =
-    LiveStreamingCoordinatorImpl.actorVehicleSystem.scheduler.scheduleOnce(duration)(body)
+    Akka.system.scheduler.scheduleOnce(duration)(body)
 
 }

@@ -5,6 +5,8 @@ import com.mongodb.casbah.commons.MongoDBObject
 import database.{POINT_TO_POINT_COLLECTION, DatabaseCollections, DatabaseDelete}
 import org.bson.types.ObjectId
 import play.api.Logger
+import play.api.libs.concurrent.Akka
+import play.api.Play.current
 
 /**
  * Deletes a PointToPointDuration asyncronously
@@ -15,7 +17,7 @@ object TFLDeletePointToPointDuration extends DatabaseDelete {
 
   protected val collection: DatabaseCollections = POINT_TO_POINT_COLLECTION
 
-  override val supervisor: ActorRef = actorDatabaseSystem.actorOf(Props[TFLDeletePointToPointDuration], "TFLDeletePointToPointDurationActor")
+  override val supervisor: ActorRef = Akka.system.actorOf(Props[TFLDeletePointToPointDuration], "TFLDeletePointToPointDurationActor")
 }
 
 class TFLDeletePointToPointDurationSupervisor extends Actor {

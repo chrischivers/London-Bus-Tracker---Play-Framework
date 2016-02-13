@@ -1,6 +1,6 @@
 package database
 
-import akka.actor.{ActorRef, ActorSystem}
+import akka.actor.ActorRef
 import database.tfl.TFLMongoDBConnection
 import play.api.Logger
 
@@ -8,7 +8,6 @@ import scala.util.{Failure, Success, Try}
 
 trait DatabaseTransaction {
 
-  protected val actorDatabaseSystem = ActorSystem("DatabaseSystem")
   val supervisor:ActorRef
   protected val collection:DatabaseCollections
 

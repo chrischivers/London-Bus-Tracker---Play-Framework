@@ -45,5 +45,9 @@ object LiveStreamingController extends Controller {
     Ok(LiveStreamingCoordinatorImpl.getNumberLiveChildren.toString)
   }
 
+  def getNumberConnections = Action {
+    Ok(WebSocketSupervisor.connectedActors.size.toString)
+  }
+
 
 }
