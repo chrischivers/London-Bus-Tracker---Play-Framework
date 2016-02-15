@@ -71,7 +71,7 @@ object Weather {
         }
 
       }
-     // helper(0)
+      helper(0)
     }
     catch {
       case e: Exception =>
