@@ -1,6 +1,7 @@
 package processes.weather
 
 import java.util.Calendar
+import play.Play
 import play.api.Logger
 
 import scala.io.Source
@@ -8,7 +9,7 @@ import scala.io.Source
 
 object Weather {
 
-  private val WEATHER_API_URL = "http://api.openweathermap.org/data/2.5/forecast/city?id=2643743&mode=xml&APPID=e236bab1ce50fe2b7c7fd581b2e467f1"
+  private val WEATHER_API_URL = Play.application.configuration.getString("weatherurl")
   private val DEFAULT_IF_UNAVAILABLE = 0.0
   private val DEFAULT_VALID_TO_IF_UNAVAILABLE = 900000
   private var lastRainfall = 0.0
