@@ -1,6 +1,6 @@
 name := """london-bus-tracker-play"""
 
-version := "1.7"
+version := "1.8"
 
 scalaVersion := "2.11.7"
 
@@ -21,3 +21,5 @@ libraryDependencies += "org.mongodb" %% "casbah" % "3.1.0"
 libraryDependencies += "org.json4s" %% "json4s-native" % "3.2.10"
 
 //libraryDependencies += "org.reactivemongo" %% "play2-reactivemongo" % "0.11.2.play24"
+
+//libraryDependencies += "com.github.fdimuccio" %% "play2-sockjs" % "0.4.0"
