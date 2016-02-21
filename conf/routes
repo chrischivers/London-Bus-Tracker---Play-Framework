@@ -9,7 +9,7 @@ GET     /map                             controllers.Application.map
 GET     /prediction                     controllers.Application.prediction
 
 # Websockets
-GET     /websocket                      controllers.LiveStreamingController.socket
+#GET     /websocket                      controllers.LiveStreamingController.websocket
 
 # Stream processor Control
 GET     /stream-started                     controllers.StreamProcessorController.isStarted

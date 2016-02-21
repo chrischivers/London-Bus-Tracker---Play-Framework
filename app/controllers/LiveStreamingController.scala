@@ -1,20 +1,23 @@
 package controllers
 
 import play.api.Logger
+
+import streaming.{AtmosphereSupervisor, LiveStreamingCoordinatorImpl}
+
+import scala.concurrent.duration._
 import play.api.mvc._
 import play.api.Play.current
-import streaming.{LiveStreamingCoordinatorImpl, WebSocketSupervisor, WebSocketActor}
 
 
 object LiveStreamingController extends Controller {
 
   var started = false
 
-  def socket = WebSocket.acceptWithActor[String, String] { request => out =>
+  /*def websocket = WebSocket.acceptWithActor[String, String] { request => out =>
   WebSocketSupervisor.props(out)
-}
+}*/
 
-  def isStarted = Action {
+def isStarted = Action {
     Ok(started.toString)
   }
 
@@ -46,7 +49,7 @@ object LiveStreamingController extends Controller {
   }
 
   def getNumberConnections = Action {
-    Ok(WebSocketSupervisor.connectedActors.size.toString)
+    Ok(AtmosphereSupervisor.connectedActors.size.toString)
   }
 
 

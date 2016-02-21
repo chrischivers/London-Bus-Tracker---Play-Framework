@@ -4,7 +4,7 @@ import akka.actor._
 import commons.Commons
 import play.api.libs.concurrent.Akka
 import play.api.Play.current
-
+/*
 
 final case class Push(routeID: String, latitude: Double, longitude: Double, msg: String)
 final case class PushToChildren(pso: PackagedStreamObject)
@@ -79,4 +79,4 @@ class WebSocketActor(out: ActorRef) extends Actor {
     WebSocketSupervisor.supervisor ! Unsubscribe(self)
   }
 
-}
+}*/

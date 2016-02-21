@@ -10,6 +10,7 @@
     <script type="text/javascript"
             src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBxCYp9RWcbhuPg0nLWFzJhuPbECQYOqBw&libraries=geometry"></script>
     <script src="assets/js/jquery-2.1.4.min.js"></script>
+    <script src="assets/js/atmosphere.js"></script>
     <script src="assets/js/jquery.easing.1.3.js"></script>
     <script src="assets/js/markerAnimate.js"></script>
     <script src="assets/js/SlidingMarker.min.js"></script>
@@ -20,9 +21,7 @@
     <script src="assets/js/markerwithlabel.terikon.js"></script>
 
     <script>
-       //var wsUri = "ws://localhost:8080/";
-       // var wsUri = "ws://londonbustracker.co.uk/";
-        var wsUri = "ws://" + document.location.host + "/websocket";
+       // var wsUri = "ws://" + document.location.host + "/websocket";
         var map;
         var markerArray = {};
         var iconArray = {};
@@ -35,6 +34,17 @@
         var supportsTouch = 'ontouchstart' in window || navigator.msMaxTouchPoints;
         var mode;
         var RADIUS;
+
+                 var socket = atmosphere;
+                 var subSocket;
+                 var transport = 'websocket';
+                 // We are now ready to cut the request
+                 var request = { url: '/atmosphere',
+                     logLevel : 'info',
+                     transport : transport ,
+                     trackMessageLength : true,
+                     reconnectInterval : 5000,
+                     fallbackTransport: 'long-polling'};
 
         function initialize() {
             loadRouteIDs();
@@ -79,7 +89,7 @@
             google.maps.event.addListener(map, "bounds_changed", function () {
                 if (mode == "RADIUS") {
                     var mapCentre = map.getCenter();
-                    doSend("RADIUS," + RADIUS + "," + mapCentre);
+                    sendMessage("RADIUS," + RADIUS + "," + mapCentre);
                     var deleteList = [];
 
                     for (var key in markerArray) {
@@ -98,8 +108,6 @@
 
                 }
             });
-
-
         }
         $(function () {
             initialize();
@@ -107,6 +115,9 @@
 
 
         function deleteVehicle(reg) {
+            if(typeof markerArray[reg] !== 'undefined') {
+                markerArray[reg].setMap(null);
+            }
             markerArray[reg].setMap(null);
             delete markerArray[reg];
             delete nextArrivalTimeArray[reg];
@@ -257,28 +268,44 @@
         }
 
         function setUpWebSocket(routeSelection) {
-            websocket = new WebSocket(wsUri);
-            websocket.onopen = function (evt) {
-                onOpen(routeSelection)
+
+             request.onOpen = function(response) {
+                    transport = response.transport;
+                    sendMessage(routeSelection)
+                 };
+
+              request.onTransportFailure = function(errorMsg, request) {
+                     alert("Transport Failure. Response = " + response.responseBody)
+                     if (window.EventSource) {
+                         request.fallbackTransport = "sse";
+                     }
+                 };
+
+              request.onMessage = function (response) {
+                var message = response.responseBody;
+                 messageReceived(message);
+
             };
-            websocket.onclose = function (evt) {
-                onClose(evt)
-            };
-            websocket.onmessage = function (evt) {
-                onMessage(evt)
-            };
-            websocket.onerror = function (evt) {
-                onError(evt)
-            };
+
+            request.onClose = function(response) {
+                   alert("DISCONNECTED");
+                 };
+
+           request.onError = function(response) {
+             alert("Error. Response = " + response.responseBody)
+         };
+
+          subSocket = socket.subscribe(request);
+
+
         }
-        function onOpen(routeSelection) {
-            doSend(routeSelection);
+
+        function sendMessage(message) {
+             subSocket.push(message);
         }
-        function onClose(evt) {
-            alert("DISCONNECTED");
-        }
-        function onMessage(evt) {
-           var parsedJson = JSON.parse(evt.data);
+
+        function messageReceived(evt) {
+           var parsedJson = JSON.parse(evt);
             if (parsedJson.nextArr != "kill") {
                 // Process immediately and do not wait for a return (pseudo concurrency)
                 setTimeout(function () {
@@ -288,12 +315,8 @@
                 deleteVehicle(parsedJson.reg);
             }
         }
-        function onError(evt) {
-            alert("ERROR: " + evt.data);
-        }
-        function doSend(message) {
-            websocket.send(message);
-        }
+
+
 
     </script>
 </head>
