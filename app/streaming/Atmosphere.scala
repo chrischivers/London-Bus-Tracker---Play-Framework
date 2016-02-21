@@ -21,7 +21,7 @@ class Atmosphere {
   @Ready
   def onReady(r: AtmosphereResource) = {
     Logger.info("socket connected : {}", r.uuid())
-    AtmosphereSupervisor.props(r.uuid(), r.getBroadcaster)
+    AtmosphereSupervisor.props(r)
   }
 
   @Disconnect
@@ -42,7 +42,7 @@ object AtmosphereSupervisor {
   @volatile var connectedActors:Map[String, ActorRef] = Map()
   val supervisor = Akka.system.actorOf(Props[AtmosphereSupervisor])
 
-  def props(uuid: String, b: Broadcaster) = Akka.system.actorOf(Props(classOf[AtmosphereActor],uuid, b))
+  def props(r: AtmosphereResource) = Akka.system.actorOf(Props(classOf[AtmosphereActor],r))
 
   def PushToChildren(pso: PackagedStreamObject) = {
     val encoded = Commons.encodePackageObject(pso)
@@ -63,7 +63,7 @@ class AtmosphereSupervisor extends Actor {
   }
 }
 
-class AtmosphereActor(uuid: String, b: Broadcaster) extends Actor {
+class AtmosphereActor(r: AtmosphereResource) extends Actor {
   Logger.info("new atmosphere actor created")
   var mode = "NONE"
   var selectedRadius = 0.0
@@ -71,7 +71,7 @@ class AtmosphereActor(uuid: String, b: Broadcaster) extends Actor {
   var centrePoint: Array[Double] = Array()
 
   override def preStart(): Unit = {
-    AtmosphereSupervisor.supervisor ! Subscribe(uuid, self)
+    AtmosphereSupervisor.supervisor ! Subscribe(r.uuid(), self)
   }
 
   def receive = {
@@ -90,18 +90,18 @@ class AtmosphereActor(uuid: String, b: Broadcaster) extends Actor {
         centrePoint = temporaryStr.drop(1) // Sets the centre Point
       }
     case Push(routeID: String, latitude: Double, longitude: Double, message: String) =>
-      if (!b.isDestroyed) {
-        if (mode == "ROUTELIST" && routeList.contains(routeID)) b.broadcast(message)
+      if (AtmosphereSupervisor.connectedActors.get(r.uuid()).isDefined) {
+        if (mode == "ROUTELIST" && routeList.contains(routeID)) r.write(message)
         else if (mode == "RADIUS") {
           val centreLat = centrePoint(0)
           val centreLng = centrePoint(1)
-          if (Commons.getDistance(centreLat, centreLng, latitude, longitude) < selectedRadius) b.broadcast(message)
+          if (Commons.getDistance(centreLat, centreLng, latitude, longitude) < selectedRadius) r.write(message)
         }
       }
   }
 
   override def postStop() = {
-    AtmosphereSupervisor.supervisor ! Unsubscribe(uuid)
+    AtmosphereSupervisor.supervisor ! Unsubscribe(r.uuid)
   }
 
 }

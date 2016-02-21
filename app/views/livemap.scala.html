@@ -21,6 +21,7 @@
     <script src="assets/js/markerwithlabel.terikon.js"></script>
 
     <script>
+       // var wsUri = "ws://" + document.location.host + "/websocket";
         var map;
         var markerArray = {};
         var iconArray = {};
@@ -34,17 +35,16 @@
         var mode;
         var RADIUS;
 
-        // Atmosphere implementation based on https://github.com/sasajib/SampleWebSocket code
-         var socket = atmosphere;
-         var subSocket;
-         var transport = 'websocket';
-         // We are now ready to cut the request
-         var request = { url: '/atmosphere',
-             logLevel : 'info',
-             transport : transport ,
-             trackMessageLength : true,
-             reconnectInterval : 5000,
-             fallbackTransport: 'long-polling'};
+                 var socket = atmosphere;
+                 var subSocket;
+                 var transport = 'websocket';
+                 // We are now ready to cut the request
+                 var request = { url: '/atmosphere',
+                     logLevel : 'info',
+                     transport : transport ,
+                     trackMessageLength : true,
+                     reconnectInterval : 5000,
+                     fallbackTransport: 'long-polling'};
 
         function initialize() {
             loadRouteIDs();
@@ -118,7 +118,6 @@
             if(typeof markerArray[reg] !== 'undefined') {
                 markerArray[reg].setMap(null);
             }
-            markerArray[reg].setMap(null);
             delete markerArray[reg];
             delete nextArrivalTimeArray[reg];
             delete infoBoxArray[reg];
@@ -231,16 +230,20 @@
 
                 setTimeout(function () {
                     var routeIDOffset = routeID.length * 5.5;
-                    iconArray[reg].rotation = rotation;
-
-                    if (timeOut > 0) {
-                        markerArray[reg].setVisible(true);
+                    if(typeof iconArray[reg] !== 'undefined') {
+                        iconArray[reg].rotation = rotation;
                     }
-                    markerArray[reg].setDuration(actualDuration);
-                    markerArray[reg].setIcon(iconArray[reg]);
-                    markerArray[reg].labelAnchor = new google.maps.Point(routeIDOffset, 10);
-                    markerArray[reg].label.setStyles();
-                    markerArray[reg].setPosition(position);
+
+                    if(typeof markerArray[reg] !== 'undefined') {
+                        if (timeOut > 0) {
+                            markerArray[reg].setVisible(true);
+                        }
+                        markerArray[reg].setDuration(actualDuration);
+                        markerArray[reg].setIcon(iconArray[reg]);
+                        markerArray[reg].labelAnchor = new google.maps.Point(routeIDOffset, 10);
+                        markerArray[reg].label.setStyles();
+                        markerArray[reg].setPosition(position);
+                    }
                 }, timeOut);
             }
         }
