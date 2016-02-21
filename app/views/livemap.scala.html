@@ -21,7 +21,6 @@
     <script src="assets/js/markerwithlabel.terikon.js"></script>
 
     <script>
-       // var wsUri = "ws://" + document.location.host + "/websocket";
         var map;
         var markerArray = {};
         var iconArray = {};
@@ -35,16 +34,17 @@
         var mode;
         var RADIUS;
 
-                 var socket = atmosphere;
-                 var subSocket;
-                 var transport = 'websocket';
-                 // We are now ready to cut the request
-                 var request = { url: '/atmosphere',
-                     logLevel : 'info',
-                     transport : transport ,
-                     trackMessageLength : true,
-                     reconnectInterval : 5000,
-                     fallbackTransport: 'long-polling'};
+        // Atmosphere implementation based on https://github.com/sasajib/SampleWebSocket code
+         var socket = atmosphere;
+         var subSocket;
+         var transport = 'websocket';
+         // We are now ready to cut the request
+         var request = { url: '/atmosphere',
+             logLevel : 'info',
+             transport : transport ,
+             trackMessageLength : true,
+             reconnectInterval : 5000,
+             fallbackTransport: 'long-polling'};
 
         function initialize() {
             loadRouteIDs();
