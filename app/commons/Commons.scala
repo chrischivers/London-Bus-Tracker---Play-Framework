@@ -51,34 +51,39 @@ object Commons {
    * @return An String Array of Latitude, Longitude, Rotation and Proportional Distance
    */
   def getMovementDataArray(encodedPolyLine: String):Array[(String,String,String,String)] = {
+
     val decodedPolyLine = decodePolyLine(encodedPolyLine)
 
-    var arrayBuild: Array[(Double,Double, Int, Double)] = Array()
-    arrayBuild = arrayBuild :+ (decodedPolyLine(0)._1, decodedPolyLine(0)._2, 0, 0.0) //Initial entry for first point
+    if (decodedPolyLine.length > 0) {
+      var arrayBuild: Array[(Double, Double, Int, Double)] = Array()
+      arrayBuild = arrayBuild :+(decodedPolyLine(0)._1, decodedPolyLine(0)._2, 0, 0.0) //Initial entry for first point
 
-    for(i <- 1 until decodedPolyLine.length) {
-      val prevLat = decodedPolyLine(i - 1)._1
-      val prevLng = decodedPolyLine(i - 1)._2
-      val thisLat = decodedPolyLine(i)._1
-      val thisLng = decodedPolyLine(i)._2
-      val rotationToHere = getRotation(prevLat, prevLng, thisLat, thisLng)
-      val distanceToHere = getDistance(prevLat, prevLng, thisLat, thisLng)
-      arrayBuild = arrayBuild :+ (thisLat, thisLng, rotationToHere, distanceToHere) //Initial entry for first point
+      for (i <- 1 until decodedPolyLine.length) {
+        val prevLat = decodedPolyLine(i - 1)._1
+        val prevLng = decodedPolyLine(i - 1)._2
+        val thisLat = decodedPolyLine(i)._1
+        val thisLng = decodedPolyLine(i)._2
+        val rotationToHere = getRotation(prevLat, prevLng, thisLat, thisLng)
+        val distanceToHere = getDistance(prevLat, prevLng, thisLat, thisLng)
+        arrayBuild = arrayBuild :+(thisLat, thisLng, rotationToHere, distanceToHere) //Initial entry for first point
 
-    }
-    val sumOfDistances = arrayBuild.foldLeft(0.0) {(total, n) =>
-      total + n._4
-    }
+      }
+      val sumOfDistances = arrayBuild.foldLeft(0.0) { (total, n) =>
+        total + n._4
+      }
 
-    arrayBuild.map { case (lat, lng, rot, dist) =>
-      (BigDecimal(lat).setScale(6, RoundingMode.HALF_UP).toString(),
-        BigDecimal(lng).setScale(6, RoundingMode.HALF_UP).toString(),
-        rot.toString,
-        try {
-          BigDecimal(dist / sumOfDistances).setScale(2, RoundingMode.HALF_UP).toString()
-        } catch {
-          case e: NumberFormatException => "0" // returns 0 as default
-        })
+      arrayBuild.map { case (lat, lng, rot, dist) =>
+        (BigDecimal(lat).setScale(6, RoundingMode.HALF_UP).toString(),
+          BigDecimal(lng).setScale(6, RoundingMode.HALF_UP).toString(),
+          rot.toString,
+          try {
+            BigDecimal(dist / sumOfDistances).setScale(2, RoundingMode.HALF_UP).toString()
+          } catch {
+            case e: NumberFormatException => "0" // returns 0 as default
+          })
+      }
+    } else {
+      Array()
     }
   }
 
@@ -91,44 +96,49 @@ object Commons {
    */
   def decodePolyLine(encodedPolyLine: String): Array[(Double, Double)] = {
 
-    val len: Int = encodedPolyLine.length
-    var latLngList: Array[(Double,Double)] = Array()
+    try {
 
-    var index: Int = 0
-    var lat: Int = 0
-    var lng: Int = 0
+      val len: Int = encodedPolyLine.length
+      var latLngList: Array[(Double, Double)] = Array()
 
-    while (index < len) {
-      var result: Int = 1
-      var shift: Int = 0
-      var b: Int = 0
+      var index: Int = 0
+      var lat: Int = 0
+      var lng: Int = 0
 
-      do {
-        b = encodedPolyLine.charAt(index) - 63 - 1
-        index += 1
-        result += b << shift
-        shift += 5
-      } while (b >= 0x1f)
+      while (index < len) {
+        var result: Int = 1
+        var shift: Int = 0
+        var b: Int = 0
+
+        do {
+          b = encodedPolyLine.charAt(index) - 63 - 1
+          index += 1
+          result += b << shift
+          shift += 5
+        } while (b >= 0x1f)
 
 
-      lat += (if ((result & 1) != 0) ~(result >> 1) else result >> 1)
+        lat += (if ((result & 1) != 0) ~(result >> 1) else result >> 1)
 
-      result = 1
-      shift = 0
+        result = 1
+        shift = 0
 
-      do {
-        b = encodedPolyLine.charAt(index) - 63 - 1
-        index += 1
-        result += b << shift
-        shift += 5
-      } while (b >= 0x1f)
+        do {
+          b = encodedPolyLine.charAt(index) - 63 - 1
+          index += 1
+          result += b << shift
+          shift += 5
+        } while (b >= 0x1f)
 
-      lng += (if ((result & 1) != 0) ~(result >> 1) else result >> 1)
+        lng += (if ((result & 1) != 0) ~(result >> 1) else result >> 1)
 
-      val x = (lat * 1e-5, lng * 1e-5)
-      latLngList = latLngList :+ x
+        val x = (lat * 1e-5, lng * 1e-5)
+        latLngList = latLngList :+ x
+      }
+      latLngList
+    } catch {
+      case e:Exception =>  Array()
     }
-    latLngList
   }
 
   def rad(x:Double) = x * Math.PI / 180

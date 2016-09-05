@@ -55,6 +55,7 @@ object FetchPolyLines extends ResourceOperations  {
     }  else { //get it from online
       val url = "https://maps.googleapis.com/maps/api/directions/xml?origin=" + lastStopCodeLat + "," + lastStopCodeLng + "&destination=" + thisStopCodeLat + "," + thisStopCodeLng + "&key=" + getAPIKeys.get + "&mode=driving"
      // println("from : " + fromStopCode + ". To: " + toStopCode + "." + "Url: " + url)
+      Logger.info("URL: " + url)
       val s = Source.fromURL(url).getLines()
       for (line <- s) {
         if (line.contains("OVER_QUERY_LIMIT")) {

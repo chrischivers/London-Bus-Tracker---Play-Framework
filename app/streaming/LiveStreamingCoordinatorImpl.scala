@@ -50,8 +50,9 @@ class LiveVehicleSupervisor extends Actor  {
 
   override val supervisorStrategy =
     OneForOneStrategy(maxNrOfRetries = 10, withinTimeRange = 1 minute) {
-      case _: Exception =>
+      case e: Exception =>
         Logger.debug("Vehicle actor exception")
+        e.printStackTrace()
         Escalate
       case t =>
         super.supervisorStrategy.decider.applyOrElse(t, (_: Any) => Escalate)
