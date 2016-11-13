@@ -1,4 +1,4 @@
-package datadefinitions.tfl.loadresources
+package datadefinitions.tfl.loadresources_old
 
 import akka.actor.{Actor, Props}
 import database.{ROUTE_DEFINITION_DOCUMENT, ROUTE_DEFINITIONS_COLLECTION}

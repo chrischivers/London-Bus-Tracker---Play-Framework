@@ -2,7 +2,7 @@ package controllers
 
 import database.tfl.TFLInsertUpdateRouteDefinition
 import datadefinitions.tfl.TFLDefinitions
-import datadefinitions.tfl.loadresources.LoadRouteDefinitions
+import datadefinitions.tfl.loadresources_old.LoadRouteDefinitions
 import play.api.Play.current
 import play.api.mvc._
 

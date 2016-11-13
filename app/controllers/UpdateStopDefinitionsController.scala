@@ -2,7 +2,7 @@ package controllers
 
 import database.tfl.TFLInsertStopDefinition
 import datadefinitions.tfl.TFLDefinitions
-import datadefinitions.tfl.loadresources.LoadStopDefinitions
+import datadefinitions.tfl.loadresources_old.LoadStopDefinitions
 import play.api.mvc._
 
 

@@ -1,4 +1,4 @@
-package datadefinitions.tfl.loadresources
+package datadefinitions.tfl.loadresources_old
 
 import java.io.IOException
 
@@ -6,7 +6,7 @@ import akka.actor.{Actor, Props}
 import database.{STOP_DEFINITION_DOCUMENT, STOP_DEFINITIONS_COLLECTION}
 import database.tfl.{TFLInsertStopDefinition, TFLGetStopDefinitionDocument}
 import datadefinitions.ResourceOperations
-import datadefinitions.tfl.StopDefinitionFields
+import datadefinitions.tfl.StopDefinition
 import play.api.Logger
 import play.api.libs.concurrent.Akka
 import play.api.Play.current
@@ -22,9 +22,9 @@ object LoadStopDefinitions extends ResourceOperations{
 
 
   // Maps StopCode -> (StopPointName;StopPointType;Towards;Bearing;StopPointIndicator;StopPointState;Latitude;Longitude)
-  private var stopDefinitionMap: Map[String, StopDefinitionFields] = Map()
+  private var stopDefinitionMap: Map[String, StopDefinition] = Map()
 
-  def getStopDefinitionMap: Map[String, StopDefinitionFields]  = {
+  def getStopDefinitionMap: Map[String, StopDefinition]  = {
     if (stopDefinitionMap.isEmpty) {
       retrieveFromDB()
       stopDefinitionMap
@@ -33,7 +33,7 @@ object LoadStopDefinitions extends ResourceOperations{
 
 
   private def retrieveFromDB(): Unit = {
-    var tempMap: Map[String, StopDefinitionFields] = Map()
+    var tempMap: Map[String, StopDefinition] = Map()
 
     val cursor = TFLGetStopDefinitionDocument.fetchAll()
     for (doc <- cursor) {
@@ -47,7 +47,7 @@ object LoadStopDefinitions extends ResourceOperations{
       val lat = doc.get(collection.LAT).asInstanceOf[String]
       val lng = doc.get(collection.LNG).asInstanceOf[String]
 
-      tempMap += (stopCode -> new StopDefinitionFields(stopName, stopType, towards, bearing, indicator, state, lat, lng))
+      tempMap += (stopCode -> new StopDefinition(stopName, stopType, towards, bearing, indicator, state, lat, lng))
     }
     stopDefinitionMap = tempMap
     Logger.info("Number stop definitions fetched from DB: " + stopDefinitionMap.size)
@@ -70,7 +70,7 @@ object LoadStopDefinitions extends ResourceOperations{
     val totalNumberOfStops = stopList.size
     Logger.info("Number of stops: " + stopList.size)
     var numberLinesProcessed = 0
-    var tempMap: Map[String, StopDefinitionFields] = Map()
+    var tempMap: Map[String, StopDefinition] = Map()
     def tflURL(stopCode: String): String = "http://countdown.api.tfl.gov.uk/interfaces/ura/instant_V1?StopCode1=" + stopCode + "&ReturnList=StopPointName,StopPointType,Towards,Bearing,StopPointIndicator,StopPointState,Latitude,Longitude"
 
     Logger.info("Loading Stop Definitions From Web...")
@@ -82,7 +82,7 @@ object LoadStopDefinitions extends ResourceOperations{
           val split = splitLine(line)
           val lat = BigDecimal(split(6)).toString()
           val lng = BigDecimal(split(7)).toString()
-          tempMap += (x -> new StopDefinitionFields(split(0), split(1), split(2), split(3).toInt, split(4), split(5).toInt, lat, lng))
+          tempMap += (x -> new StopDefinition(split(0), split(1), split(2), split(3).toInt, split(4), split(5).toInt, lat, lng))
           numberLinesProcessed += 1
           percentageComplete = ((numberLinesProcessed.toDouble / totalNumberOfStops.toDouble) * 100).toInt
         }
@@ -108,7 +108,7 @@ object LoadStopDefinitions extends ResourceOperations{
   private def persistToDB() = {
 
     stopDefinitionMap.foreach {
-      case ((stop_code), sdf: StopDefinitionFields) =>
+      case ((stop_code), sdf: StopDefinition) =>
         val newDoc = new STOP_DEFINITION_DOCUMENT(stop_code, sdf.stopPointName, sdf.stopPointType, sdf.towards, sdf.bearing, sdf.stopPointIndicator, sdf.stopPointState, sdf.latitude, sdf.longitude)
         TFLInsertStopDefinition.insertDoc(newDoc)
     }

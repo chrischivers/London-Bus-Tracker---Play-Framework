@@ -2,10 +2,10 @@ package datadefinitions.tfl
 
 import java.util.Date
 import datadefinitions.DataDefinitions
-import datadefinitions.tfl.loadresources._
+import datadefinitions.tfl.loadresources_old._
 import datadefinitions.tools.FetchPolyLines
 
-case class StopDefinitionFields(stopPointName:String, stopPointType:String, towards:String, bearing:Int, stopPointIndicator:String, stopPointState:Int, latitude:String, longitude:String)
+case class StopDefinition(stopPointName:String, stopPointType:String, towards:String, bearing:Int, stopPointIndicator:String, stopPointState:Int, latitude:String, longitude:String)
 
 /**
  * The reference for definitions files
@@ -13,7 +13,7 @@ case class StopDefinitionFields(stopPointName:String, stopPointType:String, towa
 object TFLDefinitions extends DataDefinitions{
 
   override lazy val RouteDefinitionMap:Map[(String, Int), List[(Int, String, Option[String], String)]] =  LoadRouteDefinitions.getRouteDefinitionMap
-  override  lazy val PointDefinitionsMap: Map[String,StopDefinitionFields] = LoadStopDefinitions.getStopDefinitionMap
+  override  lazy val PointDefinitionsMap: Map[String,StopDefinition] = LoadStopDefinitions.getStopDefinitionMap
   lazy val RouteIgnoreList: Set[String] = LoadRouteIgnoreList.routeIgnoreSet
   lazy val StopIgnoreList: Set[String] = LoadStopIgnoreList.stopIgnoreSet
   lazy val PublicHolidayList:List[Date] = LoadPublicHolidayList.publicHolidayList

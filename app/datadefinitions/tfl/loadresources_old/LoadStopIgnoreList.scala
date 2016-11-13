@@ -1,4 +1,4 @@
-package datadefinitions.tfl.loadresources
+package datadefinitions.tfl.loadresources_old
 
 import datadefinitions.LoadResourceFromSource
 import play.api.Logger

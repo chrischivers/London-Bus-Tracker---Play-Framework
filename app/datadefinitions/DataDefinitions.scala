@@ -2,7 +2,7 @@ package datadefinitions
 
 import java.util.Date
 
-import datadefinitions.tfl.StopDefinitionFields
+import datadefinitions.tfl.StopDefinition
 
 /**
  * Created by chrischivers on 07/09/15.
@@ -10,7 +10,7 @@ import datadefinitions.tfl.StopDefinitionFields
 trait DataDefinitions {
 
   val RouteDefinitionMap:Map[(String, Int), List[(Int, String, Option[String], String)]]
-  val PointDefinitionsMap: Map[String,StopDefinitionFields]
+  val PointDefinitionsMap: Map[String,StopDefinition]
 
 
 }
