@@ -1,7 +1,7 @@
 package streaming
 
 import akka.actor.Props
-import datasource.tfl.TFLSourceLineImpl
+import datasource.SourceLine
 import play.api.libs.concurrent.Akka
 import processes.tfl.TFLProcessSourceLines
 import play.api.Play.current
@@ -21,7 +21,7 @@ trait LiveStreamingCoordinator {
   val IDLE_TIME_UNTIL_ACTOR_KILLED:Int
 
 
-  def processSourceLine(liveSourceLine: TFLSourceLineImpl) = vehicleSupervisor ! liveSourceLine
+  def processSourceLine(liveSourceLine: SourceLine) = vehicleSupervisor ! liveSourceLine
 
   def getNumberLiveActors = numberLiveActors
 

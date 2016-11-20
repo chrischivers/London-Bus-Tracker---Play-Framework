@@ -1,6 +1,6 @@
 package controllers
 
-import database.tfl.TFLInsertPointToPointDurationSupervisor
+import database.RouteSectionHistoryDB
 import play.api.Logger
 import play.api.mvc._
 import processes.tfl.TFLProcessSourceLines
@@ -36,31 +36,27 @@ object HistoricalDataCollectionController extends Controller {
     Ok(TFLProcessSourceLines.getBufferSize.toString)
   }
 
-  def getNumberNonMatches = Action {
-    Ok(TFLProcessSourceLines.numberNonMatches.toString)
-  }
-
   def getInsertTransactionsRequested = Action {
-    Ok(TFLInsertPointToPointDurationSupervisor.numberDBTransactionsRequested.toString)
+    Ok(RouteSectionHistoryDB.numberInsertsRequested.toString)
   }
 
   def getInsertTransactionsExecuted = Action {
-    Ok(TFLInsertPointToPointDurationSupervisor.numberDBTransactionsExecuted.toString)
+    Ok(RouteSectionHistoryDB.numberInsertsCompleted.toString)
   }
   def getInsertTransactionsOutstanding = Action {
-    Ok((TFLInsertPointToPointDurationSupervisor.numberDBTransactionsRequested - TFLInsertPointToPointDurationSupervisor.numberDBTransactionsExecuted).toString)
+    Ok((RouteSectionHistoryDB.numberInsertsRequested - RouteSectionHistoryDB.numberInsertsCompleted).toString)
   }
 
-  def getInsertTransactionsDropped = Action {
+ /* def getInsertTransactionsDropped = Action {
     Ok(TFLInsertPointToPointDurationSupervisor.numberDBTransactionsDroppedDueToOverflow.toString)
+  }*/
+
+  def getPruneRecordsRequested = Action {
+    Ok(RouteSectionHistoryDB.numberPruneRecordsRequested.toString)
   }
 
-  def getRecordPullsRequested = Action {
-    Ok(TFLInsertPointToPointDurationSupervisor.numberRecordsPulledFromDbRequested.toString)
-  }
-
-  def getRecordPullsExecuted = Action {
-    Ok(TFLInsertPointToPointDurationSupervisor.numberRecordsPulledFromDbExecuted.toString)
+  def getPruneRecordsCompleted = Action {
+    Ok(RouteSectionHistoryDB.numberPruneRecordsCompleted.toString)
   }
 
 }

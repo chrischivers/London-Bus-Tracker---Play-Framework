@@ -3,82 +3,67 @@
 # ~~~~
 
 # Home page
-GET     /                               controllers.Application.map
-GET     /admin                           controllers.Application.admin
-GET     /map                             controllers.Application.map
-GET     /prediction                     controllers.Application.prediction
+GET        /                                                    controllers.Application.map
+GET        /admin                                               controllers.Application.admin
+GET        /map                                                 controllers.Application.map
+GET        /prediction                                          controllers.Application.prediction
 
 # Websockets
-GET     /websocket                      controllers.LiveStreamingController.socket
+GET        /websocket                                           controllers.LiveStreamingController.socket
 
 # Stream processor Control
-GET     /stream-started                     controllers.StreamProcessorController.isStarted
-GET     /start-stream                    controllers.StreamProcessorController.startStreamProcessor
-GET     /stop-stream                     controllers.StreamProcessorController.stopStreamProcessor
-GET     /lines-read                      controllers.StreamProcessorController.getNumberLinesRead
-GET     /lines-read-since-restart        controllers.StreamProcessorController.getNumberLinesSinceRestart
-GET     /current-rainfall            controllers.StreamProcessorController.getCurrentRainFall
-GET     /memory-state            controllers.StreamProcessorController.getMemoryState
+GET        /stream-started                                      controllers.StreamProcessorController.isStarted
+GET        /start-stream                                        controllers.StreamProcessorController.startStreamProcessor
+GET        /stop-stream                                         controllers.StreamProcessorController.stopStreamProcessor
+GET        /number-non-matches                                  controllers.StreamProcessorController.getNumberNonMatches
+GET        /get-non-matches-report                              controllers.StreamProcessorController.getNonMatchesReport
+GET        /lines-read                                          controllers.StreamProcessorController.getNumberLinesRead
+GET        /lines-read-since-restart                            controllers.StreamProcessorController.getNumberLinesSinceRestart
+GET        /current-rainfall                                    controllers.StreamProcessorController.getCurrentRainFall
+GET        /memory-state                                        controllers.StreamProcessorController.getMemoryState
 
 # Email alerting control
-GET     /email-alerts-started                    controllers.EmailAlertsController.isStarted
-GET     /start-email-alerting                    controllers.EmailAlertsController.turnOnEmailAlerts
-GET     /stop-email-alerting                     controllers.EmailAlertsController.turnOffEmailAlerts
+GET        /email-alerts-started                                controllers.EmailAlertsController.isStarted
+GET        /start-email-alerting                                controllers.EmailAlertsController.turnOnEmailAlerts
+GET        /stop-email-alerting                                 controllers.EmailAlertsController.turnOffEmailAlerts
 
 # Historica Data Collection control
-GET     /historical-data-collection-started     controllers.HistoricalDataCollectionController.isStarted
-GET     /start-historical-data-collection       controllers.HistoricalDataCollectionController.turnOnHistoricalDataCollection
-GET     /stop-historical-data-collection        controllers.HistoricalDataCollectionController.turnOffHistoricalDataCollection
-GET     /size-holding-buffer                    controllers.HistoricalDataCollectionController.getSizeOfHoldingBuffer
-GET     /number-non-matches                     controllers.HistoricalDataCollectionController.getNumberNonMatches
-GET     /insert-transactions-requested          controllers.HistoricalDataCollectionController.getInsertTransactionsRequested
-GET     /insert-transactions-executed           controllers.HistoricalDataCollectionController.getInsertTransactionsExecuted
-GET     /insert-transactions-outstanding        controllers.HistoricalDataCollectionController.getInsertTransactionsOutstanding
-GET     /insert-transactions-dropped            controllers.HistoricalDataCollectionController.getInsertTransactionsDropped
-GET     /pulls-requested                        controllers.HistoricalDataCollectionController.getRecordPullsRequested
-GET     /pulls-executed                         controllers.HistoricalDataCollectionController.getRecordPullsExecuted
+GET        /historical-data-collection-started                  controllers.HistoricalDataCollectionController.isStarted
+GET        /start-historical-data-collection                    controllers.HistoricalDataCollectionController.turnOnHistoricalDataCollection
+GET        /stop-historical-data-collection                     controllers.HistoricalDataCollectionController.turnOffHistoricalDataCollection
+GET        /size-holding-buffer                                 controllers.HistoricalDataCollectionController.getSizeOfHoldingBuffer
+GET        /insert-transactions-requested                       controllers.HistoricalDataCollectionController.getInsertTransactionsRequested
+GET        /insert-transactions-executed                        controllers.HistoricalDataCollectionController.getInsertTransactionsExecuted
+GET        /insert-transactions-outstanding                     controllers.HistoricalDataCollectionController.getInsertTransactionsOutstanding
+#GET     /insert-transactions-dropped            controllers.HistoricalDataCollectionController.getInsertTransactionsDropped
+GET        /prune-records-requested                             controllers.HistoricalDataCollectionController.getPruneRecordsRequested
+GET        /prune-records-executed                              controllers.HistoricalDataCollectionController.getPruneRecordsCompleted
 
 # Live Streaming Control
-GET     /live-streaming-started                 controllers.LiveStreamingController.isStarted
-GET     /start-live-streaming                   controllers.LiveStreamingController.turnOnLiveStreaming
-GET     /stop-live-streaming                    controllers.LiveStreamingController.turnOffLiveStreaming
-GET     /number-live-actors                    controllers.LiveStreamingController.getNumberLiveActors
-GET     /number-live-children                  controllers.LiveStreamingController.getNumberLiveChildren
-GET     /number-connections                     controllers.LiveStreamingController.getNumberConnections
+GET        /live-streaming-started                              controllers.LiveStreamingController.isStarted
+GET        /start-live-streaming                                controllers.LiveStreamingController.turnOnLiveStreaming
+GET        /stop-live-streaming                                 controllers.LiveStreamingController.turnOffLiveStreaming
+GET        /number-live-actors                                  controllers.LiveStreamingController.getNumberLiveActors
+GET        /number-live-children                                controllers.LiveStreamingController.getNumberLiveChildren
+GET        /number-connections                                  controllers.LiveStreamingController.getNumberConnections
 
 # Update Route Definitions
-GET     /update-route-definitions                 controllers.UpdateRouteDefinitionsController.updateRouteDefinitions
-GET     /update-routes-percentage-complete       controllers.UpdateRouteDefinitionsController.getPercentageComplete
-GET     /update-routes-number-inserted      controllers.UpdateRouteDefinitionsController.getNumberInserted
-GET     /update-routes-number-updated       controllers.UpdateRouteDefinitionsController.getNumberUpdated
+GET        /update-route-definitions-all                        controllers.UpdateRouteDefinitionsController.updateRouteDefinitionsAll
+GET        /update-route-definitions-new-missing                 controllers.UpdateRouteDefinitionsController.updateRouteDefinitionsNewMissing
+GET        /update-routes-number-still-to-update                controllers.UpdateRouteDefinitionsController.getNumberRoutesStillToUpdate
+GET        /update-routes-number-inserts-requested              controllers.UpdateRouteDefinitionsController.getNumberDBInsertsRequested
+GET        /update-routes-number-inserts-completed              controllers.UpdateRouteDefinitionsController.getNumberDBInsertsCompleted
 
-
-# Update Stop Definitions
-GET     /update-stop-definitions                 controllers.UpdateStopDefinitionsController.updateStopDefinitions
-GET     /update-stops-percentage-complete       controllers.UpdateStopDefinitionsController.getPercentageComplete
-GET     /update-stops-number-inserted      controllers.UpdateStopDefinitionsController.getNumberInserted
-GET     /update-stops-number-updated       controllers.UpdateStopDefinitionsController.getNumberUpdated
-
-# Add PolyLines
-GET     /add-polylines                      controllers.AddPolyLinesController.addPolyLines
-GET     /add-polylines-number-read          controllers.AddPolyLinesController.getLinesRead
-GET     /add-polylines-number-from-web      controllers.AddPolyLinesController.getNumberUpdatedFromWeb
-GET     /add-polylines-number-from-cache    controllers.AddPolyLinesController.getNumberUpdatedFromCache
-
-#Clean Up PointToPoint
-GET     /clean-up-point-to-point            controllers.CleanUpPointToPointController.cleanUpPointToPoint
-GET     /point-to-point-clean-checked       controllers.CleanUpPointToPointController.getNumberDocumentsRead
-GET     /point-to-point-clean-deleted       controllers.CleanUpPointToPointController.getNumberDocumentsDeleted
 
 # Log
-GET     /admin-log                          controllers.Application.adminLog
+GET        /admin-log                                           controllers.Application.adminLog
 
 #Common Functions
-GET     /route_list_request.asp                         controllers.CommonFunctions.getRouteList
-GET     /route_list_with_first_last_stops_request.asp   controllers.CommonFunctions.getRouteListWithFirstLastStops
-GET     /direction_list_request.asp                     controllers.CommonFunctions.getDirectionList(route:String)
-GET     /stop_list_request.asp                          controllers.CommonFunctions.getStopList(route:String, direction:Int)
-GET     /prediction_request.asp                         controllers.CommonFunctions.makePrediction(route:String, direction:Int, fromStop:String, toStop:String)
+GET        /route_list_request.asp                              controllers.CommonFunctions.getRouteList
+GET        /route_list_with_first_last_stops_request.asp        controllers.CommonFunctions.getRouteListWithFirstLastStops
+GET        /direction_list_request.asp                          controllers.CommonFunctions.getDirectionList(route:String)
+GET        /stop_list_request.asp                               controllers.CommonFunctions.getStopList(route:String, direction:String)
+GET        /prediction_request.asp                              controllers.CommonFunctions.makePrediction(route:String, direction:String, fromStop:String, toStop:String)
 
 # Map static resources from the /public folder to the /assets URL path
-GET     /assets/*file               controllers.Assets.versioned(path="/public", file)
+GET        /assets/*file                                        controllers.Assets.versioned(path="/public", file)

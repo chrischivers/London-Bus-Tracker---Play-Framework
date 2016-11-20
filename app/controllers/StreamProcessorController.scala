@@ -1,8 +1,9 @@
 package controllers
 
+
 import play.api.Logger
 import play.api.mvc._
-import processes.tfl.TFLIterateOverArrivalStreamSupervisor
+import processes.tfl.{TFLProcessSourceLines, TFLIterateOverArrivalStreamSupervisor}
 import processes.weather.Weather
 
 object StreamProcessorController extends Controller {
@@ -22,6 +23,14 @@ object StreamProcessorController extends Controller {
 
   def getNumberLinesSinceRestart = Action {
     Ok(TFLIterateOverArrivalStreamSupervisor.numberProcessedSinceRestart.toString)
+  }
+
+  def getNumberNonMatches = Action {
+    Ok(TFLProcessSourceLines.numberNonMatches.toString)
+  }
+
+  def getNonMatchesReport = Action {
+    Ok(TFLProcessSourceLines.nonMatches.mkString("\n"))
   }
 
   def getCurrentRainFall = Action {

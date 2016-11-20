@@ -3,7 +3,6 @@ package filters
 import play.api.Logger
 import play.api.mvc._
 import sun.misc.BASE64Decoder
-import scala.concurrent.ExecutionContext.Implicits.global
 import scala.concurrent.Future
 
 object BasicAuthFilter extends Filter {
@@ -27,7 +26,7 @@ object BasicAuthFilter extends Filter {
 
   //This is needed if you are behind a load balancer or a proxy
   private def getUserIPAddress(request: RequestHeader): String = {
-    return request.headers.get("x-forwarded-for").getOrElse(request.remoteAddress.toString)
+    request.headers.get("x-forwarded-for").getOrElse(request.remoteAddress.toString)
   }
 
   private def logFailedAttempt(requestHeader: RequestHeader) = {
@@ -40,7 +39,7 @@ object BasicAuthFilter extends Filter {
       return None
     }
     val basicReqSt = auth.substring(0, basicSt.length())
-    if (basicReqSt.toLowerCase() != basicSt) {
+    if (basicReqSt.toLowerCase != basicSt) {
       return None
     }
     val basicAuthSt = auth.replaceFirst(basicReqSt, "")
@@ -58,7 +57,7 @@ object BasicAuthFilter extends Filter {
   private def isProtectedPage(requestHeader: RequestHeader): Boolean = {
     val reqURI = requestHeader.uri
     //remove the first "/" in the uri
-    if (protectedList.contains(reqURI.substring(1))) return true
+    if (protectedList.contains(reqURI.substring(1))) true
     else false
 
   }
@@ -71,11 +70,10 @@ object BasicAuthFilter extends Filter {
 
     requestHeader.headers.get("authorization").map { basicAuth =>
       decodeBasicAuth(basicAuth) match {
-        case Some((user, pass)) => {
+        case Some((user, pass)) =>
           if (username == user && password == pass) {
             return nextFilter(requestHeader)
           }
-        }
         case _ => ;
       }
       logFailedAttempt(requestHeader)

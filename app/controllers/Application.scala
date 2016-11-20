@@ -1,6 +1,6 @@
 package controllers
 
-import play.api.mvc.{WithFilters, Action, Controller}
+import play.api.mvc.{Action, Controller}
 
 import scala.io.Source
 

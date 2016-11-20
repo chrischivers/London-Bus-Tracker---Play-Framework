@@ -1,8 +1,7 @@
 package commons
 
 import java.util.{Calendar, GregorianCalendar}
-import org.json4s.native.JsonMethods._
-import prediction.{KNNPredictionImpl, PredictionRequest}
+import datadefinitions.BusDefinitions._
 import streaming.PackagedStreamObject
 import scala.collection.mutable.ListBuffer
 import scala.math.BigDecimal.RoundingMode
@@ -50,41 +49,43 @@ object Commons {
    * @param encodedPolyLine The encoded polyLine
    * @return An String Array of Latitude, Longitude, Rotation and Proportional Distance
    */
-  def getMovementDataArray(encodedPolyLine: String):Array[(String,String,String,String)] = {
+  def getMovementDataArray(encodedPolyLine: BusPolyLine):Array[(String,String,String,String)] = {
 
-    val decodedPolyLine = decodePolyLine(encodedPolyLine)
+    if (encodedPolyLine.length > 0) {
+      val decodedPolyLine = decodePolyLine(encodedPolyLine)
 
-    if (decodedPolyLine.length > 0) {
-      var arrayBuild: Array[(Double, Double, Int, Double)] = Array()
-      arrayBuild = arrayBuild :+(decodedPolyLine(0)._1, decodedPolyLine(0)._2, 0, 0.0) //Initial entry for first point
+      if (decodedPolyLine.length > 0) {
+        var arrayBuild: Array[(Double, Double, Int, Double)] = Array()
+        arrayBuild = arrayBuild :+(decodedPolyLine(0)._1, decodedPolyLine(0)._2, 0, 0.0) //Initial entry for first point
 
-      for (i <- 1 until decodedPolyLine.length) {
-        val prevLat = decodedPolyLine(i - 1)._1
-        val prevLng = decodedPolyLine(i - 1)._2
-        val thisLat = decodedPolyLine(i)._1
-        val thisLng = decodedPolyLine(i)._2
-        val rotationToHere = getRotation(prevLat, prevLng, thisLat, thisLng)
-        val distanceToHere = getDistance(prevLat, prevLng, thisLat, thisLng)
-        arrayBuild = arrayBuild :+(thisLat, thisLng, rotationToHere, distanceToHere) //Initial entry for first point
+        for (i <- 1 until decodedPolyLine.length) {
+          val prevLat = decodedPolyLine(i - 1)._1
+          val prevLng = decodedPolyLine(i - 1)._2
+          val thisLat = decodedPolyLine(i)._1
+          val thisLng = decodedPolyLine(i)._2
+          val rotationToHere = getRotation(prevLat, prevLng, thisLat, thisLng)
+          val distanceToHere = getDistance(prevLat, prevLng, thisLat, thisLng)
+          arrayBuild = arrayBuild :+(thisLat, thisLng, rotationToHere, distanceToHere) //Initial entry for first point
 
+        }
+        val sumOfDistances = arrayBuild.foldLeft(0.0) { (total, n) =>
+          total + n._4
+        }
+
+        arrayBuild.map { case (lat, lng, rot, dist) =>
+          (BigDecimal(lat).setScale(6, RoundingMode.HALF_UP).toString(),
+            BigDecimal(lng).setScale(6, RoundingMode.HALF_UP).toString(),
+            rot.toString,
+            try {
+              BigDecimal(dist / sumOfDistances).setScale(2, RoundingMode.HALF_UP).toString()
+            } catch {
+              case e: NumberFormatException => "0" // returns 0 as default
+            })
+        }
+      } else {
+        Array()
       }
-      val sumOfDistances = arrayBuild.foldLeft(0.0) { (total, n) =>
-        total + n._4
-      }
-
-      arrayBuild.map { case (lat, lng, rot, dist) =>
-        (BigDecimal(lat).setScale(6, RoundingMode.HALF_UP).toString(),
-          BigDecimal(lng).setScale(6, RoundingMode.HALF_UP).toString(),
-          rot.toString,
-          try {
-            BigDecimal(dist / sumOfDistances).setScale(2, RoundingMode.HALF_UP).toString()
-          } catch {
-            case e: NumberFormatException => "0" // returns 0 as default
-          })
-      }
-    } else {
-      Array()
-    }
+    } else Array()
   }
 
   /**
@@ -94,7 +95,7 @@ object Commons {
    * @param encodedPolyLine The Encoded PolyLine
    * @return The decoded polyLine as an Array series of Latitudes and Longitudes
    */
-  def decodePolyLine(encodedPolyLine: String): Array[(Double, Double)] = {
+  def decodePolyLine(encodedPolyLine: BusPolyLine): Array[(Double, Double)] = {
 
     try {
 
@@ -193,14 +194,14 @@ object Commons {
    */
   def encodePackageObject(next: PackagedStreamObject): String =
   {
-    val streamFields = Array("reg", "nextArr", "movementData", "routeID", "directionID", "towards", "nextStopID", "nextStopName")
+    val streamFields = Array("reg", "nextArr", "movementData", "routeID", "direction", "towards", "nextStopID", "nextStopName")
 
     val nextList = Map(
       streamFields(0) -> next.reg,
       streamFields(1) -> next.nextArrivalTime,
       streamFields(2) -> compact(render(formatMarkerMovementData(next.markerMovementData))),
       streamFields(3) -> next.route_ID,
-      streamFields(4) -> next.direction_ID.toString,
+      streamFields(4) -> next.direction,
       streamFields(5) -> next.towards,
       streamFields(6) -> next.nextStopID,
       streamFields(7) -> next.nextStopName)

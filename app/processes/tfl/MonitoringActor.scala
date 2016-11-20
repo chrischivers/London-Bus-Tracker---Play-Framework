@@ -1,12 +1,9 @@
 package processes.tfl
 
 import akka.actor.Actor
-import controllers.{StreamProcessorController, EmailAlertsController}
+import controllers.EmailAlertsController
 import play.api.Logger
 
-import scala.concurrent.ExecutionContext.Implicits.global
-import scala.concurrent.duration._
-import scala.concurrent.{Await, ExecutionContext, Future}
 
 /**
  * Actor that monitors the streaming and detects when there is a problem.

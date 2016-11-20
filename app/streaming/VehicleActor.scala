@@ -2,8 +2,9 @@ package streaming
 
 import commons.Commons._
 import akka.actor.Actor
-import datadefinitions.tfl.TFLDefinitions
-import datasource.tfl.TFLSourceLineImpl
+import datadefinitions.BusDefinitions
+import datadefinitions.BusDefinitions.{BusPolyLine, BusStop, BusRoute}
+import datasource.SourceLine
 import play.api.libs.concurrent.Akka
 import prediction.{KNNPredictionImpl, PredictionRequest}
 import play.api.Play.current
@@ -19,21 +20,21 @@ class VehicleActor extends Actor {
   val DEFAULT_DURATION_WHERE_PREDICTION_NOT_AVAILABLE: Double = 45
   val SPEED_UP_MODE_TIME_MULTIPLIER = 0.5
 
-  var StopList: List[String] = List()
+  var StopList: List[BusStop] = List()
   var receivedFirstLine = false
   var pauseAutoProcessingUntil: Long = -1
   var speedUpNumber = 0
   var lastIndexSentForProcessing = -1
   var nextStopArrivalDueAt: Long = -1
-  var vehicleID: String = _
-  var currentRouteID: String = _
-  var currentDirectionID: Int = _
+  var busRegistration: String = _
+  var currentRoute: BusRoute = _
   var currentDestination: String = _
 
   override def receive: Actor.Receive = {
-    case sourceLine: TFLSourceLineImpl =>
+    case sourceLine: SourceLine =>
       if (receivedLineValid(sourceLine)) {
-        process(sourceLine.route_ID, sourceLine.direction_ID, sourceLine.arrival_TimeStamp, sourceLine.stop_Code, sourceLine.destination)
+        val busStop = BusDefinitions.busRouteDefinitions(sourceLine.busRoute).filter(x => x.busStop.busStopID == sourceLine.busStopID).head.busStop
+        process(sourceLine.busRoute, sourceLine.arrival_TimeStamp, busStop, sourceLine.destination)
         pauseAutoProcessingUntil = -1
       }
     case indexOfNextStopToCalculate: Int =>
@@ -44,8 +45,8 @@ class VehicleActor extends Actor {
       }
   }
 
-  def buildStopList(routeID: String, directionID: Int) = {
-    StopList = TFLDefinitions.RouteDefinitionMap(routeID, directionID).sortBy(_._1).map { case (sequence, stop, firstLast, polyline) => stop }
+  def buildStopList(busRoute: BusRoute) = {
+    StopList = BusDefinitions.busRouteDefinitions(busRoute).sortBy(_.sequenceNumber).map(x=> x.busStop)
     // println("Veh: " + vehicle_ID + "StopList: " + StopList)
   }
 
@@ -54,20 +55,21 @@ class VehicleActor extends Actor {
    * @param sourceLine The received line
    * @return True if valid, False if not
    */
-  def receivedLineValid(sourceLine: TFLSourceLineImpl): Boolean = {
+  def receivedLineValid(sourceLine: SourceLine): Boolean = {
+    val busStop = BusDefinitions.busRouteDefinitions(sourceLine.busRoute).filter(x => x.busStop.busStopID == sourceLine.busStopID).head.busStop
     try {
       // If the first line for this vehicle has been received already (i.e. in progress)
       if (receivedFirstLine) {
-        val indexOfStopCode = StopList.indexOf(sourceLine.stop_Code)
-        assert(sourceLine.vehicle_Reg == vehicleID)
-        if (sourceLine.route_ID == currentRouteID && sourceLine.direction_ID == currentDirectionID) {
+        val indexOfStopCode = StopList.indexOf(busStop)
+        assert(sourceLine.busRegistration == busRegistration)
+        if (sourceLine.busRoute == currentRoute) {
           currentDestination = sourceLine.destination
           // If the next line received is as expected
           if (indexOfStopCode == lastIndexSentForProcessing + 1 && indexOfStopCode != StopList.length - 1) true
 
           // If the next line received is behind the auto processing - needs to pause to allow catch up
           else if (indexOfStopCode <= lastIndexSentForProcessing && indexOfStopCode != StopList.length - 1) {
-            val predictionRequest = new PredictionRequest(currentRouteID, currentDirectionID, sourceLine.stop_Code, StopList(lastIndexSentForProcessing + 1), sourceLine.arrival_TimeStamp.getDayCode, sourceLine.arrival_TimeStamp.getTimeOffset)
+            val predictionRequest = new PredictionRequest(currentRoute,busStop.busStopID, StopList(lastIndexSentForProcessing + 1).busStopID, sourceLine.arrival_TimeStamp.getDayCode, sourceLine.arrival_TimeStamp.getTimeOffset)
             val predictedDurtoNextStop_MS = KNNPredictionImpl.makePrediction(predictionRequest).getOrElse(DEFAULT_DURATION_WHERE_PREDICTION_NOT_AVAILABLE, 1)._1 * 1000
             pauseAutoProcessingUntil = sourceLine.arrival_TimeStamp + predictedDurtoNextStop_MS.toLong
             false
@@ -78,12 +80,12 @@ class VehicleActor extends Actor {
           else if (indexOfStopCode > lastIndexSentForProcessing + 1 && indexOfStopCode != StopList.length - 1) {
             val stopsDifference = indexOfStopCode - (lastIndexSentForProcessing + 1)
 
-            val predictionRequest = new PredictionRequest(currentRouteID, currentDirectionID, sourceLine.stop_Code, StopList(indexOfStopCode + 1), sourceLine.arrival_TimeStamp.getDayCode, sourceLine.arrival_TimeStamp.getTimeOffset)
+            val predictionRequest = new PredictionRequest(currentRoute, busStop.busStopID, StopList(indexOfStopCode + 1).busStopID, sourceLine.arrival_TimeStamp.getDayCode, sourceLine.arrival_TimeStamp.getTimeOffset)
             val durationToNextStop = KNNPredictionImpl.makePrediction(predictionRequest).getOrElse(DEFAULT_DURATION_WHERE_PREDICTION_NOT_AVAILABLE, 1)._1 * 1000
             val durationPerStop = durationToNextStop / (stopsDifference + 1)
 
             for (i <- 0 to stopsDifference) {
-              process(currentRouteID, currentDirectionID, nextStopArrivalDueAt + (i * durationPerStop).toLong, StopList(lastIndexSentForProcessing + 1), sourceLine.destination)
+              process(currentRoute, nextStopArrivalDueAt + (i * durationPerStop).toLong, StopList(lastIndexSentForProcessing + 1), sourceLine.destination)
             }
             true
           }
@@ -102,12 +104,11 @@ class VehicleActor extends Actor {
         // If first line has not been received, set up the vehicle definition
       } else {
         receivedFirstLine = true
-        currentRouteID = sourceLine.route_ID
-        currentDirectionID = sourceLine.direction_ID
+        currentRoute = sourceLine.busRoute
         currentDestination = sourceLine.destination
-        vehicleID = sourceLine.vehicle_Reg
-        buildStopList(currentRouteID, currentDirectionID)
-        val indexOfStopCode = StopList.indexOf(sourceLine.stop_Code)
+        busRegistration = sourceLine.busRegistration
+        buildStopList(currentRoute)
+        val indexOfStopCode = StopList.indexOf(busStop)
         if (indexOfStopCode != StopList.length - 1) true
         else false
       }
@@ -124,13 +125,12 @@ class VehicleActor extends Actor {
    */
   def handleNextStopCalculation(nextStopIndex: Int) = {
     if (nextStopIndex == lastIndexSentForProcessing + 1 && nextStopIndex < StopList.length) {
-      val routeID = currentRouteID
-      val directionID = currentDirectionID
+      val busRoute = currentRoute
       val arrivalTime = nextStopArrivalDueAt
-      val stopCode = StopList(nextStopIndex)
+      val busStop = StopList(nextStopIndex)
       val towards = currentDestination
 
-      process(routeID, directionID, arrivalTime, stopCode, towards)
+      process(busRoute, arrivalTime, busStop, towards)
 
     } else if (nextStopIndex == StopList.length - 1) endOfRouteKill()
 
@@ -141,29 +141,28 @@ class VehicleActor extends Actor {
    */
   def endOfRouteKill() = {
     //val lastStopDefinition = TFLDefinitions.PointDefinitionsMap.get(StopList.last).getOrElse()
-    LiveStreamingCoordinatorImpl.vehicleSupervisor ! new KillMessage(vehicleID, currentRouteID, "0", "0")
+    LiveStreamingCoordinatorImpl.vehicleSupervisor ! new KillMessage(busRegistration, currentRoute, "0", "0")
   }
 
   /**
    * Processes the route by packaging the object an sending to the Supervisor for queuing (which it then send to clients)
-   * @param routeID The route ID
-   * @param directionID The direction ID
+   * @param busRoute The Bus Route Object
    * @param arrivalTime The arrival time
-   * @param stopCode The stop code
+   * @param busStop The Bus Stop Object
    */
-  def process(routeID: String, directionID: Int, arrivalTime: Long, stopCode: String, towards: String) = {
+  def process(busRoute:BusRoute, arrivalTime: Long, busStop: BusStop, towards: String) = {
 
     try {
-      val indexOfStopCode = StopList.indexOf(stopCode)
+      val indexOfStopCode = StopList.indexOf(busStop)
       lastIndexSentForProcessing = indexOfStopCode
 
-      val polyLineToNextStop = TFLDefinitions.RouteDefinitionMap(routeID, directionID)(indexOfStopCode)._4
+      val polyLineToNextStop = BusDefinitions.busRouteDefinitions(busRoute)(indexOfStopCode).polyLineToNextStop.getOrElse(new BusPolyLine())
       val movementDataArray = getMovementDataArray(polyLineToNextStop)
 
-      val nextStopCode = StopList(indexOfStopCode + 1)
-      val indexOfNextStopCode = indexOfStopCode + 1
+      val nextStop = StopList(indexOfStopCode + 1)
+      val indexOfNextStop = indexOfStopCode + 1
 
-      val predictionRequest = new PredictionRequest(routeID, directionID, stopCode, nextStopCode, arrivalTime.getDayCode, arrivalTime.getTimeOffset)
+      val predictionRequest = new PredictionRequest(busRoute, busStop.busStopID, nextStop.busStopID, arrivalTime.getDayCode, arrivalTime.getTimeOffset)
       val predictedDurtoNextStop_MS = KNNPredictionImpl.makePrediction(predictionRequest).getOrElse(DEFAULT_DURATION_WHERE_PREDICTION_NOT_AVAILABLE, 1)._1 * 1000
 
       //Holds back until previous has finished (prevents interuptions)
@@ -179,13 +178,13 @@ class VehicleActor extends Actor {
 
 
           // Encodes as a package object and enqueues
-          val pso = new PackagedStreamObject(vehicleID, nextStopArrivalDueAt.toString, movementDataArray, routeID, directionID, towards, nextStopCode, TFLDefinitions.PointDefinitionsMap(nextStopCode).stopPointName)
+          val pso = new PackagedStreamObject(busRegistration, nextStopArrivalDueAt.toString, movementDataArray, busRoute.routeID, busRoute.direction, towards, nextStop.busStopID, nextStop.busStopName)
           LiveStreamingCoordinatorImpl.pushToClients(pso)
 
           val relativeDuration = nextStopArrivalDueAt - System.currentTimeMillis()
           try {
             in(Duration(relativeDuration, MILLISECONDS)) {
-              self ! indexOfNextStopCode
+              self ! indexOfNextStop
             }
           } catch {
             case e: NullPointerException => //Actor already killed. Do nothing

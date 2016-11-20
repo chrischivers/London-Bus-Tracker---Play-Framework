@@ -1,28 +1,31 @@
 package controllers
 
-import database.tfl.TFLInsertUpdateRouteDefinition
-import datadefinitions.tfl.TFLDefinitions
-import datadefinitions.tfl.loadresources_old.LoadRouteDefinitions
-import play.api.Play.current
+import database.BusRouteDefinitionsDB
+import datadefinitions.BusDefinitions
 import play.api.mvc._
 
 
 object UpdateRouteDefinitionsController extends Controller {
 
-  def updateRouteDefinitions = Action {
-    TFLDefinitions.updateRouteDefinitionsFromWeb()
+  def updateRouteDefinitionsAll = Action {
+    BusDefinitions.refreshBusRouteDefinitionFromWeb(updateNewRoutesOnly = false)
     Ok("started")
   }
 
-  def getPercentageComplete = Action {
-    Ok(LoadRouteDefinitions.percentageComplete.toString)
+  def updateRouteDefinitionsNewMissing = Action {
+    BusDefinitions.refreshBusRouteDefinitionFromWeb(updateNewRoutesOnly = true)
+    Ok("started")
   }
 
-  def getNumberInserted = Action {
-    Ok(TFLInsertUpdateRouteDefinition.numberDBInsertsRequested.toString)
+  def getNumberRoutesStillToUpdate = Action {
+    Ok(BusDefinitions.numberRoutesStillToProcess.toString)
   }
-  def getNumberUpdated = Action {
-    Ok(TFLInsertUpdateRouteDefinition.numberDBUpdatesRequested.toString)
+
+  def getNumberDBInsertsRequested = Action {
+    Ok(BusRouteDefinitionsDB.numberInsertsRequested.toString)
+  }
+  def getNumberDBInsertsCompleted = Action {
+    Ok(BusRouteDefinitionsDB.numberInsertsCompleted.toString)
   }
 
 }

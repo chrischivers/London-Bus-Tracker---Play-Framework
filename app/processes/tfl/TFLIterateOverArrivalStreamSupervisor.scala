@@ -4,8 +4,7 @@ import java.util.concurrent.TimeoutException
 
 import akka.actor.SupervisorStrategy._
 import akka.actor.{ OneForOneStrategy, Props, Actor}
-import datasource.{SourceIterator, HttpDataStreamImpl}
-import datasource.tfl.TFLDataSourceImpl
+import datasource.{TFLDataSourceImpl, SourceIterator, HttpDataStreamImpl}
 import play.api.Logger
 import play.api.libs.concurrent.Akka
 import processes.ProcessingInterface

@@ -115,7 +115,7 @@
             delete markerOverListenerArray[reg];
             delete markerOutListenerArray[reg];
         }
-        function setNewLocation(reg, nextArr, movementData, routeID, directionID, towards, nextStopID, nextStopName) {
+        function setNewLocation(reg, nextArr, movementData, routeID, direction, towards, nextStopID, nextStopName) {
 
             var latLngArray = [];
             var rotationArray = [];
@@ -146,7 +146,7 @@
                 var timeTilCompleted = (nextArrivalTimeArray[reg] - Date.now());
 
                 setTimeout(function () {
-                    moveMarker(reg, latLngArray, rotationArray, proportionalDurationArray, nextArr, routeID, directionID, towards, nextStopID, nextStopName);
+                    moveMarker(reg, latLngArray, rotationArray, proportionalDurationArray, nextArr, routeID, direction, towards, nextStopID, nextStopName);
                 }, timeTilCompleted);
             } else {
 
@@ -171,7 +171,7 @@
                 });
 
 
-                moveMarker(reg, latLngArray, rotationArray, proportionalDurationArray, nextArr, routeID, directionID, towards, nextStopID, nextStopName);
+                moveMarker(reg, latLngArray, rotationArray, proportionalDurationArray, nextArr, routeID, direction, towards, nextStopID, nextStopName);
 
 
             }
@@ -282,7 +282,7 @@
             if (parsedJson.nextArr != "kill") {
                 // Process immediately and do not wait for a return (pseudo concurrency)
                 setTimeout(function () {
-                    setNewLocation(parsedJson.reg, parsedJson.nextArr, parsedJson.movementData, parsedJson.routeID, parsedJson.directionID, parsedJson.towards, parsedJson.nextStopID, parsedJson.nextStopName);
+                    setNewLocation(parsedJson.reg, parsedJson.nextArr, parsedJson.movementData, parsedJson.routeID, parsedJson.direction, parsedJson.towards, parsedJson.nextStopID, parsedJson.nextStopName);
                 }, 0);
             } else {
                 deleteVehicle(parsedJson.reg);

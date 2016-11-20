@@ -92,27 +92,18 @@
                 }
             }
 
-              function updateRouteDefinitionsButtonClick() {
-                   $.get("/update-route-definitions");
-                    document.getElementById("updateRouteDefinitionsButton").disabled = true;
+              function updateRouteDefinitionsAllButtonClick() {
+                   $.get("/update-route-definitions-all");
+                    document.getElementById("updateRouteDefinitionsAllButton").disabled = true;
+                    document.getElementById("updateRouteDefinitionsNewMissingButton").disabled = true;
                     setInterval(updateRouteDefinitionsValues, routeStopPolyUpdateRefreshInterval);
             }
-              function updateStopDefinitionsButtonClick() {
-                   $.get("/update-stop-definitions");
-                    document.getElementById("updateStopDefinitionsButton").disabled = true;
-                    setInterval(updateStopDefinitionsValues, routeStopPolyUpdateRefreshInterval);
-            }
 
-             function addPolyLinesButtonClick() {
-                   $.get("/add-polylines");
-                    document.getElementById("addPolyLinesButton").disabled = true;
-                    setInterval(updatePolyLinesValues, routeStopPolyUpdateRefreshInterval);
-            }
-
-              function cleanUpPointToPointButtonClick() {
-                   $.get("/clean-up-point-to-point");
-                    document.getElementById("cleanUpPointToPointButton").disabled = true;
-                    setInterval(updateCleanUpPointToPointValues, routeStopPolyUpdateRefreshInterval);
+                 function updateRouteDefinitionsNewMissingButtonClick() {
+                   $.get("/update-route-definitions-new-missing");
+                    document.getElementById("updateRouteDefinitionsNewMissingButton").disabled = true;
+                    document.getElementById("updateRouteDefinitionsAllButton").disabled = true;
+                    setInterval(updateRouteDefinitionsValues, routeStopPolyUpdateRefreshInterval);
             }
 
 
@@ -125,6 +116,9 @@
                  $.get("/lines-read-since-restart", function( data ) {
                     document.getElementById("numberLinesReadSinceRestart").innerHTML = data
                 });
+                       $.get("/number-non-matches", function( data ) {
+                        document.getElementById("routeDefinitionNonMatches").innerHTML = data
+                    });
                  $.get("/current-rainfall", function( data ) {
                     document.getElementById("currentRainfall").innerHTML = data
                 });
@@ -147,9 +141,6 @@
                     $.get("/size-holding-buffer", function( data ) {
                         document.getElementById("sizeOfHoldingBuffer").innerHTML = data
                     });
-                     $.get("/number-non-matches", function( data ) {
-                        document.getElementById("routeDefinitionNonMatches").innerHTML = data
-                    });
                      $.get("/insert-transactions-requested", function( data ) {
                         document.getElementById("insertTransactionsRequested").innerHTML = data
                     });
@@ -162,10 +153,10 @@
                         $.get("/insert-transactions-dropped", function( data ) {
                         document.getElementById("transactionsDropped").innerHTML = data
                     });
-                       $.get("/pulls-requested", function( data ) {
+                       $.get("/prune-records-requested", function( data ) {
                         document.getElementById("pullsRequested").innerHTML = data
                     });
-                      $.get("/pulls-executed", function( data ) {
+                      $.get("/prune-records-executed", function( data ) {
                         document.getElementById("pullsExecuted").innerHTML = data
                     });
                 }
@@ -186,49 +177,19 @@
             }
 
             function updateRouteDefinitionsValues() {
-                $.get("/update-routes-percentage-complete", function( data ) {
-                    document.getElementById("routeUpdatePercentageComplete").innerHTML = data
+                $.get("/update-routes-number-still-to-update ", function( data ) {
+                    document.getElementById("routeStillToUpdate").innerHTML = data
                 });
-                 $.get("/update-routes-number-inserted", function( data ) {
-                    document.getElementById("numberRoutesInserted").innerHTML = data
+                 $.get("/update-routes-number-inserts-requested", function( data ) {
+                    document.getElementById("numberRoutesInsertRequested").innerHTML = data
                 });
-                  $.get("/update-routes-number-updated", function( data ) {
-                    document.getElementById("numberRoutesUpdated").innerHTML = data
-                });
-            }
-
-            function updateStopDefinitionsValues() {
-                $.get("/update-stops-percentage-complete", function( data ) {
-                    document.getElementById("stopUpdatePercentageComplete").innerHTML = data
-                });
-                 $.get("/update-stops-number-inserted", function( data ) {
-                    document.getElementById("numberStopsInserted").innerHTML = data
-                });
-                  $.get("/update-stops-number-updated", function( data ) {
-                    document.getElementById("numberStopsUpdated").innerHTML = data
+                  $.get("/update-routes-number-inserts-completed", function( data ) {
+                    document.getElementById("numberRoutesInsertCompleted").innerHTML = data
                 });
             }
 
-            function updatePolyLinesValues() {
-                $.get("/add-polylines-number-read", function( data ) {
-                    document.getElementById("addPolylinesNumberRead").innerHTML = data
-                });
-                 $.get("/add-polylines-number-from-web", function( data ) {
-                    document.getElementById("addPolyLinesNumberFromWeb").innerHTML = data
-                });
-                  $.get("/add-polylines-number-from-cache", function( data ) {
-                    document.getElementById("addPolyLinesNumberFromCache").innerHTML = data
-                });
-            }
 
-            function updateCleanUpPointToPointValues() {
-                $.get("/point-to-point-clean-checked", function( data ) {
-                    document.getElementById("pointToPointCleanChecked").innerHTML = data
-                });
-                 $.get("/point-to-point-clean-deleted", function( data ) {
-                    document.getElementById("pointToPointCleanDeleted").innerHTML = data
-                });
-            }
+
 
              function updateConsole() {
              $.get("/admin-log ", function( data ) {
@@ -313,6 +274,13 @@
                             <td id="numberLinesReadSinceRestart">0</td>
                         </tr>
                         <tr>
+                            <td>Number of route definition non matches:</td>
+                            <td id="routeDefinitionNonMatches">0</td>
+                        </tr>
+                        <tr>
+                            <td><a href="/get-non-matches-report" target="_blank">Get non-matches report</a></td>
+                        </tr>
+                        <tr>
                             <td>Current Rainfall (mm):</td>
                             <td id="currentRainfall">0</td>
                         </tr>
@@ -369,10 +337,6 @@
                             <td id="sizeOfHoldingBuffer">0</td>
                         </tr>
                         <tr>
-                            <td>Number of route definition non matches:</td>
-                            <td id="routeDefinitionNonMatches">0</td>
-                        </tr>
-                        <tr>
                             <td>Database Insert Transactions Requested:</td>
                             <td id="insertTransactionsRequested">0</td>
                         </tr>
@@ -389,30 +353,12 @@
                             <td id="transactionsDropped">0</td>
                         </tr>
                         <tr>
-                            <td>Database Record Pulls Requested:</td>
+                            <td>Database Prune Records Requested:</td>
                             <td id="pullsRequested">0</td>
                         </tr>
                         <tr>
-                            <td>Database Record Pulls Executed:</td>
+                            <td>Database Prune Records Executed:</td>
                             <td id="pullsExecuted">0</td>
-                        </tr>
-                    </table>
-                    <h2>
-                    Point-To-Point Clean Up
-                    </h2>
-                    <table class="controlpanel" >
-                        <tr>
-                            <td>
-                                <button id="cleanUpPointToPointButton" onclick="cleanUpPointToPointButtonClick()">Clean Up Point To Point Data</button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>Number Point To Point records checked:</td>
-                            <td id="pointToPointCleanChecked">0</td>
-                        </tr>
-                        <tr>
-                            <td>Number Point To Point records deleted:</td>
-                            <td id="pointToPointCleanDeleted">0</td>
                         </tr>
                     </table>
                 </td>
@@ -447,64 +393,25 @@
                     <table class="controlpanel">
                         <tr>
                             <td>
-                                <button id="updateRouteDefinitionsButton" onclick="updateRouteDefinitionsButtonClick()">Update Route Definitions</button>
+                                <button id="updateRouteDefinitionsAllButton" onclick="updateRouteDefinitionsAllButtonClick()">Update Route Definitions (All)</button>
                             </td>
                         </tr>
-                        <tr>
-                            <td>% complete:</td>
-                            <td id="routeUpdatePercentageComplete">0</td>
-                        </tr>
-                        <tr>
-                            <td>Number inserted into DB:</td>
-                            <td id="numberRoutesInserted">0</td>
-                        </tr>
-                        <tr>
-                            <td>Number updated in DB:</td>
-                            <td id="numberRoutesUpdated">0</td>
-                        </tr>
-                    </table>
-                    <h2>
-                    Update Stop Definitions
-                    </h2>
-                    <table class="controlpanel">
                         <tr>
                             <td>
-                                <button id="updateStopDefinitionsButton" onclick="updateStopDefinitionsButtonClick()">Update Stop Definitions</button>
+                                <button id="updateRouteDefinitionsNewMissingButton" onclick="updateRouteDefinitionsNewMissingButtonClick()">Update Route Definitions (new/missing only)</button>
                             </td>
                         </tr>
                         <tr>
-                            <td>% complete:</td>
-                            <td id="stopUpdatePercentageComplete">0</td>
+                            <td>Number routes still to update:</td>
+                            <td id="routeStillToUpdate">0</td>
                         </tr>
                         <tr>
-                            <td>Number inserted into DB:</td>
-                            <td id="numberStopsInserted">0</td>
+                            <td>Number route inserts requeste in DB:</td>
+                            <td id="numberRoutesInsertRequested">0</td>
                         </tr>
                         <tr>
-                            <td>Number updated in DB:</td>
-                            <td id="numberStopsUpdated">0</td>
-                        </tr>
-                    </table>
-                    <h2>
-                    Add polylines
-                    </h2>
-                    <table class="controlpanel">
-                        <tr>
-                            <td>
-                                <button id="addPolyLinesButton" onclick="addPolyLinesButtonClick()">Add Polylines</button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>Number lines read</td>
-                            <td id="addPolylinesNumberRead">0</td>
-                        </tr>
-                        <tr>
-                            <td>Number added from web:</td>
-                            <td id="addPolyLinesNumberFromWeb">0</td>
-                        </tr>
-                        <tr>
-                            <td>Number added from cache:</td>
-                            <td id="addPolyLinesNumberFromCache">0</td>
+                            <td>Number route inserts completed in DB:</td>
+                            <td id="numberRoutesInsertCompleted">0</td>
                         </tr>
                     </table>
                 </td>

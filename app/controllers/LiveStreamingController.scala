@@ -3,7 +3,7 @@ package controllers
 import play.api.Logger
 import play.api.mvc._
 import play.api.Play.current
-import streaming.{LiveStreamingCoordinatorImpl, WebSocketSupervisor, WebSocketActor}
+import streaming.{LiveStreamingCoordinatorImpl, WebSocketSupervisor}
 
 
 object LiveStreamingController extends Controller {

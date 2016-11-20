@@ -2,18 +2,17 @@ package prediction
 
 import commons.Commons._
 import com.mongodb.casbah.MongoCursor
-import com.mongodb.casbah.commons.{Imports, MongoDBObject}
-import database.POINT_TO_POINT_COLLECTION
-import database.tfl.TFLGetPointToPointDocument
-import datadefinitions.tfl.TFLDefinitions
+import com.mongodb.casbah.commons.Imports
+import database.RouteSectionHistoryDB.ROUTE_SECTION_HISTORY_DOCUMENT.DURATION_LIST_DOCUMENT
+import database.RouteSectionHistoryDB
+import database.RouteSectionHistoryDB.ROUTE_SECTION_HISTORY_DOCUMENT
+import datadefinitions.BusDefinitions
 import org.apache.commons.math3.stat.descriptive.SummaryStatistics
 import processes.weather.Weather
 import scala.collection.JavaConversions._
 
 
-object KNNPredictionImpl extends PredictionInterface {
-
-  override val coll = POINT_TO_POINT_COLLECTION
+object KNNPredictionImpl {
 
   val K = 10
   val STANDARD_DEVIATION_MULTIPLIER_TO_EXCLUDE = 2
@@ -29,19 +28,19 @@ object KNNPredictionImpl extends PredictionInterface {
    * @param pr A prediction request object encapsulating the required fields
    * @return An Option of predicted duration and standard deviation
    */
-  override def makePrediction(pr: PredictionRequest): Option[(Double, Double)] = {
+  def makePrediction(pr: PredictionRequest): Option[(Double, Double)] = {
     try {
-      val startingPoint = TFLDefinitions.RouteDefinitionMap(pr.route_ID, pr.direction_ID).filter(x => x._2 == pr.from_Point_ID).head._1
-      val endingPoint = TFLDefinitions.RouteDefinitionMap(pr.route_ID, pr.direction_ID).filter(x => x._2 == pr.to_Point_ID).last._1
+      val startingPoint = BusDefinitions.busRouteDefinitions(pr.busRoute).filter(x => x.busStop.busStopID == pr.fromStopID).head.sequenceNumber
+      val endingPoint = BusDefinitions.busRouteDefinitions(pr.busRoute).filter(x => x.busStop.busStopID == pr.toStopID).last.sequenceNumber
 
       var accumulatedPredictedDuration = 0.0
       var accumulatedVariance = 0.0
       var cumulativeDuration = pr.timeOffset.toDouble
 
       for (i <- startingPoint until endingPoint) {
-        val fromStopID = TFLDefinitions.RouteDefinitionMap(pr.route_ID, pr.direction_ID).filter(x => x._1 == i).head._2
-        val toStopID = TFLDefinitions.RouteDefinitionMap(pr.route_ID, pr.direction_ID).filter(x => x._1 == i + 1).last._2
-        val duration = makePredictionBetweenConsecutivePoints(new PredictionRequest(pr.route_ID, pr.direction_ID, fromStopID, toStopID, pr.day_Of_Week, cumulativeDuration.toInt)).getOrElse(return None)
+        val fromStopID = BusDefinitions.busRouteDefinitions(pr.busRoute).filter(x => x.sequenceNumber == i).head.busStop.busStopID
+        val toStopID = BusDefinitions.busRouteDefinitions(pr.busRoute).filter(x => x.sequenceNumber == i + 1).last.busStop.busStopID
+        val duration = makePredictionBetweenConsecutivePoints(new PredictionRequest(pr.busRoute, fromStopID, toStopID, pr.day_Of_Week, cumulativeDuration.toInt)).getOrElse(return None)
         accumulatedPredictedDuration += duration._1
         accumulatedVariance += duration._2
         cumulativeDuration += duration._1
@@ -62,8 +61,7 @@ object KNNPredictionImpl extends PredictionInterface {
    */
   private def makePredictionBetweenConsecutivePoints(pr: PredictionRequest): Option[(Double, Double)] = {
 
-    val query = MongoDBObject(coll.ROUTE_ID -> pr.route_ID, coll.DIRECTION_ID -> pr.direction_ID, coll.FROM_POINT_ID -> pr.from_Point_ID, coll.TO_POINT_ID -> pr.to_Point_ID)
-    val cursor: MongoCursor = TFLGetPointToPointDocument.executeQuery(query)
+    val cursor: MongoCursor = RouteSectionHistoryDB.getRouteHistoryFromDB(pr.busRoute, pr.fromStopID, pr.toStopID)
 
 
 
@@ -90,13 +88,13 @@ object KNNPredictionImpl extends PredictionInterface {
     var rawValueArrayAllDays: Vector[(Int, Int, Double, Double, Long)] = Vector()
 
     cursor.foreach(x => {
-      val day = getDayOfWeekValue(x.get(coll.DAY).asInstanceOf[String])
-      val rawValueArray = x.get(coll.DURATION_LIST).asInstanceOf[Imports.BasicDBList].map(y =>
-        (y.asInstanceOf[Imports.BasicDBObject].getInt(coll.DURATION),
-          y.asInstanceOf[Imports.BasicDBObject].getInt(coll.TIME_OFFSET),
+      val day = getDayOfWeekValue(x.get(ROUTE_SECTION_HISTORY_DOCUMENT.DAY).asInstanceOf[String])
+      val rawValueArray = x.get(ROUTE_SECTION_HISTORY_DOCUMENT.DURATION_LIST).asInstanceOf[Imports.BasicDBList].map(y =>
+        (y.asInstanceOf[Imports.BasicDBObject].getInt(DURATION_LIST_DOCUMENT.DURATION),
+          y.asInstanceOf[Imports.BasicDBObject].getInt(DURATION_LIST_DOCUMENT.TIME_OFFSET),
           day,
-          y.asInstanceOf[Imports.BasicDBObject].getDouble(coll.RAINFALL),
-          y.asInstanceOf[Imports.BasicDBObject].getLong(coll.TIME_STAMP)))
+          y.asInstanceOf[Imports.BasicDBObject].getDouble(DURATION_LIST_DOCUMENT.RAINFALL),
+          y.asInstanceOf[Imports.BasicDBObject].getLong(DURATION_LIST_DOCUMENT.TIME_STAMP)))
 
       rawValueArrayAllDays = rawValueArrayAllDays ++ rawValueArray
     })

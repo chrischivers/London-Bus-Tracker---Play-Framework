@@ -1,7 +1,7 @@
 package processes.tfl
 
 import akka.actor.Actor
-import datasource.tfl.TFLSourceLineFormatterImpl
+import datasource.SourceLineFormatter
 import play.api.Logger
 import scala.concurrent.duration._
 import scala.concurrent.{ExecutionContext, Await, Future}
@@ -30,7 +30,7 @@ class IteratingActor extends Actor {
       TFLIterateOverArrivalStreamSupervisor.closeDataStream()
       Logger.info("Closing data stream")
     case Next =>
-        val lineFuture = Future(TFLSourceLineFormatterImpl(it.next()))
+        val lineFuture = Future(SourceLineFormatter(it.next()))
         val line = Await.result(lineFuture, 10 seconds)
         TFLProcessSourceLines(line)
         TFLIterateOverArrivalStreamSupervisor.numberProcessed += 1
