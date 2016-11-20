@@ -194,8 +194,9 @@ object Commons {
    */
   def encodePackageObject(next: PackagedStreamObject): String =
   {
-    val streamFields = Array("reg", "nextArr", "movementData", "routeID", "direction", "towards", "nextStopID", "nextStopName")
+    val streamFields = Array("reg", "nextArr", "movementData", "routeID", "direction","towards", "nextStopID", "nextStopName", "directionID")
 
+    val directionID = if (next.direction == "outbound") "1" else "2"
     val nextList = Map(
       streamFields(0) -> next.reg,
       streamFields(1) -> next.nextArrivalTime,
@@ -204,7 +205,8 @@ object Commons {
       streamFields(4) -> next.direction,
       streamFields(5) -> next.towards,
       streamFields(6) -> next.nextStopID,
-      streamFields(7) -> next.nextStopName)
+      streamFields(7) -> next.nextStopName,
+      streamFields(8) -> directionID)
     //val json = compact(render(nextList))
     compact(render(nextList))
     // val nextChunk = MessageChunk("data: " + json + "\n\n")}

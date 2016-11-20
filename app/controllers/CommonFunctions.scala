@@ -10,7 +10,6 @@ import prediction.{KNNPredictionImpl, PredictionRequest}
 object CommonFunctions extends Controller {
 
     def getRouteList = Action {
-      println(BusDefinitions.sortedRouteList)
       val routeList = BusDefinitions.sortedRouteList
       if (!routeList.isEmpty) {
         val jsonMap = Map("routeList" -> Json.toJson(routeList))
