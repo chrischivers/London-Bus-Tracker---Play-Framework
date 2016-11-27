@@ -10,6 +10,7 @@ import datadefinitions.BusDefinitions
 import org.apache.commons.math3.stat.descriptive.SummaryStatistics
 import processes.weather.Weather
 import scala.collection.JavaConversions._
+import play.api.Logger
 
 
 object KNNPredictionImpl {
@@ -50,7 +51,10 @@ object KNNPredictionImpl {
       Some(round(accumulatedPredictedDuration, 2), round(standardDeviation, 2))
     }
     catch {
-      case nsee: NoSuchElementException => None
+      case nsee: NoSuchElementException => {
+        Logger.info("No Such Element Exception for prediction: " + pr)
+        None
+      }
     }
   }
 

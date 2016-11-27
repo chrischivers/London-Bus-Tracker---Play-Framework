@@ -1,6 +1,6 @@
 name := """london-bus-tracker-play"""
 
-version := "2.03"
+version := "2.04"
 
 scalaVersion := "2.11.7"
 

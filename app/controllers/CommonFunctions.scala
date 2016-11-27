@@ -33,7 +33,7 @@ object CommonFunctions extends Controller {
   }
 
   def getStopList(routeID: String, direction: String) = Action {
-    val stopList = BusDefinitions.busRouteDefinitions(BusRoute(routeID, direction)).map(x => x.sequenceNumber + "," + x.busStop.busStopName)
+    val stopList = BusDefinitions.busRouteDefinitions(BusRoute(routeID, direction)).map(x => x.busStop.busStopID + "," + x.busStop.busStopName)
     val jsonMap = Map("stopList" -> Json.toJson(stopList))
     Ok(Json.toJson(jsonMap))
   }
