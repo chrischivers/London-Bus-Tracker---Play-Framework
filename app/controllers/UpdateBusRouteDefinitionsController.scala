@@ -1,18 +1,18 @@
 package controllers
 
 import database.BusRouteDefinitionsDB
-import datadefinitions.BusDefinitions
+import datadefinitions.{TubeDefinitions, BusDefinitions}
 import play.api.mvc._
 
 
-object UpdateRouteDefinitionsController extends Controller {
+object UpdateBusRouteDefinitionsController extends Controller {
 
-  def updateRouteDefinitionsAll = Action {
+  def updateBusRouteDefinitionsAll = Action {
     BusDefinitions.refreshBusRouteDefinitionFromWeb(updateNewRoutesOnly = false)
     Ok("started")
   }
 
-  def updateRouteDefinitionsNewMissing = Action {
+  def updateBusRouteDefinitionsNewMissing = Action {
     BusDefinitions.refreshBusRouteDefinitionFromWeb(updateNewRoutesOnly = true)
     Ok("started")
   }

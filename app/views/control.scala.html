@@ -92,18 +92,28 @@
                 }
             }
 
-              function updateRouteDefinitionsAllButtonClick() {
-                   $.get("/update-route-definitions-all");
-                    document.getElementById("updateRouteDefinitionsAllButton").disabled = true;
-                    document.getElementById("updateRouteDefinitionsNewMissingButton").disabled = true;
-                    setInterval(updateRouteDefinitionsValues, routeStopPolyUpdateRefreshInterval);
+              function updateBusRouteDefinitionsAllButtonClick() {
+                   $.get("/update-bus-route-definitions-all");
+                    document.getElementById("updateBusRouteDefinitionsAllButton").disabled = true;
+                    document.getElementById("updateBusRouteDefinitionsNewMissingButton").disabled = true;
+                    document.getElementById("updateTubeRouteDefinitionsAllButton").disabled = true;
+                    setInterval(updateBusRouteDefinitionsValues, routeStopPolyUpdateRefreshInterval);
             }
 
-                 function updateRouteDefinitionsNewMissingButtonClick() {
-                   $.get("/update-route-definitions-new-missing");
-                    document.getElementById("updateRouteDefinitionsNewMissingButton").disabled = true;
-                    document.getElementById("updateRouteDefinitionsAllButton").disabled = true;
-                    setInterval(updateRouteDefinitionsValues, routeStopPolyUpdateRefreshInterval);
+                 function updateBusRouteDefinitionsNewMissingButtonClick() {
+                   $.get("/update-bus-route-definitions-new-missing");
+                    document.getElementById("updateBusRouteDefinitionsNewMissingButton").disabled = true;
+                    document.getElementById("updateBusRouteDefinitionsAllButton").disabled = true;
+                    document.getElementById("updateTubeRouteDefinitionsAllButton").disabled = true;
+                    setInterval(updateBusRouteDefinitionsValues, routeStopPolyUpdateRefreshInterval);
+            }
+
+                function updateTubeRouteDefinitionsAllButtonClick() {
+                   $.get("/update-tube-route-definitions-all");
+                    document.getElementById("updateBusRouteDefinitionsAllButton").disabled = true;
+                    document.getElementById("updateBusRouteDefinitionsNewMissingButton").disabled = true;
+                    document.getElementById("updateTubeRouteDefinitionsAllButton").disabled = true;
+                    setInterval(updateTubeRouteDefinitionsValues, routeStopPolyUpdateRefreshInterval);
             }
 
 
@@ -176,18 +186,29 @@
                  }
             }
 
-            function updateRouteDefinitionsValues() {
-                $.get("/update-routes-number-still-to-update ", function( data ) {
-                    document.getElementById("routeStillToUpdate").innerHTML = data
+            function updateBusRouteDefinitionsValues() {
+                $.get("/update-bus-routes-number-still-to-update ", function( data ) {
+                    document.getElementById("busRoutesStillToUpdate").innerHTML = data
                 });
-                 $.get("/update-routes-number-inserts-requested", function( data ) {
-                    document.getElementById("numberRoutesInsertRequested").innerHTML = data
+                 $.get("/update-bus-routes-number-inserts-requested", function( data ) {
+                    document.getElementById("numberBusRoutesInsertRequested").innerHTML = data
                 });
-                  $.get("/update-routes-number-inserts-completed", function( data ) {
-                    document.getElementById("numberRoutesInsertCompleted").innerHTML = data
+                  $.get("/update-bus-routes-number-inserts-completed", function( data ) {
+                    document.getElementById("numberBusRoutesInsertCompleted").innerHTML = data
                 });
             }
 
+            function updateTubeRouteDefinitionsValues() {
+                $.get("/update-tube-routes-number-still-to-update ", function( data ) {
+                    document.getElementById("tubeRoutesStillToUpdate").innerHTML = data
+                });
+                 $.get("/update-tube-routes-number-inserts-requested", function( data ) {
+                    document.getElementById("numberTubeRoutesInsertRequested").innerHTML = data
+                });
+                  $.get("/update-tube-routes-number-inserts-completed", function( data ) {
+                    document.getElementById("numberTubeRoutesInsertCompleted").innerHTML = data
+                });
+            }
 
 
 
@@ -388,30 +409,53 @@
                 </td>
                 <td>
                     <h2>
-                    Update Route Definitions
+                    Update Bus Route Definitions
                     </h2>
                     <table class="controlpanel">
                         <tr>
                             <td>
-                                <button id="updateRouteDefinitionsAllButton" onclick="updateRouteDefinitionsAllButtonClick()">Update Route Definitions (All)</button>
+                                <button id="updateBusRouteDefinitionsAllButton" onclick="updateBusRouteDefinitionsAllButtonClick()">Update Bus Route Definitions (All)</button>
                             </td>
                         </tr>
                         <tr>
                             <td>
-                                <button id="updateRouteDefinitionsNewMissingButton" onclick="updateRouteDefinitionsNewMissingButtonClick()">Update Route Definitions (new/missing only)</button>
+                                <button id="updateBusRouteDefinitionsNewMissingButton" onclick="updateBusRouteDefinitionsNewMissingButtonClick()">Update Bus Route Definitions (new/missing only)</button>
                             </td>
                         </tr>
                         <tr>
-                            <td>Number routes still to update:</td>
-                            <td id="routeStillToUpdate">0</td>
+                            <td>Number bus routes still to update:</td>
+                            <td id="busRoutesStillToUpdate">0</td>
                         </tr>
                         <tr>
-                            <td>Number route inserts requeste in DB:</td>
-                            <td id="numberRoutesInsertRequested">0</td>
+                            <td>Number bus route inserts requeste in DB:</td>
+                            <td id="numberBusRoutesInsertRequested">0</td>
                         </tr>
                         <tr>
-                            <td>Number route inserts completed in DB:</td>
-                            <td id="numberRoutesInsertCompleted">0</td>
+                            <td>Number bus route inserts completed in DB:</td>
+                            <td id="numberBusRoutesInsertCompleted">0</td>
+                        </tr>
+                    </table>
+
+                    <h2>
+                    Update Tube Route Definitions
+                    </h2>
+                    <table class="controlpanel">
+                        <tr>
+                            <td>
+                                <button id="updateTubeRouteDefinitionsAllButton" onclick="updateTubeRouteDefinitionsAllButtonClick()">Update Tube Route Definitions (All)</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Number tube routes still to update:</td>
+                            <td id="tubeRoutesStillToUpdate">0</td>
+                        </tr>
+                        <tr>
+                            <td>Number tube route inserts requeste in DB:</td>
+                            <td id="numberTubeRoutesInsertRequested">0</td>
+                        </tr>
+                        <tr>
+                            <td>Number tube route inserts completed in DB:</td>
+                            <td id="numberTubeRoutesInsertCompleted">0</td>
                         </tr>
                     </table>
                 </td>

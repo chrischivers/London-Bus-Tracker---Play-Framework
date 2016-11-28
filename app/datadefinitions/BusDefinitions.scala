@@ -1,5 +1,6 @@
 package datadefinitions
 
+import database.PolyLineIndexDB.{PolyLineDefinition, PolyLine}
 import database.{BusRouteDefinitionsDB, PolyLineIndexDB}
 import org.bson.json.JsonParseException
 import play.api.libs.json._
@@ -16,11 +17,8 @@ object BusDefinitions {
 
   case class BusStop(busStopID: String, busStopName: String, towards: String, busStopIndicator: String, busStopStatus: Boolean, latitude: String, longitude: String)
 
-  case class BusStopInSequence(sequenceNumber: Int, busStop: BusStop, polyLineToNextStop: Option[BusPolyLine])
+  case class BusStopInSequence(sequenceNumber: Int, busStop: BusStop, polyLineToNextStop: Option[PolyLine])
 
-  type BusPolyLine = String
-
-  case class PolyLineDefinition(from: BusStop, to: BusStop, polyline: BusPolyLine)
 
   var APICurrentIndex = 0
 
@@ -28,7 +26,7 @@ object BusDefinitions {
 
   val busRouteDefinitions: BusRouteDefinitions = retrieveAllBusRouteDefinitionsFromDB
 
-  val sortedRouteList: List[String] = {
+  val sortedBusRouteList: List[String] = {
     val list = busRouteDefinitions.keySet.map(key => key.routeID) toList
     val partitionedList = list.partition(x => x.forall(_.isDigit))
     val sortedIntList = partitionedList._1.map(_.toInt).sorted
@@ -36,15 +34,15 @@ object BusDefinitions {
     sortedIntList.map(_.toString) ++ sortedStringList
   }
 
-  val sortedRouteListWithFirstLastStops: List[(String, String, String)] = {
-    sortedRouteList.map(route => (route, busRouteDefinitions.filter(x => x._1.routeID == route).head._2.head.busStop.busStopName, busRouteDefinitions.filter(x => x._1.routeID == route).last._2.head.busStop.busStopName))
+  val sortedBusRouteListWithFirstLastStops: List[(String, String, String)] = {
+    sortedBusRouteList.map(route => (route, busRouteDefinitions.filter(x => x._1.routeID == route).head._2.head.busStop.busStopName, busRouteDefinitions.filter(x => x._1.routeID == route).last._2.head.busStop.busStopName))
   }
 
   private def retrieveAllBusRouteDefinitionsFromDB: BusRouteDefinitions = BusRouteDefinitionsDB.getBusRouteDefinitionsFromDB
 
-  private def persistBusRouteDefinitionsToDB(busRouteDefinitions: BusRouteDefinitions) = BusRouteDefinitionsDB.insertRouteDefinitionsIntoDB(busRouteDefinitions)
+  private def persistBusRouteDefinitionsToDB(busRouteDefinitions: BusRouteDefinitions) = BusRouteDefinitionsDB.insertBusRouteDefinitionsIntoDB(busRouteDefinitions)
 
-  private def persistBusRouteDefinitionsToDB(busRoute: BusRoute, sequenceList: List[BusStopInSequence]) = BusRouteDefinitionsDB.insertRouteDefinitionsIntoDB(busRoute, sequenceList)
+  private def persistBusRouteDefinitionsToDB(busRoute: BusRoute, sequenceList: List[BusStopInSequence]) = BusRouteDefinitionsDB.insertBusRouteDefinitionsIntoDB(busRoute, sequenceList)
 
   def refreshBusRouteDefinitionFromWeb(updateNewRoutesOnly: Boolean): Unit = {
     val allRoutesUrl = "https://api.tfl.gov.uk/Line/Route?app_id=06e150ca&app_key=004fb63b46743baa5411d3a05f482109"
@@ -120,22 +118,22 @@ object BusDefinitions {
       var busStopPolyLineList: ListBuffer[BusStopInSequence] = ListBuffer()
 
       for (i <- 0 until busStopList.length - 1) {
-        busStopPolyLineList += BusStopInSequence(i, busStopList(i), getPolyLineToNextStop(busStopList(i), busStopList(i + 1)))
+        busStopPolyLineList += BusStopInSequence(i, busStopList(i), getPolyLineToNextBusStop(busStopList(i), busStopList(i + 1)))
       }
       busStopPolyLineList += BusStopInSequence(busStopList.length - 1, busStopList.last, None)
       busStopPolyLineList.toList
     }
 
-    def getPolyLineToNextStop(fromStop: BusStop, toStop: BusStop): Option[BusPolyLine] = {
+    def getPolyLineToNextBusStop(fromStop: BusStop, toStop: BusStop): Option[PolyLine] = {
 
       val TIME_BETWEEN_POLYLINE_QUERIES = 250
 
 
-      def getPolyLineFromDb(fromStop: BusStop, toStop: BusStop): Option[BusPolyLine] = PolyLineIndexDB.getPolyLineFromDB(fromStop, toStop)
+      def getPolyLineFromDb(fromStopID: String, toStopID: String): Option[PolyLine] = PolyLineIndexDB.getPolyLineFromDB(fromStopID, toStopID)
 
       def persistPolyLineDefinitionToDB(polyLineDef: PolyLineDefinition) = PolyLineIndexDB.insertPolyLineIndexDocument(polyLineDef)
 
-      def getPolyLineFromWeb(fromStop: BusStop, toStop: BusStop): Option[BusPolyLine] = {
+      def getPolyLineFromWeb(fromStop: BusStop, toStop: BusStop): Option[PolyLine] = {
 
         Thread.sleep(TIME_BETWEEN_POLYLINE_QUERIES)
 
@@ -170,10 +168,10 @@ object BusDefinitions {
         }
 
       }
-      getPolyLineFromDb(fromStop, toStop) match {
+      getPolyLineFromDb(fromStop.busStopID, toStop.busStopID) match {
         case Some(polyLine) => Some(polyLine)
         case None => getPolyLineFromWeb(fromStop, toStop) match {
-          case Some(polyLine) => persistPolyLineDefinitionToDB(PolyLineDefinition(fromStop, toStop, polyLine))
+          case Some(polyLine) => persistPolyLineDefinitionToDB(PolyLineDefinition(fromStop.busStopID, toStop.busStopID, polyLine))
             Some(polyLine)
           case None => None
         }

@@ -47,13 +47,19 @@ GET        /number-live-actors                                  controllers.Live
 GET        /number-live-children                                controllers.LiveStreamingController.getNumberLiveChildren
 GET        /number-connections                                  controllers.LiveStreamingController.getNumberConnections
 
-# Update Route Definitions
-GET        /update-route-definitions-all                        controllers.UpdateRouteDefinitionsController.updateRouteDefinitionsAll
-GET        /update-route-definitions-new-missing                 controllers.UpdateRouteDefinitionsController.updateRouteDefinitionsNewMissing
-GET        /update-routes-number-still-to-update                controllers.UpdateRouteDefinitionsController.getNumberRoutesStillToUpdate
-GET        /update-routes-number-inserts-requested              controllers.UpdateRouteDefinitionsController.getNumberDBInsertsRequested
-GET        /update-routes-number-inserts-completed              controllers.UpdateRouteDefinitionsController.getNumberDBInsertsCompleted
+# Update Bus Route Definitions
+GET        /update-bus-route-definitions-all                    controllers.UpdateBusRouteDefinitionsController.updateBusRouteDefinitionsAll
+GET        /update-bus-route-definitions-new-missing            controllers.UpdateBusRouteDefinitionsController.updateBusRouteDefinitionsNewMissing
+GET        /update-bus-routes-number-still-to-update            controllers.UpdateBusRouteDefinitionsController.getNumberRoutesStillToUpdate
+GET        /update-bus-routes-number-inserts-requested          controllers.UpdateBusRouteDefinitionsController.getNumberDBInsertsRequested
+GET        /update-bus-routes-number-inserts-completed          controllers.UpdateBusRouteDefinitionsController.getNumberDBInsertsCompleted
 
+
+# Update Tube Route Definitions
+GET        /update-tube-route-definitions-all                    controllers.UpdateTubeRouteDefinitionsController.updateTubeRouteDefinitionsAll
+GET        /update-tube-routes-number-still-to-update            controllers.UpdateTubeRouteDefinitionsController.getNumberRoutesStillToUpdate
+GET        /update-tube-routes-number-inserts-requested          controllers.UpdateTubeRouteDefinitionsController.getNumberDBInsertsRequested
+GET        /update-tube-routes-number-inserts-completed          controllers.UpdateTubeRouteDefinitionsController.getNumberDBInsertsCompleted
 
 # Log
 GET        /admin-log                                           controllers.Application.adminLog

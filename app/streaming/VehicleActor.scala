@@ -2,8 +2,9 @@ package streaming
 
 import commons.Commons._
 import akka.actor.Actor
+import database.PolyLineIndexDB.PolyLine
 import datadefinitions.BusDefinitions
-import datadefinitions.BusDefinitions.{BusPolyLine, BusStop, BusRoute}
+import datadefinitions.BusDefinitions.{BusStop, BusRoute}
 import datasource.SourceLine
 import play.api.libs.concurrent.Akka
 import prediction.{KNNPredictionImpl, PredictionRequest}
@@ -156,7 +157,7 @@ class VehicleActor extends Actor {
       val indexOfStopCode = StopList.indexOf(busStop)
       lastIndexSentForProcessing = indexOfStopCode
 
-      val polyLineToNextStop = BusDefinitions.busRouteDefinitions(busRoute)(indexOfStopCode).polyLineToNextStop.getOrElse(new BusPolyLine())
+      val polyLineToNextStop = BusDefinitions.busRouteDefinitions(busRoute)(indexOfStopCode).polyLineToNextStop.getOrElse(new PolyLine())
       val movementDataArray = getMovementDataArray(polyLineToNextStop)
 
       val nextStop = StopList(indexOfStopCode + 1)

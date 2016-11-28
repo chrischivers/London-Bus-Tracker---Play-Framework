@@ -3,14 +3,17 @@ package database
 import akka.actor.{Actor, ActorRef, Props}
 import com.mongodb.casbah.Imports._
 import com.mongodb.casbah.commons.MongoDBObject
-import database.PolyLineIndexDB.POLYLINE_DOCUMENT
-import datadefinitions.BusDefinitions._
+import database.PolyLineIndexDB.{PolyLineDefinition, POLYLINE_DOCUMENT}
 import play.api.Logger
 import play.api.libs.concurrent.Akka
 import play.api.Play.current
 
 
+
 object PolyLineIndexDB extends DatabaseCollections {
+
+  type PolyLine = String
+  case class PolyLineDefinition(fromStopID: String, toStopID: String, polyline: PolyLine)
 
   case object POLYLINE_DOCUMENT {
     val FROM_STOP_ID = "FROM_STOP_ID"
@@ -25,12 +28,12 @@ object PolyLineIndexDB extends DatabaseCollections {
     supervisor ! polyLineDefinition
   }
 
-  def getPolyLineFromDB(from:BusStop, to:BusStop):Option[BusPolyLine] = {
+  def getPolyLineFromDB(fromID:String, toID:String):Option[PolyLine] = {
     incrementLogRequest(IncrementNumberGetRequests(1))
 
     val query = MongoDBObject(
-    POLYLINE_DOCUMENT.FROM_STOP_ID -> from.busStopID,
-    POLYLINE_DOCUMENT.TO_STOP_ID -> to.busStopID)
+    POLYLINE_DOCUMENT.FROM_STOP_ID -> fromID,
+    POLYLINE_DOCUMENT.TO_STOP_ID -> toID)
 
     val cursor = dBConnection.find(query)
     if(cursor.hasNext) {
@@ -77,8 +80,8 @@ class PolyLineIndexDBWorker extends Actor {
   private def insertToDB(polyLineDefinition: PolyLineDefinition) = {
 
   val query = MongoDBObject(
-      POLYLINE_DOCUMENT.FROM_STOP_ID -> polyLineDefinition.from.busStopID,
-      POLYLINE_DOCUMENT.TO_STOP_ID -> polyLineDefinition.to.busStopID)
+      POLYLINE_DOCUMENT.FROM_STOP_ID -> polyLineDefinition.fromStopID,
+      POLYLINE_DOCUMENT.TO_STOP_ID -> polyLineDefinition.toStopID)
 
     val update = $set(POLYLINE_DOCUMENT.POLYLINE -> polyLineDefinition.polyline)
 

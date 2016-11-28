@@ -33,12 +33,12 @@ object BusRouteDefinitionsDB extends DatabaseCollections {
 
   override val supervisor: ActorRef = Akka.system.actorOf(Props[BusDefinitionsDBSupervisor], name = "BusDefinitionsDBSupervisor")
 
-  def insertRouteDefinitionsIntoDB(busRouteDefinitions: BusRouteDefinitions) = {
+  def insertBusRouteDefinitionsIntoDB(busRouteDefinitions: BusRouteDefinitions) = {
     incrementLogRequest(IncrementNumberInsertsRequested(busRouteDefinitions.size))
     supervisor ! busRouteDefinitions
   }
 
-  def insertRouteDefinitionsIntoDB(busRoute: BusRoute, sequenceList: List[BusStopInSequence]) = {
+  def insertBusRouteDefinitionsIntoDB(busRoute: BusRoute, sequenceList: List[BusStopInSequence]) = {
     incrementLogRequest(IncrementNumberInsertsRequested(1))
     supervisor !(busRoute, sequenceList)
   }

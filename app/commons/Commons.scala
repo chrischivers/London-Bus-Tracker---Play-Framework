@@ -1,7 +1,7 @@
 package commons
 
 import java.util.{Calendar, GregorianCalendar}
-import datadefinitions.BusDefinitions._
+import database.PolyLineIndexDB.PolyLine
 import streaming.PackagedStreamObject
 import scala.collection.mutable.ListBuffer
 import scala.math.BigDecimal.RoundingMode
@@ -49,7 +49,7 @@ object Commons {
    * @param encodedPolyLine The encoded polyLine
    * @return An String Array of Latitude, Longitude, Rotation and Proportional Distance
    */
-  def getMovementDataArray(encodedPolyLine: BusPolyLine):Array[(String,String,String,String)] = {
+  def getMovementDataArray(encodedPolyLine: PolyLine):Array[(String,String,String,String)] = {
 
     if (encodedPolyLine.length > 0) {
       val decodedPolyLine = decodePolyLine(encodedPolyLine)
@@ -95,7 +95,7 @@ object Commons {
    * @param encodedPolyLine The Encoded PolyLine
    * @return The decoded polyLine as an Array series of Latitudes and Longitudes
    */
-  def decodePolyLine(encodedPolyLine: BusPolyLine): Array[(Double, Double)] = {
+  def decodePolyLine(encodedPolyLine: PolyLine): Array[(Double, Double)] = {
 
     try {
 
